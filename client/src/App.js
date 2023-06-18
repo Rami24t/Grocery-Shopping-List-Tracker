@@ -79,7 +79,7 @@ function App() {
   };
 
   const handleAdd = (e) => {
-    if (e.target.value === "") return     e.target.value = "";
+    if (e.target.value === "") return e.target.value = "";
     if(items.find((i) => i.name === e.target.value)) return e.target.value = "";
     items.push({
       id: items.length + 1,
@@ -141,6 +141,8 @@ function App() {
           </h2>
           <input type="text" name="new-item" placeholder="New Item" onBlur={handleAdd} /> <button>+</button>
           <br />
+          {(items.length ===0) ? <p>List {list} is Empty!</p> :
+          <div>
           <h3>Needed</h3>
           <ul>
             {items.map(
@@ -171,6 +173,7 @@ function App() {
                 )
             )}
           </ul>
+          </div>}
         </section>
         <aside>
           <img src="https://via.placeholder.com/150x350" alt="placeholder" />
