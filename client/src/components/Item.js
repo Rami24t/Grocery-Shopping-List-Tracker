@@ -43,7 +43,7 @@ const Item = ({item, handleDelete, handleToggle, handleSave}) => {
            <input type="text" disabled={true} name='name' value={name} onChange={handleChange} onBlur={handleBlur} onKeyDown={handleKeyDown} />
            <input type="checkbox" onChange={()=>handleCheck(item)} checked={needed}/>
            <button type='button' onClick={handleEdit}>  -| </button>
-          <button onClick={handleDelete}> x </button>
+          <button onClick={()=>handleDelete(item)}> x </button>
     </div>
   )
 }

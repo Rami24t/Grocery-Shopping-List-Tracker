@@ -5,12 +5,17 @@ import Item from "./components/Item";
 function App() {
   const [list, setList] = useState("1");
 
+  const handleChangeList = (e) => {
+    setList(e.target.value);
+  };
+
   useEffect(() => {
-    console.log("useEffect");
-    console.log(list);
+    // console.log("useEffect");
+    // console.log(list);
     if(localStorage.getItem("list" + list))
       setItems(JSON.parse(localStorage.getItem("list" + list)));
-  }, []);
+    else setItems([]);
+  }, [list]);
 
   const [items, setItems] = useState([
     {
@@ -57,31 +62,35 @@ function App() {
 
   const handleSave = (e) => {
     localStorage.setItem("list" + list, JSON.stringify(items));
-    console.log("save");
+    // console.log("save");
   };
 
   const handleDelete = (item) => {
     setItems(items.filter((i) => i.id !== item.id));
     handleSave();
-    console.log("delete");
+    // console.log("delete");
   };
 
   const handleToggle = (item) => {
     item.need = !item.need;
     setItems([...items]);
     handleSave();
-    console.log("toggle");
+    // console.log("toggle");
   };
 
   const handleAdd = (e) => {
+    if (e.target.value === "") return     e.target.value = "";
+    if(items.find((i) => i.name === e.target.value)) return e.target.value = "";
     items.push({
       id: items.length + 1,
       name: e.target.value,
       need: true,
     });
+    items.sort((a, b) => a.name.localeCompare(b.name));
     setItems([...items]);
+    e.target.value = "";
     handleSave();
-    console.log("add");
+    // console.log("add");
   };
 
   return (
@@ -122,9 +131,7 @@ function App() {
               min={1}
               value={list}
               onChange={(e) => {
-                console.log(e.target.value);
-                setList(e.target.value);
-                console.log(e.target.value);
+                handleChangeList(e);
               }}
               max={20}
               maxLength={2}
