@@ -14,7 +14,7 @@ function App() {
     // console.log(list);
     if(localStorage.getItem("list" + list))
       setItems(JSON.parse(localStorage.getItem("list" + list)));
-    else setItems([]);
+    // else setItems([]);
   }, [list]);
 
   const [items, setItems] = useState([
@@ -60,16 +60,22 @@ function App() {
     },
   ]);
 
-  const handleSave = (e) => {
-    localStorage.setItem("list" + list, JSON.stringify(items));
-    // console.log("save");
+  const handleSave = (updatedItems) => {
+    console.log(items, "saving items");
+    localStorage.setItem("list" + list, JSON.stringify(updatedItems || items));
+    console.log("save end");
   };
 
   const handleDelete = (item) => {
-    setItems(items.filter((i) => i.id !== item.id));
-    handleSave();
-    // console.log("delete");
+    setItems((prevItems) => {
+      const updatedItems = prevItems.filter((i) => i.id !== item.id);
+      handleSave(updatedItems);
+      console.log("delete");
+      return updatedItems;
+    });
   };
+  
+  
 
   const handleToggle = (item) => {
     item.need = !item.need;
