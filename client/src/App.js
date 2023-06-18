@@ -1,6 +1,51 @@
 import './App.css';
+import Item from './components/Item';
 
 function App() {
+
+  const items = [
+    {
+      id: 1,
+      name: "Condensed Milk",
+      need: false
+    },
+    {
+      id: 2,
+      name: "Eier",
+      need: true
+    },
+    {
+      id: 3,
+      name: "Lettuce",
+      need: false
+    },
+    {
+      id: 4,
+      name: "Butter",
+      need: false
+    },
+    {
+      id: 5,
+      name: "Frischkäse",
+      need: false
+    },
+    {
+      id: 6,
+      name: "Tomaten",
+      need: true
+    },
+    {
+      id: 7,
+      name: "Onions",
+      need: true
+    },
+    {
+      id: 8,
+      name: "Garlic",
+      need: false
+    }
+  ]
+  
   return (
     <div className="App">
       <header className="App-header">
@@ -20,8 +65,11 @@ function App() {
         </nav>
       </aside>
       <section>
-        <h2>Home</h2>
-        <p>Home page content</p>
+        <h2>Items</h2>
+        <input type="text" placeholder="New Item" /> <button>+</button>
+        <ul>
+          {items.map(item => <Item key={item.id} item={item} />)}
+        </ul>
       </section>
       <aside>
       <img src="https://via.placeholder.com/150x350" alt="placeholder" />
