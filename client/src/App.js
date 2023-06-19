@@ -9,15 +9,7 @@ function App() {
     setList(e.target.value);
   };
 
-  useEffect(() => {
-    // console.log("useEffect");
-    // console.log(list);
-    if(localStorage.getItem("list" + list))
-      setItems(JSON.parse(localStorage.getItem("list" + list)));
-    // else setItems([]);
-  }, [list]);
-
-  const [items, setItems] = useState([
+  const defaultItems = [
     {
       id: 1,
       name: "Condensed Milk",
@@ -58,46 +50,88 @@ function App() {
       name: "Garlic",
       need: false,
     },
-  ]);
+  ];
+  const [items, setItems] = useState(defaultItems);
+  useEffect(() => {
+    // console.log("useEffect");
+    // console.log(list);
+    if (localStorage.getItem("list" + list))
+      setItems(JSON.parse(localStorage.getItem("list" + list)));
+    // else setItems([]);
+    else setItems(defaultItems);
+  }, [list]);
 
   const handleSave = (updatedItems) => {
     console.log(items, "saving items");
     localStorage.setItem("list" + list, JSON.stringify(updatedItems || items));
     console.log("save end");
   };
-
+  
   const handleDelete = (item) => {
     setItems((prevItems) => {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
-      handleSave(updatedItems);
+      // handleSave(updatedItems);
       console.log("delete");
       return updatedItems;
     });
   };
-  
-  
 
+  const refreshItems = () => {
+    setItems([...items]);
+  };
   const handleToggle = (item) => {
     item.need = !item.need;
-    setItems([...items]);
-    handleSave();
+    refreshItems();
+    // handleSave();
     // console.log("toggle");
+  };
+  const updateItem = (item, update) => {
+    // item.name = updatedItem.name;
+    console.log(item, update);
+    // const item = items.find((i) => i.id === itemId);
+    // item.name = update.name;
+    for (let key in update) {
+      item[key] = update[key];
+    }
+    console.log(item, update);
+    refreshItems();
+    // handleSave();
   };
 
   const handleAdd = (e) => {
-    if (e.target.value === "") return e.target.value = "";
-    if(items.find((i) => i.name === e.target.value)) return e.target.value = "";
+    const value = e.target.value.trim();
+    if (value === "" || items.find((i) => i.name === value)) {
+      e.target.value = "";
+      return;
+    }
     items.push({
       id: items.length + 1,
-      name: e.target.value,
+      name: value,
       need: true,
     });
     items.sort((a, b) => a.name.localeCompare(b.name));
     setItems([...items]);
     e.target.value = "";
-    handleSave();
+    // handleSave();
     // console.log("add");
   };
+
+  useEffect(() => {
+    if (
+      JSON.stringify(items.sort()) === JSON.stringify(defaultItems.sort()) ||
+      !items
+    )
+      return;
+    console.log(
+      JSON.stringify(items.sort()),
+      JSON.stringify(defaultItems.sort())
+    );
+    console.log(
+      JSON.stringify(items.sort()) === JSON.stringify(defaultItems.sort())
+    );
+    handleSave();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [items]);
 
   return (
     <div className="App">
@@ -145,41 +179,50 @@ function App() {
               disabled={false}
             />
           </h2>
-          <input type="text" name="new-item" placeholder="New Item" onBlur={handleAdd} /> <button>+</button>
+          <input
+            type="text"
+            name="new-item"
+            placeholder="New Item"
+            onBlur={handleAdd}
+          />
+          <button>+</button>
           <br />
-          {(items.length ===0) ? <p>List {list} is Empty!</p> :
-          <div>
-          <h3>Needed</h3>
-          <ul>
-            {items.map(
-              (item) =>
-                item.need && (
-                  <Item
-                    key={item.id}
-                    item={item}
-                    handleSave={handleSave}
-                    handleDelete={handleDelete}
-                    handleToggle={handleToggle}
-                  />
-                )
-            )}
-          </ul>
-          <h3>Have</h3>
-          <ul>
-            {items.map(
-              (item) =>
-                !item.need && (
-                  <Item
-                    key={item.id}
-                    item={item}
-                    handleSave={handleSave}
-                    handleDelete={handleDelete}
-                    handleToggle={handleToggle}
-                  />
-                )
-            )}
-          </ul>
-          </div>}
+          {items.length === 0 ? (
+            <p>List {list} is Empty!</p>
+          ) : (
+            <div>
+              <h3>Needed</h3>
+              <ul>
+                {items.map(
+                  (item) =>
+                    item.need && (
+                      <Item
+                        key={item.id}
+                        item={item}
+                        updateItem={updateItem}
+                        handleDelete={handleDelete}
+                        handleToggle={handleToggle}
+                      />
+                    )
+                )}
+              </ul>
+              <h3>Have</h3>
+              <ul>
+                {items.map(
+                  (item) =>
+                    !item.need && (
+                      <Item
+                        key={item.id}
+                        item={item}
+                        updateItem={updateItem}
+                        handleDelete={handleDelete}
+                        handleToggle={handleToggle}
+                      />
+                    )
+                )}
+              </ul>
+            </div>
+          )}
         </section>
         <aside>
           <img src="https://via.placeholder.com/150x350" alt="placeholder" />

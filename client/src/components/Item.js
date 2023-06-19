@@ -1,6 +1,6 @@
 import React, {useState} from 'react'
 
-const Item = ({item, handleDelete, handleToggle, handleSave}) => {
+const Item = ({item, handleDelete, handleToggle, updateItem}) => {
   const handleEdit = (e) => {
     e.preventDefault()
     e.target.parentNode.firstChild.disabled = false;
@@ -11,16 +11,29 @@ const Item = ({item, handleDelete, handleToggle, handleSave}) => {
   const handleBlur = (e) => {
     e.preventDefault()
     e.target.disabled = true;
-    handleSave(e);
-    console.log('blur')
+    handleUpdate(e);
+    console.log('Handled blur')
   }
 
   const handleKeyDown = (e) => {
     if (e.key === 'Enter') {
       e.target.disabled = true;
-      handleSave(e);
+      handleUpdate(e);
+      console.log('Handled Enter Keydown')
     }
-    console.log('keydown')
+  }
+
+  const handleUpdate = (e) => {
+    const value = e.target.value.trim();
+    if (value === "") {
+      e.target.value = item.name;
+      return;
+    }
+    if (item.name === value) return;
+    setName(value);
+    updateItem(item, {name : value});
+    console.log('update')
+
   }
 
   const handleCheck = (item) => {
