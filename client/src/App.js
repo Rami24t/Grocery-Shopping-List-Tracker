@@ -59,6 +59,7 @@ function App() {
       setItems(JSON.parse(localStorage.getItem("list" + list)));
     // else setItems([]);
     else setItems(defaultItems);
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [list]);
 
   const handleSave = (updatedItems) => {
