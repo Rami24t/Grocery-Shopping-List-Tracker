@@ -5,6 +5,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem }) => {
   const handleEdit = (e) => {
     e.preventDefault();
     e.target.parentNode.firstChild.disabled = false;
+    e.target.parentNode.firstChild.readOnly = false;
     e.target.parentNode.firstChild.focus();
     console.log("edit");
   };
