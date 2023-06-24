@@ -61,7 +61,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem }) => {
     </button>
   );
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex justify-around items-center">
       {ItemName()}
       {Checkbox()}
       {EditButton}
@@ -88,17 +88,16 @@ const Item = ({ item, handleDelete, handleToggle, updateItem }) => {
       onChange={handleChange}
       onBlur={handleBlur}
       onKeyDown={handleKeyDown}
-      className={`border border-gray-300text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5
+      className={`lg:min-w-[59%] border border-gray-300 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5
       dark:border-gray-600 dark:placeholder-gray-400 
       dark:focus:ring-blue-500
       dark:focus:border-blue-500 m-2 inline-block leading-none
-       w-full cursor-not-allowed
-      ${!needed&&" line-through "}    
+      ${!needed&&" line-through "}
        text-gray-900 
        dark:text-gray-700 
        disabled:bg-gray-50
        disabled:dark:bg-gray-700
-       disabled:dark:text-gray-50
+       disabled:dark:text-gray-200
        bg-gray-100 "}
             `}
       readOnly={true}
