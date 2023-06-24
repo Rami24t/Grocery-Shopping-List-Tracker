@@ -461,7 +461,7 @@ function App() {
       <Header items={items} />
       <main className="flex justify-between flex-wrap relative">
         <aside className="asideLeft">
-          <Sidenav />
+          <Sidenav items={items.length} />
         </aside>
         <section className="min-w-[33%]">
           <h2>
