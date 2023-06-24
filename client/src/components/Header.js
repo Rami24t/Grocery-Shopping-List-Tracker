@@ -1,5 +1,6 @@
-function Header(items) {
-    return <header className="App-header z-50 sticky bg-inherit w-full">
+function Header({ items }) {
+  return (
+    <header className="App-header z-50 sticky bg-inherit w-full">
       <div className="mx-auto max-w-screen-xl px-2 py-4 sm:px-3 sm:py-6 lg:px-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <div className="text-center sm:text-left">
@@ -8,7 +9,7 @@ function Header(items) {
             </h1>
             <p className="mt-1.5 text-sm text-gray-500">Let's do it! 🎉</p>
           </div>
-  
+
           <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
             <button
               className="relative block rounded-lg bg-indigo-600 px-5 py-3 text-sm font-medium text-white transition hover:bg-indigo-700 focus:outline-none focus:ring"
@@ -28,7 +29,8 @@ function Header(items) {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="2"
-                  d="M12 9V4a3 3 0 0 0-6 0v5m9.92 10H2.08a1 1 0 0 1-1-1.077L2 6h14l.917 11.923A1 1 0 0 1 15.92 19Z" />
+                  d="M12 9V4a3 3 0 0 0-6 0v5m9.92 10H2.08a1 1 0 0 1-1-1.077L2 6h14l.917 11.923A1 1 0 0 1 15.92 19Z"
+                />
               </svg>
               {/* <svg
             className="inline-block w-4 h-4 text-gray-800 dark:text-white"
@@ -51,7 +53,8 @@ function Header(items) {
                   strokeLinecap="round"
                   strokeLinejoin="round"
                   strokeWidth="1"
-                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1" />
+                  d="m1 13 5.7-5.326a.909.909 0 0 0 0-1.348L1 1"
+                />
               </svg>{" "}
               <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
                 {items.length || 0}{" "}
@@ -60,7 +63,8 @@ function Header(items) {
           </div>
         </div>
       </div>
-    </header>;
-  }
+    </header>
+  );
+}
 
-  export default Header;
+export default Header;
