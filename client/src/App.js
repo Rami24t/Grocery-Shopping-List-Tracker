@@ -4,6 +4,7 @@ import Header from "./components/Header";
 import Footer from "./components/Footer";
 import { BsPlusSquare, BsFillPlusSquareFill } from "react-icons/bs";
 import "./App.css";
+import Sidenav from "./components/Sidenav";
 
 const defaultItems = [
   {
@@ -316,6 +317,22 @@ function App() {
   const handleChangeList = (e) => {
     setList(e.target.value);
   };
+  const [filter, setFilter] = useState("");
+  function sanitize(str) {
+    return str
+      .trim()
+      .replace(/[^a-zA-Z0-9äöüß]/g, "")
+      .toLowerCase()
+      .normalize("NFD")
+      .replace(/[\u0300-\u036f]/g, "");
+  }
+  function validate(str) {
+    return filter.trim() === "" || sanitize(str).includes(sanitize(filter));
+  }
+  function handleChangeFilter(e) {
+    if (e.target.value === "") setFilter("");
+    else setFilter(e.target.value);
+  }
 
   const [items, setItems] = useState(defaultItems);
   useEffect(() => {
@@ -332,11 +349,11 @@ function App() {
   //   },
   //   [items, list]
   // );
-  const handleSave = (updatedItems) => {
+  function handleSave(updatedItems) {
     console.log(items, "saving items");
     localStorage.setItem(`list${list}`, JSON.stringify(updatedItems || items));
     console.log("save end");
-  };
+  }
   // const handleDelete = useCallback(
   //   (item) => {
   //     setItems((prevItems) => {
@@ -347,17 +364,17 @@ function App() {
   //   },
   //   [handleSave]
   // );
-  const handleDelete = (item) => {
+  function handleDelete(item) {
     setItems((prevItems) => {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
       // handleSave(updatedItems);
       console.log("delete");
       return updatedItems;
     });
-  };
-  const refreshItems = () => {
+  }
+  function refreshItems() {
     setItems([...items]);
-  };
+  }
   // const handleToggle = useCallback(
   //   (item) => {
   //     const updatedItems = items.map((i) => {
@@ -371,10 +388,10 @@ function App() {
   //   },
   //   [items, handleSave]
   // );
-  const handleToggle = (item) => {
+  function handleToggle(item) {
     item.need = !item.need;
     refreshItems();
-  };
+  }
   // const updateItem = useCallback(
   //   (item, update) => {
   //     const updatedItems = items.map((i) => {
@@ -388,40 +405,45 @@ function App() {
   //   },
   //   [items, handleSave]
   // );
-  const updateItem = (item, update) => {
+  function updateItem(item, update) {
     console.log(item, update);
     for (let key in update) {
       item[key] = update[key];
     }
     console.log(item, update);
     refreshItems();
-  };
+  }
 
-  const handleAdd = (e) => {
+  function handleAdd(e) {
     const value = e.target.value.trim();
     if (value === "" || items.find((i) => i.name === value)) {
       e.target.value = "";
       return;
     }
-    items.push({
-      id: items.length + 1,
-      name: value,
-      need: true,
-    });
+    // items.push({
+    //   id: items.length + 1,
+    //   name: value,
+    //   need: true,
+    // });
     // items.sort((a, b) => a.name.localeCompare(b.name));
     // setItems([...items]);
-    const updatedItems = [...items, newItem].sort((a, b) =>
-      a.name.localeCompare(b.name)
-    );
+    const updatedItems = [
+      ...items,
+      {
+        id: items.length + 1,
+        name: value,
+        need: true,
+      },
+    ].sort((a, b) => a.name.localeCompare(b.name));
     setItems(updatedItems);
     e.target.value = "";
-  };
+  }
 
   useEffect(() => {
     if (
       JSON.stringify(items.sort()) === JSON.stringify(defaultItems.sort()) ||
       !items
-    )
+      )
       return;
     console.log(
       JSON.stringify(items.sort()) === JSON.stringify(defaultItems.sort())
@@ -437,32 +459,11 @@ function App() {
       }`}
     >
       <Header items={items} />
-      <main className="flex justify-between flex-wrap ">
-        <aside className="asideLeft ">
-          <nav>
-            <ul>
-              <li>
-                <a href="/">Home</a>
-              </li>
-              <li>
-                <a href="/list">Edit List</a>
-              </li>
-              <li>
-                <a href="/about">Add Item</a>
-              </li>
-              <li>
-                <a href="/about">Display</a>
-              </li>
-              <li>
-                <a href="/about">Settings</a>
-              </li>
-              <li>
-                <a href="/about">About</a>
-              </li>
-            </ul>
-          </nav>
+      <main className="flex justify-between flex-wrap relative">
+        <aside className="asideLeft">
+          <Sidenav />
         </aside>
-        <section>
+        <section className="min-w-[33%]">
           <h2>
             Items in List
             <input
@@ -508,6 +509,36 @@ function App() {
           </div>
 
           <br />
+          <label htmlFor="simple-search" className="sr-only">
+            Filter Items
+          </label>
+          <div className="relative w-full">
+            <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
+              <svg
+                aria-hidden="true"
+                className="w-5 h-5 text-gray-500 dark:text-gray-400"
+                fill="currentColor"
+                viewBox="0 0 20 20"
+                xmlns="http://www.w3.org/2000/svg"
+              >
+                <path
+                  fillRule="evenodd"
+                  d="M8 4a4 4 0 100 8 4 4 0 000-8zM2 8a6 6 0 1110.89 3.476l4.817 4.817a1 1 0 01-1.414 1.414l-4.816-4.816A6 6 0 012 8z"
+                  clipRule="evenodd"
+                ></path>
+              </svg>
+            </div>
+            <input
+              type="text"
+              id="filter"
+              name="filter"
+              value={filter}
+              onChange={handleChangeFilter}
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              placeholder="Search"
+              required
+            />
+          </div>
           {items.length === 0 ? (
             <p>List {list} is Empty!</p>
           ) : (
@@ -516,7 +547,8 @@ function App() {
               <ul>
                 {items.map(
                   (item) =>
-                    item.need && (
+                    item.need &&
+                    (!filter || validate(item.name)) && (
                       <Item
                         key={item.id}
                         item={item}
@@ -528,10 +560,11 @@ function App() {
                 )}
               </ul>
               <h3>Have</h3>
-              <ul>
+              <ul w-full>
                 {items.map(
                   (item) =>
-                    !item.need && (
+                    !item.need &&
+                    (!filter || validate(item.name)) && (
                       <Item
                         key={item.id}
                         item={item}
@@ -545,9 +578,35 @@ function App() {
             </div>
           )}
         </section>
-        <aside>
-          <img src="https://via.placeholder.com/150x250" alt="placeholder" />
-          <img src="https://via.placeholder.com/150x250" alt="placeholder" />
+        <aside className="flex lg:max-w-[33%] flex-wrap gap-2 content-around justify-center text-center p-2 z-50 relative">
+        <div className="img w-[47%] lg:w-full">
+          <img
+            className="rounded-lg"
+            src="/assets/deco-imgs/deco8.jpg"
+            alt="placeholder"
+          />
+          </div>
+          <div className="img w-[47%] lg:w-full ">
+          <img
+            className="rounded-lg"
+            src="/assets/deco-imgs/deco3.jpg"
+            alt="placeholder"
+          />
+          </div>
+          <div className="img w-[47%] lg:w-full">
+          <img
+            className="rounded-lg"
+            src="/assets/deco-imgs/deco2.jpg"
+            alt="placeholder"
+          />
+          </div>
+          <div className="img w-[47%] lg:w-full">
+          <img
+            className="rounded-lg"
+            src="/assets/deco-imgs/deco11.jpg"
+            alt="placeholder"
+          />
+          </div>
         </aside>
       </main>
       <Footer />
