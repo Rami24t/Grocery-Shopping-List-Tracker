@@ -492,6 +492,7 @@ function App() {
               type="text"
               id="new-item"
               className="inline-block p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              onKeyDown={e => (e.key === "Enter") && handleAdd(e)}
             />
             <button
               className="inline-block m-2 p-2 text-center text-gray-500 hover:text-gray-900 dark:hover:text-white"
@@ -534,7 +535,7 @@ function App() {
               name="filter"
               value={filter}
               onChange={handleChangeFilter}
-              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               placeholder="Search"
               required
             />
@@ -560,7 +561,7 @@ function App() {
                 )}
               </ul>
               <h3>Have</h3>
-              <ul w-full>
+              <ul className="w-full">
                 {items.map(
                   (item) =>
                     !item.need &&
@@ -578,7 +579,7 @@ function App() {
             </div>
           )}
         </section>
-        <aside className="flex lg:max-w-[33%] flex-wrap gap-2 content-around justify-center text-center p-2 z-50 relative">
+        <aside className="flex lg:max-w-[25%] flex-wrap gap-2 content-around justify-center text-center p-2 z-50 relative">
         <div className="img w-[47%] lg:w-full">
           <img
             className="rounded-lg"
