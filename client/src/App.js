@@ -307,7 +307,37 @@ const defaultItems = [
   { id: 73, name: "Falafel - فلافل", need: true, category: "vegetarian" },
 ];
 
+const AddItemsButton = ({ showAddItem, setShowAddItem, items }) => {
+  return (
+    <button
+      onClick={() => setShowAddItem(!showAddItem)}
+      className={`inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg
+    ${
+      !showAddItem
+        ? "bg-indigo-700  hover:bg-indigo-600"
+        : "bg-red-800  hover:bg-red-700"
+    } px-3 py-2 text-xs font-medium text-slate-200 transition focus:outline-none focus:ring
+     hover:text-indigo-100
+    `}
+      type="button"
+    >
+      {showAddItem ? "Close " : "Add "}
+      <div
+        className={`transition-transform flex text-center items-center justify-center w-3 h-3 text-gray-800 dark:text-white ${
+          showAddItem ? "rotate-90" : ""
+        }`}
+      >
+        &gt;
+      </div>
+      {/* <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
+      {items.length || 0}{" "}
+    </div> */}
+    </button>
+  );
+};
+
 function App() {
+  const [showAddItem, setShowAddItem] = useState(false);
   const [isMobile, setIsMobile] = useState(false);
   useEffect(() => {
     setIsMobile(window.innerWidth <= 440);
@@ -443,7 +473,7 @@ function App() {
     if (
       JSON.stringify(items.sort()) === JSON.stringify(defaultItems.sort()) ||
       !items
-      )
+    )
       return;
     console.log(
       JSON.stringify(items.sort()) === JSON.stringify(defaultItems.sort())
@@ -464,56 +494,68 @@ function App() {
           <Sidenav items={items.length} />
         </aside>
         <section className="min-w-[33%]">
-          <h2>
-            Items in List
-            <input
-              className="inline-block m-2 p-1 w-10 text-sm font-semibold text-gray-900 dark:text-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
-              type="number"
-              min={1}
-              value={list}
-              onChange={handleChangeList}
-              max={20}
-              maxLength={2}
-              readOnly={false}
-              disabled={false}
+          <div className="flex flex-wrap items-center justify-around pt-2">
+            <h2 className="text-center text-xl font-semibold ">
+              Items in List
+              <input
+                className="inline-block m-2 p-1 w-10 text-xl font-semibold text-gray-900 dark:text-white dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400"
+                type="number"
+                min={1}
+                value={list}
+                onChange={handleChangeList}
+                max={20}
+                maxLength={2}
+                readOnly={false}
+                disabled={false}
+              />
+            </h2>
+            <AddItemsButton
+              showAddItem={showAddItem}
+              setShowAddItem={setShowAddItem}
+              items={items}
             />
-          </h2>
-          <div className="mb-6">
-            <label
-              htmlFor="new-item"
-              className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-            >
-              Add New Item
-            </label>
-            <input
-              name="new-item"
-              placeholder="New Item"
-              onBlur={handleAdd}
-              type="text"
-              id="new-item"
-              className="inline-block p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              onKeyDown={e => (e.key === "Enter") && handleAdd(e)}
-            />
-            <button
-              className="inline-block m-2 p-2 text-center text-gray-500 hover:text-gray-900 dark:hover:text-white"
-              onClick={(e) => {
-                e.preventDefault();
-                e.stopPropagation();
-                console.log(e.currentTarget.previousSibling.focus());
-              }}
-            >
-              {(
-                <BsPlusSquare className="w-8 h-8 mx-auto text-gray-900 active:outline-none rounded-full border border-gray-200 hover:text-blue-700 active:z-10 active:ring-2 active:ring-gray-200 dark:active:ring-gray-700 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white" />
-              ) || <BsFillPlusSquareFill /> ||
-                "+"}
-            </button>
           </div>
-
+          {showAddItem && (
+            <div className="m-6 add-item ">
+              <label
+                htmlFor="new-item"
+                className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+              >
+              <h3 className="text-center text-lg">
+                Add Items
+              </h3>
+              </label>
+              <div className="flex justify-center items-center gap-0">
+              <input
+                name="new-item"
+                placeholder="New Item"
+                onBlur={handleAdd}
+                type="text"
+                id="new-item"
+                className="inline-block p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+                onKeyDown={(e) => e.key === "Enter" && handleAdd(e)}
+              />
+              <button
+                className="inline-block p-2 text-center text-gray-500 hover:text-gray-900 dark:hover:text-white"
+                onClick={(e) => {
+                  e.preventDefault();
+                  e.stopPropagation();
+                  console.log(e.currentTarget.previousSibling.focus());
+                }}
+              >
+                {(
+                  <BsPlusSquare className="w-7 h-7 mx-auto text-gray-900 active:outline-none rounded-full border border-gray-200 hover:text-blue-700 active:z-10 active:ring-2 active:ring-gray-200 dark:active:ring-gray-700 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white" />
+                ) || <BsFillPlusSquareFill /> ||
+                  "+"}
+              </button>
+              </div>
+            </div>
+          )}
           <br />
           <label htmlFor="simple-search" className="sr-only">
             Filter Items
           </label>
-          <div className="relative w-full">
+          <div className="relative w-96 mx-auto my-1 text-center">
             <div className="absolute inset-y-0 left-0 flex items-center pl-3 pointer-events-none">
               <svg
                 aria-hidden="true"
@@ -536,7 +578,7 @@ function App() {
               value={filter}
               onChange={handleChangeFilter}
               className="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block pl-10 p-2.5  dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-              placeholder="Search"
+              placeholder="Search Items"
               required
             />
           </div>
@@ -580,33 +622,33 @@ function App() {
           )}
         </section>
         <aside className="flex lg:max-w-[25%] flex-wrap gap-2 content-around justify-center text-center p-2 z-50 relative">
-        <div className="img w-[47%] lg:w-full">
-          <img
-            className="rounded-lg"
-            src="/assets/deco-imgs/deco8.jpg"
-            alt="placeholder"
-          />
+          <div className="img w-[47%] lg:w-full">
+            <img
+              className="rounded-lg"
+              src="/assets/deco-imgs/deco8.jpg"
+              alt="placeholder"
+            />
           </div>
           <div className="img w-[47%] lg:w-full ">
-          <img
-            className="rounded-lg"
-            src="/assets/deco-imgs/deco3.jpg"
-            alt="placeholder"
-          />
+            <img
+              className="rounded-lg"
+              src="/assets/deco-imgs/deco3.jpg"
+              alt="placeholder"
+            />
           </div>
           <div className="img w-[47%] lg:w-full">
-          <img
-            className="rounded-lg"
-            src="/assets/deco-imgs/deco2.jpg"
-            alt="placeholder"
-          />
+            <img
+              className="rounded-lg"
+              src="/assets/deco-imgs/deco2.jpg"
+              alt="placeholder"
+            />
           </div>
           <div className="img w-[47%] lg:w-full">
-          <img
-            className="rounded-lg"
-            src="/assets/deco-imgs/deco11.jpg"
-            alt="placeholder"
-          />
+            <img
+              className="rounded-lg"
+              src="/assets/deco-imgs/deco11.jpg"
+              alt="placeholder"
+            />
           </div>
         </aside>
       </main>
