@@ -82,6 +82,7 @@ export const defaultItems = [
     need: false,
     category: "vegetables",
   },
+  { id: 274, name: "Swiss Chard - Sele9", need: true, category: "vegetables" },
   {
     id: 19,
     name: "Eggplant - Aubergine - باذنجان",
