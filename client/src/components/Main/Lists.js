@@ -1,6 +1,5 @@
 import React from "react";
-import HaveList from "./HaveList";
-import NeedList from "./NeedList";
+import List from "./List";
 
 function Lists({
   filter,
@@ -22,7 +21,7 @@ function Lists({
   ) : (
     <section>
       {needs[0] && (
-        <NeedList
+        <List
           title = "Needed"
           filter={filter}
           items={needs}
@@ -33,7 +32,7 @@ function Lists({
         />
       )}
       {haves[0] && (
-        <HaveList
+        <List
           title = "Have"
           filter={filter}
           items={haves}
