@@ -21,15 +21,15 @@ function AddItems({ handleAdd }) {
           onKeyDown={(e) => e.key === "Enter" && handleAdd(e)}
         />
         <button
-          className="inline-block p-2 text-center text-gray-500 hover:text-gray-900 dark:hover:text-white"
+          className="inline-block p-3 text-center text-gray-500 hover:text-gray-900 dark:hover:text-white"
           onClick={(e) => {
             e.preventDefault();
             e.stopPropagation();
-            console.log(e.currentTarget.previousSibling.focus());
+            e.currentTarget.previousSibling.focus();
           }}
         >
           {(
-            <BsPlusSquare className="w-7 h-7 mx-auto text-gray-900 active:outline-none rounded-full border border-gray-200 hover:text-blue-700 active:z-10 active:ring-2 active:ring-gray-200 dark:active:ring-gray-700 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white" />
+            <BsPlusSquare className="w-8 h-8 mx-auto text-gray-900 active:outline-none rounded-full border border-gray-200 hover:text-blue-700 active:z-10 active:ring-2 active:ring-gray-200 dark:active:ring-gray-700 dark:text-gray-400 dark:border-gray-600 dark:hover:text-white" />
           ) || <BsFillPlusSquareFill /> ||
             "+"}
         </button>
