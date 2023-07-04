@@ -10,8 +10,11 @@ function Lists({
   list,
   validate,
 }) {
-  const needs = items.filter((item) => item.need);
-  const haves = items.filter((item) => !item.need);
+  const needs = []
+  const haves = []
+  items.forEach(element => {
+    element.need ? needs.push(element) : haves.push(element)
+  });
 
   return !items?.length ? (
     <article className="flex flex-col justify-around m-5 p-5">
