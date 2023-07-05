@@ -1,0 +1,84 @@
+.menu-btn {
+  transition-duration: 0.5s;
+  width: 60px;
+  height: 50px;
+  text-align: left;
+  transform: scale(0.8);
+}
+.menu-btn .icon-left {
+  transition-duration: 0.5s;
+  position: absolute;
+  top: 30px;
+  background-color: #ddd;
+}
+.menu-btn .icon-left:before {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 15px;
+  height: 4px;
+  background-color: #ddd;
+  content: "";
+  top: -10px;
+}
+.menu-btn .icon-left:after {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 15px;
+  height: 4px;
+  background-color: #ddd;
+  content: "";
+  top: 10px;
+}
+.menu-btn .icon-left:hover {
+  cursor: pointer;
+}
+.menu-btn .icon-right {
+  transition-duration: 0.5s;
+  position: absolute;
+  height: 4px;
+  width: 15px;
+  top: 30px;
+  background-color: #ddd;
+  left: 15px;
+}
+.menu-btn .icon-right:before {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 15px;
+  height: 4px;
+  background-color: #ddd;
+  content: "";
+  top: -10px;
+}
+.menu-btn .icon-right:after {
+  transition-duration: 0.5s;
+  position: absolute;
+  width: 15px;
+  height: 4px;
+  background-color: #ddd;
+  content: "";
+  top: 10px;
+}
+.menu-btn.open .icon-left {
+  transition-duration: 0.5s;
+  background: transparent;
+}
+.menu-btn.open .icon-left:before {
+  transform: rotateZ(45deg) scaleX(1.4) translate(2px, 2px);
+}
+.menu-btn.open .icon-left:after {
+  transform: rotateZ(-45deg) scaleX(1.4) translate(2px, -2px);
+}
+.menu-btn.open .icon-right {
+  transition-duration: 0.5s;
+  background: transparent;
+}
+.menu-btn.open .icon-right:before {
+  transform: rotateZ(-45deg) scaleX(1.4) translate(-2px, 2px);
+}
+.menu-btn.open .icon-right:after {
+  transform: rotateZ(45deg) scaleX(1.4) translate(-2px, -2px);
+}
+.menu-btn:hover {
+  cursor: pointer;
+}
