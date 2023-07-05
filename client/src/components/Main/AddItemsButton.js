@@ -1,8 +1,12 @@
 import React from 'react'
 
-function AddItemsButton({ showAddItem, setShowAddItem }) {
+function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty }) {
+  // const toggleAddBtn = useRef(null);
+  listIsEmpty && setShowAddItem(true);
     return (
       <button
+        // ref={toggleAddBtn}
+        disabled={listIsEmpty}
         onClick={() => setShowAddItem(!showAddItem)}
         className={`transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg
       ${
@@ -14,7 +18,7 @@ function AddItemsButton({ showAddItem, setShowAddItem }) {
       `}
         type="button"
       >
-        {showAddItem ? "Close " : "Add "}
+        {showAddItem ? "Add " : "Add "}
         <div className={`transition-transform flex text-center items-center justify-center w-3 h-3 text-gray-800 dark:text-white ${showAddItem ? "rotate-90" : "rotate-0"}`}>
           &gt;
         </div>
