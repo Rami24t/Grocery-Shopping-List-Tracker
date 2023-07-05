@@ -5,6 +5,7 @@ import Sidenav from "./components/Sidenav";
 import Main from "./components/Main/Main";
 import { AsideRight } from "./components/AsideRight";
 import Footer from "./components/Footer";
+import MenuButton from "./components/MenuButton";
 import "./App.css";
 
 function App() {
@@ -18,6 +19,7 @@ function App() {
     setList(e.target.value);
   }
   const [showAddItem, setShowAddItem] = useState(false);
+  const [showSideNav, setShowSideNav] = useState(false);
   const [filter, setFilter] = useState("");
   function handleChangeFilter(e) {
     e.preventDefault();
@@ -29,8 +31,8 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem(`list${list}`))
       setItems(JSON.parse(localStorage.getItem(`list${list}`)));
-    // else setItems([]);
     else setItems(defaultItems);
+    document.title = `Grocery 🛒 | List ${list}`;
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [list]);
 
@@ -130,6 +132,16 @@ function App() {
     e.target.value = "";
   }
 
+  function handleReset() {
+    setItems(defaultItems);
+    handleSave(defaultItems);
+  }
+
+  function handleClear() {
+    setItems([]);
+    handleSave([]);
+  }
+
   useEffect(() => {
     if (
       JSON.stringify(items.sort()) === JSON.stringify(defaultItems.sort()) ||
@@ -145,20 +157,26 @@ function App() {
 
   return (
     <div
+    id="app"
       className={`app-container bg-white dark:bg-gray-900 dark:text-white ${
         isMobile && "text-center"
       }`}
     >
       <Header list={list} items={items.length} />
-      <div className="flex justify-between flex-wrap relative">
+      <div className="flex justify-between flex-wrap relative ">
         <aside className="aside-left">
-          <Sidenav items={items.length} />
+        <div className="z-50 fixed top-0 right-0 opacity-50 cursor-pointer 
+        sm:hidden "
+            onClick={() => setShowSideNav(prev=>!prev)}>
+          <MenuButton showSideNav={showSideNav} />
+        </div>
+          <Sidenav items={items.length} setShowAddItem={setShowAddItem} showSideNav={showSideNav} setShowSideNav={setShowSideNav} />
         </aside>
         <Main list={list} items={items} setList={setList} 
         filter={filter} handleChangeFilter={handleChangeFilter}
         handleDelete={handleDelete} handleToggle={handleToggle} updateItem={updateItem}
         handleAdd={handleAdd} showAddItem={showAddItem} setShowAddItem={setShowAddItem}
-        handleChangeList={handleChangeList}
+        handleChangeList={handleChangeList} handleReset={handleReset} handleClear={handleClear}
         />
         <AsideRight />
       </div>
