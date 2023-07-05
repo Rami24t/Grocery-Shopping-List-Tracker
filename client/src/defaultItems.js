@@ -1,13 +1,13 @@
 export const defaultItems = [
   {
     id: 1,
-    name: "Jogurt Grieschischer Art. 1x1 - Greek Yoghurt",
+    name: "Joghurt Grieschischer Art. 1x1 - لبن",
     need: true,
     category: "dairy",
   },
   {
     id: 2,
-    name: "Jogurt Grieschischer Art. 1x4",
+    name: "Joghurt Grieschischer Art. 1x4 - لبن",
     need: false,
     category: "dairy",
   },
@@ -61,7 +61,6 @@ export const defaultItems = [
     category: "nuts",
   },
   { id: 12, name: "Walnuss - Walnut - جوز", need: false, category: "nuts" },
-  { id: 13, name: "Pecan", need: true, category: "nuts" },
   {
     id: 14,
     name: "Creme Fraiche - Cream - قشطة",
@@ -82,7 +81,7 @@ export const defaultItems = [
     need: false,
     category: "vegetables",
   },
-  { id: 274, name: "Swiss Chard - Sele9", need: true, category: "vegetables" },
+  { id: 274, name: "Swiss Chard - Mangold - سلق", need: true, category: "vegetables" },
   {
     id: 19,
     name: "Eggplant - Aubergine - باذنجان",
