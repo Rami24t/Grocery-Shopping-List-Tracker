@@ -17,12 +17,12 @@ function Lists({
   });
 
   return !items?.length ? (
-    <article className="flex flex-col justify-around m-5 p-5">
+    <article id="list" className="flex flex-col justify-around m-5 p-5">
       <h3 className="text-lg">List {list} is Empty!</h3>
       <p className="text-sm m-4">Add some items to your list.</p>
     </article>
   ) : (
-    <section>
+    <section id="list">
       {needs[0] && (
         <List
           title = "Needed"
