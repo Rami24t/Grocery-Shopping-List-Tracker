@@ -5,7 +5,9 @@ import FilterSection from './FilterSection';
 import Lists from './Lists';
 
 function Main({list, filter, items, showAddItem, setShowAddItem
-    , handleChangeList, handleChangeFilter, handleDelete, handleAdd, handleToggle, updateItem}) {
+    , handleChangeList, handleChangeFilter, handleDelete, handleAdd, handleToggle, updateItem, 
+  handleReset, handleClear
+  }) {
     function sanitize(str) {
         return str
           .trim()
@@ -27,6 +29,8 @@ function Main({list, filter, items, showAddItem, setShowAddItem
             setShowAddItem={setShowAddItem}
             items={items}
             handleChangeList={handleChangeList}
+            handleReset={handleReset}
+            handleClear={handleClear}
          />
         {showAddItem && 
         <AddItems 

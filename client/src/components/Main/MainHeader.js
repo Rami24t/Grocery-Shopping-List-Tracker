@@ -1,12 +1,12 @@
 import React from 'react'
 import AddItemsButton from './AddItemsButton';
+import { ResetButton } from './ResetButton';
 
 function MainHeader(
-    { showAddItem, setShowAddItem, items, list, handleChangeList }
-) {
-    
+    { showAddItem, setShowAddItem, items, list, handleChangeList, handleReset, handleClear }
+) {    
     return (
-      <div className="flex flex-wrap items-center justify-around py-2 mb-2">
+      <div className="flex flex-wrap items-center justify-around py-2 mb-2 gap-3">
         <h2 className="text-center text-xl font-semibold ">
           Items in List
           <input
@@ -21,9 +21,11 @@ function MainHeader(
             disabled={false}
           />
         </h2>
+        {ResetButton(items, handleClear, handleReset)}
         <AddItemsButton
           showAddItem={showAddItem}
           setShowAddItem={setShowAddItem}
+          listIsEmpty={!items.length}
         />
       </div>
     );
