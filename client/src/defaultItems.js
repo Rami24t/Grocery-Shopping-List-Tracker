@@ -1,300 +1,440 @@
 export const defaultItems = [
   {
-    id: 1,
-    name: "Joghurt Grieschischer Art. 1x1 - لبن",
-    need: true,
-    category: "dairy",
+    "id": "GL19.958",
+    "name": "Falafel - فلافل",
+    "need": true,
+    "category": "vegetarian"
   },
   {
-    id: 2,
-    name: "Joghurt Grieschischer Art. 1x4 - لبن",
-    need: false,
-    category: "dairy",
+    "id": "GL28.605",
+    "name": "Tofu - توفو",
+    "need": true,
+    "category": "vegetarian"
   },
   {
-    id: 3,
-    name: "Kichererbsen - Chickpeas - حمّص",
-    need: true,
-    category: "legumes",
+    "id": "GL33.570",
+    "name": "Bell Pepper - Paprika - فلفل حلو",
+    "need": false,
+    "category": "vegetables"
   },
   {
-    id: 4,
-    name: "Sprudelwasser - Sparkling Water - مياه غازية",
-    need: false,
-    category: "beverages",
+    "id": "GL44.451",
+    "name": "Broccoli - بروكلي",
+    "need": false,
+    "category": "vegetables"
   },
   {
-    id: 5,
-    name: "Toum - Garlic - Knoblauch - ثوم",
-    need: true,
-    category: "condiments",
+    "id": "GL54.175",
+    "name": "Brussel Sprouts - Rosenkohl - بروكلي مصغر",
+    "need": false,
+    "category": "vegetables"
   },
   {
-    id: 6,
-    name: "Mohren - Carrots - Karotten - جزر",
-    need: false,
-    category: "vegetables",
+    "id": "GL75.739",
+    "name": "Sprouts - Sprossen - براعم",
+    "need": true,
+    "category": "vegetables"
   },
   {
-    id: 7,
-    name: "Cucumber - Gurke - خيار",
-    need: true,
-    category: "vegetables",
+    "id": "GL63.646",
+    "name": "Celery - Sellerie - كرفس",
+    "need": false,
+    "category": "vegetables"
   },
   {
-    id: 8,
-    name: "Tomaten - Tomatoes - طماطم",
-    need: false,
-    category: "vegetables",
+    "id": "GL79.708",
+    "name": "Cucumber - Gurke - خيار",
+    "need": true,
+    "category": "vegetables"
   },
   {
-    id: 9,
-    name: "Coconut Milk - Kokosmilch - حليب جوز الهند",
-    need: true,
-    category: "dairy",
-  },
-  { id: 10, name: "Eggs - Eier - بيض", need: false, category: "dairy" },
-  {
-    id: 11,
-    name: "Peanuts - Erdnüsse - فول سوداني",
-    need: true,
-    category: "nuts",
-  },
-  { id: 12, name: "Walnuss - Walnut - جوز", need: false, category: "nuts" },
-  {
-    id: 14,
-    name: "Creme Fraiche - Cream - قشطة",
-    need: false,
-    category: "dairy",
-  },
-  { id: 15, name: "Berries - Beeren - توت", need: true, category: "fruits" },
-  { id: 16, name: "Lettuce - Salat - خس", need: false, category: "vegetables" },
-  {
-    id: 17,
-    name: "Kale - Grünkohl - كرنب",
-    need: true,
-    category: "vegetables",
+    "id": "GL83.833",
+    "name": "Eggplant - Aubergine - باذنجان",
+    "need": true,
+    "category": "vegetables"
   },
   {
-    id: 18,
-    name: "Celery - Sellerie - كرفس",
-    need: false,
-    category: "vegetables",
-  },
-  { id: 274, name: "Swiss Chard - Mangold - سلق", need: true, category: "vegetables" },
-  {
-    id: 19,
-    name: "Eggplant - Aubergine - باذنجان",
-    need: true,
-    category: "vegetables",
+    "id": "GL98.068",
+    "name": "Kale - Grünkohl - كرنب",
+    "need": true,
+    "category": "vegetables"
   },
   {
-    id: 20,
-    name: "Mushroom - Pilz - فطر",
-    need: false,
-    category: "vegetables",
-  },
-  { id: 21, name: "Okra - بامية", need: true, category: "vegetables" },
-  { id: 22, name: "Zucchini - كوسى", need: false, category: "vegetables" },
-  {
-    id: 23,
-    name: "Ripe Avocado - Reife Avocado - الأفوكادو الناضج",
-    need: true,
-    category: "fruits",
+    "id": "GL105.039",
+    "name": "Lettuce - Salat - خس",
+    "need": false,
+    "category": "vegetables"
   },
   {
-    id: 241,
-    name: "Zitronen/Lime - Zitronen/Limette",
-    need: false,
-    category: "fruits",
-  },
-  { id: 242, name: "Broccoli", need: false, category: "vegetables" },
-  { id: 243, name: "Spinach - سبانخ", need: false, category: "vegetables" },
-  { id: 244, name: "Bell Pepper - فلفل", need: false, category: "vegetables" },
-  {
-    id: 257,
-    name: "Radieschen - Radishes - فجل",
-    need: true,
-    category: "vegetables",
-  },
-  { id: 26, name: "Minze - Mint - نعناع", need: false, category: "herbs" },
-  { id: 27, name: "Tofu", need: true, category: "vegetarian" },
-  {
-    id: 28,
-    name: "Parsley - Petersilie - بقدونس",
-    need: false,
-    category: "herbs",
+    "id": "GL113.797",
+    "name":  "Carrots - Karotten - جزر",
+    "need": false,
+    "category": "vegetables"
   },
   {
-    id: 29,
-    name: "Zwiebeln - Onions - بصل",
-    need: true,
-    category: "vegetables",
-  },
-  { id: 30, name: "Thymien - Thyme - زعتر", need: false, category: "herbs" },
-  {
-    id: 31,
-    name: "Oliven - Olives - زيتون",
-    need: true,
-    category: "condiments",
-  },
-  { id: 32, name: "Brussel Sprouts", need: false, category: "vegetables" },
-  {
-    id: 33,
-    name: "Extra Virgin Olive Oil - Olivenöl -زيت الزيتون ",
-    need: true,
-    category: "condiments",
+    "id": "GL122.402",
+    "name": "Mushrooms - Pilze - فطر",
+    "need": false,
+    "category": "vegetables"
   },
   {
-    id: 34,
-    name: "Coconut Oil - Kokosöl - زيت جوز الهند",
-    need: false,
-    category: "condiments",
-  },
-  { id: 35, name: "Butter - زبدة", need: true, category: "dairy" },
-  { id: 37, name: "Ghee - سمن", need: true, category: "dairy" },
-  {
-    id: 38,
-    name: "Frischkäse - Cream Cheese - لبنة ",
-    need: false,
-    category: "dairy",
-  },
-  { id: 39, name: "Nuts - مكسرات", need: true, category: "nuts" },
-  { id: 40, name: "Seeds - Samen - بذور", need: false, category: "nuts" },
-  {
-    id: 41,
-    name: "Macademia Nuts - Macadamia-Nüsse - جوز مكاداميا",
-    need: true,
-    category: "nuts",
+    "id": "GL132.337",
+    "name": "Okras - Okraschoten - باميه",
+    "need": true,
+    "category": "vegetables"
   },
   {
-    id: 42,
-    name: "Pecan - Pekannuss - جوز البقان",
-    need: false,
-    category: "nuts",
-  },
-  { id: 43, name: "Walnut - Walnuss - جوز", need: true, category: "nuts" },
-  {
-    id: 44,
-    name: "Chia Seeds - Chia Samen - بذور الشيا",
-    need: false,
-    category: "seeds",
+    "id": "GL148.549",
+    "name": "Radieschen - Radishes - فجل",
+    "need": true,
+    "category": "vegetables"
   },
   {
-    id: 45,
-    name: "Flax Seeds - Leinsamen - بذور الكتان",
-    need: true,
-    category: "seeds",
+    "id": "GL159.169",
+    "name": "Spinach - Spinat - سبانخ",
+    "need": false,
+    "category": "vegetables"
   },
   {
-    id: 46,
-    name: "Hemp Seeds - Hanfsamen - بذور القنب",
-    need: false,
-    category: "seeds",
+    "id": "GL165.105",
+    "name": "Swiss Chard - Mangold - سلق",
+    "need": true,
+    "category": "vegetables"
   },
   {
-    id: 47,
-    name: "Pumpkin Seeds - Kürbiskerne - بذور اليقطين",
-    need: true,
-    category: "seeds",
+    "id": "GL178.955",
+    "name": "Tomaten - Tomatoes - طماطم",
+    "need": false,
+    "category": "vegetables"
   },
   {
-    id: 48,
-    name: "Hot Sauce - Würzsaucen: Scharfe Soße - صلصة حارة",
-    need: false,
-    category: "condiments",
+    "id": "GL189.834",
+    "name": "Zucchini - كوسى",
+    "need": false,
+    "category": "vegetables"
   },
   {
-    id: 49,
-    name: "Homemade Mayo - Selbstgemachte Mayo - مايونيز منزلية",
-    need: true,
-    category: "condiments",
+    "id": "GL194.943",
+    "name": "Onions - Zwiebeln - بصل",
+    "need": true,
+    "category": "vegetables"
   },
   {
-    id: 50,
-    name: "Coffee - Kaffee - قهوة",
-    need: false,
-    category: "beverages",
-  },
-  { id: 51, name: "Tea - Tee - شاي", need: true, category: "beverages" },
-  {
-    id: 53,
-    name: "Cocoa - Kakao - كاكاو",
-    need: true,
-    category: "ingredients",
+    "id": "GL218.402",
+    "name": "Chia Seeds - Chia Samen - بذور الشيا",
+    "need": false,
+    "category": "seeds"
   },
   {
-    id: 54,
-    name: "Choc - Schokolade - شوكولاتة",
-    need: false,
-    category: "ingredients",
+    "id": "GL227.213",
+    "name": "Flax Seeds - Leinsamen - بذور الكتان",
+    "need": true,
+    "category": "seeds"
   },
   {
-    id: 55,
-    name: "Shredded Coconuts - Kokosraspeln - جوز الهند المبشور",
-    need: true,
-    category: "ingredients",
-  },
-  { id: 56, name: "Stevia - ستيفيا", need: false, category: "ingredients" },
-  {
-    id: 58,
-    name: "Apple Cidar Vinegar - Apfelessig - خل التفاح",
-    need: false,
-    category: "condiments",
+    "id": "GL236.243",
+    "name": "Hemp Seeds - Hanfsamen - بذور القنب",
+    "need": false,
+    "category": "seeds"
   },
   {
-    id: 59,
-    name: "White Vinegar - Weißer Essig - خل أبيض",
-    need: true,
-    category: "condiments",
-  },
-  { id: 60, name: "Water - Wasser - ماء", need: false, category: "beverages" },
-  {
-    id: 61,
-    name: "Foul Moudammas - فول مدمس",
-    need: true,
-    category: "legumes",
+    "id": "GL242.929",
+    "name": "Pumpkin Seeds - Kürbiskerne - بذور اليقطين",
+    "need": true,
+    "category": "seeds"
   },
   {
-    id: 62,
-    name: "Bezer sagheer - Wassermelonen Samen - بذر بطيخ صغير",
-    need: false,
-    category: "seeds",
+    "id": "GL256.701",
+    "name": "Watermelon Seeds - Wassermelonen Samen - بذر صغير",
+    "need": false,
+    "category": "seeds"
   },
   {
-    id: 63,
-    name: "Bzourat - Nüsse & Samen - مكسرات وبذور",
-    need: true,
-    category: "nuts",
-  },
-  { id: 64, name: "Makdouss - مكدوس", need: false, category: "pickled" },
-  { id: 65, name: "Pickles - كبيس", need: true, category: "pickled" },
-  { id: 66, name: "Peperroni - حر", need: false, category: "condiments" },
-  {
-    id: 67,
-    name: "Rose Water - Ma'Ward - ماء ",
-    need: true,
-    category: "condiments",
+    "id": "GL263.646",
+    "name": "Makdouss - مكدوس",
+    "need": false,
+    "category": "pickled"
   },
   {
-    id: 68,
-    name: "Nutritional Yeast - Nährhefe - خميرة غذائية",
-    need: false,
-    category: "condiments",
+    "id": "GL275.619",
+    "name": "Pickles - كبيس",
+    "need": true,
+    "category": "pickled"
   },
-  { id: 69, name: "Spices", need: true, category: "condiments" },
   {
-    id: 70,
-    name: "Greeny Leaves and Herbs - Grünzeug und Kräuter - أوراق خضراء وأعشاب",
-    need: false,
-    category: "herbs",
+    "id": "GL281.547",
+    "name": "Macademia Nuts - Macadamia-Nüsse - جوز مكاداميا",
+    "need": true,
+    "category": "nuts"
   },
-  { id: 71, name: "Mate Tea - متّه", need: true, category: "beverages" },
   {
-    id: 72,
-    name: "Pipori (big-red) - بيبوري (أحمر كبير)",
-    need: false,
-    category: "tea",
+    "id": "GL299.300",
+    "name": "Nuts - Nüsse - مكسرات",
+    "need": true,
+    "category": "nuts"
   },
-  { id: 73, name: "Falafel - فلافل", need: true, category: "vegetarian" },
-];
+  {
+    "id": "GL300.963",
+    "name": "Nüsse & Samen - مكسرات وبذورات",
+    "need": true,
+    "category": "nuts"
+  },
+  {
+    "id": "GL315.242",
+    "name": "Peanuts - Erdnüsse - فول سوداني",
+    "need": true,
+    "category": "nuts"
+  },
+  {
+    "id": "GL324.537",
+    "name": "Pecan - Pekannuss - جوز البقان",
+    "need": false,
+    "category": "nuts"
+  },
+  {
+    "id": "GL331.868",
+    "name": "Seeds - Samen - بذور",
+    "need": false,
+    "category": "nuts"
+  },
+  {
+    "id": "GL358.380",
+    "name": "Walnut - Walnuss - جوز",
+    "need": true,
+    "category": "nuts"
+  },
+  {
+    "id": "GL365.054",
+    "name": "Foul - فول مدمس",
+    "need": true,
+    "category": "legumes"
+  },
+  {
+    "id": "GL379.762",
+    "name": "Chickpeas - Kichererbsen - حمص",
+    "need": true,
+    "category": "legumes"
+  },
+  {
+    "id": "GL386.251",
+    "name": "Chocolate - Schokolade - شوكولاتة",
+    "need": false,
+    "category": "ingredients"
+  },
+  {
+    "id": "GL390.298",
+    "name": "Cocoa Powder - Kakaopulver - بودرة الكاكاو",
+    "need": true,
+    "category": "ingredients"
+  },
+  {
+    "id": "GL407.082",
+    "name": "Shredded Coconuts - Kokosraspeln - جوز هند مبشور",
+    "need": true,
+    "category": "ingredients"
+  },
+  {
+    "id": "GL417.527",
+    "name": "Stevia - ستيفيا",
+    "need": false,
+    "category": "ingredients"
+  },
+  {
+    "id": "GL422.561",
+    "name": "Greeny Leaves and Herbs - Grünzeug und Kräuter - أوراق خضراء وأعشاب",
+    "need": false,
+    "category": "herbs"
+  },
+  {
+    "id": "GL431.879",
+    "name": "Minze - Mint - نعناع",
+    "need": false,
+    "category": "herbs"
+  },
+  {
+    "id": "GL448.723",
+    "name": "Parsley - Petersilie - بقدونس",
+    "need": false,
+    "category": "herbs"
+  },
+  {
+    "id": "GL459.829",
+    "name": "Thyme - Thymian - زعتر",
+    "need": false,
+    "category": "herbs"
+  },
+  {
+    "id": "GL460.025",
+    "name": "Avocado - أفوكادو",
+    "need": true,
+    "category": "fruits"
+  },
+  {
+    "id": "GL473.847",
+    "name": "Berries - Beeren - توت",
+    "need": true,
+    "category": "fruits"
+  },
+  {
+    "id": "GL485.313",
+    "name": "Zitronen/Lime - Zitronen/Limette - ليمون",
+    "need": false,
+    "category": "fruits"
+  },
+  {
+    "id": "GL500.440",
+    "name": "Coconut Milk - Kokosmilch - حليب جوز الهند",
+    "need": true,
+    "category": "beverages"
+  },
+  {
+    "id": "GL498.965",
+    "name": "Butter - زبدة",
+    "need": true,
+    "category": "dairy"
+  },
+  {
+    "id": "GL516.637",
+    "name": "Creme Fraiche - Cream - قشطة",
+    "need": false,
+    "category": "dairy"
+  },
+  {
+    "id": "GL523.459",
+    "name": "Eggs - Eier - بيض",
+    "need": false,
+    "category": "dairy"
+  },
+  {
+    "id": "GL535.303",
+    "name": "Frischkäse - Cream Cheese - لبنة ",
+    "need": false,
+    "category": "dairy"
+  },
+  {
+    "id": "GL547.998",
+    "name": "Ghee - سمن",
+    "need": true,
+    "category": "dairy"
+  },
+  {
+    "id": "GL559.840",
+    "name": "Joghurt Grieschischer Art. 1x1 - لبن",
+    "need": true,
+    "category": "dairy"
+  },
+  {
+    "id": "GL561.376",
+    "name": "Joghurt Grieschischer Art. 1x4 - لبن",
+    "need": false,
+    "category": "dairy"
+  },
+  {
+    "id": "GL582.294",
+    "name": "Coconut Oil - Kokosöl - زيت جوز الهند",
+    "need": false,
+    "category": "condiments"
+  },
+  {
+    "id": "GL595.315",
+    "name": "Extra Virgin Olive Oil - Olivenöl -زيت الزيتون ",
+    "need": true,
+    "category": "condiments"
+  },
+  {
+    "id": "GL608.631",
+    "name": "Homemade Mayo - مايونيز",
+    "need": true,
+    "category": "condiments"
+  },
+  {
+    "id": "GL616.570",
+    "name": "Hot Sauce - Würzsaucen: Scharfe Soße - صلصة حارة",
+    "need": false,
+    "category": "condiments"
+  },
+  {
+    "id": "GL622.077",
+    "name": "Nutritional Yeast - Nährhefe - خميرة غذائية",
+    "need": false,
+    "category": "condiments"
+  },
+  {
+    "id": "GL633.333",
+    "name": "Oliven - Olives - زيتون",
+    "need": true,
+    "category": "condiments"
+  },
+  {
+    "id": "GL647.759",
+    "name": "Peperroni - حر",
+    "need": false,
+    "category": "condiments"
+  },
+  {
+    "id": "GL652.705",
+    "name": "Rose Water - ماء ورد  ",
+    "need": true,
+    "category": "condiments"
+  },
+  {
+    "id": "GL663.669",
+    "name": "Spices - Gewürze - بهارات",
+    "need": true,
+    "category": "condiments"
+  },
+  {
+    "id": "GL678.922",
+    "name": "Toum - Garlic - Knoblauch - ثوم",
+    "need": true,
+    "category": "condiments"
+  },
+  {
+    "id": "GL684.514",
+    "name": "Vanilla - Vanille",
+    "need": true,
+    "category": "condiments"
+  },
+  {
+    "id": "GL572.989",
+    "name": "Apple Cidar Vinegar - Apfelessig - خل التفاح",
+    "need": false,
+    "category": "condiments"
+  },
+  {
+    "id": "GL694.990",
+    "name": "White Vinegar - Weißer Essig - خل أبيض",
+    "need": true,
+    "category": "condiments"
+  },
+  {
+    "id": "GL709.465",
+    "name": "Coffee - Kaffee - قهوة",
+    "need": false,
+    "category": "beverages"
+  },
+  {
+    "id": "GL749.145",
+    "name": "Coffee Cream - Kaffee Sahne - كريمة القهوة",
+    "need": false,
+    "category": "condiments"
+  },
+  {
+    "id": "GL711.392",
+    "name": "Sprudelwasser - Sparkling Water - مياه غازية",
+    "need": false,
+    "category": "beverages"
+  },
+  {
+    "id": "GL720.543",
+    "name": "Tea - Tee - شاي",
+    "need": true,
+    "category": "beverages"
+  },
+  {
+    "id": "GL747.613",
+    "name": "Mate Tea - متّه (كبير)",
+    "need": false,
+    "category": "beverages"
+  }
+]
