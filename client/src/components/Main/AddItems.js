@@ -3,8 +3,7 @@ import { BsPlusSquare, BsFillPlusSquareFill } from "react-icons/bs";
 
 function AddItems({ handleAdd }) {
   return (
-    <section 
-    className="w-92 mx-auto mt-3 mb-5 pt-3 pb-5 add-item dark:bg-gray-900 dark:border-gray-700 dark:text-white bg-gray-50 border border-gray-300 rounded-lg shadow-sm">
+    <section className="w-92 mx-auto mt-3 mb-5 pt-3 pb-5 add-item dark:bg-gray-900 dark:border-gray-700 dark:text-white bg-gray-50 border border-gray-300 rounded-lg shadow-sm">
       <label
         htmlFor="new-item"
         className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"

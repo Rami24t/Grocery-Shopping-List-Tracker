@@ -1,14 +1,14 @@
-import React from 'react'
+import React from "react";
 
 function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty }) {
   // const toggleAddBtn = useRef(null);
   listIsEmpty && setShowAddItem(true);
-    return (
-      <button
-        // ref={toggleAddBtn}
-        disabled={listIsEmpty}
-        onClick={() => setShowAddItem(!showAddItem)}
-        className={`transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg
+  return (
+    <button
+      // ref={toggleAddBtn}
+      disabled={listIsEmpty}
+      onClick={() => setShowAddItem(!showAddItem)}
+      className={`transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg
       ${
         !showAddItem
           ? "bg-indigo-700  hover:bg-indigo-600"
@@ -16,18 +16,21 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty }) {
       } px-3 py-2 text-xs font-medium text-slate-200 transition focus:outline-none focus:ring
        hover:text-indigo-100
       `}
-        type="button"
+      type="button"
+    >
+      {showAddItem ? "Add " : "Add "}
+      <div
+        className={`transition-transform flex text-center items-center justify-center w-3 h-3 text-gray-800 dark:text-white ${
+          showAddItem ? "rotate-90" : "rotate-0"
+        }`}
       >
-        {showAddItem ? "Add " : "Add "}
-        <div className={`transition-transform flex text-center items-center justify-center w-3 h-3 text-gray-800 dark:text-white ${showAddItem ? "rotate-90" : "rotate-0"}`}>
-          &gt;
-        </div>
-        {/* <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
+        &gt;
+      </div>
+      {/* <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900">
               {items.length || 0}{" "}
             </div> */}
-      </button>
-    );
-  }
+    </button>
+  );
+}
 
-
-export default AddItemsButton
+export default AddItemsButton;

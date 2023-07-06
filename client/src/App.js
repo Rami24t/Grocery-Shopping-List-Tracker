@@ -1,4 +1,4 @@
-import React, { useState, useEffect} from "react";
+import React, { useState, useEffect } from "react";
 import { defaultItems } from "./defaultItems";
 import Header from "./components/Header";
 import Sidenav from "./components/Sidenav";
@@ -14,7 +14,7 @@ function App() {
   useEffect(() => {
     setIsMobile(window.innerWidth <= 440);
   }, []);
-  
+
   function handleChangeList(e) {
     setList(e.target.value);
   }
@@ -157,7 +157,7 @@ function App() {
 
   return (
     <div
-    id="app"
+      id="app"
       className={`app-container bg-white dark:bg-gray-900 dark:text-white ${
         isMobile && "text-center"
       }`}
@@ -165,18 +165,35 @@ function App() {
       <Header list={list} items={items.length} />
       <div className="flex justify-between flex-wrap relative ">
         <aside className="aside-left">
-        <div className="z-50 fixed top-0 right-0 opacity-50 cursor-pointer 
+          <div
+            className="z-50 fixed top-0 right-0 opacity-50 cursor-pointer 
         sm:hidden "
-            onClick={() => setShowSideNav(prev=>!prev)}>
-          <MenuButton showSideNav={showSideNav} />
-        </div>
-          <Sidenav items={items.length} setShowAddItem={setShowAddItem} showSideNav={showSideNav} setShowSideNav={setShowSideNav} />
+            onClick={() => setShowSideNav((prev) => !prev)}
+          >
+            <MenuButton showSideNav={showSideNav} />
+          </div>
+          <Sidenav
+            items={items.length}
+            setShowAddItem={setShowAddItem}
+            showSideNav={showSideNav}
+            setShowSideNav={setShowSideNav}
+          />
         </aside>
-        <Main list={list} items={items} setList={setList} 
-        filter={filter} handleChangeFilter={handleChangeFilter}
-        handleDelete={handleDelete} handleToggle={handleToggle} updateItem={updateItem}
-        handleAdd={handleAdd} showAddItem={showAddItem} setShowAddItem={setShowAddItem}
-        handleChangeList={handleChangeList} handleReset={handleReset} handleClear={handleClear}
+        <Main
+          list={list}
+          items={items}
+          setList={setList}
+          filter={filter}
+          handleChangeFilter={handleChangeFilter}
+          handleDelete={handleDelete}
+          handleToggle={handleToggle}
+          updateItem={updateItem}
+          handleAdd={handleAdd}
+          showAddItem={showAddItem}
+          setShowAddItem={setShowAddItem}
+          handleChangeList={handleChangeList}
+          handleReset={handleReset}
+          handleClear={handleClear}
         />
         <AsideRight />
       </div>

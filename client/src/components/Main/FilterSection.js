@@ -1,10 +1,8 @@
-import React from 'react'
+import React from "react";
 
-function FilterSection(
-    {filter, handleChangeFilter, items}
-    ) {
-    return (
-      items.length > 0 && (
+function FilterSection({ filter, handleChangeFilter, items }) {
+  return (
+    items.length > 0 && (
       <section className="relative w-96 mx-auto my-1 text-center">
         <label htmlFor="filter" className="sr-only">
           Filter Items
@@ -34,8 +32,8 @@ function FilterSection(
           placeholder={`Search ${items.length} Items`}
         />
       </section>
-      )
-    );
-  }
+    )
+  );
+}
 
-export default FilterSection
+export default FilterSection;

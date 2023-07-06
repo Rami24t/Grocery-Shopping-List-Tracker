@@ -4,9 +4,7 @@ import { BsLinkedin, BsSend } from "react-icons/bs";
 
 function Footer() {
   return (
-    <footer 
-    id='about'
-    className="bg-white dark:bg-gray-900">
+    <footer id="about" className="bg-white dark:bg-gray-900">
       <div className="mx-auto w-full max-w-screen-xl p-4 py-6 lg:py-8">
         <div className="md:flex md:justify-between">
           <div className="mb-6 md:mb-0">
@@ -94,7 +92,10 @@ function Footer() {
         <div className="sm:flex sm:items-center sm:justify-between">
           <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
             © 2023{" "}
-            <a href="https://www.linkedin.com/in/rami-al-saadi-16a14223a/" className="hover:underline">
+            <a
+              href="https://www.linkedin.com/in/rami-al-saadi-16a14223a/"
+              className="hover:underline"
+            >
               Rami Al-Saadi™
             </a>
             . All Rights Reserved.

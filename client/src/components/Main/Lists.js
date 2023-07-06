@@ -10,10 +10,10 @@ function Lists({
   list,
   validate,
 }) {
-  const needs = []
-  const haves = []
-  items.forEach(element => {
-    element.need ? needs.push(element) : haves.push(element)
+  const needs = [];
+  const haves = [];
+  items.forEach((element) => {
+    element.need ? needs.push(element) : haves.push(element);
   });
 
   return !items?.length ? (
@@ -25,7 +25,7 @@ function Lists({
     <section id="list">
       {needs[0] && (
         <List
-          title = "Needed"
+          title="Needed"
           filter={filter}
           items={needs}
           handleDelete={handleDelete}
@@ -36,7 +36,7 @@ function Lists({
       )}
       {haves[0] && (
         <List
-          title = "Have"
+          title="Have"
           filter={filter}
           items={haves}
           handleDelete={handleDelete}
