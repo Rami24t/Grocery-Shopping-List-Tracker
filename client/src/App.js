@@ -163,14 +163,16 @@ function App() {
       }`}
     >
       <Header list={list} items={items.length} />
-      <div className="flex justify-between flex-wrap relative ">
-        <aside className="aside-left">
+      <div className="bg-inherit flex justify-between flex-wrap relative ">
+        <aside className="aside-left bg-inherit">
           <div
-            className="z-50 fixed top-0 right-0 opacity-50 cursor-pointer 
-        sm:hidden "
-            onClick={() => setShowSideNav((prev) => !prev)}
+            className={`z-50 fixed top-0 ${showSideNav?'left-48':'right-0'} opacity-60 
+        sm:hidden overflow-clip`}
           >
-            <MenuButton showSideNav={showSideNav} />
+            <MenuButton 
+            showSideNav={showSideNav}
+            setShowSideNav={setShowSideNav}
+            />
           </div>
           <Sidenav
             items={items.length}
@@ -195,7 +197,7 @@ function App() {
           handleReset={handleReset}
           handleClear={handleClear}
         />
-        <AsideRight />
+        <AsideRight isMobile={isMobile} />
       </div>
       <Footer />
     </div>
