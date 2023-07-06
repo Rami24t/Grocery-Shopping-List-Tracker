@@ -51,38 +51,6 @@ const Item = ({ item, handleDelete, handleToggle, updateItem }) => {
   const [needed, setNeeded] = useState(item.need);
   const [name, setName] = useState(item.name);
 
-  const EditButton = (
-    <button
-      type="button"
-      onClick={handleEdit}
-      className="leading-none w-6 h-6 rounded-lg m-2 text-center dark:border-slate-500 dark:text-slate-400 dark:focus:ring-slate-800 dark:hover:text-slate-300 dark:hover:border-slate-400 hover:font-bold text-xl text-slate-800 hover:text-slate-600 border   border-slate-600 focus:ring-4 focus:outline-none focus:ring-slate-400 "
-      title="Click to edit this item"
-    >
-      <BsPencil className="pointer-events-none " />
-    </button>
-  );
-  return (
-    <div className="flex justify-around items-center">
-      {ItemName()}
-      {Checkbox()}
-      {EditButton}
-      {DeleteButton()}
-    </div>
-  );
-
-  function Checkbox() {
-    return (
-      <input
-        type="checkbox"
-        onChange={() => handleCheck(item)}
-        checked={!needed}
-        id="needed"
-        className="inline-block leading-none w-6 h-6 m-2 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
-        title={`Click to ${needed ? "check" : "uncheck"}`}
-      />
-    );
-  }
-
   function ItemName() {
     return (
       <input
@@ -111,7 +79,30 @@ const Item = ({ item, handleDelete, handleToggle, updateItem }) => {
       />
     );
   }
-
+  function Checkbox() {
+    return (
+      <input
+        type="checkbox"
+        onChange={() => handleCheck(item)}
+        checked={!needed}
+        id="needed"
+        className="inline-block leading-none w-6 h-6 m-2 border border-gray-300 rounded bg-gray-50 focus:ring-3 focus:ring-blue-300 dark:bg-gray-700 dark:border-gray-600 dark:focus:ring-blue-600 dark:ring-offset-gray-800 dark:focus:ring-offset-gray-800"
+        title={`Click to ${needed ? "check" : "uncheck"}`}
+      />
+    );
+  }
+  function EditButton() {
+    return (
+      <button
+        type="button"
+        onClick={handleEdit}
+        className="leading-none w-6 h-6 rounded-lg m-2 text-center dark:border-slate-500 dark:text-slate-400 dark:focus:ring-slate-800 dark:hover:text-slate-300 dark:hover:border-slate-400 hover:font-bold text-xl text-slate-800 hover:text-slate-600 border   border-slate-600 focus:ring-4 focus:outline-none focus:ring-slate-400 "
+        title="Click to edit this item"
+      >
+        <BsPencil className="pointer-events-none " />
+      </button>
+    );
+  }
   function DeleteButton() {
     return (
       <button
@@ -124,6 +115,15 @@ const Item = ({ item, handleDelete, handleToggle, updateItem }) => {
       </button>
     );
   }
+
+  return (
+    <div className="flex justify-around items-center">
+      <ItemName />
+      <Checkbox />
+      <EditButton />
+      <DeleteButton />
+    </div>
+  );
 };
 
 export default Item;
