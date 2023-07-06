@@ -1,6 +1,6 @@
 function Header({ list, items }) {
   return (
-    <header className="App-header z-50 sticky bg-inherit w-full">
+    <header className="App-header z-40 sticky bg-inherit w-full">
       <div className="mx-auto max-w-screen-xl px-2 py-4 sm:px-3 sm:py-6 lg:px-8">
         <div className="sm:flex sm:items-center sm:justify-between">
           <div className="text-center sm:text-left">

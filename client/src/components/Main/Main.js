@@ -32,7 +32,7 @@ function Main({
   }
 
   return (
-    <main className="min-w-[33%]">
+    <main className="min-w-[33%] bg-inherit sm:z-50">
       <MainHeader
         list={list}
         filter={filter}

@@ -1,14 +1,18 @@
 import React from "react";
 
-const Sidenav = ({ items, setShowAddItem, showSideNav = true }) => {
+const Sidenav = ({ items, setShowAddItem, showSideNav = true, setShowSideNav}) => {
+  function hadleClick() {
+    setShowSideNav(false);
+  }
   return (
     <nav
-      id="logo-sidebar"
-      className={`fixed md:sticky top-50 overflow-hidden md:top-0 h-screen left-0 w-64  pt-4 transition-transform border-r border-gray-200 sm:translate-x-0 dark:border-gray-700
+    onClick={hadleClick}
+      id="sidenav"
+      className={`z-40 bg-gray-950 bg-opacity-75 fixed md:sticky top-0 overflow-hidden md:top-24 h-screen left-0 w-64 pt-8 sm:pt-4 transition-transform border-r border-gray-200 sm:translate-x-0 dark:border-gray-700
 ${
   showSideNav
-    ? "w-screen z-50 rounded-lg bg-slate-950 translate-x-0 ease-out duration-300"
-    : "z-40 -translate-x-full duration-200"
+    ? "w-64 rounded-lg translate-x-0 ease-out duration-300"
+    : "-translate-x-full duration-200"
 }`}
       aria-label="Sidebar"
     >
