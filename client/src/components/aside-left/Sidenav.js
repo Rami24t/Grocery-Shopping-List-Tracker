@@ -1,7 +1,7 @@
 import React from "react";
 import { BsHouseHeartFill } from "react-icons/bs";
 
-const Sidenav = ({ items, setShowAddItem, showSideNav = true, setShowSideNav}) => {
+const Sidenav = ({ items, setShowAddItem, showSideNav, setShowSideNav}) => {
   function hadleClick() {
     setShowSideNav(false);
   }
