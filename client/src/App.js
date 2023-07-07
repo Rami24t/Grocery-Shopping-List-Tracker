@@ -13,10 +13,13 @@ function App() {
   const [list, setList] = useState("1");
   useEffect(() => {
     setIsMobile(window.innerWidth <= 440);
+    if(localStorage.getItem("lastVisitedList"))
+      setList(localStorage.getItem("lastVisitedList"));
   }, []);
 
   function handleChangeList(e) {
     setList(e.target.value);
+    localStorage.setItem("lastVisitedList", e.target.value);
   }
   const [showAddItem, setShowAddItem] = useState(false);
   const [showSideNav, setShowSideNav] = useState(false);
@@ -28,6 +31,8 @@ function App() {
   }
 
   const [items, setItems] = useState(defaultItems);
+
+
   useEffect(() => {
     if (localStorage.getItem(`list${list}`))
       setItems(JSON.parse(localStorage.getItem(`list${list}`)));
