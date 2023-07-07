@@ -1,3 +1,5 @@
+import React from "react";
+
 function Header({ list, items }) {
   return (
     <header className="App-header z-40 sticky bg-inherit w-full">

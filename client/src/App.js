@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
 import { defaultItems } from "./defaultItems";
-import Header from "./components/Header";
-import Sidenav from "./components/Sidenav";
-import Main from "./components/Main/Main";
-import { AsideRight } from "./components/AsideRight";
-import Footer from "./components/Footer";
-import MenuButton from "./components/MenuButton";
+import Header from "./components/header/Header";
+import Sidenav from "./components/aside-left/Sidenav";
+import Main from "./components/main/Main";
+import { AsideRight } from "./components/aside-right/AsideRight";
+import Footer from "./components/footer/Footer";
+import MenuButton from "./components/aside-left/MenuButton";
 import "./App.css";
 
 function App() {
