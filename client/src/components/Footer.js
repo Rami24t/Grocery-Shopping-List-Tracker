@@ -62,38 +62,8 @@ function Footer() {
               </span>
             </a>
           </div>
-          <div className="flex justify-around items-start">
-            <div>
-              <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
-                Resources
-              </h2>
-              <ul className="text-gray-600 dark:text-gray-400 font-medium">
-                <li className="mb-4">
-                  <a
-                    href="https://www.github.com/rami24t"
-                    className="hover:underline"
-                  >
-                    Rami
-                  </a>
-                </li>
-                <li className="mb-4">
-                  <a
-                    href="https://tailwindcss.com/"
-                    className="hover:underline"
-                  >
-                    Tailwind CSS
-                  </a>
-                </li>
-                <li className="mb-4">
-                  <a
-                    href="https://react.dev/"
-                    className="hover:underline"
-                  >
-                    React
-                  </a>
-                </li>
-              </ul>
-            </div>
+          <div className="flex gap-20 justify-around items-start">
+            {newFunction()}
             <div>
               <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
                 Follow us
@@ -202,3 +172,38 @@ function Footer() {
 };
 
 export default Footer;
+
+function newFunction() {
+  return <div>
+    <h2 className="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">
+      Resources
+    </h2>
+    <ul className="text-gray-600 dark:text-gray-400 font-medium">
+      <li className="mb-4">
+        <a
+          href="https://www.github.com/rami24t"
+          className="hover:underline"
+        >
+          Rami
+        </a>
+      </li>
+      <li className="mb-4">
+        <a
+          href="https://tailwindcss.com/"
+          className="hover:underline"
+        >
+          Tailwind CSS
+        </a>
+      </li>
+      <li className="mb-4">
+        <a
+          href="https://react.dev/"
+          className="hover:underline"
+        >
+          React
+        </a>
+      </li>
+    </ul>
+  </div>;
+}
+
