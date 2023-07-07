@@ -1,5 +1,7 @@
 {
-  "name": "client",
+  "name": "grocery-shopping-lists-tracker-web-app",
+  "author": {
+    "name": "Rami Al-Saadi"},
   "version": "0.1.0",
   "private": true,
   "dependencies": {

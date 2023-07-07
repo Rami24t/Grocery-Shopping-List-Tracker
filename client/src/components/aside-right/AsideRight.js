@@ -1,6 +1,6 @@
 import React, { useEffect, useState, useCallback } from "react";
 
-export function AsideRight({isMobile}) {
+function AsideRight({isMobile}) {
   function AsideImage({ src }) {
     return (
       <div className="img w-[47%] lg:w-full">
@@ -56,3 +56,5 @@ export function AsideRight({isMobile}) {
     </aside>
   );
 }
+
+export default AsideRight;

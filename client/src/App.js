@@ -3,7 +3,7 @@ import { defaultItems } from "./defaultItems";
 import Header from "./components/header/Header";
 import Sidenav from "./components/aside-left/Sidenav";
 import Main from "./components/main/Main";
-import { AsideRight } from "./components/aside-right/AsideRight";
+import AsideRight from "./components/aside-right/AsideRight";
 import Footer from "./components/footer/Footer";
 import MenuButton from "./components/aside-left/MenuButton";
 import "./App.css";
@@ -13,7 +13,7 @@ function App() {
   const [list, setList] = useState("1");
   useEffect(() => {
     setIsMobile(window.innerWidth <= 440);
-    if(localStorage.getItem("lastVisitedList"))
+    if (localStorage.getItem("lastVisitedList"))
       setList(localStorage.getItem("lastVisitedList"));
   }, []);
 
@@ -31,7 +31,6 @@ function App() {
   }
 
   const [items, setItems] = useState(defaultItems);
-
 
   useEffect(() => {
     if (localStorage.getItem(`list${list}`))
@@ -171,12 +170,14 @@ function App() {
       <div className="bg-inherit flex justify-between flex-wrap relative ">
         <aside className="aside-left bg-inherit">
           <div
-            className={`z-50 fixed top-0 ${showSideNav?'left-48':'right-0'} opacity-60 
+            className={`z-50 fixed top-0 ${
+              showSideNav ? "left-48" : "right-0"
+            } opacity-60 
         sm:hidden overflow-clip`}
           >
-            <MenuButton 
-            showSideNav={showSideNav}
-            setShowSideNav={setShowSideNav}
+            <MenuButton
+              showSideNav={showSideNav}
+              setShowSideNav={setShowSideNav}
             />
           </div>
           <Sidenav
