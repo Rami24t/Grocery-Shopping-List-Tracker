@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import AsideImage from "./AsideImage";
 
-function AsideRight({ isMobile }) {
+function AsideRight() {
   const [height, setHeight] = useState(0);
   const ref = useCallback((node) => {
     if (!node) return;
@@ -19,6 +19,7 @@ function AsideRight({ isMobile }) {
   ]);
   useEffect(() => {
     const extraImagesNeeded = (height - 300) / 390 - extraImages.length + 1;
+    // Math.floor
     const extraImagesTemp = [
       "/assets/deco-imgs/deco3.jpg",
       "/assets/deco-imgs/deco11.jpg",
@@ -32,18 +33,24 @@ function AsideRight({ isMobile }) {
             (i + 1) +
             (Math.random() * 10).toFixed(0)
         );
-    extraImages.length < extraImagesTemp.length &&
+    if(extraImages.length < extraImagesTemp.length)
       setExtraImages(extraImagesTemp);
   }, [height]);
 
   return (
     <aside
       ref={ref}
-      onResize={() => setHeight(ref.current.clientHeight)}
+      // onResize={() => setHeight(ref.current.clientHeight)}
       id="aside-right"
-      className="flex lg:pt-[220px] lg:max-w-[25%] flex-wrap gap-2 lg:gap-4 content-around justify-center text-center p-2 z-0 relative items-center "
+      className="opacity-90 p-2 lg:pt-[220px] lg:max-w-[25%] text-center flex flex-wrap gap-2 lg:gap-4 justify-center items-center relative z-0"
     >
       <AsideImage src="/assets/deco-imgs/deco8.jpg" />
+      {extraImages.slice(0, 1).map((src, idx) => (
+        <AsideImage className={"lg:hidden"} key={idx} src={src} />
+      ))}
+      {extraImages.slice(1, 3).map((src, idx) => (
+        <AsideImage className={"sm:hidden"} key={idx} src={src} />
+      ))}
 
       {extraImages.map(
         (src, idx) =>
@@ -51,11 +58,6 @@ function AsideRight({ isMobile }) {
             <AsideImage key={idx} src={src} />
           )
       )}
-
-      {isMobile &&
-        extraImages.map(
-          (src, idx) => idx < 3 && <AsideImage key={idx} src={src} />
-        )}
     </aside>
   );
 }
