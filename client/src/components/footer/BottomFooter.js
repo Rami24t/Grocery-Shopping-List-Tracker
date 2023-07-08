@@ -4,7 +4,7 @@ import Icons from "./Icons";
 
 export function BottomFooter() {
   return (
-    <div className="footer-bottom sm:flex sm:items-center sm:justify-between">
+    <div className="footer-bottom flex flex-wrap gap-2 items-center justify-around pb-2">
       <CopyrightDisclaimer
         year="2023"
         author="Rami Al-Saadi™"
