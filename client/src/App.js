@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { defaultItems } from "./defaultItems";
 import Header from "./components/header/Header";
 import Sidenav from "./components/aside-left/Sidenav";
-import Main from "./components/main/Main";
+import Main from "./components/main/Main.js";
 import AsideRight from "./components/aside-right/AsideRight";
 import Footer from "./components/footer/Footer";
 import MenuButton from "./components/aside-left/MenuButton";
