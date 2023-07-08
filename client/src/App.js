@@ -167,7 +167,7 @@ function App() {
       }`}
     >
       <Header list={list} items={items.length} />
-      <div className="bg-inherit flex justify-around flex-wrap gap-10 relative ">
+      <div className="overflow-x-hidden bg-inherit flex justify-around flex-wrap gap-10 relative">
         <aside className="aside-left bg-inherit">
           <div
             className={`z-50 fixed top-0 ${

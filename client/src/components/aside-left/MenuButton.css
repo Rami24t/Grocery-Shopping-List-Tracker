@@ -11,6 +11,8 @@
   position: absolute;
   top: 30px;
   background-color: #ddd;
+  width: 15px;
+  height: 4px;
 }
 
 .menu-btn .icon-left:before {
