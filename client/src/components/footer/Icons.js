@@ -5,7 +5,7 @@ import { BsYoutube, BsLinkedin } from "react-icons/bs";
 import { SvgGithub } from "./SvgGithub";
 
 function Icons() {
-  return <div className="footer-icons flex mt-4 space-x-6 sm:justify-center sm:mt-0">
+  return <div className="footer-icons flex flex-wrap mt-4 space-x-6 sm:justify-center sm:mt-0">
     <SendEmailIconLink />
     <FooterIconLink
       icon={BsLinkedin}
