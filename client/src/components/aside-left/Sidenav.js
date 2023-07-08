@@ -9,7 +9,7 @@ const Sidenav = ({ items, setShowAddItem, showSideNav, setShowSideNav}) => {
     <nav
     onClick={hadleClick}
       id="sidenav"
-      className={`z-40 sm:z-30 bg-gray-950 bg-opacity-75 sm:bg-gray-900 border-r-0 fixed sm:sticky top-0 overflow-hidden sm:top-24 h-screen left-0 w-64 pt-8 sm:pt-4 transition-transform sm:translate-x-0
+      className={`z-40 sm:z-30 bg-gray-950 bg-opacity-75 sm:bg-gray-900 border-r-0 fixed sm:absolute sm:w-52  md:sticky top-0 overflow-hidden sm:top-24  left-0 w-64 py-8 sm:py-4 transition-transform sm:translate-x-0
 ${
   showSideNav
     ? "w-64 rounded-lg translate-x-0 ease-out duration-300"
@@ -22,10 +22,10 @@ ${
           <li>
             <a
               href="#app"
-              className="text-lg flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
-              <BsHouseHeartFill />
-            <span className="ml-3">Home</span>
+              <span className="text-2xl text-gray-400"><BsHouseHeartFill /></span>
+            <span className="flex-1 ml-3 whitespace-nowrap">Home</span>
             </a>
           </li>
           <li>
@@ -36,7 +36,7 @@ ${
             >
               <SvgAddItem />
               <span className="flex-1 ml-3 whitespace-nowrap">Add Item</span>
-              <span className="inline-flex items-center justify-center w-3 h-3 p-3 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
+              <span className="inline-flex items-center justify-center w-3 h-3 p-2 ml-3 text-sm font-medium text-blue-800 bg-blue-100 rounded-full dark:bg-blue-900 dark:text-blue-300">
                 {items}
               </span>
             </a>
@@ -72,11 +72,11 @@ ${
           <li>
             <a
               href="#7"
-              className="flex items-center p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
+              className="flex items-end p-2 text-gray-900 rounded-lg dark:text-white hover:bg-gray-100 dark:hover:bg-gray-700"
             >
               <SvgSettings />
               <span className="flex-1 ml-3 whitespace-nowrap">Settings</span>
-              <span className="inline-flex items-center justify-center px-2 ml-3 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:text-gray-300">
+              <span className="inline-flex items-center justify-center px-2 pb-[1px] ml-5 text-sm font-medium text-gray-800 bg-gray-200 rounded-full dark:bg-gray-700 dark:hover:bg-gray-800 dark:text-gray-300">
                 Pro
               </span>
             </a>
