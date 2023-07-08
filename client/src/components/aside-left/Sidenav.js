@@ -12,7 +12,7 @@ const Sidenav = ({ items, setShowAddItem, showSideNav, setShowSideNav}) => {
       className={`z-40 sm:z-30 bg-gray-950 bg-opacity-75 sm:bg-gray-900 border-r-0 fixed sm:absolute sm:w-52  md:sticky top-0 overflow-hidden sm:top-24  left-0 w-64 py-8 sm:py-4 transition-transform sm:translate-x-0
 ${
   showSideNav
-    ? "w-64 rounded-lg translate-x-0 ease-out duration-300"
+    ? "w-full rounded-lg translate-x-0 ease-out duration-300"
     : "-translate-x-full duration-200"
 }`}
       aria-label="Sidebar"

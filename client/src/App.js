@@ -171,8 +171,8 @@ function App() {
         <aside className="aside-left bg-inherit">
           <div
             className={`z-50 fixed -top-1 ${
-              showSideNav ? "left-48" : "-right-1"
-            } opacity-75
+              showSideNav ? "-right-1" : "-right-1"
+            } opacity-95
         sm:hidden overflow-clip`}
           >
             <MenuButton
