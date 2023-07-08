@@ -170,9 +170,9 @@ function App() {
       <div className="overflow-x-hidden bg-inherit flex justify-around flex-wrap gap-10 relative">
         <aside className="aside-left bg-inherit">
           <div
-            className={`z-50 fixed top-0 ${
-              showSideNav ? "left-48" : "right-0"
-            } opacity-60 
+            className={`z-50 fixed -top-1 ${
+              showSideNav ? "left-48" : "-right-1"
+            } opacity-75
         sm:hidden overflow-clip`}
           >
             <MenuButton
