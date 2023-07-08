@@ -295,7 +295,7 @@ export const defaultItems = [
   },
   {
     id: "GL516.637",
-    name: "Creme Fraiche - Cream - قشطة",
+    name: "Crème fraîche - Heavy Cream - قشطة",
     need: false,
     category: "dairy",
   },
@@ -436,5 +436,23 @@ export const defaultItems = [
     name: "Mate Tea - متّه (كبير)",
     need: false,
     category: "beverages",
+  },
+  {
+    id: "GL765.691",
+    name: "Soya Sauce - Soja Soße - صلصة الصويا",
+    need: false,
+    category: "condiments",
+  },
+  {
+    id: "GL777.533",
+    name: "Rice Vinegar - Reisessig - خل الأرز",
+    need: false,
+    category: "condiments",
+  },
+  {
+    id: "GL789.375",
+    name: "Sesame Oil - Sesamöl - زيت السمسم",
+    need: false,
+    category: "condiments",
   },
 ];
