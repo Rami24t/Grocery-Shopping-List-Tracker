@@ -6,9 +6,11 @@ import Main from "./components/main-div/Main";
 import AsideRight from "./components/aside-right/AsideRight";
 import Footer from "./components/footer/Footer";
 import MenuButton from "./components/aside-left/MenuButton";
+import  { getLists }  from "./components/main-div/getLists.js";
 import "./App.css";
 
 function App() {
+  const [dark] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [list, setList] = useState("1");
   useEffect(() => {
@@ -18,8 +20,10 @@ function App() {
   }, []);
 
   function handleChangeList(e) {
-    setList(e.target.value);
-    localStorage.setItem("lastVisitedList", e.target.value);
+    if (e.target.validity.valid) {
+      setList(e.target.value);
+      localStorage.setItem("lastVisitedList", e.target.value);
+    }
   }
   const [showAddItem, setShowAddItem] = useState(false);
   const [showSideNav, setShowSideNav] = useState(false);
@@ -159,20 +163,22 @@ function App() {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items]);
 
+  const { needs, haves } = getLists(items);
+
   return (
     <div
       id="app"
-      className={`app-container bg-white dark:bg-gray-900 dark:text-white ${
-        isMobile && "text-center"
-      }`}
+      className={`app-container ${
+        dark ? "bg-gray-900 text-white" : "bg-white"
+      }  ${isMobile && "text-center"}`}
     >
-      <Header list={list} items={items.length} />
+      <Header list={list} needs={needs.length} haves={haves.length} dark={dark} />
       <div className="overflow-x-hidden bg-inherit flex justify-around flex-wrap gap-10 relative">
         <aside className="aside-left bg-inherit">
           <div
-            className={`z-50 fixed -top-1 ${
-              showSideNav ? "-right-1" : "-right-1"
-            } opacity-95
+            className={`z-50 fixed -top-2 ${
+              showSideNav ? "-right-0" : "-right-1"
+            } w-[50px] h-[50px]
         sm:hidden overflow-clip`}
           >
             <MenuButton
@@ -185,11 +191,14 @@ function App() {
             setShowAddItem={setShowAddItem}
             showSideNav={showSideNav}
             setShowSideNav={setShowSideNav}
+            dark={dark}
           />
         </aside>
         <Main
           list={list}
           items={items}
+          needs={needs}
+          haves={haves}
           setList={setList}
           filter={filter}
           handleChangeFilter={handleChangeFilter}
@@ -202,10 +211,11 @@ function App() {
           handleChangeList={handleChangeList}
           handleReset={handleReset}
           handleClear={handleClear}
+          dark={dark}
         />
-        <AsideRight isMobile={isMobile} />
+        <AsideRight isMobile={isMobile} dark={dark} />
       </div>
-      <Footer />
+      <Footer dark={dark} />
     </div>
   );
 }
