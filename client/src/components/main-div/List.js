@@ -9,10 +9,11 @@ function List({
   handleToggle,
   updateItem,
   validate,
+  dark
 }) {
   return (
     <article>
-      <h3>{title}</h3>
+      <h3 className={`font-bold ${items[0].need?'text-orange-200':'text-teal-300 '}`} >{title}: {items.length} </h3>
       <ul className="w-full">
         {items.map(
           (item) =>
@@ -23,6 +24,7 @@ function List({
                 updateItem={updateItem}
                 handleDelete={handleDelete}
                 handleToggle={handleToggle}
+                dark={dark}
               />
             )
         )}
