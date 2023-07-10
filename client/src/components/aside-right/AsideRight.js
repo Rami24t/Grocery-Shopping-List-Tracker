@@ -27,8 +27,8 @@ function AsideRight() {
       "/assets/deco-imgs/deco9.jpg",
       "/assets/deco-imgs/deco10.jpg",
       "/assets/deco-imgs/deco5.jpg",
-      "/assets/deco-imgs/deco1.jpg",
       "/assets/deco-imgs/deco0.jpg",
+      "/assets/deco-imgs/deco1.jpg",
     ];
     if (extraImagesNeeded > 0)
       for (let i = 0; i < extraImagesNeeded; i++)
