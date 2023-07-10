@@ -8,21 +8,18 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
       // ref={toggleAddBtn}
       disabled={listIsEmpty}
       onClick={() => setShowAddItem(!showAddItem)}
-      className={`font-extrabold transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg
-      ${
+      className={` font-semibold transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg ${
         !showAddItem
           ? "bg-indigo-700  hover:bg-indigo-600"
           : "bg-red-800  hover:bg-red-700"
-      } px-3 py-2 text-xs font-medium text-slate-200 transition focus:outline-none focus:ring
-       hover:text-indigo-100
-      `}
+      } px-3 py-2 text-xs font-medium text-slate-200 transition focus:outline-none focus:ring hover:text-indigo-100 `}
       type="button"
     >
-      {showAddItem ? "Add " : "Add "}
+      {"Add "}
       <div
-        className={`font-extrabold transition-transform flex text-center items-center justify-center w-3 h-3 ${!dark?'text-gray-800':'text-white'} ${
-          showAddItem ? "rotate-90" : "rotate-0 transform -translate-y-0.5"
-        }`}
+        className={`font-semibold transition-transform flex text-center items-center justify-center w-3 h-3 ${
+          !dark ? "text-gray-800" : "text-white"
+        } ${showAddItem ? "rotate-90" : "rotate-0 transform -translate-y-0.5"}`}
       >
         &gt;
       </div>
