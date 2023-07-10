@@ -21,6 +21,7 @@ function Header({ list, needs, haves, dark }) {
 
           <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
             <div
+            title="Items 📝"
               className="min-w-[90px] mx-auto opacity-95 relative rounded-lg bg-gray-700 bg-opacity-60 px-5 py-2.5 text-sm font-medium text-white transition flex items-center justify-center    "
               //  hover:bg-indigo-700 focus:outline-none focus:ring"
               // "inline-flex items-center justify-center gap-1.5 rounded-lg border text-gray-500 hover:text-gray-700"
@@ -56,10 +57,10 @@ function Header({ list, needs, haves, dark }) {
                   <path d="M17 5.923A1 1 0 0 0 16 5h-3V4a4 4 0 1 0-8 0v1H2a1 1 0 0 0-1 .923L.086 17.846A2 2 0 0 0 2.08 20h13.84a2 2 0 0 0 1.994-2.153L17 5.923ZM7 9a1 1 0 0 1-2 0V7h2v2Zm0-5a2 2 0 1 1 4 0v1H7V4Zm6 5a1 1 0 1 1-2 0V7h2v2Z" />
                 </svg>
               )}
-              <span className="ml-1">&nbsp; Items </span>
+              <span className="ml-1">&nbsp; 📋 </span>
               {items && both ? (
                 <div
-                  title="Items"
+                  title="Total Items"
                   className={` ${
                     dark ? "border-gray-800" : "border-white"
                   } absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-gray-300 bg-blue-800 border-2 rounded-full -bottom-2 -left-2
