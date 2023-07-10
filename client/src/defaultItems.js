@@ -8,7 +8,7 @@ export const defaultItems = [
   {
     id: "GL28.605",
     name: "Tofu - توفو",
-    need: true,
+    need: false,
     category: "vegetarian",
   },
   {
@@ -62,7 +62,7 @@ export const defaultItems = [
   {
     id: "GL98.068",
     name: "🥬 Kale - Grünkohl - كرنب",
-    need: true,
+    need: false,
     category: "vegetables",
   },
   {
@@ -86,13 +86,13 @@ export const defaultItems = [
   {
     id: "GL132.337",
     name: "Okras - Okraschoten - باميه",
-    need: true,
+    need: false,
     category: "vegetables",
   },
   {
     id: "GL148.549",
     name: "Radieschen - Radishes - فجل",
-    need: true,
+    need: false,
     category: "vegetables",
   },
   {
@@ -134,7 +134,7 @@ export const defaultItems = [
   {
     id: "GL227.213",
     name: "Flax Seeds - Leinsamen - بذور الكتان",
-    need: true,
+    need: false,
     category: "seeds",
   },
   {
@@ -146,7 +146,7 @@ export const defaultItems = [
   {
     id: "GL242.929",
     name: "Pumpkin Seeds - Kürbiskerne - بذور اليقطين",
-    need: true,
+    need: false,
     category: "seeds",
   },
   {
@@ -157,20 +157,20 @@ export const defaultItems = [
   },
   {
     id: "GL263.646",
-    name: "🍆🧋 Makdouss - مكدوس",
+    name: "🧋🍆 Makdouss - مكدوس",
     need: false,
     category: "pickled",
   },
   {
     id: "GL275.619",
-    name: "🥒🧋 Pickles - كبيس",
-    need: true,
+    name: "🧋🥒 Pickles - كبيس",
+    need: false,
     category: "pickled",
   },
   {
     id: "GL281.547",
     name: "Macademia Nuts - Macadamia-Nüsse - جوز مكاداميا",
-    need: true,
+    need: false,
     category: "nuts",
   },
   {
@@ -206,19 +206,19 @@ export const defaultItems = [
   {
     id: "GL358.380",
     name: "🌰 Walnut - Walnuss - جوز",
-    need: true,
+    need: false,
     category: "nuts",
   },
   {
     id: "GL365.054",
-    name: "🫑🥫 Cooked Beans - فول مدمس",
-    need: true,
+    name: "🥫🫑 Cooked Beans - فول مدمس",
+    need: false,
     category: "legumes",
   },
   {
     id: "GL379.762",
     name: "🥫 Chickpeas - Kichererbsen - حمص",
-    need: true,
+    need: false,
     category: "legumes",
   },
   {
@@ -230,7 +230,7 @@ export const defaultItems = [
   {
     id: "GL390.298",
     name: "Cocoa Powder - Kakaopulver - بودرة الكاكاو",
-    need: true,
+    need: false,
     category: "ingredients",
   },
   {
@@ -289,14 +289,14 @@ export const defaultItems = [
   },
   {
     id: "GL500.440",
-    name: "🥥🥛 Coconut Milk - Kokosmilch - حليب جوز الهند",
-    need: true,
+    name: "🥛🥥 Coconut Milk - Kokosmilch - حليب جوز الهند",
+    need: false,
     category: "beverages",
   },
   {
     id: "GL498.965",
     name: "🧈 Butter - زبدة",
-    need: true,
+    need: false,
     category: "dairy",
   },
   {
@@ -325,13 +325,13 @@ export const defaultItems = [
   },
   {
     id: "GL559.840",
-    name: "🐄 Joghurt Grieschischer Art. 1x1 - لبن",
-    need: true,
+    name: "🐄🥛 Joghurt Grieschischer Art. 1x1 - لبن",
+    need: false,
     category: "dairy",
   },
   {
     id: "GL561.376",
-    name: "🐄 Joghurt Grieschischer Art. 1x4 - لبن",
+    name: "🐄🥛 Joghurt Grieschischer Art. 1x4 - لبن",
     need: false,
     category: "dairy",
   },
@@ -350,7 +350,7 @@ export const defaultItems = [
   {
     id: "GL608.631",
     name: "Homemade Mayo - مايونيز",
-    need: true,
+    need: false,
     category: "condiments",
   },
   {
@@ -374,13 +374,13 @@ export const defaultItems = [
   {
     id: "GL652.705",
     name: "🌹💧 Rose Water - ماء ورد  ",
-    need: true,
+    need: false,
     category: "condiments",
   },
   {
     id: "GL663.669",
     name: "Spices - Gewürze - بهارات",
-    need: true,
+    need: false,
     category: "condiments",
   },
   {
@@ -458,13 +458,13 @@ export const defaultItems = [
   {
     id: "GL801.217",
     name: "Pistachios - Pistazien - فستق",
-    need: true,
+    need: false,
     category: "nuts",
   },
   {
     id: "GL813.059",
     name: "Almonds - Mandeln - لوز",
-    need: true,
+    need: false,
     category: "nuts",
   },
   {
