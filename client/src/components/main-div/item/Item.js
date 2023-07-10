@@ -8,21 +8,21 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
     e.target.parentNode.firstChild.disabled = false;
     e.target.parentNode.firstChild.readOnly = false;
     e.target.parentNode.firstChild.focus();
-    console.log("edit");
+    // console.log("edit");
   };
 
   const handleBlur = (e) => {
     e.preventDefault();
     e.target.disabled = true;
     handleUpdate(e);
-    console.log("Handled blur");
+    // console.log("Handled blur");
   };
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.target.disabled = true;
       handleUpdate(e);
-      console.log("Handled Enter Keydown");
+      // console.log("Handled Enter Keydown");
     }
   };
 
@@ -35,18 +35,18 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
     if (item.name === value) return;
     setName(value);
     updateItem(item, { name: value });
-    console.log("update");
+    // console.log("update");
   };
 
   const handleCheck = (item) => {
     setNeeded(!needed);
     handleToggle(item);
-    console.log("toggle");
+    // console.log("toggle");
   };
 
   const handleChange = (e) => {
     setName(e.target.value);
-    console.log("change");
+    // console.log("change");
   };
 
   const [needed, setNeeded] = useState(item.need);

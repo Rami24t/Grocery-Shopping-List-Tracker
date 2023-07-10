@@ -54,9 +54,9 @@ function App() {
   //   [items, list]
   // );
   function handleSave(updatedItems) {
-    console.log(items, "saving items");
+    // console.log(items, "saving items");
     localStorage.setItem(`list${list}`, JSON.stringify(updatedItems || items));
-    console.log("save end");
+    // console.log("save end");
   }
   // const handleDelete = useCallback(
   //   (item) => {
@@ -72,7 +72,7 @@ function App() {
     setItems((prevItems) => {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
       // handleSave(updatedItems);
-      console.log("delete");
+      // console.log("delete");
       return updatedItems;
     });
   }
@@ -110,11 +110,11 @@ function App() {
   //   [items, handleSave]
   // );
   function updateItem(item, update) {
-    console.log(item, update);
+    // console.log(item, update);
     for (let key in update) {
       item[key] = update[key];
     }
-    console.log(item, update);
+    // console.log(item, update);
     refreshItems();
   }
 
@@ -161,7 +161,7 @@ function App() {
       !items
     )
       return;
-    console.log(
+    // console.log(
       JSON.stringify(items.sort()) === JSON.stringify(defaultItems.sort())
     );
     handleSave();
