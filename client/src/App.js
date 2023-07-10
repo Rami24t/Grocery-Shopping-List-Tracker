@@ -161,9 +161,6 @@ function App() {
       !items
     )
       return;
-    // console.log(
-      JSON.stringify(items.sort()) === JSON.stringify(defaultItems.sort())
-    );
     handleSave();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items]);
