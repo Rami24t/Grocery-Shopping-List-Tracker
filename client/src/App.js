@@ -6,17 +6,20 @@ import Main from "./components/main-div/Main";
 import AsideRight from "./components/aside-right/AsideRight";
 import Footer from "./components/footer/Footer";
 import MenuButton from "./components/aside-left/MenuButton";
-import  { getLists }  from "./components/main-div/getLists.js";
+import { getLists } from "./components/main-div/getLists.js";
 import "./App.css";
 
 function App() {
   const [dark] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
-  const [list, setList] = useState("1");
+  const [list, setList] = useState(
+    localStorage.getItem("lastVisitedList") || "1"
+  );
   useEffect(() => {
     setIsMobile(window.innerWidth <= 440);
     if (localStorage.getItem("lastVisitedList"))
       setList(localStorage.getItem("lastVisitedList"));
+    else setList("1");
   }, []);
 
   function handleChangeList(e) {
@@ -174,7 +177,12 @@ function App() {
         dark ? "bg-gray-900 text-white" : "bg-white"
       }  ${isMobile && "text-center"}`}
     >
-      <Header list={list} needs={needs.length} haves={haves.length} dark={dark} />
+      <Header
+        list={list}
+        needs={needs.length}
+        haves={haves.length}
+        dark={dark}
+      />
       <div className="overflow-x-hidden bg-inherit flex justify-around flex-wrap gap-10 relative">
         <aside className="aside-left bg-inherit">
           <div
