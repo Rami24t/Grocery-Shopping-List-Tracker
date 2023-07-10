@@ -253,7 +253,7 @@ export const defaultItems = [
   },
   {
     id: "GL431.879",
-    name: "🌿 Minze - Mint - نعناع",
+    name: "🌿 Mint - Minze - نعناع",
     need: false,
     category: "herbs",
   },
