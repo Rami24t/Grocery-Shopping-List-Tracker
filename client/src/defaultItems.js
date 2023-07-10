@@ -466,5 +466,11 @@ export const defaultItems = [
     name: "Almonds - Mandeln - لوز",
     need: true,
     category: "nuts",
+  },
+  {
+    id: "GL824.901",
+    name: "Pine nuts - Pinienkerne - صنوبر",
+    need: true,
+    category: "nuts",
   }
 ];

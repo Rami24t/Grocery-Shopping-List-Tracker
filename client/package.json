@@ -2,7 +2,7 @@
   "name": "grocery-shopping-lists-tracker-web-app",
   "author": {
     "name": "Rami Al-Saadi"},
-  "version": "0.1.0",
+  "version": "1.1.0",
   "private": true,
   "dependencies": {
     "react": "^18.2.0",
