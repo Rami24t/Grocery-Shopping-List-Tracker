@@ -104,7 +104,7 @@ export const defaultItems = [
   {
     id: "GL178.955",
     name: "Tomaten - Tomatoes - طماطم",
-    need: false,
+    need: true,
     category: "vegetables",
   },
   {
@@ -146,7 +146,7 @@ export const defaultItems = [
   {
     id: "GL256.701",
     name: "Watermelon Seeds - Wassermelonen Samen - بذر صغير",
-    need: false,
+    need: true,
     category: "seeds",
   },
   {
@@ -455,4 +455,16 @@ export const defaultItems = [
     need: false,
     category: "condiments",
   },
+  {
+    id: "GL801.217",
+    name: "Pistachios - Pistazien - فستق",
+    need: true,
+    category: "nuts",
+  },
+  {
+    id: "GL813.059",
+    name: "Almonds - Mandeln - لوز",
+    need: true,
+    category: "nuts",
+  }
 ];
