@@ -143,11 +143,13 @@ function App() {
   function handleReset() {
     setItems(defaultItems);
     handleSave(defaultItems);
+    setFilter("");
   }
 
   function handleClear() {
     setItems([]);
     handleSave([]);
+    setFilter("");
   }
 
   useEffect(() => {

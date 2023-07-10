@@ -7,6 +7,7 @@ import Lists from "./Lists";
 function Main({
   list,
   filter,
+  setFilter,
   items,
   needs,
   haves,
