@@ -61,7 +61,7 @@ export const defaultItems = [
   },
   {
     id: "GL98.068",
-    name: "🥬 Kale - Grünkohl - كرنب",
+    name: "Kale - Grünkohl - كرنب",
     need: false,
     category: "vegetables",
   },
@@ -97,7 +97,7 @@ export const defaultItems = [
   },
   {
     id: "GL159.169",
-    name: "🥬 Spinach - Spinat - سبانخ",
+    name: "Spinach - Spinat - سبانخ",
     need: false,
     category: "vegetables",
   },
@@ -157,13 +157,13 @@ export const defaultItems = [
   },
   {
     id: "GL263.646",
-    name: "🧋🍆 Makdouss - مكدوس",
+    name: "🍆 Makdouss - مكدوس",
     need: false,
     category: "pickled",
   },
   {
     id: "GL275.619",
-    name: "🧋🥒 Pickles - كبيس",
+    name: "🥒 Pickles - كبيس",
     need: false,
     category: "pickled",
   },
@@ -182,7 +182,7 @@ export const defaultItems = [
   {
     id: "GL300.963",
     name: "🌰 Nüsse & Samen - مكسرات وبذورات",
-    need: true,
+    need: false,
     category: "nuts",
   },
   {
@@ -283,7 +283,7 @@ export const defaultItems = [
   },
   {
     id: "GL485.313",
-    name: "🍋 Zitronen/Lime - Zitronen/Limette - ليمون",
+    name: "🍋 Lemon/Lime - Zitronen/Limette - ليمون",
     need: false,
     category: "fruits",
   },
@@ -469,7 +469,7 @@ export const defaultItems = [
   },
   {
     id: "GL824.901",
-    name: "🎍 Pine nuts - Pinienkerne - صنوبر",
+    name: "Pine nuts - Pinienkerne - صنوبر",
     need: true,
     category: "nuts",
   },
