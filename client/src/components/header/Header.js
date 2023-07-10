@@ -113,7 +113,7 @@ function Header({ list, needs, haves, dark }) {
                   title="Completion Percentage"
                   className={` ${
                     dark ? "border-gray-800" : "border-white"
-                  } absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-gray-300 bg-teal-700 border-2 rounded-full -bottom-2 -right-2
+                  } absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-gray-300 bg-teal-700 border-2 rounded-full -bottom-2 -right-1.5
                   } `}
                 >
                   {Math.round(100 * (haves / items)) || 0}
