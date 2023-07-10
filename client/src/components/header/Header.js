@@ -49,7 +49,7 @@ function Header({ list, needs, haves, dark }) {
                   className={`${
                     dark ? "text-green-300 " : "text-gray-800"
                   } inline w-4 h-4 `}
-                  ariaHidden="true"
+                  aria-hidden="true"
                   xmlns="http://www.w3.org/2000/svg"
                   fill="currentColor"
                   viewBox="0 0 18 20"
@@ -83,7 +83,7 @@ function Header({ list, needs, haves, dark }) {
                     className={`${
                       dark ? "text-white " : "text-gray-800"
                     } inline w-1 h-1 `}
-                    ariaHidden="true"
+                    aria-hidden="true"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="currentColor"
                     viewBox="0 0 18 20"
