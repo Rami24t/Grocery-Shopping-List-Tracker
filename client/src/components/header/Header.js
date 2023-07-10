@@ -16,7 +16,7 @@ function Header({ list, needs, haves, dark }) {
             >
               Grocery List 🛒 {list}
             </h1>
-            <p className="mt-1.5 text-sm text-gray-500">Let's do it! 🎉</p>
+            <p className="mt-1.5 text-sm text-gray-500">Let's do it! 🧉 </p>
           </div>
 
           <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
