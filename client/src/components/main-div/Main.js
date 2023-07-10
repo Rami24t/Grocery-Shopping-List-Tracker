@@ -8,6 +8,8 @@ function Main({
   list,
   filter,
   items,
+  needs,
+  haves,
   showAddItem,
   setShowAddItem,
   handleChangeList,
@@ -18,6 +20,7 @@ function Main({
   updateItem,
   handleReset,
   handleClear,
+  dark
 }) {
   function sanitize(str) {
     return str
@@ -42,21 +45,25 @@ function Main({
         handleChangeList={handleChangeList}
         handleReset={handleReset}
         handleClear={handleClear}
+        dark={dark}
       />
-      {showAddItem && <AddItems handleAdd={handleAdd} />}
+      {showAddItem && <AddItems handleAdd={handleAdd} dark={dark}/>}
       <FilterSection
         filter={filter}
         handleChangeFilter={handleChangeFilter}
         items={items}
+        dark={dark} 
       />
       <Lists
         filter={filter}
-        items={items}
+        needs={needs}
+        haves={haves}
         handleDelete={handleDelete}
         handleToggle={handleToggle}
         updateItem={updateItem}
         list={list}
         validate={validate}
+        dark={dark}
       />
     </main>
   );

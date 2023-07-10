@@ -1,10 +1,10 @@
 import React from "react";
 
-export function ResetButton(items, handleClear, handleReset) {
+export function ResetButton({items, handleClear, handleReset, dark}) {
   return (
     <button
       onClick={items.length ? handleClear : handleReset}
-      className={`transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg
+      className={`font-extrabold transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg
       ${
         !items.length
           ? "bg-indigo-700  hover:bg-indigo-600"
@@ -16,9 +16,9 @@ export function ResetButton(items, handleClear, handleReset) {
     >
       {items.length ? "Clear" : "Reset"}
       <div
-        className={`aspect-square rounded-full p-[3px] bg-indigo-500 transition-transform flex text-center items-center justify-center min-w-[12px] min-h-[12px] text-gray-800 dark:text-white ${
+        className={`aspect-square rounded-full p-[3px] bg-indigo-500 transition-transform flex text-center items-center justify-center min-w-[12px] min-h-[12px] font-bold ${dark?'border-gray-700 text-gray-50':'border-white text-gray-800'} ${
           !items.length ? "rotate-90" : "rotate-0"
-        } absolute inline-flex items-center justify-center text-xs font-bold text-white  border-2 border-white rounded-full -top-2 -right-2 dark:border-gray-900`}
+        } absolute inline-flex items-center justify-center text-xs font-bold text-white  border-2 rounded-full -top-2 -right-2`}
       >
         {items.length || "O"}
       </div>
