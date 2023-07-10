@@ -211,7 +211,7 @@ export const defaultItems = [
   },
   {
     id: "GL365.054",
-    name: "🥫🫑 Cooked Beans - فول مدمس",
+    name: "🫑 Cooked Beans - فول مدمس",
     need: false,
     category: "legumes",
   },
@@ -265,7 +265,7 @@ export const defaultItems = [
   },
   {
     id: "GL459.829",
-    name: "Thyme - Thymian - زعتر",
+    name: "🌿 Thyme - Thymian - زعتر",
     need: false,
     category: "herbs",
   },
@@ -301,7 +301,7 @@ export const defaultItems = [
   },
   {
     id: "GL516.637",
-    name: "🥛🐄 Crème fraîche - Heavy Cream - قشطة",
+    name: "🥛 Crème fraîche - Heavy Cream - قشطة",
     need: false,
     category: "dairy",
   },
@@ -325,13 +325,13 @@ export const defaultItems = [
   },
   {
     id: "GL559.840",
-    name: "🐄🥛 Joghurt Grieschischer Art. 1x1 - لبن",
+    name: "🥛 Joghurt Grieschischer Art. 1x1 - لبن",
     need: false,
     category: "dairy",
   },
   {
     id: "GL561.376",
-    name: "🐄🥛 Joghurt Grieschischer Art. 1x4 - لبن",
+    name: "🥛 Joghurt Grieschischer Art. 1x4 - لبن",
     need: false,
     category: "dairy",
   },
