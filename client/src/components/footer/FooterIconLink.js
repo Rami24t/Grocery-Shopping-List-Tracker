@@ -8,6 +8,7 @@ function FooterIconLink({
  dark}) {
   return (
     <a
+    title={`my ${srText}`}
       href={url}
       target="_blank"
       rel="noopener noreferrer"
