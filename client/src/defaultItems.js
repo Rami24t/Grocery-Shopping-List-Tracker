@@ -205,7 +205,7 @@ export const defaultItems = [
   },
   {
     id: "GL358.380",
-    name: "🌰 Walnut - Walnuss - جوز",
+    name: "Walnut - Walnuss - جوز",
     need: false,
     category: "nuts",
   },
@@ -368,7 +368,7 @@ export const defaultItems = [
   {
     id: "GL633.333",
     name: "🫒 Oliven - Olives - زيتون",
-    need: true,
+    need: false,
     category: "condiments",
   },
   {
@@ -470,7 +470,7 @@ export const defaultItems = [
   {
     id: "GL824.901",
     name: "Pine nuts - Pinienkerne - صنوبر",
-    need: true,
+    need: false,
     category: "nuts",
   },
   {
