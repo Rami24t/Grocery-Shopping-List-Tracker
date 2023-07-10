@@ -63,27 +63,10 @@ function Header({ list, needs, haves, dark }) {
                   title="Total Items"
                   className={` ${
                     dark ? "border-gray-800" : "border-white"
-                  } absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-gray-300 bg-blue-800 border-2 rounded-full -bottom-2 -left-2
+                  } absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-gray-300 bg-blue-800 border-2 rounded-full -bottom-2 -left-1.5
                   } `}
                 >
                   {items || 0} <span className="sr-only">items</span>
-                  <svg
-                    className={`${
-                      dark ? "text-white " : "text-gray-800"
-                    } inline w-1 h-1 `}
-                    aria-hidden="true"
-                    xmlns="http://www.w3.org/2000/svg"
-                    fill="none"
-                    viewBox="0 0 18 20"
-                  >
-                    <path
-                      stroke="currentColor"
-                      strokeLinecap="round"
-                      strokeLinejoin="round"
-                      strokeWidth="2"
-                      d="M12 9V4a3 3 0 0 0-6 0v5m9.92 10H2.08a1 1 0 0 1-1-1.077L2 6h14l.917 11.923A1 1 0 0 1 15.92 19Z"
-                    />
-                  </svg>
                 </div>
               ) : null}
               {haves ? (
