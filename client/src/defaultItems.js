@@ -296,7 +296,7 @@ export const defaultItems = [
   {
     id: "GL498.965",
     name: "🧈 Butter - زبدة",
-    need: false,
+    need: true,
     category: "dairy",
   },
   {
@@ -320,7 +320,7 @@ export const defaultItems = [
   {
     id: "GL547.998",
     name: "🧈 Ghee - سمن",
-    need: true,
+    need: false,
     category: "dairy",
   },
   {
