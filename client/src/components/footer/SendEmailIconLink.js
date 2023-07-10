@@ -1,10 +1,10 @@
 import React from "react";
 import { BsSend } from "react-icons/bs";
 
-function SendEmailIconLink({ lastPartOfEmail = "24@gmail.com", firstPartOfEmail = "alsaadi.rami" }) {
+function SendEmailIconLink({ lastPartOfEmail = "24@gmail.com", firstPartOfEmail = "alsaadi.rami", dark }) {
   return <a
     href="#send-email"
-    className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
+    className={` ${dark?'hover:text-white':'hover:text-gray-900'} text-gray-500 `}
     onClick={() => {
       lastPartOfEmail = lastPartOfEmail || "24@gmail.com";
       window.open("mailto:" + (firstPartOfEmail || "alsaadi.rami") + lastPartOfEmail);

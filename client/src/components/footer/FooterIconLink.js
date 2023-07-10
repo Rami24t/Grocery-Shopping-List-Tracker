@@ -5,14 +5,13 @@ function FooterIconLink({
   srText = "LinkedIn",
   url = "https://www.linkedin.com/in/rami-al-saadi-16a14223a/",
   icon = BsLinkedin,
-}) {
+ dark}) {
   return (
     <a
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className="text-gray-500 hover:text-gray-900 dark:hover:text-white"
-    >
+      className={` ${dark?' hover:text-white':'hover:text-gray-900'} text-gray-500 `}>
       {icon()}
       <span className="sr-only">{srText}</span>
     </a>
