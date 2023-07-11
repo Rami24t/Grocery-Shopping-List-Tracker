@@ -37,14 +37,12 @@ function App() {
     else setFilter(e.target.value);
   }
 
-  const [items, setItems] = useState(defaultItems);
+  const [items, setItems] = useState(JSON.parse(localStorage.getItem(`list${list}`)) || defaultItems);
 
   useEffect(() => {
     if (localStorage.getItem(`list${list}`))
       setItems(JSON.parse(localStorage.getItem(`list${list}`)));
-    else setItems(defaultItems);
     document.title = `Grocery 🛒 | List ${list}`;
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [list]);
 
   // const handleSave = useCallback(

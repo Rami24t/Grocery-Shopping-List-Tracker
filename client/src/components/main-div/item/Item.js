@@ -44,11 +44,6 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
     // console.log("toggle");
   };
 
-  const handleChange = (e) => {
-    setName(e.target.value);
-    // console.log("change");
-  };
-
   const [needed, setNeeded] = useState(item.need);
   const [name, setName] = useState(item.name);
 
@@ -91,7 +86,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
 
   return (
     <div className="flex justify-around items-center">
-      <ItemName name={name} handleChange={handleChange} handleBlur={handleBlur} handleKeyDown={handleKeyDown} needed={needed}  dark={dark} />
+      <ItemName name={name} setName={setName} handleBlur={handleBlur} handleKeyDown={handleKeyDown} needed={needed}  dark={dark} />
       <Checkbox  dark={dark} />
       <EditButton  dark={dark} />
       <DeleteButton  dark={dark} />
