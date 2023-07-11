@@ -9,12 +9,35 @@ function List({
   handleToggle,
   updateItem,
   validate,
-  dark
+  dark,
 }) {
+  const [showItems, setShowItems] = React.useState(true);
+
   return (
     <article>
-      <h3 className={`font-bold ${items[0].need?'text-orange-200':'text-teal-300 '}`} >{title}: {items.length} </h3>
-      <ul className="w-full">
+      <h3
+        className={`cursor-pointer font-bold ${
+          items[0].need ? "text-orange-200" : "text-teal-300 "
+        }`}
+        onClick={() => setShowItems((prev) => !prev)}
+      >
+        {title}: {items.length}
+        <div
+          className={`ms-1 p-2 cursor-pointer transition-transform inline-flex text-center items-center justify-center w-4 h-4 ${
+            showItems ? "rotate-90" : "rotate-0 transform -translate-y-0.5"
+          }`}
+        >
+          &gt;
+        </div>
+      </h3>
+      <ul
+        className={
+          "overflow-hidden transition-all " +
+          (showItems
+            ? "w-full opacity-100 rotate-0"
+            : "opacity-0 w-0 h-0 rotate-45")
+        }
+      >
         {items.map(
           (item) =>
             (!filter || validate(item.name)) && (
