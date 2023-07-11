@@ -51,6 +51,7 @@ function Main({
       {showAddItem && <AddItems handleAdd={handleAdd} dark={dark}/>}
       <FilterSection
         filter={filter}
+        setFilter={setFilter}
         handleChangeFilter={handleChangeFilter}
         items={items}
         dark={dark} 

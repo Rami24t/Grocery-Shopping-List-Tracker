@@ -207,6 +207,7 @@ function App() {
           haves={haves}
           setList={setList}
           filter={filter}
+          setFilter={setFilter}
           handleChangeFilter={handleChangeFilter}
           handleDelete={handleDelete}
           handleToggle={handleToggle}
