@@ -1,13 +1,12 @@
 import React from "react";
 
 function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
-  // const toggleAddBtn = useRef(null);
-  listIsEmpty && setShowAddItem(true);
+  if(listIsEmpty)
+    setShowAddItem(true);
   return (
     <button
-      // ref={toggleAddBtn}
       disabled={listIsEmpty}
-      onClick={() => setShowAddItem(!showAddItem)}
+      onClick={() => setShowAddItem(prev=>!prev)}
       className={` font-semibold transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg ${
         !showAddItem
           ? "bg-indigo-700  hover:bg-indigo-600"
