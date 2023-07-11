@@ -139,13 +139,13 @@ export const defaultItems = [
   },
   {
     id: "GL236.243",
-    name: "Hemp Seeds - Hanfsamen - بذور القنب",
+    name: "🍁 Hemp Seeds - Hanfsamen - بذور القنب",
     need: false,
     category: "seeds",
   },
   {
     id: "GL242.929",
-    name: "Pumpkin Seeds - Kürbiskerne - بذور اليقطين",
+    name: "🎃 Pumpkin Seeds - Kürbiskerne - بذور اليقطين",
     need: false,
     category: "seeds",
   },
