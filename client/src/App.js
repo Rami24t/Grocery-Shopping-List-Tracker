@@ -145,6 +145,7 @@ function App() {
     setItems(defaultItems);
     handleSave(defaultItems);
     setFilter("");
+    setShowAddItem(false);
   }
 
   function handleClear() {
