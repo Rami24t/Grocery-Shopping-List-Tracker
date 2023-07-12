@@ -1,7 +1,7 @@
 import React from "react";
 import MainHeader from "./MainHeader";
 import AddItems from "./AddItems";
-import FilterSection from "./FilterSection";
+import FilterSection from "./filter-section/FilterSection";
 import Lists from "./Lists";
 
 function Main({
@@ -52,7 +52,7 @@ function Main({
         filter={filter}
         setFilter={setFilter}
         handleChangeFilter={handleChangeFilter}
-        items={items}
+        items={items.length}
         dark={dark} 
       />
       <Lists
