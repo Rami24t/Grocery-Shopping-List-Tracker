@@ -2,6 +2,15 @@ import React from "react";
 import { BsFunnel, BsFunnelFill } from "react-icons/bs";
 
 function FilterSection({ filter, setFilter, handleChangeFilter, items, dark }) {
+  
+  function onEnter(e) {
+    if(e.key === 'Enter')
+      e.target.blur()
+  }
+  function clearFilter() {
+    setFilter("");
+  }
+
   return (
     items.length > 1 && (
       <section className="me-auto -ms-5 sm:mx-auto relative max-w-max my-1 text-center flex items-center ">
@@ -29,7 +38,7 @@ function FilterSection({ filter, setFilter, handleChangeFilter, items, dark }) {
           name="filter"
           value={filter}
           onChange={handleChangeFilter}
-          onKeyDown={(e) => { if (e.key === 'Enter') e.target.blur(); }}
+          onKeyDown={onEnter}
           className={`w-64 border text-sm rounded-lg focus:ring-blue-500  focus:border-blue-500 block pl-10 p-2.5 ${
             !dark
               ? "bg-gray-50 border-gray-300 text-gray-900"
@@ -38,7 +47,7 @@ function FilterSection({ filter, setFilter, handleChangeFilter, items, dark }) {
           placeholder={`Search ${items.length} Items`}
         />
         <button
-          onClick={() => setFilter("")}
+          onClick={clearFilter}
           className="font-bold text-xl absolute inset-y-0 left-80 flex items-center pr-3"
         >
           {filter.length > 0 ? (
