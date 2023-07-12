@@ -29,7 +29,7 @@ function FilterSection({ filter, setFilter, handleChangeFilter, items, dark }) {
           name="filter"
           value={filter}
           onChange={handleChangeFilter}
-          onKeyDown={(e) => { if (e.key === 'Enter') e.preventDefault(); e.target.blur(); }}
+          onKeyDown={(e) => { if (e.key === 'Enter') e.target.blur(); }}
           className={`w-64 border text-sm rounded-lg focus:ring-blue-500  focus:border-blue-500 block pl-10 p-2.5 ${
             !dark
               ? "bg-gray-50 border-gray-300 text-gray-900"
