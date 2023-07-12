@@ -26,10 +26,9 @@ function Main({
   function sanitize(str) {
     return str
       .trim()
-      .replace(/[^a-zA-Z0-9äöüß]/g, "")
+      .replace(/[^a-zA-Z0-9\u0621-\u064A\u0660-\u0669\u0300-\u036fäöüß]/g, "")
       .toLowerCase()
       .normalize("NFD")
-      .replace(/[\u0300-\u036f]/g, "");
   }
   function validate(str) {
     return filter.trim() === "" || sanitize(str).includes(sanitize(filter));
