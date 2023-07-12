@@ -142,4 +142,4 @@ function Header({ list, needs, haves, dark }) {
   );
 }
 
-export default Header;
+export default React.memo(Header);

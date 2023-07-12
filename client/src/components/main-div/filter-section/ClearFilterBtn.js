@@ -24,4 +24,4 @@ function ClearFilterBtn({filter, setFilter}) {
   );
 }
 
-export default ClearFilterBtn;
+export default React.memo(ClearFilterBtn);
