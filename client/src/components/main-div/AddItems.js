@@ -30,7 +30,7 @@ function AddItems({ handleAdd, dark }) {
           onBlur={handleAdd}
           type="text"
           id="new-item"
-          className={` ${dark?'placeholder-gray-400 text-white border-gray-600 bg-gray-700 ':'text-gray-900 border-gray-300 bg-gray-50 '} inline-block p-4 border rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500  `}
+          className={` ${dark?'placeholder-gray-400 text-white border-gray-600 bg-gray-700 bg-opacity-70 ':'text-gray-900 border-gray-300 bg-gray-50 '} inline-block p-4 border rounded-lg sm:text-md focus:ring-blue-500 focus:border-blue-500  `}
           onKeyDown={onEnter()}
         />
         <button
