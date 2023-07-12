@@ -4,7 +4,7 @@ import { BsFunnel, BsFunnelFill } from "react-icons/bs";
 function FilterSection({ filter,setFilter, handleChangeFilter, items, dark }) {
   return (
     items.length > 1 && (
-      <section className="relative w-96 mx-auto my-1 text-center">
+      <section className="me-auto -ms-5 sm:mx-auto relative max-w-max my-1 text-center flex items-center ">
         <label htmlFor="filter" className="sr-only">
           Filter Items
         </label>
@@ -29,7 +29,7 @@ function FilterSection({ filter,setFilter, handleChangeFilter, items, dark }) {
           name="filter"
           value={filter}
           onChange={handleChangeFilter}
-          className={`w-64 border text-sm rounded-lg focus:ring-blue-500  focus:border-blue-500 block pl-10 p-2.5 ${!dark?"bg-gray-50 border-gray-300 text-gray-900":"placeholder-gray-400 bg-gray-700 border-gray-600 text-white"}`}
+          className={`w-64 border text-sm rounded-lg focus:ring-blue-500  focus:border-blue-500 block pl-10 p-2.5 ${!dark?"bg-gray-50 border-gray-300 text-gray-900":"placeholder-gray-400 bg-gray-700 bg-opacity-70 border-gray-600 text-white"}`}
           placeholder={`Search ${items.length} Items`}
         />
         <button 
