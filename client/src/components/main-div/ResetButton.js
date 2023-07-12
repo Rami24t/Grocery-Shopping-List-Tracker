@@ -1,6 +1,6 @@
 import React from "react";
 
-export function ResetButton({ items, handleClear, handleReset, dark }) {
+function ResetButton({ items, handleClear, handleReset, dark }) {
   return (
     <button
       onClick={items.length ? handleClear : handleReset}
@@ -27,3 +27,5 @@ export function ResetButton({ items, handleClear, handleReset, dark }) {
     </button>
   );
 }
+
+export default React.memo(ResetButton);

@@ -20,4 +20,4 @@ function FilterInput({filter, handleChangeFilter, items, dark}) {
   );
 }
 
-export default FilterInput;
+export default React.memo(FilterInput);

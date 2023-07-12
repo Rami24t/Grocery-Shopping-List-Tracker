@@ -2,7 +2,7 @@ import React from "react";
 import Company from "./Company";
 import FooterLists from "./FooterLists";
 
-export function TopFooter( {dark} ) {
+function TopFooter( {dark} ) {
   return <div className="footer-top flex flex-col md:flex-row flex-wrap gap-3 justify-between">
     <Company
       logo="/logo-no-background.svg"
@@ -13,3 +13,5 @@ export function TopFooter( {dark} ) {
     <FooterLists  dark={dark} />
   </div>;
 }
+
+export default React.memo(TopFooter);

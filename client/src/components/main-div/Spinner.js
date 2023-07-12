@@ -24,4 +24,4 @@ const Spinner = ({ size = 8, dark }) => {
   );
 };
 
-export default Spinner;
+export default React.memo(Spinner);

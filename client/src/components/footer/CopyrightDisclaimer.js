@@ -23,4 +23,4 @@ function CopyrightDisclaimer({
   );
 }
 
-export default CopyrightDisclaimer;
+export default React.memo(CopyrightDisclaimer);

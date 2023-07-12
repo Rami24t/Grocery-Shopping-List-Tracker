@@ -74,4 +74,4 @@ function AsideRight() {
   );
 }
 
-export default AsideRight;
+export default React.memo(AsideRight);

@@ -13,4 +13,4 @@ function FooterListItem({ link }) {
   </li>;
 }
 
-export default FooterListItem;
+export default React.memo(FooterListItem);

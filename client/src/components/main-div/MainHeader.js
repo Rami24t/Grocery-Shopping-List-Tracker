@@ -1,6 +1,6 @@
 import React from "react";
 import AddItemsButton from "./AddItemsButton";
-import { ResetButton } from "./ResetButton";
+import ResetButton  from "./ResetButton";
 
 function MainHeader({
   showAddItem,
@@ -41,4 +41,4 @@ function MainHeader({
   );
 }
 
-export default MainHeader;
+export default React.memo(MainHeader);

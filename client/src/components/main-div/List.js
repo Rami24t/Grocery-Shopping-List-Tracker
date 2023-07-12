@@ -56,4 +56,4 @@ function List({
   );
 }
 
-export default List;
+export default React.memo(List);

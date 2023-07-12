@@ -2,7 +2,7 @@ import React from "react";
 import CopyrightDisclaimer from "./CopyrightDisclaimer";
 import Icons from "./Icons";
 
-export function BottomFooter( {dark} ) {
+function BottomFooter( {dark} ) {
   return (
     <div className="footer-bottom flex flex-wrap gap-2 items-center justify-around pb-2">
       <CopyrightDisclaimer
@@ -15,3 +15,5 @@ export function BottomFooter( {dark} ) {
     </div>
   );
 }
+
+export default React.memo(BottomFooter);

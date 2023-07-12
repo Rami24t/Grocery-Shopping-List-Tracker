@@ -1,6 +1,6 @@
 import React from "react";
-import { TopFooter } from "./TopFooter";
-import { BottomFooter } from "./BottomFooter";
+import TopFooter from "./TopFooter";
+import BottomFooter from "./BottomFooter";
 
 function Footer({dark}) {
   return (
@@ -15,4 +15,4 @@ function Footer({dark}) {
   );
 }
 
-export default Footer;
+export default React.memo(Footer);

@@ -8,20 +8,20 @@ function Icons({ dark}) {
   return <div className="footer-icons flex flex-wrap mt-4 space-x-6 sm:justify-center sm:mt-0">
     <SendEmailIconLink  dark={dark}  />
     <FooterIconLink
-      icon={BsLinkedin}
+      Icon={BsLinkedin}
       url="https://www.linkedin.com/in/rami-al-saadi-16a14223a/"
       srText="linkedIn account"
       dark={dark}  />
     {/* <FooterIconLink icon={SvgFB} url="https://www.facebook.com/XtremeSale" srText="Facebook page" />
           <FooterIconLink icon={SvgInstagram} url="https://www.instagram.com/ramissaadi/" srText="Instagram page" /> */}
     <FooterIconLink
-      icon={SvgGithub}
+      Icon={SvgGithub}
       url="https://github.com/Rami24t"
       srText="GitHub account" 
       dark={dark} 
       />
     <FooterIconLink
-      icon={BsYoutube}
+      Icon={BsYoutube}
       url="https://www.youtube.com/@ramial-saadi3113/videos"
       srText="YouTube channel" 
       dark={dark} 
@@ -29,4 +29,4 @@ function Icons({ dark}) {
   </div>;
 }
 
-export default Icons;
+export default React.memo(Icons);

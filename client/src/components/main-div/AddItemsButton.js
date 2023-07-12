@@ -29,4 +29,4 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
   );
 }
 
-export default AddItemsButton;
+export default React.memo(AddItemsButton);

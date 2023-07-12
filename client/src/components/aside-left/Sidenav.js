@@ -268,4 +268,4 @@ ${
   // }
 };
 
-export default Sidenav;
+export default React.memo(Sidenav);

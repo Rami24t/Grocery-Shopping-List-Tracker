@@ -24,4 +24,4 @@ function FooterList({
   );
 }
 
-export default FooterList;
+export default React.memo(FooterList);

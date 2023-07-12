@@ -25,4 +25,4 @@ function FooterLists( {dark} ) {
   </div>;
 }
 
-export default FooterLists;
+export default React.memo(FooterLists);

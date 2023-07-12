@@ -16,4 +16,4 @@ function SendEmailIconLink({ lastPartOfEmail = "24@gmail.com", firstPartOfEmail 
   </a>;
 }
 
-export default SendEmailIconLink;
+export default React.memo(SendEmailIconLink);

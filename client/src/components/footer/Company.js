@@ -19,4 +19,4 @@ function Company({ logo = "/logo-no-background.svg", name = "Rami Al-Saadi", lin
   </div>;
 }
 
-export default Company;
+export default React.memo(Company);

@@ -8,4 +8,4 @@ function AsideImage({ src, className }) {
   );
 }
 
-export default AsideImage;
+export default React.memo(AsideImage);

@@ -20,4 +20,4 @@ function FilterSection({ filter, setFilter, handleChangeFilter, items, dark }) {
   );
 }
 
-export default FilterSection;
+export default React.memo(FilterSection);

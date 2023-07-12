@@ -1,6 +1,6 @@
-import React from "react";
+import {memo} from "react";
 
-export function SvgSearch({dark}) {
+const SvgSearch = memo(({dark}) => {
   return <svg
     aria-hidden="true"
     className={`w-5 h-5 ${dark ? " text-gray-400 " : " text-gray-500"}`}
@@ -14,4 +14,6 @@ export function SvgSearch({dark}) {
       clipRule="evenodd"
     ></path>
   </svg>;
-}
+})
+
+export {SvgSearch};

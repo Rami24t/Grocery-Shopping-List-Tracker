@@ -48,4 +48,4 @@ function AddItems({ handleAdd, dark }) {
   );
 }
 
-export default AddItems;
+export default React.memo(AddItems);

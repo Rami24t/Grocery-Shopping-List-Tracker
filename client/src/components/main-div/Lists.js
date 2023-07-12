@@ -47,4 +47,4 @@ function Lists({
   );
 }
 
-export default Lists;
+export default React.memo(Lists);
