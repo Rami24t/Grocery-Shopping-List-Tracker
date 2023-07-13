@@ -7,7 +7,7 @@ function FilterSection({ filter, setFilter, handleChangeFilter, items, dark }) {
   if (items <= 1) return null;
 
   return (
-    <section className="me-auto -ms-5 sm:mx-auto relative max-w-max my-1 text-center flex items-center ">
+    <section className="me-auto w-full -ms-1 sm:mx-auto relative max-w-max my-1 text-center flex items-center ">
       <label htmlFor="filter" className="sr-only">
         Filter Items
       </label>
