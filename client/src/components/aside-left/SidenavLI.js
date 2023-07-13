@@ -1,9 +1,9 @@
 import React from "react";
 
-function SideNavLI({ title, href, onClick, dark, Icon, LIBadge, items, margin='ml-3'}) {
+function SideNavLI({ title, href, onClick, dark, Icon, LIBadge, items, margin}) {
   return <li>
     <a
-      onClick={onClick}
+      onClick={onClick && onClick}
       href={href}
       className={` ${dark
         ? "text-white hover:bg-gray-700"
@@ -11,7 +11,7 @@ function SideNavLI({ title, href, onClick, dark, Icon, LIBadge, items, margin='m
     >
       <Icon dark={dark} />
       <span className={`${margin} flex-1 sm:ml-3 whitespace-nowrap`}>{title}</span>
-      <LIBadge dark={dark} items={items} />
+      {LIBadge && <LIBadge dark={dark} items={items} />}
     </a>
   </li>;
 }
