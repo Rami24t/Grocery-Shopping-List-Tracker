@@ -17,12 +17,11 @@ const Sidenav = ({
   setShowSideNav,
   dark,
 }) => {
-  function handleClick() {
+  function hideMobileSidenav() {
     setShowSideNav(false);
   }
   return (
     <nav
-      onClick={handleClick}
       id="sidenav"
       className={`text-center sm:text-start z-40 sm:z-30 bg-gray-950 bg-opacity-75 sm:bg-gray-900 border-r-0 fixed sm:absolute sm:w-52  md:sticky top-0 overflow-hidden sm:top-24  left-0 w-64 py-8 sm:py-4 transition-transform sm:translate-x-0
 ${
@@ -33,7 +32,9 @@ ${
       aria-label="Sidebar"
     >
       <div className="h-full px-3 pb-4">
-        <ul className="space-y-2 font-medium">
+        <ul className="space-y-2 font-medium"
+          onClick={hideMobileSidenav}
+        >
           <SidenavLI title="Home" Icon={SvgHome} href="#app" dark={dark} />
           <SidenavLI
             title="Add Item"
