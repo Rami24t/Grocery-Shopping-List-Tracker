@@ -6,8 +6,8 @@ const MenuButton = React.memo( ({ showSideNav, setShowSideNav,dark }) => {
     <div
       onClick={() => setShowSideNav((prev) => !prev)}
      className={`rounded-bl-2xl bg-gray-900 max-h-[60px] overflow-hidden cursor-pointer menu-btn z-50 ${showSideNav ? "open " : ""}`}>
-      <div className={`ml-3 icon-left`}></div>
-      <div className={`ml-3 icon-right`}></div>
+      <div className={`ml-2 icon-left`}></div>
+      <div className={`ml-2 icon-right`}></div>
     </div>
   );
 })
