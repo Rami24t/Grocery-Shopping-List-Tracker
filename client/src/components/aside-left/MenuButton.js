@@ -1,7 +1,7 @@
 import React from "react";
 import "./MenuButton.css";
 
-const MenuButton = ({ showSideNav, setShowSideNav,dark }) => {
+const MenuButton = React.memo( ({ showSideNav, setShowSideNav,dark }) => {
   return (
     <div
       onClick={() => setShowSideNav((prev) => !prev)}
@@ -10,6 +10,6 @@ const MenuButton = ({ showSideNav, setShowSideNav,dark }) => {
       <div className={`ml-3 icon-right`}></div>
     </div>
   );
-};
+})
 
 export default MenuButton;

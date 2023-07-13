@@ -190,6 +190,7 @@ function App() {
             <MenuButton
               showSideNav={showSideNav}
               setShowSideNav={setShowSideNav}
+              dark={dark}
             />
           </div>
           <Sidenav
