@@ -8,8 +8,10 @@ import Footer from "./components/footer/Footer";
 import MenuButton from "./components/aside-left/MenuButton";
 import { getLists } from "./components/main-div/getLists.js";
 import "./App.css";
+import { Context } from "./components/Context";
 
 function App() {
+  const { state } = React.useContext(Context);
   const [dark] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [list, setList] = useState(
@@ -34,7 +36,10 @@ function App() {
   function handleChangeFilter(e) {
     e.preventDefault();
     if (e.target.value.trim() === "") setFilter("");
-    else setFilter(e.target.value);
+    else {
+      setFilter(e.target.value);
+      state.setShowItems(true,true);
+    }
   }
 
   const [items, setItems] = useState(JSON.parse(localStorage.getItem(`list${list}`)) || defaultItems);
@@ -139,6 +144,7 @@ function App() {
     ].sort((a, b) => a.name.localeCompare(b.name));
     setItems(updatedItems);
     e.target.value = "";
+    state.setShowItems(true);
   }
 
   function handleReset() {
@@ -146,12 +152,14 @@ function App() {
     handleSave(defaultItems);
     setFilter("");
     setShowAddItem(false);
+    state.setShowItems(true,true);
   }
 
   function handleClear() {
     setItems([]);
     handleSave([]);
     setFilter("");
+    // setShowAddItem(true);
   }
 
   useEffect(() => {
