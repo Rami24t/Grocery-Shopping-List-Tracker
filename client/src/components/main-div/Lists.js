@@ -1,5 +1,6 @@
 import React from "react";
 import List from "./List";
+import { Context } from "../Context";
 
 function Lists({
   filter,
@@ -12,6 +13,8 @@ function Lists({
   validate,
   dark,
 }) {
+  const { state } = React.useContext(Context);
+
   return !needs?.length && !haves.length ? (
     <article id="list" className="flex flex-col justify-around m-5 p-5">
       <h3 className="text-lg">List {list} is Empty!</h3>
@@ -24,6 +27,8 @@ function Lists({
           title="Needed"
           filter={filter}
           items={needs}
+          showItems={state.showNeeds}
+          setShowItems={state.setShowNeeds}
           handleDelete={handleDelete}
           handleToggle={handleToggle}
           updateItem={updateItem}
@@ -36,6 +41,8 @@ function Lists({
           title="Have"
           filter={filter}
           items={haves}
+          showItems={state.showHaves}
+          setShowItems={state.setShowHaves}
           handleDelete={handleDelete}
           handleToggle={handleToggle}
           updateItem={updateItem}

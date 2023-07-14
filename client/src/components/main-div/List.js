@@ -5,13 +5,14 @@ function List({
   title,
   filter,
   items,
+  showItems,
+  setShowItems,
   handleDelete,
   handleToggle,
   updateItem,
   validate,
   dark,
 }) {
-  const [showItems, setShowItems] = React.useState(true);
 
   return (
     <article>
@@ -19,7 +20,7 @@ function List({
         className={`max-w-max mx-auto cursor-pointer font-bold ${
           items[0].need ? "text-orange-200" : "text-teal-300 "
         }`}
-        onClick={() => setShowItems((prev) => !prev)}
+        onClick={() => setShowItems(!showItems)}
       >
         {title}: {items.length}
         <div
