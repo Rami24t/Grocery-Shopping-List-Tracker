@@ -25,8 +25,8 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
       {"Add "}
       <div
         className={`font-semibold transition-transform flex text-center items-center justify-center w-3 h-3 ${
-          !dark ? "text-gray-800" : "text-white"
-        } ${showAddItem ? "rotate-90" : "rotate-0 transform -translate-y-0.5"}`}
+          !dark ? "text-gray-800" : "text-white -translate-y-0.5"
+        } ${showAddItem ? "rotate-90" : "rotate-0"}`}
       >
         &gt;
       </div>
