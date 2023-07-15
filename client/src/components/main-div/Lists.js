@@ -13,7 +13,7 @@ function Lists({
   validate,
   dark,
 }) {
-  const { state } = React.useContext(Context);
+  const { state, dispatch } = React.useContext(Context);
 
   return !needs?.length && !haves.length ? (
     <article id="list" className="flex flex-col justify-around m-5 p-5">
@@ -28,7 +28,7 @@ function Lists({
           filter={filter}
           items={needs}
           showItems={state.showNeeds}
-          setShowItems={state.setShowNeeds}
+          setShowItems={(showNeeds)=>dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds } })}
           handleDelete={handleDelete}
           handleToggle={handleToggle}
           updateItem={updateItem}
@@ -42,7 +42,7 @@ function Lists({
           filter={filter}
           items={haves}
           showItems={state.showHaves}
-          setShowItems={state.setShowHaves}
+          setShowItems={(showHaves)=>dispatch({ type: "SET_SHOW_ITEMS", payload: { showHaves } })}
           handleDelete={handleDelete}
           handleToggle={handleToggle}
           updateItem={updateItem}

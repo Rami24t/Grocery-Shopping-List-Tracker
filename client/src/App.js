@@ -11,7 +11,7 @@ import "./App.css";
 import { Context } from "./components/Context";
 
 function App() {
-  const { state } = React.useContext(Context);
+  const { dispatch } = React.useContext(Context);
   const [dark] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [list, setList] = useState(
@@ -38,7 +38,8 @@ function App() {
     if (e.target.value.trim() === "") setFilter("");
     else {
       setFilter(e.target.value);
-      state.setShowItems(true,true);
+      // state.setShowItems(true,true);
+      dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds: true, showHaves: true } });
     }
   }
 
@@ -144,7 +145,8 @@ function App() {
     ].sort((a, b) => a.name.localeCompare(b.name));
     setItems(updatedItems);
     e.target.value = "";
-    state.setShowItems(true);
+    // state.setShowItems(true);
+    dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds: true } });
   }
 
   function handleReset() {
@@ -152,7 +154,8 @@ function App() {
     handleSave(defaultItems);
     setFilter("");
     setShowAddItem(false);
-    state.setShowItems(true,true);
+    // state.setShowItems(true,true);
+    dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds: true, showHaves: true } });
   }
 
   function handleClear() {
