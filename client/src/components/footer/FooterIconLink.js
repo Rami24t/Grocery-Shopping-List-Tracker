@@ -12,7 +12,7 @@ function FooterIconLink({
       href={url}
       target="_blank"
       rel="noopener noreferrer"
-      className={` ${dark?' hover:text-white':'hover:text-gray-900'} text-gray-500 `}>
+      className={`text-lg ${dark?' hover:text-white':'hover:text-gray-900'} text-gray-500 `}>
       <Icon />
       <span className="sr-only">{srText}</span>
     </a>
