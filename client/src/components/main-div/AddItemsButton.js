@@ -1,8 +1,16 @@
-import React from "react";
+import React, {useEffect} from "react";
 
 function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
-  if(listIsEmpty)
-    setShowAddItem(true);
+
+  // if(listIsEmpty)
+  // setShowAddItem(true);
+
+  useEffect(() => {
+    if (listIsEmpty) {
+      setShowAddItem(true);
+    }
+  }, [listIsEmpty, setShowAddItem]);
+
   return (
     <button
       disabled={listIsEmpty}
@@ -10,7 +18,7 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
       className={` font-semibold transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg ${
         !showAddItem
           ? "bg-indigo-700  hover:bg-indigo-600"
-          : "bg-red-800  hover:bg-red-700"
+          : (listIsEmpty ? 'bg-red-950 ' : "bg-red-800  hover:bg-red-700")
       } px-3 py-2 text-xs font-medium text-slate-200 transition focus:outline-none focus:ring hover:text-indigo-100 `}
       type="button"
     >
