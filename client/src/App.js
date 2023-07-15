@@ -156,8 +156,8 @@ function App() {
   }
 
   function handleClear() {
-    const isSure = window.confirm("Are you sure you want to delete all items?");
-    if (!isSure) return;
+    // const isSure = window.confirm("Are you sure you want to delete all items?");
+    // if (!isSure) return;
     setItems([]);
     handleSave([]);
     setFilter("");
