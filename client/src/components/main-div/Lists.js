@@ -24,7 +24,7 @@ function Lists({
     <section id="list">
       {needs[0] && (
         <List
-          title="Needed"
+          title="Need"
           filter={filter}
           items={needs}
           showItems={state.showNeeds}
