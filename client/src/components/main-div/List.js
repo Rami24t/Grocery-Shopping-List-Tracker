@@ -35,10 +35,10 @@ function List({
       </h3>
       <ul
         className={
-          "overflow-hidden transition-all " +
+          "overflow-hidden w-full transition-all flex-col items-center justify-center" +
           (showItems
-            ? "w-full opacity-100 rotate-0"
-            : "opacity-0 w-0 h-0 rotate-45")
+            ? " opacity-100 rotate-0"
+            : "opacity-0 h-1 rotate-45")
         }
       >
         {items.map(

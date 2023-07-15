@@ -14,7 +14,7 @@ function ItemName({name, setName, handleBlur, handleKeyDown, needed, dark}) {
     onChange={handleChange}
     onBlur={handleBlur}
     onKeyDown={handleKeyDown}
-    className={`lg:min-w-[59%] border border-gray-300 text-sm rounded-lg
+    className={` w-56 sm:w-52 md:w-80 lg:min-w-[59%] border border-gray-300 text-sm rounded-lg
      focus:ring-blue-500 focus:border-blue-500 p-2.5
       ${!needed && " line-through "}
        m-2 inline-block leading-none

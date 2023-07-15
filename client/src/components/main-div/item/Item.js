@@ -54,7 +54,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
         onChange={() => handleCheck(item)}
         checked={!needed}
         id="needed"
-        className={`opacity-75 filter  ${needed?'invert hue-rotate-180 brightness-75 ':''} cursor-pointer inline-block leading-none w-5 h-5 m-2 border rounded focus:ring-3 ${!dark?'border-gray-300 bg-gray-50 focus:ring-blue-300':' bg-gray-700 border-gray-600 focus:ring-blue-600 ring-offset-gray-800 focus:ring-offset-gray-800'}`}
+        className={`opacity-75 filter  ${needed?'invert hue-rotate-180 brightness-75 ':''} cursor-pointer inline-block leading-none w-5 h-6 m-2 border rounded focus:ring-3 ${!dark?'border-gray-300 bg-gray-50 focus:ring-blue-300':' bg-gray-700 border-gray-600 focus:ring-blue-600 ring-offset-gray-800 focus:ring-offset-gray-800'}`}
         title={`Click to ${needed ? "check" : "uncheck"}`}
       />
     );
