@@ -183,7 +183,7 @@ function App() {
     <div
       id="app"
       className={`app-container ${
-        dark ? "bg-gray-900 text-white" : "bg-white"
+        dark ? "bg-gray-950 text-white" : "bg-white"
       }  ${isMobile && "text-center"}`}
     >
       <Header

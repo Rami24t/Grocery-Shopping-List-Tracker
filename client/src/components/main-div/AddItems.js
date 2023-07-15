@@ -12,7 +12,7 @@ function AddItems({ handleAdd, dark }) {
   const onEnter = (e) => e.key === "Enter" && handleAdd(e);
 
   return (
-    <section className={`w-80 mx-auto mt-4 mb-5 pl-3 pt-3 pb-5 add-item border rounded-lg ${dark?'bg-gray-900 border-gray-700 text-white':'bg-gray-50 border-gray-300'} shadow-sm `}>
+    <section className={`w-80 mx-auto mt-4 mb-5 pl-3 pt-3 pb-5 add-item border rounded-lg ${dark?'bg-gray-950 border-gray-700 text-white':'bg-gray-50 border-gray-300'} shadow-sm `}>
       <label
         htmlFor="new-item"
         className={`block mb-2 text-sm font-medium ${!dark?'text-gray-900':'text-white'} `}
