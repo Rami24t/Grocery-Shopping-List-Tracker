@@ -12,7 +12,7 @@ function Company({ logo = "/logo-no-background.svg", name = "Rami Al-Saadi", lin
         src={logo}
         className="h-8 mr-3"
         alt={name + "'s Logo"} />
-      <span className={`self-center text-2xl font-semibold whitespace-nowrap ${dark?" text-white":""}`}>
+      <span className={`yellow-tail self-center text-2xl font-semibold whitespace-nowrap ${dark?" text-white":""}`}>
         {name}
       </span>
     </a>
