@@ -15,7 +15,7 @@ const SvgGithub = memo(() => (
   </svg>
 ));
 
-  const SvgFB = () => memo((
+  const SvgFB = () => memo(() =>(
     <svg
       className="w-5 h-5"
       fill="currentColor"
