@@ -1,6 +1,6 @@
-$background-color_1: #ddd;
+$menu_btn-background-color: #a0a0ad;
 $transition-duration: 0.5s;
-$width: 12.5px;
+$width: 11.5px;
 $height: 2.5px;
 $border-radius: 3px;
 $rotation-angle: 45deg;
@@ -15,7 +15,7 @@ $left: 11.5px;
   position: absolute;
   width: $width;
   height: $height;
-  background-color: $background-color_1;
+  background-color: $menu_btn-background-color;
 }
 
 .menu-btn {
@@ -50,7 +50,7 @@ $left: 11.5px;
 
   .icon-right {
     @extend .common-properties;
-    top: 30px;
+    top: $top + 2*$gap;
     left: $left;
     border-radius: 0 $border-radius $border-radius 0;
 
@@ -62,11 +62,11 @@ $left: 11.5px;
     }
 
     &:before {
-      top: -10px;
+      top: $top;
     }
 
     &:after {
-      top: 10px;
+      top: $top + $gap;
     }
   }
 
@@ -78,7 +78,7 @@ $left: 11.5px;
 .menu-btn.open {
   .icon-left {
     background: transparent;
-
+    height: 0px;
     &:before {
       transform: rotateZ($rotation-angle) scaleX($scaleX) translate($translation-value, $translation-value);
     }
@@ -90,6 +90,7 @@ $left: 11.5px;
 
   .icon-right {
     background: transparent;
+    height: 0px;
 
     &:before {
       transform: rotateZ(-$rotation-angle) scaleX($scaleX) translate(-$translation-value, $translation-value);
