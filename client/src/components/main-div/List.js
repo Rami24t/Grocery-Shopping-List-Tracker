@@ -1,6 +1,6 @@
 import React from "react";
 import Item from "./item/Item";
-import { BsFillEyeSlashFill, BsFillEyeFill } from "react-icons/bs";
+import { BsEyeSlash, BsEye } from "react-icons/bs";
 
 function List({
   title,
@@ -24,7 +24,7 @@ function List({
         onClick={() => setShowItems(!showItems)}
       >
         {title}: {items.length}
-        {showItems ? <BsFillEyeFill className="inline-block"/>: <BsFillEyeSlashFill className="inline" />}
+        {showItems ? <BsEye className="inline-block"/>: <BsEyeSlash className="inline" />}
         <div
           className={`p-2 cursor-pointer text-lg transition-transform inline-flex text-center items-center justify-center w-4 h-4 ${
             showItems ? "rotate-90 translate-x-0.5" : "-rotate-0 transform -translate-y-0.5"
