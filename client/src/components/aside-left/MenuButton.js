@@ -1,5 +1,5 @@
 import React from "react";
-import "./MenuButton.css";
+import "./MenuButton.scss";
 
 const MenuButton = React.memo( ({ showSideNav, setShowSideNav,dark }) => {
   return (

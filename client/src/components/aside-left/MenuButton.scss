@@ -1,0 +1,102 @@
+$background-color_1: #ddd;
+$transition-duration: 0.5s;
+$width: 12.5px;
+$height: 2.5px;
+$border-radius: 3px;
+$rotation-angle: 45deg;
+$translation-value: 3px;
+$top: -10px;
+$gap: 20px;
+$scaleX: 1.4;
+$left: 11.5px;
+
+.common-properties {
+  transition-duration: $transition-duration;
+  position: absolute;
+  width: $width;
+  height: $height;
+  background-color: $background-color_1;
+}
+
+.menu-btn {
+  width: 100%;
+  height: 100%;
+  text-align: left;
+
+  .icon-left {
+    @extend .common-properties;
+    top: $top + 2*$gap;
+    border-radius: $border-radius 0 0 $border-radius;
+
+    &:before,
+    &:after {
+      content: "";
+      @extend .common-properties;
+      border-radius: $border-radius 0 0 $border-radius;
+    }
+
+    &:before {
+      top: $top;
+    }
+
+    &:after {
+      top: $top + $gap;
+    }
+
+    &:hover {
+      cursor: pointer;
+    }
+  }
+
+  .icon-right {
+    @extend .common-properties;
+    top: 30px;
+    left: $left;
+    border-radius: 0 $border-radius $border-radius 0;
+
+    &:before,
+    &:after {
+      content: "";
+      @extend .common-properties;
+      border-radius: 0 $border-radius $border-radius 0;
+    }
+
+    &:before {
+      top: -10px;
+    }
+
+    &:after {
+      top: 10px;
+    }
+  }
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.menu-btn.open {
+  .icon-left {
+    background: transparent;
+
+    &:before {
+      transform: rotateZ($rotation-angle) scaleX($scaleX) translate($translation-value, $translation-value);
+    }
+
+    &:after {
+      transform: rotateZ(-$rotation-angle) scaleX($scaleX) translate($translation-value, -$translation-value);
+    }
+  }
+
+  .icon-right {
+    background: transparent;
+
+    &:before {
+      transform: rotateZ(-$rotation-angle) scaleX($scaleX) translate(-$translation-value, $translation-value);
+    }
+
+    &:after {
+      transform: rotateZ($rotation-angle) scaleX($scaleX) translate(-$translation-value, -$translation-value);
+    }
+  }
+}
