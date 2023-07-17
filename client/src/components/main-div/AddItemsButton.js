@@ -15,6 +15,7 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
     <button
       disabled={listIsEmpty}
       onClick={() => setShowAddItem(prev=>!prev)}
+      id="add-item-button"
       className={` font-semibold transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg ${
         !showAddItem
           ? "bg-indigo-700  hover:bg-indigo-600"

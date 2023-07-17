@@ -39,8 +39,16 @@ ${
           <SidenavLI
             title="Add Item"
             Icon={SvgAddItem}
-            href="#new-item"
-            onClick={() => setShowAddItem(true)}
+            href="#add-item-button"
+            onClick={
+              () => {
+                setShowAddItem(true);
+                setTimeout(() => {
+                  document.getElementById("new-item").focus();
+                }
+                , 400);
+            }
+            }
             LIBadge={ItemsBadge}
             items={items}
             dark={dark}
