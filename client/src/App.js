@@ -194,6 +194,11 @@ function App() {
       />
       <div className="overflow-x-hidden bg-inherit flex justify-around flex-wrap gap-0 relative">
         <aside className="aside-left bg-inherit">
+         {
+          showSideNav
+          &&
+          <div className="click-away fixed top-0 right-0 h-screen w-screen z-40 filter bg-black bg-opacity-50" onClick={()=>setShowSideNav(false)}>
+          </div>}
           <div
             className={`z-50 fixed -top-2 ${
               showSideNav ? "-right-0" : "-right-1"
