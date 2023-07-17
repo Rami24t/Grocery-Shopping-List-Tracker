@@ -23,7 +23,7 @@ const Sidenav = ({
   return (
     <nav
       id="sidenav"
-      className={`text-center sm:text-start z-40 sm:z-30 bg-gray-950 bg-opacity-75 sm:bg-gray-950 border-r-0 fixed sm:absolute sm:w-52  md:sticky top-0 overflow-hidden sm:top-24  left-0 w-64 py-8 sm:py-4 transition-transform sm:translate-x-0
+      className={`text-center rounded-lg sm:text-start z-40 sm:z-30 bg-gray-950 bg-opacity-80 sm:bg-gray-950 border-r-0 fixed sm:absolute sm:w-52  md:sticky top-0 overflow-hidden sm:top-24  left-0 w-64 py-8 sm:py-4 transition-transform sm:translate-x-0
 ${
   showSideNav
     ? "w-full rounded-lg translate-x-0 ease-out duration-300"
