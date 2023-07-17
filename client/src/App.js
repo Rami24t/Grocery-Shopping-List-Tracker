@@ -9,6 +9,7 @@ import MenuButton from "./components/aside-left/MenuButton";
 import { getLists } from "./components/main-div/getLists.js";
 import "./App.css";
 import { Context } from "./components/Context";
+import ArrowButtonsNav from "./components/aside-left/ArrowButtonsNav";
 
 function App() {
   const { dispatch } = React.useContext(Context);
@@ -39,11 +40,16 @@ function App() {
     else {
       setFilter(e.target.value);
       // state.setShowItems(true,true);
-      dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds: true, showHaves: true } });
+      dispatch({
+        type: "SET_SHOW_ITEMS",
+        payload: { showNeeds: true, showHaves: true },
+      });
     }
   }
 
-  const [items, setItems] = useState(JSON.parse(localStorage.getItem(`list${list}`)) || defaultItems);
+  const [items, setItems] = useState(
+    JSON.parse(localStorage.getItem(`list${list}`)) || defaultItems
+  );
 
   useEffect(() => {
     if (localStorage.getItem(`list${list}`))
@@ -155,7 +161,10 @@ function App() {
     setFilter("");
     setShowAddItem(false);
     // state.setShowItems(true,true);
-    dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds: true, showHaves: true } });
+    dispatch({
+      type: "SET_SHOW_ITEMS",
+      payload: { showNeeds: true, showHaves: true },
+    });
   }
 
   function handleClear() {
@@ -194,11 +203,13 @@ function App() {
       />
       <div className="overflow-x-hidden bg-inherit flex justify-around flex-wrap gap-0 relative">
         <aside className="aside-left bg-inherit">
-         {
-          showSideNav
-          &&
-          <div className="click-away fixed top-0 right-0 h-screen w-screen z-40 filter bg-black bg-opacity-50" onClick={()=>setShowSideNav(false)}>
-          </div>}
+          <ArrowButtonsNav dark={dark} />
+          {showSideNav && (
+            <div
+              className="click-away fixed top-0 right-0 h-screen w-screen z-40 filter bg-black bg-opacity-50"
+              onClick={() => setShowSideNav(false)}
+            ></div>
+          )}
           <div
             className={`z-50 fixed -top-2 ${
               showSideNav ? "-right-0" : "-right-1"
