@@ -12,7 +12,7 @@ function AddItems({ handleAdd, showAddItem, dark }) {
   const onEnter = (e) => e.key === "Enter" && handleAdd(e);
 
   return (
-    <section className={`overflow-hidden transition-all duration-500 ${showAddItem?'w-0 h-0 opacity-50':'w-80 pl-3 pt-3 pb-5 shadow-sm mb-5 '} mt-4  mx-auto add-item border rounded-lg ${dark?'bg-gray-950 border-gray-800 text-white':'bg-gray-50 border-gray-300'}  `}>
+    <section className={`overflow-hidden transition-all duration-500 ${!showAddItem?'w-0 h-0 -scale-100 opacity-50':'w-80 pl-3 pt-3 pb-5 shadow-sm mb-5 '} mt-4  mx-auto add-item border rounded-lg ${dark?'bg-gray-950 border-gray-800 text-white':'bg-gray-50 border-gray-300'}  `}>
       <label
         htmlFor="new-item"
         className={`block mb-2 text-sm font-medium ${!dark?'text-gray-900':'text-white'} `}
