@@ -17,7 +17,7 @@ function ResetButton({ items, handleClear, handleReset, dark }) {
       {items.length ? "Clear" : "Reset"}
       <div
         className={`aspect-square rounded-full px-[3px] py-[2px] pt-[5px] bg-indigo-500 transition-transform flex text-center items-center justify-center min-w-[12px] min-h-[12px] font-bold ${
-          dark ? "border-gray-700 text-gray-50" : "border-white text-gray-800"
+          dark ? "border-gray-800 text-gray-50" : "border-white text-gray-800"
         } ${
           !items.length ? "rotate-90" : "rotate-0"
         } absolute flex items-center justify-center text-xs font-bold text-white  border-2 rounded-full -top-2 -right-2`}

@@ -18,7 +18,7 @@ function ItemName({name, setName, handleBlur, handleKeyDown, needed, dark}) {
      focus:ring-blue-500 focus:border-blue-500 p-2.5
       ${!needed && " line-through "}
        m-2 inline-block leading-none
-      ${dark?'border-gray-600 placeholder-gray-400 disabled:bg-gray-700 text-gray-50  disabled:text-gray-200':' disabled:bg-gray-50 text-gray-900  bg-gray-100'}
+      ${dark?'border-gray-600 placeholder-gray-400 bg-gray-700 text-gray-50  disabled:text-gray-200':' disabled:bg-gray-50 text-gray-900'}
       bg-blend-multiply disabled:bg-blend-darken`}
     readOnly={true}
     title="item name"

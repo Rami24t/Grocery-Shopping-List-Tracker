@@ -8,7 +8,7 @@ function Footer({dark}) {
                   className={` ${dark?'bg-gray-950':'bg-white'} z-30 mt-10 relative `}>
       <div className="footer-container mx-auto max-w-[94%] px-4 py-6 lg:py-8 mt-2">
         <TopFooter dark={dark} />
-        <hr className={` ${dark?'border-gray-700':'border-gray-200'} my-5  sm:mx-auto  lg:my-8`} />
+        <hr className={` ${dark?'border-gray-800':'border-gray-200'} my-5  sm:mx-auto  lg:my-8`} />
         <BottomFooter dark={dark} />
       </div>
     </footer>

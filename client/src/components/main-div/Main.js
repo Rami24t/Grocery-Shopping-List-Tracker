@@ -47,7 +47,7 @@ function Main({
         handleClear={handleClear}
         dark={dark}
       />
-      {showAddItem && <AddItems handleAdd={handleAdd} dark={dark}/>}
+      <AddItems handleAdd={handleAdd} dark={dark} showAddItem={showAddItem} />
       <FilterSection
         filter={filter}
         setFilter={setFilter}
