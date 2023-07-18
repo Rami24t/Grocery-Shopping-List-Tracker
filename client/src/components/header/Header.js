@@ -7,7 +7,7 @@ function Header({ list, needs, haves, dark }) {
   return (
     <header className="app-header z-40 sticky bg-inherit w-full">
       <div className="app-header-container mx-auto max-w-screen-xl px-2 py-4 sm:px-3 sm:py-6 lg:px-8 sm:flex sm:items-center sm:justify-between">
-        <Hero dark={dark} />
+        <Hero title="Grocery Shopping List 🛒" dark={dark} />
         <InfoWidget
           needs={needs}
           haves={haves}
