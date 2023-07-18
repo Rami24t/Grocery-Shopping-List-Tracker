@@ -6,7 +6,6 @@ function CopyrightDisclaimer({
   link = "https://www.linkedin.com/in/rami-al-saadi-16a14223a/",
   dark,
 }) {
-  // console.log(dark);
   return (
     <span className={`copyright-disclaimer mt-1 text-sm  sm:text-center ${dark?"text-gray-500":"text-gray-500"}`}>
       {`© ${year} `}

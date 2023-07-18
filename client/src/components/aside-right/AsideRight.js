@@ -172,7 +172,6 @@ function AsideRight() {
 
     <aside
       ref={ref}
-      // onResize={() => setHeight(ref.current.clientHeight)}
       id="aside-right"
       className="opacity-90 p-2 lg:pt-[220px] lg:max-w-[25%] text-center flex flex-wrap gap-2 lg:gap-4 justify-center items-center relative z-0"
     >

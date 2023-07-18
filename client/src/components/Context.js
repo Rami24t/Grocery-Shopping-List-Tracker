@@ -26,16 +26,7 @@ export function ContextProvider({ children }) {
     };
     const [state, dispatch] = useReducer(reducer, {
         showNeeds: true,
-        showHaves: true,
-        // setShowItems: (showNeeds, showHaves) => {
-        //     dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds, showHaves } });
-        // },
-        // setShowNeeds: (showNeeds) => {
-        //     dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds } });
-        // },
-        // setShowHaves: (showHaves) => {
-        //     dispatch({ type: "SET_SHOW_ITEMS", payload: { showHaves } });
-        // }
+        showHaves: true
     });
 
     return (

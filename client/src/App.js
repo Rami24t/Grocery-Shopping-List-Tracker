@@ -7,7 +7,6 @@ import AsideRight from "./components/aside-right/AsideRight";
 import Footer from "./components/footer/Footer";
 import MenuButton from "./components/aside-left/MenuButton";
 import { getLists } from "./components/main-div/getLists.js";
-import "./App.css";
 import { Context } from "./components/Context";
 import ArrowButtonsNav from "./components/aside-left/ArrowButtonsNav";
 
@@ -39,7 +38,6 @@ function App() {
     if (e.target.value.trim() === "") setFilter("");
     else {
       setFilter(e.target.value);
-      // state.setShowItems(true,true);
       dispatch({
         type: "SET_SHOW_ITEMS",
         payload: { showNeeds: true, showHaves: true },

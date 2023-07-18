@@ -3,7 +3,6 @@ import React from "react";
 function ItemName({name, setName, handleBlur, handleKeyDown, needed, dark}) {
   const handleChange = (e) => {
     setName(e.target.value);
-    // console.log("change");
   };
 
   return <input

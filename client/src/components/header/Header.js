@@ -17,15 +17,15 @@ function Header({ list, needs, haves, dark }) {
               Grocery Shopping List 🛒
               {/* {list} */}
             </h1>
-            <p className="mt-1.5 text-sm text-gray-500">Let's do this! {Math.random()*100>50?'🧉':'🚀'} </p>
+            <p className="mt-1.5 text-sm text-gray-500">
+              Let's do this! {Math.random() * 100 > 50 ? "🧉" : "🚀"}{" "}
+            </p>
           </div>
 
           <div className="mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
             <div
-            title="Items 📝"
+              title="Items 📝"
               className="min-w-[90px] mx-auto opacity-95 relative rounded-lg bg-gray-700 bg-opacity-60 px-5 py-2.5 text-sm font-medium text-white transition flex items-center justify-center    "
-              //  hover:bg-indigo-700 focus:outline-none focus:ring"
-              // "inline-flex items-center justify-center gap-1.5 rounded-lg border text-gray-500 hover:text-gray-700"
             >
               {haves < items ? (
                 <svg
