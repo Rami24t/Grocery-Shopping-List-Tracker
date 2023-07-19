@@ -91,7 +91,7 @@ export const defaultItems = [
   },
   {
     id: "GL148.549",
-    name: "Radieschen - Radishes - فجل",
+    name: "Radishes - Radieschen - فجل",
     need: true,
     category: "vegetables",
   },
@@ -397,7 +397,7 @@ export const defaultItems = [
   },
   {
     id: "GL694.990",
-    name: "🍇 White Vinegar - Weißer Essig - خل أبيض",
+    name: "🍇 White Vinegar - Tafelessig - خل أبيض",
     need: true,
     category: "condiments",
   },
@@ -409,13 +409,13 @@ export const defaultItems = [
   },
   {
     id: "GL749.145",
-    name: "🥛 Coffee Cream - Kaffee Sahne - كريمة القهوة",
+    name: "🥛 Coffee Cream - Kaffeesahne - كريمة القهوة",
     need: true,
     category: "condiments",
   },
   {
     id: "GL711.392",
-    name: "💦 Sprudelwasser - Sparkling Water - مياه غازية",
+    name: "💦  Carbonated Water - Sprudelwasser - مياه غازية",
     need: true,
     category: "beverages",
   },
@@ -427,7 +427,7 @@ export const defaultItems = [
   },
   {
     id: "GL747.613",
-    name: "🧉 Mate Tea - متّه (كبير)",
+    name: "🧉 Maté Tea - متّه (كبير)",
     need: true,
     category: "beverages",
   },
