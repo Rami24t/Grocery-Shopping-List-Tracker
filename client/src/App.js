@@ -6,7 +6,7 @@ import Main from "./components/main-div/Main";
 import AsideRight from "./components/aside-right/AsideRight";
 import Footer from "./components/footer/Footer";
 import MenuButton from "./components/aside-left/MenuButton";
-import { getLists } from "./components/main-div/getLists.js";
+import { getLists } from "./utils/getLists";
 import { Context } from "./components/Context";
 import ArrowButtonsNav from "./components/aside-left/ArrowButtonsNav";
 
