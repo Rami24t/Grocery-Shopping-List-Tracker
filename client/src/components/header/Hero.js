@@ -1,6 +1,10 @@
 import React from "react";
 
-function Hero({title = 'Grocery Shopping List 🛒', subtitle= "Let's do this!", dark }) {
+function Hero({
+  title = "Grocery Shopping List 🛒",
+  subtitle = "Let's do this!",
+  dark,
+}) {
   const getEmoji = () => (Math.random() * 100 > 50 ? "🧉" : "🚀");
 
   return (
