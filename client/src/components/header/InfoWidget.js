@@ -4,7 +4,7 @@ import { ShoppingBagSvg, ShoppingBagFillSvg } from "./ShoppingBagSvgs";
 // Abstract badge component for displaying the info badge
 const InfoBadge = ({ title, value, icon, dark, style }) => {
   const infoBadgeCommonStyle = `absolute inline-flex items-center justify-center text-xs font-bold border-2 rounded-full  ${
-    dark ? "border-gray-800" : "border-white"
+    dark ? "border-gray-800" : "border-gray-400"
   }`;
   return (
     <div title={title} className={`${style} ${infoBadgeCommonStyle}`}>
@@ -16,7 +16,7 @@ const InfoBadge = ({ title, value, icon, dark, style }) => {
 
 // Badge component for displaying the "Haves" info badge
 const HavesBadge = ({ haves, needs, dark }) => {
-  const color = dark ? "text-white" : "text-gray-800";
+  const color = dark ? "text-white" : "text-green-800";
   return (
     <InfoBadge
       title="Haves"
@@ -32,7 +32,7 @@ const HavesBadge = ({ haves, needs, dark }) => {
 
 // Badge component for displaying the "Needs" info badge
 const NeedsBadge = ({ needs, dark }) => {
-  const color = dark ? "text-orange-100" : "text-gray-800";
+  const color = dark ? "text-orange-100" : "text-orange-800";
   return (
     <InfoBadge
       title="Needs"
@@ -41,7 +41,7 @@ const NeedsBadge = ({ needs, dark }) => {
       dark={dark}
       style={`text-white bg-orange-800 ${
         needs ? "-top-2 -right-2" : "-top-2 right-4"
-      } w-7 h-7 animate-pulse`}
+      } w-7 h-7`}
     />
   );
 };
@@ -63,7 +63,7 @@ const CompletionPercentageBadge = ({ haves, items, dark }) => {
     <InfoBadge
       title="Completion Percentage"
       value={completionPercentage}
-      icon={<span className={`inline text-[10px] font-bold`}>%</span>}
+      icon={<span className={`inline text-[10px] font-bold animate-pulse`}>%</span>}
       dark={dark}
       style={`text-gray-300 bg-teal-700 -bottom-2 -right-1.5 w-6 h-6`}
     />
@@ -77,14 +77,14 @@ function InfoWidget({ haves, needs, dark }) {
   const showHavesBadge = haves > 0;
   const showNeedsBadge = needs > 0;
 
-  const colorComplete = dark ? "text-green-300" : "text-gray-800";
-  const colorIncomplete = dark ? "text-orange-100" : "text-gray-800";
+  const colorComplete = dark ? "text-green-300" : "text-green-800";
+  const colorIncomplete = dark ? "text-orange-100" : "text-orange-800";
 
   return (
     <div className="app-header-info-widget mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
       <div
         title="Items Info Widget"
-        className="app-header-info-widget-container text-white bg-gray-700 bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-5 py-2.5 text-sm font-medium transition flex items-center justify-center"
+        className={`app-header-info-widget-container ${dark?'text-white bg-gray-700':'text-gray-700 bg-gray-100'} bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-5 py-2.5 text-sm font-medium transition flex items-center justify-center`}
       >
         {!showNeedsBadge ? (
           <ShoppingBagFillSvg className={`${colorComplete} inline w-4 h-4`} />
