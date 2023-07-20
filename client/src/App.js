@@ -43,7 +43,7 @@ import {
   resetOrClearFilterSFXAudio,
   inputErrorSFXAudio,
   errorSFXAudio,
-} from "./components/sfx";
+} from "./utils/sfx";
 
 function App() {
   const { dispatch } = React.useContext(Context);
@@ -116,6 +116,7 @@ function App() {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
       // handleSave(updatedItems);
       // console.log("delete");
+      deleteSFXAudio.currentTime = 0;
       deleteSFXAudio.play();
       return updatedItems;
     });
@@ -138,16 +139,19 @@ function App() {
   // );
   function handleToggle(item) {
     if (item.need) {
+      haveSFXAudio.currentTime = 0;
       haveSFXAudio.play();
+      addSFXAudio2.currentTime = 0;
       addSFXAudio2.play();
       setTimeout(() => {
         haveSFXAudio.pause();
         haveSFXAudio.currentTime = 0;
       }, 600);
     } else {
-      buttonSFXAudio.play();
-      menuOpenSFXAudio.play();
+      buttonClickSFXAudio2.currentTime = 0;
       buttonClickSFXAudio2.play();
+      menuOpenSFXAudio.currentTime = 0;
+      menuOpenSFXAudio.play();
       // setTimeout(() => {addSFXAudio2.pause();addSFXAudio2.currentTime = 0;}, 600);
     }
     item.need = !item.need;
@@ -179,9 +183,12 @@ function App() {
     const value = e.target.value.trim();
     if (value === "" || items.find((i) => i.name === value)) {
       e.target.value = "";
-      value !== "" && addDeniedSFXAudio.play();
+      if(value !== "")
+      {addDeniedSFXAudio.currentTime = 0
+      addDeniedSFXAudio.play();}
       return;
     }
+    addSFXAudio1.currentTime = 0;
     addSFXAudio1.play();
     // items.push({
     //   id: items.length + 1,
@@ -214,6 +221,7 @@ function App() {
       type: "SET_SHOW_ITEMS",
       payload: { showNeeds: true, showHaves: true },
     });
+    resetSFXAudio.currentTime = 0;
     resetSFXAudio.play();
   }
 
@@ -227,6 +235,7 @@ function App() {
 
     // clearSFXAudio.play();
     // openListorClearSFXAudio.play();
+    resetOrClearFilterSFXAudio.currentTime = 0;
     resetOrClearFilterSFXAudio.play();
     // openCloseAddFormSFXAudio.play();
   }
@@ -262,7 +271,16 @@ function App() {
           {showSideNav && (
             <div
               className="click-away fixed top-0 right-0 h-screen w-screen z-40 filter bg-black bg-opacity-50"
-              onClick={() => setShowSideNav(false)}
+              onClick={() => {
+                setShowSideNav(false)
+              slideOutInSFXAudio.currentTime = 0;
+              slideOutInSFXAudio.play();
+              setTimeout(() => {
+                slideOutInSFXAudio.pause();
+                slideOutInSFXAudio.currentTime = 3.5;
+              }, 600);
+              }
+              }
             ></div>
           )}
           <div

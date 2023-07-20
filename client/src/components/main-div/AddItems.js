@@ -1,14 +1,28 @@
 import { memo } from "react";
 import { BsPlusCircle } from "react-icons/bs";
+import { writingSFXAudio, correctOrAddSFXAudio, editClickSFXAudio, typeSFXAudio } from "../../utils/sfx";
 
 function AddItems({ handleAdd, showAddItem, dark }) {
   const handleClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
     e.currentTarget.previousSibling.focus();
+    editClickSFXAudio.currentTime = 0;
+    editClickSFXAudio.play();
   };
 
-  const onEnter = (e) => e.key === "Enter" && handleAdd(e);
+  const onEnter = (e) => e.key === "Enter" && handleBlur(e);
+
+  const handleFocus = () => {
+    writingSFXAudio.currentTime = 0;
+    writingSFXAudio.play();
+  };
+
+  const handleBlur = (e) => {
+    writingSFXAudio.pause();
+    writingSFXAudio.currentTime = 0;
+    handleAdd(e);
+  };
 
   return (
     <section
@@ -32,9 +46,15 @@ function AddItems({ handleAdd, showAddItem, dark }) {
       </label>
       <div className="flex justify-center items-center gap-0">
         <input
+        onChange={(e) => {
+          typeSFXAudio.currentTime = 0;
+          typeSFXAudio.play();
+        }
+        }
           name="new-item"
           placeholder="New Item"
-          onBlur={handleAdd}
+          onFocus={handleFocus}
+          onBlur={handleBlur}
           type="text"
           id="new-item"
           className={` ${

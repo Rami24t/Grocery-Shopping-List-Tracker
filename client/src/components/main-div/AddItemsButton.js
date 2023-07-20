@@ -1,10 +1,11 @@
 import React, { useEffect } from "react";
-import { openCloseAddFormSFXAudio } from "../sfx";
+import { openCloseAddFormSFXAudio } from "../../utils/sfx";
 
 function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
   useEffect(() => {
     if (listIsEmpty) {
       setShowAddItem(true);
+      openCloseAddFormSFXAudio.currentTime = 0;
       openCloseAddFormSFXAudio.play();
     }
   }, [listIsEmpty, setShowAddItem]);
@@ -12,8 +13,16 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
   return (
     <button
       disabled={listIsEmpty}
-      onClick={() => {
-        if (!showAddItem) openCloseAddFormSFXAudio.play();
+      onClick={(e) => {
+        e.target.disabled = true;
+        setTimeout(() => {
+          e.target.disabled = false;
+        }, 900);
+        if (!showAddItem) 
+        {
+          openCloseAddFormSFXAudio.currentTime = 0;
+          openCloseAddFormSFXAudio.play();
+        }
         setShowAddItem((prev) => !prev);
       }}
       id="add-item-button"

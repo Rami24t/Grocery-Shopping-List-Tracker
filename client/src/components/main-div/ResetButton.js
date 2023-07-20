@@ -3,7 +3,13 @@ import React from "react";
 function ResetButton({ items, handleClear, handleReset, dark }) {
   return (
     <button
-      onClick={items.length ? handleClear : handleReset}
+      onClick={(e)=>{
+        items.length ? handleClear(e) : handleReset(e);
+        e.target.disabled = true;
+        setTimeout(() => {
+          e.target.disabled = false;
+        }, 900);
+      }}
       className={`font-semibold transition-all w-10 relative rounded-lg
       ${
         !items.length

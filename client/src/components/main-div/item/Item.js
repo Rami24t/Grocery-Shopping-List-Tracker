@@ -5,15 +5,21 @@ import {
   editClickSFXAudio,
   writingSFXAudio,
   correctOrAddSFXAudio,
-} from "../../sfx";
+} from "../../../utils/sfx";
 
 const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
   const handleEdit = (e) => {
     e.preventDefault();
+    e.target.disabled = true;
+    setTimeout(() => {
+      e.target.disabled = false;
+    }, 900);
     e.target.parentNode.firstChild.disabled = false;
     e.target.parentNode.firstChild.readOnly = false;
     e.target.parentNode.firstChild.focus();
+    editClickSFXAudio.currentTime = 0;
     editClickSFXAudio.play();
+    writingSFXAudio.currentTime = 0;
     writingSFXAudio.play();
   };
 
@@ -40,6 +46,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
     if (item.name === value) return;
     setName(value);
     updateItem(item, { name: value });
+    correctOrAddSFXAudio.currentTime = 0;
     correctOrAddSFXAudio.play();
   };
 

@@ -1,7 +1,10 @@
 import React from "react";
 import Item from "./item/Item";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
-import { listCloseOpenSFXAudio, openListorClearSFXAudio } from "../sfx";
+import {
+  listCloseOpenSFXAudio,
+  openListorClearSFXAudio,
+} from "../../utils/sfx";
 
 function List({
   title,
@@ -21,10 +24,19 @@ function List({
         className={`flex justify-between min-w-[154px] items-center gap-2 max-w-max mx-auto cursor-pointer font-bold ${
           items[0].need ? "text-orange-200" : "text-teal-300 "
         }`}
-        onClick={() => {
+        onClick={(e) => {
+          e.target.style.pointerEvents = "none";
+          setTimeout(() => {
+            e.target.style.pointerEvents = "auto"; 
+          }, 500);
           setShowItems(!showItems);
-          if (showItems) listCloseOpenSFXAudio.play();
-          else openListorClearSFXAudio.play();
+          if (showItems) {
+            listCloseOpenSFXAudio.currentTime = 0;
+            listCloseOpenSFXAudio.play();
+          } else {
+            openListorClearSFXAudio.currentTime = 0;
+            openListorClearSFXAudio.play();
+          }
         }}
       >
         {title}: {items.length}
