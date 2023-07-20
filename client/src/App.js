@@ -9,6 +9,41 @@ import MenuButton from "./components/aside-left/MenuButton";
 import { getLists } from "./utils/getLists";
 import { Context } from "./components/Context";
 import ArrowButtonsNav from "./components/aside-left/ArrowButtonsNav";
+import {
+  addSFXAudio1,
+  addSFXAudio2,
+  addDeniedSFXAudio,
+  haveSFXAudio,
+  resetSFXAudio,
+  correctOrAddSFXAudio,
+  finishSFXAudio,
+  completionSFXAudio,
+  editClickSFXAudio,
+  buttonClickSFXAudio,
+  buttonClickSFXAudio2,
+  buttonSFXAudio,
+  menuOpenSFXAudio,
+  slideInSFXAudio,
+  linkClickSFXAudio,
+  listCloseOpenSFXAudio,
+  toBottomTopSFXAudio,
+  menuButtonClickAudio,
+  deleteSFXAudio,
+  wrongFilterSFXAudio,
+  wrongFilterSFXAudio2,
+  openCloseAddFormSFXAudio,
+  navLinkClickSFXAudio,
+  slideOutInSFXAudio,
+  clearSFXAudio,
+  writingSFXAudio,
+  openListorClearSFXAudio,
+  typeSFXAudio,
+  pencilCheckSFXAudio,
+  mouseClickSFXAudio,
+  resetOrClearFilterSFXAudio,
+  inputErrorSFXAudio,
+  errorSFXAudio,
+} from "./components/sfx";
 
 function App() {
   const { dispatch } = React.useContext(Context);
@@ -81,6 +116,7 @@ function App() {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
       // handleSave(updatedItems);
       // console.log("delete");
+      deleteSFXAudio.play();
       return updatedItems;
     });
   }
@@ -101,6 +137,19 @@ function App() {
   //   [items, handleSave]
   // );
   function handleToggle(item) {
+    if (item.need) {
+      haveSFXAudio.play();
+      addSFXAudio2.play();
+      setTimeout(() => {
+        haveSFXAudio.pause();
+        haveSFXAudio.currentTime = 0;
+      }, 600);
+    } else {
+      buttonSFXAudio.play();
+      menuOpenSFXAudio.play();
+      buttonClickSFXAudio2.play();
+      // setTimeout(() => {addSFXAudio2.pause();addSFXAudio2.currentTime = 0;}, 600);
+    }
     item.need = !item.need;
     refreshItems();
   }
@@ -130,8 +179,10 @@ function App() {
     const value = e.target.value.trim();
     if (value === "" || items.find((i) => i.name === value)) {
       e.target.value = "";
+      value !== "" && addDeniedSFXAudio.play();
       return;
     }
+    addSFXAudio1.play();
     // items.push({
     //   id: items.length + 1,
     //   name: value,
@@ -163,6 +214,7 @@ function App() {
       type: "SET_SHOW_ITEMS",
       payload: { showNeeds: true, showHaves: true },
     });
+    resetSFXAudio.play();
   }
 
   function handleClear() {
@@ -172,6 +224,11 @@ function App() {
     handleSave([]);
     setFilter("");
     // setShowAddItem(true);
+
+    // clearSFXAudio.play();
+    // openListorClearSFXAudio.play();
+    resetOrClearFilterSFXAudio.play();
+    // openCloseAddFormSFXAudio.play();
   }
 
   useEffect(() => {

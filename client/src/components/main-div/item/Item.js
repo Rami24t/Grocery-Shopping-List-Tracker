@@ -1,6 +1,11 @@
 import React, { useState } from "react";
 import { BsPencil } from "react-icons/bs";
 import ItemName from "./ItemName";
+import {
+  editClickSFXAudio,
+  writingSFXAudio,
+  correctOrAddSFXAudio,
+} from "../../sfx";
 
 const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
   const handleEdit = (e) => {
@@ -8,6 +13,8 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
     e.target.parentNode.firstChild.disabled = false;
     e.target.parentNode.firstChild.readOnly = false;
     e.target.parentNode.firstChild.focus();
+    editClickSFXAudio.play();
+    writingSFXAudio.play();
   };
 
   const handleBlur = (e) => {
@@ -18,12 +25,13 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
 
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
-      e.target.disabled = true;
-      handleUpdate(e);
+      e.target.blur();
     }
   };
 
   const handleUpdate = (e) => {
+    writingSFXAudio.pause();
+    writingSFXAudio.currentTime = 0;
     const value = e.target.value.trim();
     if (value === "") {
       e.target.value = item.name;
@@ -32,6 +40,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
     if (item.name === value) return;
     setName(value);
     updateItem(item, { name: value });
+    correctOrAddSFXAudio.play();
   };
 
   const handleCheck = (item) => {
