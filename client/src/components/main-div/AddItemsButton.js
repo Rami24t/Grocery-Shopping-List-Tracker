@@ -1,7 +1,15 @@
-import React, { useEffect } from "react";
-import { openCloseAddFormSFXAudio } from "../../utils/sfx";
+import React, { useEffect, useState } from "react";
+import { openCloseAddFormSFX, openCloseAddFormSFXAudio } from "../../utils/sfx";
+import useAudio from "../../hooks/useAudio";
+import { playAudio } from "../../utils/playAudio";
+
+const BUTTON_COOLDOWN_MS = 900;
+const INITIAL_AUDIO_CONTEXT = new (window.AudioContext || window.webkitAudioContext)();
 
 function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
+  const { reversedBuffer } = useAudio(openCloseAddFormSFX);
+  const [buttonDisabled, setButtonDisabled] = useState(false);
+
   useEffect(() => {
     if (listIsEmpty) {
       setShowAddItem(true);
@@ -10,21 +18,31 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
     }
   }, [listIsEmpty, setShowAddItem]);
 
+  const onClickHandler = () => {
+    if (buttonDisabled) return;
+
+    if (!showAddItem) {
+      openCloseAddFormSFXAudio.currentTime = 0;
+      openCloseAddFormSFXAudio.play();
+    } else {
+      if (reversedBuffer) {
+        playAudio(reversedBuffer, INITIAL_AUDIO_CONTEXT);
+      }
+    }
+
+    setButtonDisabled(true);
+    setTimeout(() => {
+      setButtonDisabled(false);
+    }, BUTTON_COOLDOWN_MS);
+
+    setShowAddItem((prev) => !prev);
+  };
+
+  
   return (
     <button
-      disabled={listIsEmpty}
-      onClick={(e) => {
-        e.target.disabled = true;
-        setTimeout(() => {
-          e.target.disabled = false;
-        }, 900);
-        if (!showAddItem) 
-        {
-          openCloseAddFormSFXAudio.currentTime = 0;
-          openCloseAddFormSFXAudio.play();
-        }
-        setShowAddItem((prev) => !prev);
-      }}
+      disabled={listIsEmpty || buttonDisabled}
+      onClick={onClickHandler}
       id="add-item-button"
       className={` font-semibold transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg ${
         !showAddItem
@@ -43,9 +61,6 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
       >
         &gt;
       </div>
-      {/* <div className="absolute inline-flex items-center justify-center w-6 h-6 text-xs font-bold text-white bg-red-500 border-2 border-white rounded-full -top-2 -right-2 border-gray-900">
-              {items.length || 0}{" "}
-            </div> */}
     </button>
   );
 }
