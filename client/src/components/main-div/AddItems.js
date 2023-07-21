@@ -1,19 +1,19 @@
 import { memo } from "react";
 import { BsPlusCircle } from "react-icons/bs";
-import { writingSFXAudio, correctOrAddSFXAudio, editClickSFXAudio, typeSFXAudio } from "../../utils/sfx";
+import { writingSFXAudio, editClickSFXAudio, typeSFXAudio } from "../../utils/sfx";
 
 function AddItems({ handleAdd, showAddItem, dark }) {
   const handleClick = (e) => {
     e.preventDefault();
     e.stopPropagation();
     e.currentTarget.previousSibling.focus();
-    editClickSFXAudio.currentTime = 0;
-    editClickSFXAudio.play();
   };
 
   const onEnter = (e) => e.key === "Enter" && handleBlur(e);
 
   const handleFocus = () => {
+    editClickSFXAudio.currentTime = 0;
+    editClickSFXAudio.play();
     writingSFXAudio.currentTime = 0;
     writingSFXAudio.play();
   };
