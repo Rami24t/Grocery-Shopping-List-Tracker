@@ -86,6 +86,7 @@ export {
   wrongFilterSFXAudio,
   wrongFilterSFXAudio2,
   correctOrAddSFXAudio,
+  openCloseAddFormSFX,
   openCloseAddFormSFXAudio,
   navLinkClickSFXAudio,
   slideOutInSFXAudio,
