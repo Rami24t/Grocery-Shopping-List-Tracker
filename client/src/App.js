@@ -15,34 +15,23 @@ import {
   addDeniedSFXAudio,
   haveSFXAudio,
   resetSFXAudio,
-  correctOrAddSFXAudio,
-  finishSFXAudio,
-  completionSFXAudio,
-  editClickSFXAudio,
-  buttonClickSFXAudio,
   buttonClickSFXAudio2,
-  buttonSFXAudio,
-  menuOpenSFXAudio,
-  slideInSFXAudio,
-  linkClickSFXAudio,
-  listCloseOpenSFXAudio,
-  toBottomTopSFXAudio,
-  menuButtonClickAudio,
   deleteSFXAudio,
-  wrongFilterSFXAudio,
-  wrongFilterSFXAudio2,
-  openCloseAddFormSFXAudio,
-  navLinkClickSFXAudio,
   slideOutInSFXAudio,
-  clearSFXAudio,
-  writingSFXAudio,
-  openListorClearSFXAudio,
-  typeSFXAudio,
-  pencilCheckSFXAudio,
-  mouseClickSFXAudio,
   resetOrClearFilterSFXAudio,
-  inputErrorSFXAudio,
-  errorSFXAudio,
+  clearSFXAudio,
+  finishSFXAudio,
+  typeSFXAudio,
+  wrongFilterSFXAudio,
+  openCloseAddFormSFXAudio,
+  // buttonClickSFXAudio,
+  // buttonSFXAudio,
+  // slideInSFXAudio,
+  // menuButtonClickAudio,
+  // switchSFXAudio,
+  // inputErrorSFXAudio,
+  // pencilCheckSFXAudio,
+  // mouseClickSFXAudio,
 } from "./utils/sfx";
 
 function App() {
@@ -68,11 +57,15 @@ function App() {
   const [showAddItem, setShowAddItem] = useState(false);
   const [showSideNav, setShowSideNav] = useState(false);
   const [filter, setFilter] = useState("");
-  function handleChangeFilter(e) {
-    e.preventDefault();
-    if (e.target.value.trim() === "") setFilter("");
+  function handleChangeFilter(value) {
+    if(value.length > filter.length)
+    {
+      typeSFXAudio.currentTime = 0;
+      typeSFXAudio.play();
+    }
+    if (value.trim() === "") setFilter("");
     else {
-      setFilter(e.target.value);
+      setFilter(value);
       dispatch({
         type: "SET_SHOW_ITEMS",
         payload: { showNeeds: true, showHaves: true },
@@ -112,12 +105,22 @@ function App() {
   //   [handleSave]
   // );
   function handleDelete(item) {
+    if(item.need && needs.length === 1)
+    {
+      finishSFXAudio.currentTime = 0;
+      finishSFXAudio.play();
+    }
+    else if(!item.need && haves.length === 1)
+    {
+      clearSFXAudio.currentTime = 0;
+      clearSFXAudio.play();
+    }
+    deleteSFXAudio.currentTime = 0;
+    deleteSFXAudio.play();
     setItems((prevItems) => {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
       // handleSave(updatedItems);
       // console.log("delete");
-      deleteSFXAudio.currentTime = 0;
-      deleteSFXAudio.play();
       return updatedItems;
     });
   }
@@ -139,6 +142,13 @@ function App() {
   // );
   function handleToggle(item) {
     if (item.need) {
+      if(needs.length === 1)
+      {
+        finishSFXAudio.currentTime = 0;
+        finishSFXAudio.play();
+    }
+      else
+      {
       haveSFXAudio.currentTime = 0;
       haveSFXAudio.play();
       addSFXAudio2.currentTime = 0;
@@ -147,12 +157,18 @@ function App() {
         haveSFXAudio.pause();
         haveSFXAudio.currentTime = 0;
       }, 600);
+      }
     } else {
+      if(haves.length === 1)
+      {
+        clearSFXAudio.currentTime = 0;
+        clearSFXAudio.play();
+      }
+      else
+      {
       buttonClickSFXAudio2.currentTime = 0;
       buttonClickSFXAudio2.play();
-      menuOpenSFXAudio.currentTime = 0;
-      menuOpenSFXAudio.play();
-      // setTimeout(() => {addSFXAudio2.pause();addSFXAudio2.currentTime = 0;}, 600);
+      }
     }
     item.need = !item.need;
     refreshItems();
@@ -180,6 +196,7 @@ function App() {
   }
 
   function handleAdd(e) {
+    handleChangeFilter('');
     const value = e.target.value.trim();
     if (value === "" || items.find((i) => i.name === value)) {
       e.target.value = "";
@@ -235,9 +252,16 @@ function App() {
 
     // clearSFXAudio.play();
     // openListorClearSFXAudio.play();
+    try {
     resetOrClearFilterSFXAudio.currentTime = 0;
     resetOrClearFilterSFXAudio.play();
-    // openCloseAddFormSFXAudio.play();
+    wrongFilterSFXAudio.currentTime = 0;
+    wrongFilterSFXAudio.play();
+      openCloseAddFormSFXAudio.currentTime = 0;
+      openCloseAddFormSFXAudio.play();
+    } catch (error) {
+      console.log(error);
+    }
   }
 
   useEffect(() => {
