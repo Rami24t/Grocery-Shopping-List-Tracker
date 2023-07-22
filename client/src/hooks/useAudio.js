@@ -6,8 +6,8 @@ const useAudio = (src) => {
 
   useEffect(() => {
     const fetchAndDecodeBuffer = async () => {
-      const audioContext = new (window.AudioContext || window.webkitAudioContext)();
       try {
+        const audioContext = new (window.AudioContext || window.webkitAudioContext)();
         if (cachedBuffersRef.current[src]) {
           return cachedBuffersRef.current[src];
         }
