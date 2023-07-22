@@ -1,36 +1,37 @@
-import addSFX1 from "../assets/achive-sound-132273.mp3";
-import haveSFX from "../assets/beep-6-96243.mp3";
-import buttonSFX from "../assets/button-8-88355.mp3";
-import addSFX2 from "../assets/button-pressed-38129.mp3";
-import buttonClickSFX from "../assets/click-3-44710.mp3";
-import buttonClickSFX2 from "../assets/click-button-140881.mp3";
-import CompletionSFX from "../assets/click-game-menu-147356.mp3";
-import menuOpenSFX from "../assets/clickselect-92098.mp3";
-import finishSFX from "../assets/divinity-138419.mp3";
-import slideInSFX from "../assets/door-open-107728.mp3";
-import linkClickSFX from "../assets/light-switch-156813.mp3";
-import listCloseOpenSFX from "../assets/killswitch-being-turned-on-100591.mp3";
-import toBottomTopSFX from "../assets/uisound1-79819.mp3";
-import editClickSFX from "../assets/uiclick4-79818.mp3";
-import menuButtonClick from "../assets/ui-click-43196.mp3";
-import deleteSFX from "../assets/toy-button-105724.mp3";
-import wrongFilterSFX from "../assets/wrong-answer-129254.mp3";
-import correctOrAddSFX from "../assets/ui_correct_button2-103167.mp3";
-import openCloseAddFormSFX from "../assets/spring-click-sound-95507.mp3";
-import navLinkClickSFX from "../assets/switch-light-04-82204.mp3";
-import slideOutInSFX from "../assets/sliding_wooden_cabinet_door_1-of-2-81503.mp3";
-import clearSFX from "../assets/error-2-126514.mp3";
-import addDeniedSFX from "../assets/select_denied_03-45945.mp3";
-import writingSFX from "../assets/scribbling-68130.mp3";
-import openListorClearSFX from "../assets/projector-button-push-6258.mp3";
-import typeSFX from "../assets/mech-keyboard-02-102918.mp3";
-import resetSFX from "../assets/ping-82822.mp3";
-import pencilCheckSFX from "../assets/pencil_check_mark_1-88805.mp3";
-import mouseClickSFX from "../assets/mouse-click-153941.mp3";
-import resetOrClearFilterSFX from "../assets/fantasy_ui_button_6-102219.mp3";
-import wrongFilterSFX2 from "../assets/error-when-entering-the-game-menu-132111.mp3";
-import inputErrorSFX from "../assets/error-call-to-attention-129258.mp3";
-import errorSFX from "../assets/error-call-to-attention-129258.mp3";
+import addSFX1 from "../assets/audio/achive-sound-132273.mp3";
+import haveSFX from "../assets/audio/beep-6-96243.mp3";
+import buttonSFX from "../assets/audio/button-8-88355.mp3";
+import addSFX2 from "../assets/audio/button-pressed-38129.mp3";
+import buttonClickSFX from "../assets/audio/click-3-44710.mp3";
+import buttonClickSFX2 from "../assets/audio/click-button-140881.mp3";
+import CompletionSFX from "../assets/audio/click-game-menu-147356.mp3";
+import menuOpenSFX from "../assets/audio/clickselect-92098.mp3";
+import finishSFX from "../assets/audio/divinity-138419.mp3";
+import slideInSFX from "../assets/audio/door-open-107728.mp3";
+import emailSFX from "../assets/audio/e-mail-39993.mp3";
+import clearSFX from "../assets/audio/error-2-126514.mp3";
+import inputErrorSFX from "../assets/audio/error-call-to-attention-129258.mp3";
+import wrongFilterSFX2 from "../assets/audio/error-when-entering-the-game-menu-132111.mp3";
+import resetOrClearFilterSFX from "../assets/audio/fantasy_ui_button_6-102219.mp3";
+import listCloseOpenSFX from "../assets/audio/killswitch-being-turned-on-100591.mp3";
+import linkClickSFX from "../assets/audio/light-switch-156813.mp3";
+import typeSFX from "../assets/audio/mech-keyboard-02-102918.mp3";
+import mouseClickSFX from "../assets/audio/mouse-click-153941.mp3";
+import pencilCheckSFX from "../assets/audio/pencil_check_mark_1-88805.mp3";
+import resetSFX from "../assets/audio/ping-82822.mp3";
+import openListorClearSFX from "../assets/audio/projector-button-push-6258.mp3";
+import writingSFX from "../assets/audio/scribbling-68130.mp3";
+import addDeniedSFX from "../assets/audio/select_denied_03-45945.mp3";
+import slideOutInSFX from "../assets/audio/sliding_wooden_cabinet_door_1-of-2-81503.mp3";
+import openCloseAddFormSFX from "../assets/audio/spring-click-sound-95507.mp3";
+import switchSFX from "../assets/audio/switch-93378.mp3";
+import navLinkClickSFX from "../assets/audio/switch-light-04-82204.mp3";
+import deleteSFX from "../assets/audio/toy-button-105724.mp3";
+import correctOrAddSFX from "../assets/audio/ui_correct_button2-103167.mp3";
+import menuButtonClick from "../assets/audio/ui-click-43196.mp3";
+import editClickSFX from "../assets/audio/uiclick4-79818.mp3";
+import toBottomTopSFX from "../assets/audio/uisound1-79819.mp3";
+import wrongFilterSFX from "../assets/audio/wrong-answer-129254.mp3";
 
 const addSFXAudio1 = new Audio(addSFX1);
 const haveSFXAudio = new Audio(haveSFX);
@@ -64,7 +65,8 @@ const pencilCheckSFXAudio = new Audio(pencilCheckSFX);
 const mouseClickSFXAudio = new Audio(mouseClickSFX);
 const resetOrClearFilterSFXAudio = new Audio(resetOrClearFilterSFX);
 const inputErrorSFXAudio = new Audio(inputErrorSFX);
-const errorSFXAudio = new Audio(errorSFX);
+const switchSFXAudio = new Audio(switchSFX);
+const emailSFXAudio = new Audio(emailSFX);
 
 export {
   addSFXAudio1,
@@ -100,5 +102,6 @@ export {
   mouseClickSFXAudio,
   resetOrClearFilterSFXAudio,
   inputErrorSFXAudio,
-  errorSFXAudio,
+  switchSFXAudio,
+  emailSFXAudio,
 };
