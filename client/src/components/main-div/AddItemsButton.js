@@ -4,7 +4,12 @@ import useAudio from "../../hooks/useAudio";
 import { playAudio } from "../../utils/playAudio";
 
 const BUTTON_COOLDOWN_MS = 900;
-const INITIAL_AUDIO_CONTEXT = new (window.AudioContext || window.webkitAudioContext)();
+let INITIAL_AUDIO_CONTEXT;
+try {
+  INITIAL_AUDIO_CONTEXT = new (window.AudioContext || window.webkitAudioContext)();
+} catch (error) {
+  console.log(error);
+}
 
 function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
   const { reversedBuffer } = useAudio(openCloseAddFormSFX);
@@ -13,8 +18,6 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
   useEffect(() => {
     if (listIsEmpty) {
       setShowAddItem(true);
-      openCloseAddFormSFXAudio.currentTime = 0;
-      openCloseAddFormSFXAudio.play();
     }
   }, [listIsEmpty, setShowAddItem]);
 
@@ -44,7 +47,7 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
       disabled={listIsEmpty || buttonDisabled}
       onClick={onClickHandler}
       id="add-item-button"
-      className={` font-semibold transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg ${
+      className={`font-semibold transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg ${
         !showAddItem
           ? "bg-indigo-700  hover:bg-indigo-600"
           : listIsEmpty
@@ -57,7 +60,7 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
       <div
         className={`font-semibold transition-transform flex text-center items-center justify-center w-3 h-3 ${
           !dark ? "text-gray-800" : "text-white -translate-y-0.5"
-        } ${showAddItem ? "rotate-90" : "rotate-0"}`}
+        } ${showAddItem ? "duration-500 rotate-90" : "rotate-0"}`}
       >
         &gt;
       </div>
