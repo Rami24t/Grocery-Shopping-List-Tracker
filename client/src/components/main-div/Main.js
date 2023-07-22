@@ -3,6 +3,7 @@ import MainHeader from "./MainHeader";
 import AddItems from "./AddItems";
 import FilterSection from "./filter-section/FilterSection";
 import Lists from "./Lists";
+import { wrongFilterSFXAudio2, completionSFXAudio } from "../../utils/sfx";
 
 function Main({
   list,
@@ -21,18 +22,35 @@ function Main({
   updateItem,
   handleReset,
   handleClear,
-  dark
+  dark,
 }) {
   function sanitize(str) {
     return str
       .trim()
       .replace(/[^a-zA-Z0-9\u0621-\u064A\u0660-\u0669\u0300-\u036fäöüß]/g, "")
       .toLowerCase()
-      .normalize("NFD")
+      .normalize("NFD");
   }
   function validate(str) {
     return filter.trim() === "" || sanitize(str).includes(sanitize(filter));
   }
+  const filteredNeeds = filter
+    ? needs.filter((item) => validate(item.name))
+    : needs;
+  const filteredHaves = filter
+    ? haves.filter((item) => validate(item.name))
+    : haves;
+  const noFilteredResults =
+    items.length > 1 && filteredNeeds.length + filteredHaves.length <= 0;
+
+  if (filter)
+    if (noFilteredResults) {
+      wrongFilterSFXAudio2.currentTime = 0;
+      wrongFilterSFXAudio2.play();
+    } else {
+      completionSFXAudio.currentTime = 0;
+      completionSFXAudio.play();
+    }
 
   return (
     <main className="min-w-[33%]  sm:z-50 text-center">
@@ -53,17 +71,17 @@ function Main({
         setFilter={setFilter}
         handleChangeFilter={handleChangeFilter}
         items={items.length}
-        dark={dark} 
+        dark={dark}
       />
       <Lists
-        filter={filter}
         needs={needs}
         haves={haves}
+        filteredNeeds={filteredNeeds}
+        filteredHaves={filteredHaves}
         handleDelete={handleDelete}
         handleToggle={handleToggle}
         updateItem={updateItem}
         list={list}
-        validate={validate}
         dark={dark}
       />
     </main>

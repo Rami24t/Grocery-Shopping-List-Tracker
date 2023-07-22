@@ -8,16 +8,16 @@ import {
 
 function List({
   title,
-  filter,
   items,
+  filteredItems,
   showItems,
   setShowItems,
   handleDelete,
   handleToggle,
   updateItem,
-  validate,
   dark,
 }) {
+
   return (
     <article>
       <h3
@@ -39,32 +39,31 @@ function List({
           }
         }}
       >
-        {title}: {items.length}
+        {title}: {filteredItems.length<items.length ? filteredItems.length + '/' : ''} {items.length}
         {showItems ? (
           <BsEye className="inline-block" />
         ) : (
-          <BsEyeSlash className="inline" />
+          <BsEyeSlash className="inline-block" />
         )}
         <div
-          className={`p-2 cursor-pointer text-lg transition-transform inline-flex text-center items-center justify-center w-4 h-4 ${
+          className={`${!filteredItems.length?'invisible':''} p-2 cursor-pointer text-lg transition-transform inline-flex text-center items-center justify-center w-4 h-4 ${
             showItems
               ? "duration-500 rotate-90 translate-x-0.5"
               : "-rotate-0 transform -translate-y-0.5"
-          }`}
-        >
+          }`}>
           &gt;
         </div>
       </h3>
-      <ul
+      {filteredItems && <ul
         className={`overflow-hidden w-full duration-500 transition-all flex-col items-center justify-center ${
           showItems
             ? "duration-500 opacity-100 rotate-0"
             : "opacity-0 h-1 rotate-12 "
         }`}
       >
-        {items.map(
+        {filteredItems.map(
           (item) =>
-            (!filter || validate(item.name)) && (
+            (
               <Item
                 key={item.id}
                 item={item}
@@ -75,7 +74,7 @@ function List({
               />
             )
         )}
-      </ul>
+      </ul>}
     </article>
   );
 }

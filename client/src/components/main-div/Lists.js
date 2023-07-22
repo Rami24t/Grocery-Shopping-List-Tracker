@@ -3,14 +3,14 @@ import List from "./List";
 import { Context } from "../Context";
 
 function Lists({
-  filter,
+  filteredNeeds,
+  filteredHaves,
   needs,
   haves,
   handleDelete,
   handleToggle,
   updateItem,
   list,
-  validate,
   dark,
 }) {
   const { state, dispatch } = React.useContext(Context);
@@ -25,28 +25,26 @@ function Lists({
       {needs[0] && (
         <List
           title="Need"
-          filter={filter}
           items={needs}
+          filteredItems={filteredNeeds}
           showItems={state.showNeeds}
           setShowItems={(showNeeds)=>dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds } })}
           handleDelete={handleDelete}
           handleToggle={handleToggle}
           updateItem={updateItem}
-          validate={validate}
           dark={dark}
         />
       )}
       {haves[0] && (
         <List
           title="Have"
-          filter={filter}
           items={haves}
+          filteredItems={filteredHaves}
           showItems={state.showHaves}
           setShowItems={(showHaves)=>dispatch({ type: "SET_SHOW_ITEMS", payload: { showHaves } })}
           handleDelete={handleDelete}
           handleToggle={handleToggle}
           updateItem={updateItem}
-          validate={validate}
           dark={dark}
         />
       )}
