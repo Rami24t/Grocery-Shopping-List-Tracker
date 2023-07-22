@@ -17,10 +17,14 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
     e.target.parentNode.firstChild.disabled = false;
     e.target.parentNode.firstChild.readOnly = false;
     e.target.parentNode.firstChild.focus();
-    editClickSFXAudio.currentTime = 0;
-    editClickSFXAudio.play();
-    writingSFXAudio.currentTime = 0;
-    writingSFXAudio.play();
+    try {
+      editClickSFXAudio.currentTime = 0;
+      editClickSFXAudio.play();
+      writingSFXAudio.currentTime = 0;
+      writingSFXAudio.play();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleBlur = (e) => {
@@ -46,8 +50,12 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
     if (item.name === value) return;
     setName(value);
     updateItem(item, { name: value });
-    correctOrAddSFXAudio.currentTime = 0;
-    correctOrAddSFXAudio.play();
+    try {
+      correctOrAddSFXAudio.currentTime = 0;
+      correctOrAddSFXAudio.play();
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const handleCheck = (item) => {

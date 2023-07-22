@@ -58,10 +58,13 @@ function App() {
   const [showSideNav, setShowSideNav] = useState(false);
   const [filter, setFilter] = useState("");
   function handleChangeFilter(value) {
-    if(value.length > filter.length)
-    {
-      typeSFXAudio.currentTime = 0;
-      typeSFXAudio.play();
+    if (value.length > filter.length) {
+      try {
+        typeSFXAudio.currentTime = 0;
+        typeSFXAudio.play();
+      } catch (error) {
+        console.log(error);
+      }
     }
     if (value.trim() === "") setFilter("");
     else {
@@ -105,18 +108,23 @@ function App() {
   //   [handleSave]
   // );
   function handleDelete(item) {
-    if(item.need && needs.length === 1)
-    {
-      finishSFXAudio.currentTime = 0;
-      finishSFXAudio.play();
+    if (item.need && needs.length === 1) {
+      try {
+        finishSFXAudio.currentTime = 0;
+        finishSFXAudio.play();
+      } catch (error) {
+        console.log(error);
+      }
+    } else if (!item.need && haves.length === 1) {
+      try {
+        clearSFXAudio.currentTime = 0;
+        clearSFXAudio.play();
+      } catch (error) {}
     }
-    else if(!item.need && haves.length === 1)
-    {
-      clearSFXAudio.currentTime = 0;
-      clearSFXAudio.play();
-    }
-    deleteSFXAudio.currentTime = 0;
-    deleteSFXAudio.play();
+    try {
+      deleteSFXAudio.currentTime = 0;
+      deleteSFXAudio.play();
+    } catch (error) {}
     setItems((prevItems) => {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
       // handleSave(updatedItems);
@@ -142,32 +150,26 @@ function App() {
   // );
   function handleToggle(item) {
     if (item.need) {
-      if(needs.length === 1)
-      {
+      if (needs.length === 1) {
         finishSFXAudio.currentTime = 0;
         finishSFXAudio.play();
-    }
-      else
-      {
-      haveSFXAudio.currentTime = 0;
-      haveSFXAudio.play();
-      addSFXAudio2.currentTime = 0;
-      addSFXAudio2.play();
-      setTimeout(() => {
-        haveSFXAudio.pause();
+      } else {
         haveSFXAudio.currentTime = 0;
-      }, 600);
+        haveSFXAudio.play();
+        addSFXAudio2.currentTime = 0;
+        addSFXAudio2.play();
+        setTimeout(() => {
+          haveSFXAudio.pause();
+          haveSFXAudio.currentTime = 0;
+        }, 600);
       }
     } else {
-      if(haves.length === 1)
-      {
+      if (haves.length === 1) {
         clearSFXAudio.currentTime = 0;
         clearSFXAudio.play();
-      }
-      else
-      {
-      buttonClickSFXAudio2.currentTime = 0;
-      buttonClickSFXAudio2.play();
+      } else {
+        buttonClickSFXAudio2.currentTime = 0;
+        buttonClickSFXAudio2.play();
       }
     }
     item.need = !item.need;
@@ -196,13 +198,14 @@ function App() {
   }
 
   function handleAdd(e) {
-    handleChangeFilter('');
+    handleChangeFilter("");
     const value = e.target.value.trim();
     if (value === "" || items.find((i) => i.name === value)) {
       e.target.value = "";
-      if(value !== "")
-      {addDeniedSFXAudio.currentTime = 0
-      addDeniedSFXAudio.play();}
+      if (value !== "") {
+        addDeniedSFXAudio.currentTime = 0;
+        addDeniedSFXAudio.play();
+      }
       return;
     }
     addSFXAudio1.currentTime = 0;
@@ -253,10 +256,10 @@ function App() {
     // clearSFXAudio.play();
     // openListorClearSFXAudio.play();
     try {
-    resetOrClearFilterSFXAudio.currentTime = 0;
-    resetOrClearFilterSFXAudio.play();
-    wrongFilterSFXAudio.currentTime = 0;
-    wrongFilterSFXAudio.play();
+      resetOrClearFilterSFXAudio.currentTime = 0;
+      resetOrClearFilterSFXAudio.play();
+      wrongFilterSFXAudio.currentTime = 0;
+      wrongFilterSFXAudio.play();
       openCloseAddFormSFXAudio.currentTime = 0;
       openCloseAddFormSFXAudio.play();
     } catch (error) {
@@ -296,15 +299,14 @@ function App() {
             <div
               className="click-away fixed top-0 right-0 h-screen w-screen z-40 filter bg-black bg-opacity-50"
               onClick={() => {
-                setShowSideNav(false)
-              slideOutInSFXAudio.currentTime = 0;
-              slideOutInSFXAudio.play();
-              setTimeout(() => {
-                slideOutInSFXAudio.pause();
-                slideOutInSFXAudio.currentTime = 3.5;
-              }, 600);
-              }
-              }
+                setShowSideNav(false);
+                slideOutInSFXAudio.currentTime = 0;
+                slideOutInSFXAudio.play();
+                setTimeout(() => {
+                  slideOutInSFXAudio.pause();
+                  slideOutInSFXAudio.currentTime = 3.5;
+                }, 600);
+              }}
             ></div>
           )}
           <div
