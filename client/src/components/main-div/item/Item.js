@@ -9,7 +9,7 @@ import {
 
 const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
   const handleEdit = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     e.target.disabled = true;
     setTimeout(() => {
       e.target.disabled = false;
@@ -28,7 +28,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
   };
 
   const handleBlur = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     e.target.disabled = true;
     handleUpdate(e);
   };

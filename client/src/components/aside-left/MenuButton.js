@@ -7,7 +7,7 @@ const MenuButton = React.memo(({ showSideNav, setShowSideNav, dark }) => {
     <div
       onClick={(e) => {
         e.stopPropagation();
-        e.preventDefault();
+        // e.preventDefault();
         e.target.style.pointerEvents = "none";
         setTimeout(() => {
           e.target.style.pointerEvents = "";

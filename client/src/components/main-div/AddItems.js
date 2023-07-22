@@ -8,7 +8,7 @@ import {
 
 function AddItems({ handleAdd, showAddItem, dark }) {
   const handleClick = (e) => {
-    e.preventDefault();
+    // e.preventDefault();
     e.stopPropagation();
     e.currentTarget.previousSibling.focus();
   };
