@@ -44,12 +44,16 @@ function Main({
     items.length > 1 && filteredNeeds.length + filteredHaves.length <= 0;
 
   if (filter)
-    if (noFilteredResults) {
-      wrongFilterSFXAudio2.currentTime = 0;
-      wrongFilterSFXAudio2.play();
-    } else {
-      completionSFXAudio.currentTime = 0;
-      completionSFXAudio.play();
+    try {
+      if (noFilteredResults) {
+        wrongFilterSFXAudio2.currentTime = 0;
+        wrongFilterSFXAudio2.play();
+      } else {
+        completionSFXAudio.currentTime = 0;
+        completionSFXAudio.play();
+      }
+    } catch (error) {
+      console.log(error);
     }
 
   return (

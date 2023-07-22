@@ -5,8 +5,12 @@ import { pencilCheckSFXAudio } from "../../../utils/sfx";
 function ClearFilterBtn({ filter, setFilter }) {
   function clearFilter() {
     if (filter.length > 0) {
-      pencilCheckSFXAudio.currentTime = 0;
-      pencilCheckSFXAudio.play();
+      try {
+        pencilCheckSFXAudio.currentTime = 0;
+        pencilCheckSFXAudio.play();
+      } catch (error) {
+        console.log(error);
+      }
     }
     setFilter("");
   }

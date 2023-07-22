@@ -4,8 +4,12 @@ import { typeSFXAudio } from "../../../utils/sfx";
 function ItemName({ name, setName, handleBlur, handleKeyDown, needed, dark }) {
   const handleChange = (e) => {
     if (name.length < e.target.value.length) {
-      typeSFXAudio.currentTime = 0;
-      typeSFXAudio.play();
+      try {
+        typeSFXAudio.currentTime = 0;
+        typeSFXAudio.play();
+      } catch (error) {
+        console.log(error);
+      }
     }
     setName(e.target.value);
   };

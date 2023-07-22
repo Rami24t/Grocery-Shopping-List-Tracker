@@ -26,8 +26,12 @@ const Sidenav = ({
       e.target.parentNode.style.pointerEvents = "";
     }, 500);
     setShowSideNav(false);
-    slideOutInSFXAudio.currentTime = 0;
-    slideOutInSFXAudio.play();
+    try {
+      slideOutInSFXAudio.currentTime = 0;
+      slideOutInSFXAudio.play();
+    } catch (error) {
+      console.log(error);
+    }
     setTimeout(() => {
       slideOutInSFXAudio.pause();
       slideOutInSFXAudio.currentTime = 3.5;
