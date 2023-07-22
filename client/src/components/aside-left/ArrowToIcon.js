@@ -1,10 +1,7 @@
 import React from "react";
 import { BiSolidArrowToTop } from "react-icons/bi";
 import {
-  linkClickSFXAudio,
-  navLinkClickSFXAudio,
-  buttonClickSFXAudio,
-  buttonClickSFXAudio2,
+  toBottomTopSFXAudio,
   slideOutInSFXAudio,
 } from "../../utils/sfx";
 
@@ -17,8 +14,8 @@ const ArrowToIcon = React.memo(({ toBottom, dark, shown }) => (
       setTimeout(() => {
         e.target.style.pointerEvents = "";
       }, 800);
-      buttonClickSFXAudio.currentTime = 0;
-      buttonClickSFXAudio.play();
+      toBottomTopSFXAudio.currentTime = 0;
+      toBottomTopSFXAudio.play();
       slideOutInSFXAudio.currentTime = 0;
       slideOutInSFXAudio.play();
       setTimeout(() => {

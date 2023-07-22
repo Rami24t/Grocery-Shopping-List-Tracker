@@ -10,22 +10,24 @@ function ArrowButtonsNav({ dark }) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
+  const TO_ARROWS = [
+    {
+      toBottom: false,
+      dark,
+      shown: scrollY > window.innerHeight,
+    },
+    {
+      toBottom: true,
+      dark,
+      shown: scrollY <window.document.body.clientHeight - 2 * window.innerHeight && scrollY > 10,
+    }
+  ]
+
   return (
     <>
-      <ArrowToIcon
-        toBottom={false}
-        dark={dark}
-        shown={scrollY > window.innerHeight}
-      />
-      <ArrowToIcon
-        toBottom={true}
-        dark={dark}
-        shown={
-          scrollY <
-            window.document.body.clientHeight - 2 * window.innerHeight &&
-          scrollY > 10
-        }
-      />
+      {TO_ARROWS.map((arrow, index) => (
+        <ArrowToIcon key={index} {...arrow} />
+      ))}
     </>
   );
 }
