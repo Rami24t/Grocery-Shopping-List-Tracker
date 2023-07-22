@@ -1,6 +1,7 @@
 import React from "react";
 import CopyrightDisclaimer from "./CopyrightDisclaimer";
 import Icons from "./Icons";
+import { navLinkClickSFXAudio } from "../../utils/sfx"; 
 
 function BottomFooter( {dark} ) {
   return (
@@ -9,9 +10,10 @@ function BottomFooter( {dark} ) {
         year="2023"
         author="Rami Al-Saadi™"
         link="https://www.linkedin.com/in/rami-al-saadi-16a14223a/"
-        dark={dark} 
+        dark={dark}
+        sfx={navLinkClickSFXAudio}
       />
-      <Icons  dark={dark} />
+      <Icons  dark={dark} sfx={navLinkClickSFXAudio} />
     </div>
   );
 }

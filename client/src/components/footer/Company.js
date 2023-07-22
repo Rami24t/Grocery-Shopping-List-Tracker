@@ -1,9 +1,14 @@
 import React from "react";
 
-function Company({ logo = "/logo-no-background.svg", name = "Rami Al-Saadi", link = "https://www.linkedin.com/in/rami-al-saadi-16a14223a/", dark}) {
+function Company({ logo = "/logo-no-background.svg", name = "Rami Al-Saadi", link = "https://www.linkedin.com/in/rami-al-saadi-16a14223a/", sfx, dark}) {
+  const handleClick = () => {
+    sfx.currentTime = 0;
+    sfx.play();
+  };
   return <div className="mb-6 md:mb-0">
     <a
       href={link}
+      onClick={handleClick}
       target="_blank"
       rel="noopener noreferrer"
       className="flex items-center"
