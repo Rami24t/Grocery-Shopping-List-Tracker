@@ -26,14 +26,46 @@ const Sidenav = ({
       e.target.parentNode.style.pointerEvents = "";
     }, 500);
     setShowSideNav(false);
-    slideOutInSFXAudio.currentTime = 0
+    slideOutInSFXAudio.currentTime = 0;
     slideOutInSFXAudio.play();
     setTimeout(() => {
       slideOutInSFXAudio.pause();
       slideOutInSFXAudio.currentTime = 3.5;
-    }
-    , 600);
+    }, 600);
   }
+  function handleClick() {
+    navLinkClickSFXAudio.currentTime = 0;
+    navLinkClickSFXAudio.play();
+  }
+
+  const sideNavLinks = [
+    { title: "Home", href: "#app", Icon: SvgHome },
+    {
+      title: "Add Item",
+      href: "#add-item-button",
+      Icon: SvgAddItem,
+      LIBadge: ItemsBadge,
+      items: items,
+      margin: "ml-6",
+      onClick: () => {
+        setShowAddItem(true);
+        setTimeout(() => {
+          document.getElementById("new-item").focus();
+        }, 400);
+      },
+    },
+    { title: "Search List", href: "#filter", Icon: SvgBagFilled },
+    { title: "Edit List", href: "#list", Icon: SvgEditList },
+    { title: "About", href: "#footer", Icon: SvgPerson },
+    {
+      title: "Settings",
+      href: "#settings",
+      Icon: SvgSettings,
+      LIBadge: ProBadge,
+      margin: "ml-10",
+    },
+  ];
+
   return (
     <nav
       id="sidenav"
@@ -46,51 +78,20 @@ ${
       aria-label="Sidebar"
     >
       <div className="h-full px-3" onClick={hideMobileSidenav}>
-        <ul className="space-y-2 font-medium"
-        onClick={(e) => {navLinkClickSFXAudio.currentTime = 0;navLinkClickSFXAudio.play();}}
-        >
-          <SidenavLI title="Home" Icon={SvgHome} href="#app" dark={dark} />
-          <SidenavLI
-            title="Add Item"
-            Icon={SvgAddItem}
-            href="#add-item-button"
-            onClick={() => {
-              setShowAddItem(true);
-              setTimeout(() => {
-                document.getElementById("new-item").focus();
-              }, 400);
-            }}
-            LIBadge={ItemsBadge}
-            items={items}
-            dark={dark}
-            margin="ml-6"
-          />
-          <SidenavLI
-            title="Search List"
-            Icon={SvgBagFilled}
-            href="#filter"
-            dark={dark}
-          />
-          <SidenavLI
-            title="Edit List"
-            Icon={SvgEditList}
-            href="#list"
-            dark={dark}
-          />
-          <SidenavLI
-            title="About"
-            Icon={SvgPerson}
-            href="#footer"
-            dark={dark}
-          />
-          <SidenavLI
-            title="Settings"
-            Icon={SvgSettings}
-            href="#settings"
-            dark={dark}
-            LIBadge={ProBadge}
-            margin="ml-10"
-          />
+        <ul className="space-y-2 font-medium" onClick={handleClick}>
+          {sideNavLinks.map((link, i) => (
+            <SidenavLI
+              key={i}
+              title={link.title}
+              href={link.href}
+              Icon={link.Icon}
+              LIBadge={link.LIBadge}
+              items={link.items}
+              margin={link.margin}
+              onClick={link.onClick}
+              dark={dark}
+            />
+          ))}
         </ul>
       </div>
     </nav>
