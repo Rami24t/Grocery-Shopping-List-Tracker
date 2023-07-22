@@ -28,7 +28,7 @@ function ItemName({ name, setName, handleBlur, handleKeyDown, needed, dark }) {
           ? "border-gray-600 placeholder-gray-400 bg-gray-700 text-gray-50  disabled:text-gray-200"
           : " disabled:bg-gray-50 text-gray-900"
       }
-      bg-blend-multiply disabled:bg-blend-darken`}
+      bg-blend-multiply disabled:bg-blend-darken filter contrast-[111%] focus:filter-none hover:contrast-100 `}
       readOnly={true}
       title="item name"
       style={{
