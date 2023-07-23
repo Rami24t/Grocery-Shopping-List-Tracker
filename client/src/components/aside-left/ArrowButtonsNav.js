@@ -1,6 +1,5 @@
 import { useEffect, useState } from "react";
 import ArrowToIcon from "./ArrowToIcon";
-import { toBottomTopSFXAudio, slideOutInSFXAudio, playSFXAudio } from "../../utils/sfx";
 
 function ArrowButtonsNav({ dark }) {
   const [scrollY, setScrollY] = useState(0);
@@ -23,30 +22,11 @@ function ArrowButtonsNav({ dark }) {
       shown: scrollY <window.document.body.clientHeight - 2 * window.innerHeight && scrollY > 10,
     }
   ]
-  const handleClick = (e) => {
-    e.preventDefault();
-    window.scrollTo({
-      top: e.target.href === "#footer" ? 0 : window.document.body.clientHeight,
-      behavior: "smooth"
-    });
-    try {
-      e.target.style.pointerEvents = "none";
-      setTimeout(() => {
-        e.target.style.pointerEvents = "";
-      }, 800);
-      playSFXAudio(toBottomTopSFXAudio, slideOutInSFXAudio);
-      setTimeout(() => {
-        slideOutInSFXAudio.pause();
-      }, 550);
-    } catch (error) {
-      console.log(error);
-    }
-  }
 
   return (
     <>
       {TO_ARROWS.map((arrow, index) => (
-        <ArrowToIcon key={index} {...arrow} handleClick={handleClick} />
+        <ArrowToIcon key={index} {...arrow} />
       ))}
     </>
   );
