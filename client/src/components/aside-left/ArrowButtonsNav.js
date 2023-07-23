@@ -24,11 +24,12 @@ function ArrowButtonsNav({ dark }) {
     }
   ]
   const handleClick = (e) => {
+    e.preventDefault();
+    window.scrollTo({
+      top: e.target.href === "#footer" ? 0 : window.document.body.clientHeight,
+      behavior: "smooth"
+    });
     try {
-      window.scrollTo({
-        top: e.target.href === "#footer" ? window.document.body.clientHeight : 0,
-        behavior: "smooth"
-      });
       e.target.style.pointerEvents = "none";
       setTimeout(() => {
         e.target.style.pointerEvents = "";
