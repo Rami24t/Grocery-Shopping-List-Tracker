@@ -9,7 +9,7 @@ import {
   SvgSettings,
 } from "./SidenavSvgs";
 import { ItemsBadge, ProBadge } from "./LIBadges";
-import { slideOutInSFXAudio, navLinkClickSFXAudio } from "../../utils/sfx";
+import { slideOutInSFXAudio, navLinkClickSFXAudio, playSFXAudio } from "../../utils/sfx";
 
 const Sidenav = ({
   items,
@@ -26,20 +26,14 @@ const Sidenav = ({
       e.target.parentNode.style.pointerEvents = "";
     }, 500);
     setShowSideNav(false);
-    try {
-      slideOutInSFXAudio.currentTime = 0;
-      slideOutInSFXAudio.play();
-    } catch (error) {
-      console.log(error);
-    }
+    playSFXAudio(slideOutInSFXAudio)
     setTimeout(() => {
       slideOutInSFXAudio.pause();
       slideOutInSFXAudio.currentTime = 3.5;
     }, 600);
   }
   function handleClick() {
-    navLinkClickSFXAudio.currentTime = 0;
-    navLinkClickSFXAudio.play();
+    playSFXAudio(navLinkClickSFXAudio);
   }
 
   const sideNavLinks = [

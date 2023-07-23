@@ -1,13 +1,12 @@
 import React from "react";
 import { BsLinkedin } from "react-icons/bs";
-import { navLinkClickSFXAudio } from "../../utils/sfx";
+import { navLinkClickSFXAudio, playSFXAudio } from "../../utils/sfx";
 
 function FooterIconLink({
   srText = "LinkedIn",
   url = "https://www.linkedin.com/in/rami-al-saadi-16a14223a/",
   handleClick = () => {
-    navLinkClickSFXAudio.currentTime = 0;
-    navLinkClickSFXAudio.play();
+    playSFXAudio(navLinkClickSFXAudio);
   },
   Icon = BsLinkedin,
  dark}) {

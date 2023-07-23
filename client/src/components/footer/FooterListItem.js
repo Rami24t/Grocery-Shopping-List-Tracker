@@ -1,11 +1,10 @@
 import React from "react";
-import { navLinkClickSFXAudio } from "../../utils/sfx";
+import { navLinkClickSFXAudio, playSFXAudio } from "../../utils/sfx";
 
 function FooterListItem({
   link,
   handleClick = () => {
-    navLinkClickSFXAudio.currentTime = 0;
-    navLinkClickSFXAudio.play();
+    playSFXAudio(navLinkClickSFXAudio);
   },
 }) {
   return (

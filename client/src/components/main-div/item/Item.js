@@ -5,6 +5,7 @@ import {
   editClickSFXAudio,
   writingSFXAudio,
   correctOrAddSFXAudio,
+  playSFXAudio,
 } from "../../../utils/sfx";
 
 const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
@@ -17,14 +18,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
     e.target.parentNode.firstChild.disabled = false;
     e.target.parentNode.firstChild.readOnly = false;
     e.target.parentNode.firstChild.focus();
-    try {
-      editClickSFXAudio.currentTime = 0;
-      editClickSFXAudio.play();
-      writingSFXAudio.currentTime = 0;
-      writingSFXAudio.play();
-    } catch (error) {
-      console.log(error);
-    }
+    playSFXAudio(editClickSFXAudio, writingSFXAudio);
   };
 
   const handleBlur = (e) => {
@@ -50,12 +44,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
     if (item.name === value) return;
     setName(value);
     updateItem(item, { name: value });
-    try {
-      correctOrAddSFXAudio.currentTime = 0;
-      correctOrAddSFXAudio.play();
-    } catch (error) {
-      console.log(error);
-    }
+    playSFXAudio(correctOrAddSFXAudio);
   };
 
   const handleCheck = (item) => {

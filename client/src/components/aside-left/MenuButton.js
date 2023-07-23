@@ -1,6 +1,6 @@
 import React from "react";
 import "./MenuButton.scss";
-import { linkClickSFXAudio, navLinkClickSFXAudio, slideOutInSFXAudio } from "../../utils/sfx";
+import { linkClickSFXAudio, navLinkClickSFXAudio, playSFXAudio, slideOutInSFXAudio } from "../../utils/sfx";
 
 const MenuButton = React.memo(({ showSideNav, setShowSideNav, dark }) => {
   return (
@@ -12,18 +12,15 @@ const MenuButton = React.memo(({ showSideNav, setShowSideNav, dark }) => {
         setTimeout(() => {
           e.target.style.pointerEvents = "";
         }, 800);
-        navLinkClickSFXAudio.currentTime = 0;
-        navLinkClickSFXAudio.play();
+        playSFXAudio(navLinkClickSFXAudio);
         if (showSideNav) {
-          slideOutInSFXAudio.currentTime = 0;
-          slideOutInSFXAudio.play();
+          playSFXAudio(slideOutInSFXAudio)
           setTimeout(() => {
             slideOutInSFXAudio.pause();
             slideOutInSFXAudio.currentTime = 3.5;
           }, 800);
         } else {
-          linkClickSFXAudio.currentTime = 0;
-        linkClickSFXAudio.play();
+          playSFXAudio(linkClickSFXAudio);
           slideOutInSFXAudio.currentTime = 3.5;
           slideOutInSFXAudio.play();
         }

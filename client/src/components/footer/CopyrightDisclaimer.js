@@ -1,4 +1,5 @@
 import React from "react";
+import { playSFXAudio } from "../../utils/sfx";
 
 function CopyrightDisclaimer({
   year = "2023",
@@ -8,8 +9,7 @@ function CopyrightDisclaimer({
   dark,
 }) {
   const handleClick = () => {
-    sfx.currentTime = 0;
-    sfx.play();
+    playSFXAudio(sfx);
   };
   return (
     <span className={`copyright-disclaimer mt-1 text-sm  sm:text-center ${dark?"text-gray-500":"text-gray-500"}`}>

@@ -1,16 +1,11 @@
 import React from "react";
 import { BsFunnel, BsFunnelFill } from "react-icons/bs";
-import { pencilCheckSFXAudio } from "../../../utils/sfx";
+import { pencilCheckSFXAudio, playSFXAudio } from "../../../utils/sfx";
 
 function ClearFilterBtn({ filter, setFilter }) {
   function clearFilter() {
     if (filter.length > 0) {
-      try {
-        pencilCheckSFXAudio.currentTime = 0;
-        pencilCheckSFXAudio.play();
-      } catch (error) {
-        console.log(error);
-      }
+      playSFXAudio(pencilCheckSFXAudio);
     }
     setFilter("");
   }

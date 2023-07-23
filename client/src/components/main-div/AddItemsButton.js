@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import { openCloseAddFormSFX, openCloseAddFormSFXAudio } from "../../utils/sfx";
+import { openCloseAddFormSFX, openCloseAddFormSFXAudio, playSFXAudio } from "../../utils/sfx";
 import useAudio from "../../hooks/useAudio";
 import { playAudio } from "../../utils/playAudio";
 
@@ -25,8 +25,7 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
     if (buttonDisabled) return;
 
     if (!showAddItem) {
-      openCloseAddFormSFXAudio.currentTime = 0;
-      openCloseAddFormSFXAudio.play();
+      playSFXAudio(openCloseAddFormSFXAudio);
     } else {
       if (reversedBuffer) {
         playAudio(reversedBuffer, INITIAL_AUDIO_CONTEXT);

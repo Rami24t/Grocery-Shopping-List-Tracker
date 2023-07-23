@@ -4,6 +4,7 @@ import { BsEyeSlash, BsEye } from "react-icons/bs";
 import {
   listCloseOpenSFXAudio,
   openListorClearSFXAudio,
+  playSFXAudio,
 } from "../../utils/sfx";
 
 function List({
@@ -31,11 +32,9 @@ function List({
           setShowItems(!showItems);
           try {
             if (showItems) {
-              listCloseOpenSFXAudio.currentTime = 0;
-              listCloseOpenSFXAudio.play();
+              playSFXAudio(listCloseOpenSFXAudio);
             } else {
-              openListorClearSFXAudio.currentTime = 0;
-              openListorClearSFXAudio.play();
+              playSFXAudio(openListorClearSFXAudio);
             }
           } catch (error) {
             console.log(error);

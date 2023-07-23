@@ -24,6 +24,7 @@ import {
   typeSFXAudio,
   wrongFilterSFXAudio,
   openCloseAddFormSFXAudio,
+  playSFXAudio,
   // buttonClickSFXAudio,
   // buttonSFXAudio,
   // slideInSFXAudio,
@@ -59,12 +60,7 @@ function App() {
   const [filter, setFilter] = useState("");
   function handleChangeFilter(value) {
     if (value.length > filter.length) {
-      try {
-        typeSFXAudio.currentTime = 0;
-        typeSFXAudio.play();
-      } catch (error) {
-        console.log(error);
-      }
+      playSFXAudio(typeSFXAudio);
     }
     if (value.trim() === "") setFilter("");
     else {
@@ -109,22 +105,11 @@ function App() {
   // );
   function handleDelete(item) {
     if (item.need && needs.length === 1) {
-      try {
-        finishSFXAudio.currentTime = 0;
-        finishSFXAudio.play();
-      } catch (error) {
-        console.log(error);
-      }
+      playSFXAudio(finishSFXAudio);
     } else if (!item.need && haves.length === 1) {
-      try {
-        clearSFXAudio.currentTime = 0;
-        clearSFXAudio.play();
-      } catch (error) {}
+      playSFXAudio(clearSFXAudio);
     }
-    try {
-      deleteSFXAudio.currentTime = 0;
-      deleteSFXAudio.play();
-    } catch (error) {}
+    playSFXAudio(deleteSFXAudio);
     setItems((prevItems) => {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
       // handleSave(updatedItems);
@@ -151,25 +136,18 @@ function App() {
   function handleToggle(item) {
     if (item.need) {
       if (needs.length === 1) {
-        finishSFXAudio.currentTime = 0;
-        finishSFXAudio.play();
+        playSFXAudio(finishSFXAudio);
       } else {
-        haveSFXAudio.currentTime = 0;
-        haveSFXAudio.play();
-        addSFXAudio2.currentTime = 0;
-        addSFXAudio2.play();
+        playSFXAudio(haveSFXAudio, addSFXAudio2);
         setTimeout(() => {
           haveSFXAudio.pause();
-          haveSFXAudio.currentTime = 0;
         }, 600);
       }
     } else {
       if (haves.length === 1) {
-        clearSFXAudio.currentTime = 0;
-        clearSFXAudio.play();
+        playSFXAudio(clearSFXAudio);
       } else {
-        buttonClickSFXAudio2.currentTime = 0;
-        buttonClickSFXAudio2.play();
+        playSFXAudio(buttonClickSFXAudio2);
       }
     }
     item.need = !item.need;
@@ -203,13 +181,11 @@ function App() {
     if (value === "" || items.find((i) => i.name === value)) {
       e.target.value = "";
       if (value !== "") {
-        addDeniedSFXAudio.currentTime = 0;
-        addDeniedSFXAudio.play();
+        playSFXAudio(addDeniedSFXAudio);
       }
       return;
     }
-    addSFXAudio1.currentTime = 0;
-    addSFXAudio1.play();
+    playSFXAudio(addSFXAudio1);
     // items.push({
     //   id: items.length + 1,
     //   name: value,
@@ -241,8 +217,7 @@ function App() {
       type: "SET_SHOW_ITEMS",
       payload: { showNeeds: true, showHaves: true },
     });
-    resetSFXAudio.currentTime = 0;
-    resetSFXAudio.play();
+    playSFXAudio(resetSFXAudio);
   }
 
   function handleClear() {
@@ -251,20 +226,11 @@ function App() {
     setItems([]);
     handleSave([]);
     setFilter("");
-    // setShowAddItem(true);
-
-    // clearSFXAudio.play();
-    // openListorClearSFXAudio.play();
-    try {
-      resetOrClearFilterSFXAudio.currentTime = 0;
-      resetOrClearFilterSFXAudio.play();
-      wrongFilterSFXAudio.currentTime = 0;
-      wrongFilterSFXAudio.play();
-      openCloseAddFormSFXAudio.currentTime = 0;
-      openCloseAddFormSFXAudio.play();
-    } catch (error) {
-      console.log(error);
-    }
+    playSFXAudio(
+      resetOrClearFilterSFXAudio,
+      wrongFilterSFXAudio,
+      openCloseAddFormSFXAudio
+    );
   }
 
   useEffect(() => {
@@ -300,8 +266,7 @@ function App() {
               className="click-away fixed top-0 right-0 h-screen w-screen z-40 filter bg-black bg-opacity-50"
               onClick={() => {
                 setShowSideNav(false);
-                slideOutInSFXAudio.currentTime = 0;
-                slideOutInSFXAudio.play();
+                playSFXAudio(slideOutInSFXAudio);
                 setTimeout(() => {
                   slideOutInSFXAudio.pause();
                   slideOutInSFXAudio.currentTime = 3.5;

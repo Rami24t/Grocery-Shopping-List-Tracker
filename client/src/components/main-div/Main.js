@@ -3,7 +3,7 @@ import MainHeader from "./MainHeader";
 import AddItems from "./AddItems";
 import FilterSection from "./filter-section/FilterSection";
 import Lists from "./Lists";
-import { wrongFilterSFXAudio2, completionSFXAudio } from "../../utils/sfx";
+import { wrongFilterSFXAudio2, completionSFXAudio, playSFXAudio } from "../../utils/sfx";
 
 function Main({
   list,
@@ -46,11 +46,9 @@ function Main({
   if (filter)
     try {
       if (noFilteredResults) {
-        wrongFilterSFXAudio2.currentTime = 0;
-        wrongFilterSFXAudio2.play();
+        playSFXAudio(wrongFilterSFXAudio2);
       } else {
-        completionSFXAudio.currentTime = 0;
-        completionSFXAudio.play();
+        playSFXAudio(completionSFXAudio);
       }
     } catch (error) {
       console.log(error);

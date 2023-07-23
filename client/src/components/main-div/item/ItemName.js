@@ -1,15 +1,10 @@
 import React from "react";
-import { typeSFXAudio } from "../../../utils/sfx";
+import { playSFXAudio, typeSFXAudio } from "../../../utils/sfx";
 
 function ItemName({ name, setName, handleBlur, handleKeyDown, needed, dark }) {
   const handleChange = (e) => {
     if (name.length < e.target.value.length) {
-      try {
-        typeSFXAudio.currentTime = 0;
-        typeSFXAudio.play();
-      } catch (error) {
-        console.log(error);
-      }
+      playSFXAudio(typeSFXAudio);
     }
     setName(e.target.value);
   };

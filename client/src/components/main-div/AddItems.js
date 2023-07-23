@@ -4,6 +4,7 @@ import {
   writingSFXAudio,
   editClickSFXAudio,
   typeSFXAudio,
+  playSFXAudio,
 } from "../../utils/sfx";
 
 function AddItems({ handleAdd, showAddItem, dark }) {
@@ -16,33 +17,16 @@ function AddItems({ handleAdd, showAddItem, dark }) {
   const onEnter = (e) => e.key === "Enter" && handleBlur(e);
 
   const handleFocus = () => {
-    try {
-      editClickSFXAudio.currentTime = 0;
-      editClickSFXAudio.play();
-      writingSFXAudio.currentTime = 0;
-      writingSFXAudio.play();
-    } catch (err) {
-      console.log(err);
-    }
+      playSFXAudio(editClickSFXAudio, writingSFXAudio);
   };
 
   const handleBlur = (e) => {
-    try {
       writingSFXAudio.pause();
-      writingSFXAudio.currentTime = 0;
       handleAdd(e);
-    } catch (err) {
-      console.log(err);
-    }
-  };
+    };
 
   const handleChange = () => {
-    try {
-      typeSFXAudio.currentTime = 0;
-      typeSFXAudio.play();
-    } catch (error) {
-      console.log(error);
-    }
+       playSFXAudio(typeSFXAudio);
   };
 
   return (
