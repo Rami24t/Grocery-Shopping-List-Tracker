@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { defaultItems } from "./defaultItems";
+import { defaultItems } from "./data/defaultItems";
 import Header from "./components/header/Header";
 import Sidenav from "./components/aside-left/Sidenav";
 import Main from "./components/main-div/Main";
@@ -37,7 +37,7 @@ import {
 
 function App() {
   const { dispatch } = React.useContext(Context);
-  const [dark] = useState(true);
+  const [darkMode, setDarkMode] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [list, setList] = useState(
     localStorage.getItem("lastVisitedList") || "1"
@@ -249,18 +249,19 @@ function App() {
     <div
       id="app"
       className={`app-container ${
-        dark ? "bg-gray-950 text-white" : "bg-white"
+        darkMode ? "bg-gray-950 text-white" : "bg-white text-gray-950"
       }  ${isMobile && "text-center"}`}
     >
       <Header
         list={list}
         needs={needs.length}
         haves={haves.length}
-        dark={dark}
+        darkMode={darkMode}
+        setDarkMode={setDarkMode}
       />
       <div className="overflow-x-hidden bg-inherit flex justify-around flex-wrap gap-0 relative">
         <aside className="aside-left bg-inherit">
-          <ArrowButtonsNav dark={dark} />
+          <ArrowButtonsNav darkMode={darkMode} />
           {showSideNav && (
             <div
               className="click-away fixed top-0 right-0 h-screen w-screen z-40 filter bg-black bg-opacity-50"
@@ -283,7 +284,7 @@ function App() {
             <MenuButton
               showSideNav={showSideNav}
               setShowSideNav={setShowSideNav}
-              dark={dark}
+              darkMode={darkMode}
             />
           </div>
           <Sidenav
@@ -291,7 +292,7 @@ function App() {
             setShowAddItem={setShowAddItem}
             showSideNav={showSideNav}
             setShowSideNav={setShowSideNav}
-            dark={dark}
+            darkMode={darkMode}
           />
         </aside>
         <Main
@@ -312,11 +313,11 @@ function App() {
           handleChangeList={handleChangeList}
           handleReset={handleReset}
           handleClear={handleClear}
-          dark={dark}
+          darkMode={darkMode}
         />
-        <AsideRight isMobile={isMobile} dark={dark} />
+        <AsideRight isMobile={isMobile} darkMode={darkMode} />
       </div>
-      <Footer dark={dark} />
+      <Footer darkMode={darkMode} />
     </div>
   );
 }
