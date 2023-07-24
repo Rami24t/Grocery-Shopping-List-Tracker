@@ -3,7 +3,7 @@ import { SvgSearch } from "./SvgSearch";
 import FilterInput from "./FilterInput";
 import ClearFilterBtn from "./ClearFilterBtn";
 
-function FilterSection({ filter, setFilter, handleChangeFilter, items, dark }) {
+function FilterSection({ filter, setFilter, handleChangeFilter, items, darkMode }) {
   if (items <= 1) return null;
 
   return (
@@ -12,9 +12,9 @@ function FilterSection({ filter, setFilter, handleChangeFilter, items, dark }) {
         Filter Items
       </label>
       <div className="absolute left-1.5 flex items-center pointer-events-none">
-        <SvgSearch dark={dark} />
+        <SvgSearch darkMode={darkMode} />
       </div>
-      <FilterInput filter={filter} handleChangeFilter={handleChangeFilter} items={items} dark={dark} />
+      <FilterInput filter={filter} handleChangeFilter={handleChangeFilter} items={items} darkMode={darkMode} />
       <ClearFilterBtn filter={filter} setFilter={setFilter} />
     </section>
   );

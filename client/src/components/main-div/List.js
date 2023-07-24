@@ -16,7 +16,7 @@ function List({
   handleDelete,
   handleToggle,
   updateItem,
-  dark,
+  darkMode,
 }) {
   return (
     <article>
@@ -76,7 +76,7 @@ function List({
               updateItem={updateItem}
               handleDelete={handleDelete}
               handleToggle={handleToggle}
-              dark={dark}
+              darkMode={darkMode}
             />
           ))}
         </ul>

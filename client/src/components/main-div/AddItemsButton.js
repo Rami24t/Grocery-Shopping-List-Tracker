@@ -11,7 +11,7 @@ try {
   console.log(error);
 }
 
-function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
+function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, darkMode }) {
   const { reversedBuffer } = useAudio(openCloseAddFormSFX);
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
@@ -58,7 +58,7 @@ function AddItemsButton({ showAddItem, setShowAddItem, listIsEmpty, dark }) {
       {"Add "}
       <div
         className={`font-semibold transition-transform flex text-center items-center justify-center w-3 h-3 ${
-          !dark ? "text-gray-800" : "text-white -translate-y-0.5"
+          !darkMode ? "text-gray-800" : "text-white -translate-y-0.5"
         } ${showAddItem ? "duration-500 rotate-90" : "rotate-0"}`}
       >
         &gt;

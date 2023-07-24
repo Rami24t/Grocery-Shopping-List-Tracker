@@ -8,7 +8,7 @@ import {
   playSFXAudio,
 } from "../../../utils/sfx";
 
-const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
+const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
   const handleEdit = (e) => {
     // e.preventDefault();
     e.target.disabled = true;
@@ -65,7 +65,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
         className={`opacity-75 filter  ${
           needed ? "invert hue-rotate-180 brightness-75 " : ""
         } cursor-pointer inline-block leading-none w-5 h-6 m-2 border rounded focus:ring-3 ${
-          !dark
+          !darkMode
             ? "border-gray-300 bg-gray-50 focus:ring-blue-300"
             : " bg-gray-700 border-gray-600 focus:ring-blue-600 ring-offset-gray-800 focus:ring-offset-gray-800"
         }`}
@@ -80,7 +80,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
         type="button"
         onClick={handleEdit}
         className={`leading-none w-6 h-6 rounded-lg m-2 text-center border hover:font-bold text-xl focus:ring-4 focus:outline-none  ${
-          dark
+          darkMode
             ? "border-indigo-400 bg-indigo-950 text-indigo-300 focus:ring-indigo-700 hover:text-indigo-200 hover:border-indigo-300"
             : " text-slate-800 hover:text-slate-600   border-slate-600 focus:ring-slate-400 "
         }`}
@@ -96,7 +96,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
         onClick={() => handleDelete(item)}
         type="button"
         className={`inline-flex items-center justify-center w-6 h-6 leading-none rounded-lg ml-3 m-2 text-center hover:border-red-500 hover:font-bold text-xl border focus:ring-4 focus:outline-none ${
-          dark
+          darkMode
             ? "border-red-600 hover:border-red-400 text-red-500 bg-red-950  focus:ring-red-900 hover:text-red-400"
             : " text-red-700 hover:text-red-500 border-red-700 focus:ring-red-300"
         } `}
@@ -116,11 +116,11 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, dark }) => {
         handleBlur={handleBlur}
         handleKeyDown={handleKeyDown}
         needed={needed}
-        dark={dark}
+        darkMode={darkMode}
       />
-      <Checkbox dark={dark} />
-      <EditButton dark={dark} />
-      <DeleteButton dark={dark} />
+      <Checkbox darkMode={darkMode} />
+      <EditButton darkMode={darkMode} />
+      <DeleteButton darkMode={darkMode} />
     </div>
   );
 };

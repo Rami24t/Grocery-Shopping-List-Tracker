@@ -6,7 +6,7 @@ import {
   playSFXAudio,
 } from "../../utils/sfx";
 
-const ArrowToIcon = React.memo(({ toBottom, dark, shown }) => {
+const ArrowToIcon = React.memo(({ toBottom, darkMode, shown }) => {
   function handleClick(e) {
       e.preventDefault();
       window.scrollTo({
@@ -29,7 +29,7 @@ const ArrowToIcon = React.memo(({ toBottom, dark, shown }) => {
       className={`text-xl rounded-e-xl bg-gray-900 bg-opacity-80 flex items-center justify-center fixed z-40  ${
         shown ? "-left-0.5" : "-left-8"
       } ${
-        dark
+        darkMode
           ? "text-gray-400 cursor-pointer hover:text-gray-200 "
           : "text-gray-500  hover:text-gray-900"
       } w-7 h-7 transition-all duration-700 ${

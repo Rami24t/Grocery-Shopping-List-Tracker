@@ -9,7 +9,7 @@ function FooterIconLink({
     playSFXAudio(navLinkClickSFXAudio);
   },
   Icon = BsLinkedin,
- dark}) {
+ darkMode}) {
   return (
     <a
     title={`my ${srText}`}
@@ -17,7 +17,7 @@ function FooterIconLink({
       onClick={handleClick}
       target="_blank"
       rel="noopener noreferrer"
-      className={`text-lg ${dark?' hover:text-white':'hover:text-gray-900'} text-gray-500 `}>
+      className={`text-lg ${darkMode?' hover:text-white':'hover:text-gray-900'} text-gray-500 `}>
       <Icon />
       <span className="sr-only">{srText}</span>
     </a>

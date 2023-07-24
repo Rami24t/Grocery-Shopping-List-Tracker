@@ -2,11 +2,11 @@ import React from "react";
 import { BsSend } from "react-icons/bs";
 import { emailSFXAudio, navLinkClickSFXAudio, playSFXAudio } from "../../utils/sfx";
 
-function SendEmailIconLink({ lastPartOfEmail = "24@gmail.com", firstPartOfEmail = "alsaadi.rami", dark }) {
+function SendEmailIconLink({ lastPartOfEmail = "24@gmail.com", firstPartOfEmail = "alsaadi.rami", darkMode }) {
   return <a
   title="Email Me"
     href="#send-email"
-    className={` ${dark?'hover:text-white':'hover:text-gray-900'} text-gray-500 `}
+    className={` ${darkMode?'hover:text-white':'hover:text-gray-900'} text-gray-500 `}
     onClick={() => {
       playSFXAudio(navLinkClickSFXAudio);
       setTimeout(() => {

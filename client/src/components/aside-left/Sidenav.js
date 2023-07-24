@@ -16,7 +16,7 @@ const Sidenav = ({
   setShowAddItem,
   showSideNav,
   setShowSideNav,
-  dark,
+  darkMode,
 }) => {
   function hideMobileSidenav(e) {
     e.stopPropagation();
@@ -67,7 +67,7 @@ const Sidenav = ({
   return (
     <nav
       id="sidenav"
-      className={`text-center sm:text-start z-40 sm:z-30 overflow-hidden rounded-lg bg-gray-950 bg-opacity-90 border-r-0 fixed sm:absolute sm:w-52 md:sticky top-0 sm:top-24 left-0 w-64 py-8 sm:py-4 transition-transform sm:translate-x-0
+      className={`text-center sm:text-start z-40 sm:z-30 overflow-hidden rounded-lg ${darkMode?'bg-gray-950':'bg-white'}  bg-opacity-90 border-r-0 fixed sm:absolute sm:w-52 md:sticky top-0 sm:top-24 left-0 w-64 py-8 sm:py-4 transition-transform sm:translate-x-0
 ${
   showSideNav
     ? "w-full translate-x-0 ease-out duration-500"
@@ -87,7 +87,7 @@ ${
               items={link.items}
               margin={link.margin}
               onClick={link.onClick}
-              dark={dark}
+              darkMode={darkMode}
             />
           ))}
         </ul>

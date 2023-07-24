@@ -3,11 +3,11 @@ import FooterList from "./FooterList";
 import { LiaReact } from "react-icons/lia";
 import { BiLogoTailwindCss } from "react-icons/bi";
 
-function FooterLists({ dark }) {
+function FooterLists({ darkMode }) {
   return (
     <div className="footer-lists flex gap-20 justify-around items-start">
       <FooterList
-        dark={dark}
+        darkMode={darkMode}
         title="Resources"
         links={[
           { text: "Rami", url: "https://www.github.com/rami24t" },
@@ -20,7 +20,7 @@ function FooterLists({ dark }) {
         ]}
       />
       <FooterList
-        dark={dark}
+        darkMode={darkMode}
         title="Follow me"
         links={[
           { text: "Github", url: "https://www.github.com/rami24t" },

@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import ArrowToIcon from "./ArrowToIcon";
 
-function ArrowButtonsNav({ dark }) {
+function ArrowButtonsNav({ darkMode }) {
   const [scrollY, setScrollY] = useState(0);
 
   useEffect(() => {
@@ -13,12 +13,12 @@ function ArrowButtonsNav({ dark }) {
   const TO_ARROWS = [
     {
       toBottom: false,
-      dark,
+      darkMode,
       shown: scrollY > window.innerHeight,
     },
     {
       toBottom: true,
-      dark,
+      darkMode,
       shown: scrollY <window.document.body.clientHeight - 2 * window.innerHeight && scrollY > 10,
     }
   ]

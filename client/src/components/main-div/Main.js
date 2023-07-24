@@ -22,7 +22,7 @@ function Main({
   updateItem,
   handleReset,
   handleClear,
-  dark,
+  darkMode,
 }) {
   function sanitize(str) {
     return str
@@ -65,15 +65,15 @@ function Main({
         handleChangeList={handleChangeList}
         handleReset={handleReset}
         handleClear={handleClear}
-        dark={dark}
+        darkMode={darkMode}
       />
-      <AddItems handleAdd={handleAdd} dark={dark} showAddItem={showAddItem} />
+      <AddItems handleAdd={handleAdd} darkMode={darkMode} showAddItem={showAddItem} />
       <FilterSection
         filter={filter}
         setFilter={setFilter}
         handleChangeFilter={handleChangeFilter}
         items={items.length}
-        dark={dark}
+        darkMode={darkMode}
       />
       <Lists
         needs={needs}
@@ -84,7 +84,7 @@ function Main({
         handleToggle={handleToggle}
         updateItem={updateItem}
         list={list}
-        dark={dark}
+        darkMode={darkMode}
       />
     </main>
   );

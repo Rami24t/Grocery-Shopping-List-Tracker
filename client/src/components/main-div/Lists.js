@@ -11,7 +11,7 @@ function Lists({
   handleToggle,
   updateItem,
   list,
-  dark,
+  darkMode,
 }) {
   const { state, dispatch } = React.useContext(Context);
 
@@ -32,7 +32,7 @@ function Lists({
           handleDelete={handleDelete}
           handleToggle={handleToggle}
           updateItem={updateItem}
-          dark={dark}
+          darkMode={darkMode}
         />
       )}
       {haves[0] && (
@@ -45,7 +45,7 @@ function Lists({
           handleDelete={handleDelete}
           handleToggle={handleToggle}
           updateItem={updateItem}
-          dark={dark}
+          darkMode={darkMode}
         />
       )}
     </section>

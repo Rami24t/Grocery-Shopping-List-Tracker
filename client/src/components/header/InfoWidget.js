@@ -2,9 +2,9 @@ import React from "react";
 import { ShoppingBagSvg, ShoppingBagFillSvg } from "./ShoppingBagSvgs";
 
 // Abstract badge component for displaying the info badge
-const InfoBadge = ({ title, value, icon, dark, style }) => {
+const InfoBadge = ({ title, value, icon, darkMode, style }) => {
   const infoBadgeCommonStyle = `absolute inline-flex items-center justify-center text-xs font-bold border-2 rounded-full  ${
-    dark ? "border-gray-800" : "border-gray-400"
+    darkMode ? "border-gray-800" : "border-gray-400"
   }`;
   return (
     <div title={title} className={`${style} ${infoBadgeCommonStyle}`}>
@@ -15,14 +15,14 @@ const InfoBadge = ({ title, value, icon, dark, style }) => {
 };
 
 // Badge component for displaying the "Haves" info badge
-const HavesBadge = ({ haves, needs, dark }) => {
-  const color = dark ? "text-white" : "text-green-800";
+const HavesBadge = ({ haves, needs, darkMode }) => {
+  const color = darkMode ? "text-white" : "text-green-800";
   return (
     <InfoBadge
       title="Haves"
       value={haves}
       icon={<ShoppingBagFillSvg className={`${color} inline w-1 h-1`} />}
-      dark={dark}
+      darkMode={darkMode}
       style={`text-white bg-green-700 -top-2 ${
         !needs ? "-right-2" : "-left-2"
       } animate-bounce w-7 h-7`}
@@ -31,14 +31,14 @@ const HavesBadge = ({ haves, needs, dark }) => {
 };
 
 // Badge component for displaying the "Needs" info badge
-const NeedsBadge = ({ needs, dark }) => {
-  const color = dark ? "text-orange-100" : "text-orange-800";
+const NeedsBadge = ({ needs, darkMode }) => {
+  const color = darkMode ? "text-orange-100" : "text-orange-800";
   return (
     <InfoBadge
       title="Needs"
       value={needs}
       icon={<ShoppingBagSvg className={`${color} inline w-1 h-1`} />}
-      dark={dark}
+      darkMode={darkMode}
       style={`text-white bg-orange-800 ${
         needs ? "-top-2 -right-2" : "-top-2 right-4"
       } w-7 h-7`}
@@ -47,44 +47,45 @@ const NeedsBadge = ({ needs, dark }) => {
 };
 
 // Badge component for displaying the total info badge
-const ItemsBadge = React.memo(({ items, dark }) => (
+const ItemsBadge = React.memo(({ items, darkMode }) => (
   <InfoBadge
     title="Total Items"
     value={items}
-    dark={dark}
+    darkMode={darkMode}
     style={`-bottom-2 -left-1.5 w-6 h-6 text-gray-300 bg-blue-800`}
   />
 ));
 
 // Badge component for displaying the completion percentage badge
-const CompletionPercentageBadge = ({ haves, items, dark }) => {
+const CompletionPercentageBadge = ({ haves, items, darkMode }) => {
   const completionPercentage = Math.round((100 * haves) / items) || 0;
   return (
     <InfoBadge
       title="Completion Percentage"
       value={completionPercentage}
       icon={<span className={`inline text-[10px] font-bold animate-pulse`}>%</span>}
-      dark={dark}
+      darkMode={darkMode}
       style={`text-gray-300 bg-teal-700 -bottom-2 -right-1.5 w-6 h-6`}
     />
   );
 };
 
-function InfoWidget({ haves, needs, dark }) {
+function InfoWidget({ haves, needs, darkMode, setDarkMode }) {
   const items = haves + needs;
   const both = needs && haves;
 
   const showHavesBadge = haves > 0;
   const showNeedsBadge = needs > 0;
 
-  const colorComplete = dark ? "text-green-300" : "text-green-800";
-  const colorIncomplete = dark ? "text-orange-100" : "text-orange-800";
+  const colorComplete = darkMode ? "text-green-300" : "text-green-800";
+  const colorIncomplete = darkMode ? "text-orange-100" : "text-orange-800";
 
   return (
     <div className="app-header-info-widget mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
       <div
+      onClick={() => setDarkMode(!darkMode)}
         title="Items Info Widget"
-        className={`app-header-info-widget-container ${dark?'text-white bg-gray-700':'text-gray-700 bg-gray-100'} bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-5 py-2.5 text-sm font-medium transition flex items-center justify-center`}
+        className={`app-header-info-widget-container ${darkMode?'text-white bg-gray-700':'text-gray-800 bg-gray-100'} bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-5 py-2.5 text-sm font-medium transition flex items-center justify-center`}
       >
         {!showNeedsBadge ? (
           <ShoppingBagFillSvg className={`${colorComplete} inline w-4 h-4`} />
@@ -93,13 +94,13 @@ function InfoWidget({ haves, needs, dark }) {
         )}
         <span className="ml-3">📋 </span>
         {Boolean(items) && (
-          <CompletionPercentageBadge haves={haves} items={items} dark={dark} />
+          <CompletionPercentageBadge haves={haves} items={items} darkMode={darkMode} />
         )}
-        {Boolean(both) && <ItemsBadge items={items} dark={dark} />}
+        {Boolean(both) && <ItemsBadge items={items} darkMode={darkMode} />}
         {showHavesBadge && (
-          <HavesBadge haves={haves} needs={showNeedsBadge} dark={dark} />
+          <HavesBadge haves={haves} needs={showNeedsBadge} darkMode={darkMode} />
         )}
-        {showNeedsBadge && <NeedsBadge needs={needs} dark={dark} />}
+        {showNeedsBadge && <NeedsBadge needs={needs} darkMode={darkMode} />}
       </div>
     </div>
   );

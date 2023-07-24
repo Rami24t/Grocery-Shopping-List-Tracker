@@ -1,12 +1,12 @@
 import React from "react";
 
-const SidenavSvg = React.memo(({ dark, path }) => (
+const SidenavSvg = React.memo(({ darkMode, path }) => (
   <svg
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
     className={` ${
-      dark
+      darkMode
         ? "text-gray-400 group-hover:text-white"
         : "text-gray-500  group-hover:text-gray-900"
     } flex-shrink-0 w-6 h-6 transition duration-75 `}
@@ -16,9 +16,9 @@ const SidenavSvg = React.memo(({ dark, path }) => (
   </svg>
 ));
 
-const SvgHome = React.memo(({ dark }) => (
+const SvgHome = React.memo(({ darkMode }) => (
   <SidenavSvg
-    dark={dark}
+    darkMode={darkMode}
     path={
       <>
         <path d="M7.293 1.5a1 1 0 0 1 1.414 0L11 3.793V2.5a.5.5 0 0 1 .5-.5h1a.5.5 0 0 1 .5.5v3.293l2.354 2.353a.5.5 0 0 1-.708.707L8 2.207 1.354 8.853a.5.5 0 1 1-.708-.707L7.293 1.5Z" />
@@ -28,18 +28,18 @@ const SvgHome = React.memo(({ dark }) => (
   />
 ));
 
-const SvgEditList = React.memo(({ dark }) => (
+const SvgEditList = React.memo(({ darkMode }) => (
   <SidenavSvg
-    dark={dark}
+    darkMode={darkMode}
     path={
       <path d="M5 3a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2V5a2 2 0 00-2-2H5zM5 11a2 2 0 00-2 2v2a2 2 0 002 2h2a2 2 0 002-2v-2a2 2 0 00-2-2H5zM11 5a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V5zM11 13a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z"></path>
     }
   />
 ));
 
-const SvgAddItem = React.memo(({ dark }) => (
+const SvgAddItem = React.memo(({ darkMode }) => (
   <SidenavSvg
-    dark={dark}
+    darkMode={darkMode}
     path={
       <>
         <path d="M8.707 7.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l2-2a1 1 0 00-1.414-1.414L11 7.586V3a1 1 0 10-2 0v4.586l-.293-.293z"></path>
@@ -49,9 +49,9 @@ const SvgAddItem = React.memo(({ dark }) => (
   />
 ));
 
-const SvgBagFilled = React.memo(({ dark }) => (
+const SvgBagFilled = React.memo(({ darkMode }) => (
   <SidenavSvg
-    dark={dark}
+    darkMode={darkMode}
     path={
       <path
         fillRule="evenodd"
@@ -62,9 +62,9 @@ const SvgBagFilled = React.memo(({ dark }) => (
   />
 ));
 
-const SvgSettings = React.memo(({ dark }) => (
+const SvgSettings = React.memo(({ darkMode }) => (
   <SidenavSvg
-    dark={dark}
+    darkMode={darkMode}
     path={
       <path
         fillRule="evenodd"
@@ -75,9 +75,9 @@ const SvgSettings = React.memo(({ dark }) => (
   />
 ));
 
-const SvgPerson = React.memo(({ dark }) => (
+const SvgPerson = React.memo(({ darkMode }) => (
   <SidenavSvg
-    dark={dark}
+    darkMode={darkMode}
     path={
       <path
         fillRule="evenodd"
