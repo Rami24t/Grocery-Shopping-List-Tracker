@@ -249,7 +249,7 @@ function App() {
     <div
       id="app"
       className={`app-container ${
-        darkMode ? "bg-gray-950 text-white" : "bg-white text-gray-950"
+        darkMode ? "bg-gray-950 text-white" : "bg-white text-gray-800"
       }  ${isMobile && "text-center"}`}
     >
       <Header
@@ -259,12 +259,18 @@ function App() {
         darkMode={darkMode}
         setDarkMode={setDarkMode}
       />
-      <div className="overflow-x-hidden bg-inherit flex justify-around flex-wrap gap-0 relative">
+      <div
+        className={`${
+          darkMode ? "bg-black" : "bg-white"
+        } overflow-x-hidden bg-inherit flex justify-around flex-wrap gap-0 relative`}
+      >
         <aside className="aside-left bg-inherit">
           <ArrowButtonsNav darkMode={darkMode} />
           {showSideNav && (
             <div
-              className="click-away fixed top-0 right-0 h-screen w-screen z-40 filter bg-black bg-opacity-50"
+              className={`${
+                darkMode ? "bg-black" : "bg-white"
+              } bg-opacity-50 click-away fixed top-0 right-0 h-screen w-screen z-40 filter`}
               onClick={() => {
                 setShowSideNav(false);
                 playSFXAudio(slideOutInSFXAudio);
