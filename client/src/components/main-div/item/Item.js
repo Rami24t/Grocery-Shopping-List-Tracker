@@ -63,7 +63,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
         checked={!needed}
         id="needed"
         className={`opacity-75 filter  ${
-          needed ? "invert hue-rotate-180 brightness-75 " : ""
+          darkMode && needed ? "invert hue-rotate-180 brightness-75 " : ""
         } cursor-pointer inline-block leading-none w-5 h-6 m-2 border rounded focus:ring-3 ${
           !darkMode
             ? "border-gray-300 bg-gray-50 focus:ring-blue-300"
@@ -82,7 +82,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
         className={`leading-none w-6 h-6 rounded-lg m-2 text-center border hover:font-bold text-xl focus:ring-4 focus:outline-none  ${
           darkMode
             ? "border-indigo-400 bg-indigo-950 text-indigo-300 focus:ring-indigo-700 hover:text-indigo-200 hover:border-indigo-300"
-            : " text-slate-800 hover:text-slate-600   border-slate-600 focus:ring-slate-400 "
+            : " text-slate-600 hover:text-slate-800   border-indigo-300 focus:ring-slate-400 bg-gray-100 hover:border-gray-400 hover:bg-gray-200"
         }`}
         title="Click to edit this item"
       >
@@ -95,10 +95,10 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
       <button
         onClick={() => handleDelete(item)}
         type="button"
-        className={`inline-flex items-center justify-center w-6 h-6 leading-none rounded-lg ml-3 m-2 text-center hover:border-red-500 hover:font-bold text-xl border focus:ring-4 focus:outline-none ${
+        className={`inline-flex items-center justify-center w-6 h-6 leading-none rounded-lg ml-3 m-2 text-center hover:border-red-500 hover:font-bold text-2xl border focus:ring-4 focus:outline-none ${
           darkMode
             ? "border-red-600 hover:border-red-400 text-red-500 bg-red-950  focus:ring-red-900 hover:text-red-400"
-            : " text-red-700 hover:text-red-500 border-red-700 focus:ring-red-300"
+            : " text-red-600 hover:text-red-800   border-red-300 focus:ring-red-400 bg-red-100 hover:border-red-400 hover:bg-red-200"
         } `}
         style={{ minWidth: "1.2rem" }}
         title="Click to permanently delete this item"

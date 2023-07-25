@@ -22,7 +22,7 @@ function List({
     <article>
       <h3
         className={`flex justify-between min-w-[154px] items-center gap-2 max-w-max mx-auto cursor-pointer font-bold ${
-          items[0].need ? "text-orange-200" : "text-teal-300 "
+          items[0].need ? (darkMode?"text-orange-200":'text-red-600 hover:text-red-700') : (darkMode? "text-teal-300 ": 'text-green-600 hover:text-green-700')
         }`}
         onClick={(e) => {
           e.target.style.pointerEvents = "none";

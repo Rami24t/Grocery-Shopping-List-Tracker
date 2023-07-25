@@ -11,16 +11,17 @@ function Company({ logo = "/logo-no-background.svg", name = "Rami Al-Saadi", lin
       onClick={handleClick}
       target="_blank"
       rel="noopener noreferrer"
-      className="flex items-center"
+      className="flex items-center animate-pulse"
     >
       <img
         src={logo}
-        className="h-8 mr-3"
+        className={`h-8 mr-3 ${darkMode?"":"filter invert"}`}
         alt={name + "'s Logo"} />
-      <span className={`yellow-tail self-center text-2xl font-semibold whitespace-nowrap ${darkMode?" text-white":""}`}>
+      <span className={`yellow-tail self-center text-2xl font-semibold whitespace-nowrap ${darkMode?" text-white":"text-gray-900"}`}>
         {name}
       </span>
     </a>
+    <p className="block ml-auto w-36 text-end text-xs opacity-50 select-none"> 's 🛒 Shopping List</p>
   </div>;
 }
 

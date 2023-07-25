@@ -6,7 +6,7 @@ function ItemName({ name, setName, handleBlur, handleKeyDown, needed, darkMode }
     if (name.length < e.target.value.length) {
       playSFXAudio(typeSFXAudio);
     }
-    setName(e.target.value);
+    setName(e.target.value.trim());
   };
 
   return (

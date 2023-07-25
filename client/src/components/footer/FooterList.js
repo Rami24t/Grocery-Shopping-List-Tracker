@@ -9,13 +9,13 @@ function FooterList({
     <div>
       <h2
         className={` ${
-          darkMode ? "text-white" : "text-gray-900"
+          darkMode ? "text-white" : "text-gray-800"
         } mb-6 text-sm font-semibold uppercase `}
       >
         {title}
       </h2>
       <ul className={` ${
-          darkMode ?'text-gray-400': 'text-gray-600'} font-medium`}>
+          darkMode ?'text-gray-400': 'text-gray-700'} font-medium`}>
         {links.map((link, idx) => (
           <FooterListItem key={idx} link={link} />
         ))}

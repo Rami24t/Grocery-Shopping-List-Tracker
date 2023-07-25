@@ -15,7 +15,7 @@ function FilterSection({ filter, setFilter, handleChangeFilter, items, darkMode 
         <SvgSearch darkMode={darkMode} />
       </div>
       <FilterInput filter={filter} handleChangeFilter={handleChangeFilter} items={items} darkMode={darkMode} />
-      <ClearFilterBtn filter={filter} setFilter={setFilter} />
+      <ClearFilterBtn filter={filter} setFilter={setFilter} darkMode={darkMode} />
     </section>
   );
 }

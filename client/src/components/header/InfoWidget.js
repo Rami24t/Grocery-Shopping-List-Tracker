@@ -4,7 +4,7 @@ import { ShoppingBagSvg, ShoppingBagFillSvg } from "./ShoppingBagSvgs";
 // Abstract badge component for displaying the info badge
 const InfoBadge = ({ title, value, icon, darkMode, style }) => {
   const infoBadgeCommonStyle = `absolute inline-flex items-center justify-center text-xs font-bold border-2 rounded-full  ${
-    darkMode ? "border-gray-800" : "border-gray-400"
+    darkMode ? "border-gray-800" : "border-gray-300"
   }`;
   return (
     <div title={title} className={`${style} ${infoBadgeCommonStyle}`}>
@@ -16,7 +16,7 @@ const InfoBadge = ({ title, value, icon, darkMode, style }) => {
 
 // Badge component for displaying the "Haves" info badge
 const HavesBadge = ({ haves, needs, darkMode }) => {
-  const color = darkMode ? "text-white" : "text-green-800";
+  const color = darkMode ? "text-white" : "text-green-300";
   return (
     <InfoBadge
       title="Haves"
@@ -32,7 +32,7 @@ const HavesBadge = ({ haves, needs, darkMode }) => {
 
 // Badge component for displaying the "Needs" info badge
 const NeedsBadge = ({ needs, darkMode }) => {
-  const color = darkMode ? "text-orange-100" : "text-orange-800";
+  const color = darkMode ? "text-orange-100" : "text-orange-200";
   return (
     <InfoBadge
       title="Needs"
@@ -78,21 +78,21 @@ function InfoWidget({ haves, needs, darkMode, setDarkMode }) {
   const showNeedsBadge = needs > 0;
 
   const colorComplete = darkMode ? "text-green-300" : "text-green-800";
-  const colorIncomplete = darkMode ? "text-orange-100" : "text-orange-800";
+  const colorIncomplete = darkMode ? "text-orange-100" : "text-orange-700";
 
   return (
     <div className="app-header-info-widget mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
       <div
-      onClick={() => setDarkMode(!darkMode)}
+      onClick={() => setDarkMode(prev=>!prev)}
         title="Items Info Widget"
-        className={`app-header-info-widget-container ${darkMode?'text-white bg-gray-700':'text-gray-800 bg-gray-100'} bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-5 py-2.5 text-sm font-medium transition flex items-center justify-center`}
+        className={`app-header-info-widget-container ${darkMode?'text-white bg-gray-700':'text-gray-800 bg-gray-300'} bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-5 py-2.5 text-sm font-medium transition flex items-center justify-center`}
       >
         {!showNeedsBadge ? (
           <ShoppingBagFillSvg className={`${colorComplete} inline w-4 h-4`} />
         ) : (
           <ShoppingBagSvg className={`${colorIncomplete} inline w-4 h-4`} />
         )}
-        <span className="ml-3">📋 </span>
+        <span className={`ml-3 cursor-pointer ${darkMode?'filter brightness-75 ':''}`}>📋 </span>
         {Boolean(items) && (
           <CompletionPercentageBadge haves={haves} items={items} darkMode={darkMode} />
         )}
