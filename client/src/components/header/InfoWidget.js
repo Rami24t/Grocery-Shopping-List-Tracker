@@ -39,7 +39,7 @@ const NeedsBadge = ({ needs, darkMode }) => {
       value={needs}
       icon={<ShoppingBagSvg className={`${color} inline w-1 h-1`} />}
       darkMode={darkMode}
-      style={`text-white bg-orange-800 ${
+      style={`text-white ${darkMode?'bg-orange-700':'bg-orange-700'} ${
         needs ? "-top-2 -right-2" : "-top-2 right-4"
       } w-7 h-7`}
     />
@@ -103,7 +103,7 @@ function InfoWidget({ haves, needs, darkMode, handleClick }) {
         >
           📋
         </span>
-        {Boolean(items) && (
+        {Boolean(needs) && (
           <CompletionPercentageBadge
             haves={haves}
             items={items}
