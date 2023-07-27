@@ -63,14 +63,16 @@ const CompletionPercentageBadge = ({ haves, items, darkMode }) => {
     <InfoBadge
       title="Completion Percentage"
       value={completionPercentage}
-      icon={<span className={`inline text-[10px] font-bold animate-pulse`}>%</span>}
+      icon={
+        <span className={`inline text-[10px] font-bold animate-pulse`}>%</span>
+      }
       darkMode={darkMode}
       style={`text-gray-300 bg-teal-700 -bottom-2 -right-1.5 w-6 h-6`}
     />
   );
 };
 
-function InfoWidget({ haves, needs, darkMode, setDarkMode }) {
+function InfoWidget({ haves, needs, darkMode, handleClick }) {
   const items = haves + needs;
   const both = needs && haves;
 
@@ -78,27 +80,43 @@ function InfoWidget({ haves, needs, darkMode, setDarkMode }) {
   const showNeedsBadge = needs > 0;
 
   const colorComplete = darkMode ? "text-green-300" : "text-green-800";
-  const colorIncomplete = darkMode ? "text-orange-100" : "text-orange-700";
+  const colorIncomplete = darkMode ? "text-orange-100" : "text-orange-800";
 
   return (
     <div className="app-header-info-widget mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
       <div
-      onClick={() => setDarkMode(prev=>!prev)}
+        onClick={handleClick}
         title="Items Info Widget"
-        className={`app-header-info-widget-container ${darkMode?'text-white bg-gray-700':'text-gray-800 bg-gray-300'} bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-5 py-2.5 text-sm font-medium transition flex items-center justify-center`}
+        className={`app-header-info-widget-container ${
+          darkMode ? "text-white bg-gray-700" : "text-gray-800 bg-gray-300"
+        } bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-5 py-2.5 text-sm font-medium transition flex items-center justify-center`}
       >
         {!showNeedsBadge ? (
           <ShoppingBagFillSvg className={`${colorComplete} inline w-4 h-4`} />
         ) : (
           <ShoppingBagSvg className={`${colorIncomplete} inline w-4 h-4`} />
         )}
-        <span className={`ml-3 cursor-pointer ${darkMode?'filter brightness-75 ':''}`}>📋 </span>
+        <span
+          className={`relative ml-3 cursor-pointer ${
+            darkMode ? "filter brightness-75 " : ""
+          }`}
+        >
+          📋
+        </span>
         {Boolean(items) && (
-          <CompletionPercentageBadge haves={haves} items={items} darkMode={darkMode} />
+          <CompletionPercentageBadge
+            haves={haves}
+            items={items}
+            darkMode={darkMode}
+          />
         )}
         {Boolean(both) && <ItemsBadge items={items} darkMode={darkMode} />}
         {showHavesBadge && (
-          <HavesBadge haves={haves} needs={showNeedsBadge} darkMode={darkMode} />
+          <HavesBadge
+            haves={haves}
+            needs={showNeedsBadge}
+            darkMode={darkMode}
+          />
         )}
         {showNeedsBadge && <NeedsBadge needs={needs} darkMode={darkMode} />}
       </div>
