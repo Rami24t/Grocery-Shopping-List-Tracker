@@ -67,19 +67,18 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
         />
         <button
           title="Add Item"
-          className={`${darkMode?"hover:text-white":"hover:text-gray-900"} inline-block p-3 text-center text-gray-500`}
+          className={`${
+            darkMode ? "hover:text-white" : "hover:text-gray-900"
+          } inline-block p-3 text-center text-gray-500`}
           onClick={handleClick}
         >
-          {
-            <BsPlusCircle
-              className={`${
-                darkMode
-                  ? " active:ring-gray-700 text-gray-200 border-gray-600 hover:text-gray-100 opacity-70 "
-                  : "text-gray-700 border-gray-200 active:ring-gray-300 hover:text-gray-800 "
-              } w-8 h-8 mx-auto  active:outline-none rounded-full border active:z-10 active:ring-2  
-            `}
-            />
-          }
+          <BsPlusCircle
+            className={`${
+              darkMode
+                ? "text-gray-100 border-gray-800 bg-blue-700 hover:bg-blue-600 hover:text-gray-50 active:ring-blue-500 focus:ring-blue-500 opacity-70"
+                : "text-gray-100 border-gray-200 bg-blue-500 hover:bg-blue-600  hover:text-gray-200 active:ring-blue-400 focus:ring-blue-500"
+            } w-8 h-8 mx-auto rounded-full border active:ring-2 inline-flex items-center justify-center font-medium focus:ring-2 active:scale-110 transition-transform duration-200`}
+          />
         </button>
       </div>
     </section>
