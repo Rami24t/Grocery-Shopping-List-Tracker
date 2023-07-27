@@ -174,32 +174,59 @@ function AsideRight({ darkMode }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [height]);
 
+  const [loadingClasses, setLoadingClasses] = useState(
+    "transition-all duration-1000 fixed top-0 -left-0 w-screen h-screen filter brightness-50 sepia z-50"
+  );
+  useEffect(() => {
+    const a = setTimeout(() => {
+      setLoadingClasses(
+        "transition-all duration-1000 fixed bottom-0 right-0 w-0 h-0 opacity-20 z-50"
+      );
+    }, 3000);
+    const b = setTimeout(() => {
+      setLoadingClasses("fixed hidden");
+    }, 4400);
+    return () => {
+      clearTimeout(a);
+      clearTimeout(b);
+    };
+  }, []);
+
   return (
-    <aside
-      ref={ref}
-      id="aside-right"
-      className={`${
-        darkMode ? "opacity-80" : "opacity-95"
-      } p-2 lg:pt-[220px] lg:max-w-[25%] text-center flex flex-wrap gap-2 lg:gap-4 justify-center items-center relative z-0`}
-    >
-      <AsideImage src={gslGif1} />
-      {/* <AsideImage src="/assets/deco-imgs/deco (68).jpg" /> */}
-
-      {extraImages.slice(0, 1).map((src, idx) => (
-        <AsideImage className={"lg:hidden"} key={idx} src={src} />
-      ))}
-
-      {extraImages.slice(1, 3).map((src, idx) => (
-        <AsideImage className={"sm:hidden"} key={idx} src={src} />
-      ))}
-
-      {extraImages.map(
-        (src, idx) =>
-          height > (idx + 1 + 1) * 390 + 300 && (
-            <AsideImage key={idx} src={src} />
-          )
+    <>
+      {loadingClasses !== "fixed hidden" && (
+        <img
+          src={Math.random() > 0.5 ? gslGif1 : gslGif2}
+          className={`${loadingClasses}`}
+          alt="loading"
+        />
       )}
-    </aside>
+      <aside
+        ref={ref}
+        id="aside-right"
+        className={`${
+          darkMode ? "opacity-80" : "opacity-95"
+        } p-2 lg:pt-[220px] lg:max-w-[25%] text-center flex flex-wrap gap-2 lg:gap-4 justify-center items-center relative z-0`}
+      >
+        <AsideImage src={gslGif1} />
+        {/* <AsideImage src="/assets/deco-imgs/deco (68).jpg" /> */}
+
+        {extraImages.slice(0, 1).map((src, idx) => (
+          <AsideImage className={"lg:hidden"} key={idx} src={src} />
+        ))}
+
+        {extraImages.slice(1, 3).map((src, idx) => (
+          <AsideImage className={"sm:hidden"} key={idx} src={src} />
+        ))}
+
+        {extraImages.map(
+          (src, idx) =>
+            height > (idx + 1 + 1) * 390 + 300 && (
+              <AsideImage key={idx} src={src} />
+            )
+        )}
+      </aside>
+    </>
   );
 }
 
