@@ -22,7 +22,7 @@ function List({
     <article>
       <h3
         className={`flex justify-between min-w-[154px] items-center gap-2 max-w-max mx-auto cursor-pointer font-bold ${
-          items[0].need ? (darkMode?"text-orange-500 hover:text-orange-400":'text-red-600 hover:text-red-700') : (darkMode? "text-teal-400 hover:text-teal-300": 'text-green-700 hover:text-green-800')
+          items[0].need ? (darkMode?"text-orange-600 hover:text-orange-500":'text-red-600 hover:text-red-700') : (darkMode? "text-teal-400 hover:text-teal-300": 'text-green-700 hover:text-green-800')
         }`}
         onClick={(e) => {
           e.target.style.pointerEvents = "none";
