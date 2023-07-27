@@ -175,17 +175,17 @@ function AsideRight({ darkMode }) {
   }, [height]);
 
   const [loadingClasses, setLoadingClasses] = useState(
-    "transition-all duration-1000 fixed bottom-0 right-0 w-screen h-screen filter brightness-50 sepia z-50"
+    "transition-all duration-1000 fixed bottom-0 right-0 w-screen h-screen filter brightness-50 sepia z-50 opacity-95"
   );
   useEffect(() => {
     const a = setTimeout(() => {
       setLoadingClasses(
         "transition-all duration-1000 fixed -bottom-20 -right-20 w-0 h-0 filter brightness-50 sepia opacity-20 z-50"
       );
-    }, 3200);
+    }, 3000);
     const b = setTimeout(() => {
       setLoadingClasses("fixed hidden");
-    }, 4300);
+    }, 4100);
     return () => {
       clearTimeout(a);
       clearTimeout(b);
