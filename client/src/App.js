@@ -79,7 +79,8 @@ function App() {
   useEffect(() => {
     if (localStorage.getItem(`list${list}`))
       setItems(JSON.parse(localStorage.getItem(`list${list}`)));
-    document.title = `Grocery 🛒 | List ${list}`;
+    // document.title = `Grocery 🛒 | List ${list}`;
+    document.title = `📋🛒Gr.Shop.List | 📱🧾🛍️🧺`;
   }, [list]);
 
   // const handleSave = useCallback(
@@ -299,6 +300,7 @@ function App() {
             showSideNav={showSideNav}
             setShowSideNav={setShowSideNav}
             darkMode={darkMode}
+            setDarkMode={setDarkMode}
           />
         </aside>
         <Main
@@ -321,7 +323,7 @@ function App() {
           handleClear={handleClear}
           darkMode={darkMode}
         />
-        <AsideRight isMobile={isMobile} darkMode={darkMode} />
+        <AsideRight darkMode={darkMode} />
       </div>
       <Footer darkMode={darkMode} />
     </div>

@@ -1,7 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import AsideImage from "./AsideImage";
 
-function AsideRight() {
+function AsideRight({ darkMode }) {
   const [height, setHeight] = useState(0);
   const ref = useCallback((node) => {
     if (!node) return;
@@ -81,7 +81,7 @@ function AsideRight() {
     "/assets/deco-imgs/deco (34).jpg",
     "/assets/deco-imgs/deco (53).jpg",
     "/assets/deco-imgs/deco (37).jpg",
-]);
+  ]);
   useEffect(() => {
     const extraImagesNeeded = (height - 300) / 390 - extraImages.length + 1;
     // Math.floor
@@ -158,25 +158,24 @@ function AsideRight() {
     ];
     if (extraImagesNeeded > 0)
       for (let i = 0; i < extraImagesNeeded; i++)
-      extraImagesTemp.push(
+        extraImagesTemp.push(
           "https://source.unsplash.com/random/380x380/?vegetables?" +
             (i + 1) +
             (Math.random() * 10).toFixed(0)
         );
-    if(extraImages.length < extraImagesTemp.length)
+    if (extraImages.length < extraImagesTemp.length)
       setExtraImages(extraImagesTemp);
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [height]);
 
   return (
-
     <aside
       ref={ref}
       id="aside-right"
-      className="opacity-90 p-2 lg:pt-[220px] lg:max-w-[25%] text-center flex flex-wrap gap-2 lg:gap-4 justify-center items-center relative z-0"
+      className={`${
+        darkMode ? "opacity-80" : "opacity-95"
+      } p-2 lg:pt-[220px] lg:max-w-[25%] text-center flex flex-wrap gap-2 lg:gap-4 justify-center items-center relative z-0`}
     >
-
-
       <AsideImage src="/assets/deco-imgs/deco (68).jpg" />
 
       {extraImages.slice(0, 1).map((src, idx) => (
@@ -189,12 +188,10 @@ function AsideRight() {
 
       {extraImages.map(
         (src, idx) =>
-          (height > (idx + 1 + 1) * 390 + 300) && (
+          height > (idx + 1 + 1) * 390 + 300 && (
             <AsideImage key={idx} src={src} />
           )
       )}
-
-
     </aside>
   );
 }
