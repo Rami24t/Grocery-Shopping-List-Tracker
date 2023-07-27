@@ -80,7 +80,7 @@ function App() {
     if (localStorage.getItem(`list${list}`))
       setItems(JSON.parse(localStorage.getItem(`list${list}`)));
     // document.title = `Grocery 🛒 | List ${list}`;
-    document.title = `📋🛒Gr.Shop.List | 📱🧾🛍️🧺`;
+    document.title = `🛒📋Gr.Shop.List | 📱🧾🛍️🧺`;
   }, [list]);
 
   // const handleSave = useCallback(
