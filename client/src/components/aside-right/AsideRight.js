@@ -196,7 +196,7 @@ function AsideRight({ darkMode }) {
     <>
       {loadingClasses !== "fixed hidden" && (
         <img
-          src={Math.random() > 0.6 ? gslGif1 : gslGif2}
+          src={gslGif2}
           className={`${loadingClasses}`}
           alt="loading"
         />
