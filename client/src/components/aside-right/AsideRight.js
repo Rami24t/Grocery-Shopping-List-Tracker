@@ -185,7 +185,7 @@ function AsideRight({ darkMode }) {
     }, 3200);
     const b = setTimeout(() => {
       setLoadingClasses("fixed hidden");
-    }, 4600);
+    }, 4300);
     return () => {
       clearTimeout(a);
       clearTimeout(b);
