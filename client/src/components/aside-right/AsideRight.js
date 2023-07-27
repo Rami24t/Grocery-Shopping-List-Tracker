@@ -1,5 +1,7 @@
 import React, { useEffect, useState, useCallback } from "react";
 import AsideImage from "./AsideImage";
+import gslGif1 from "../../assets/video/GSL1.gif";
+import gslGif2 from "../../assets/video/GSL2.gif";
 
 function AsideRight({ darkMode }) {
   const [height, setHeight] = useState(0);
@@ -14,7 +16,9 @@ function AsideRight({ darkMode }) {
   const [extraImages, setExtraImages] = useState([
     "/assets/deco-imgs/deco (24).jpg",
     "/assets/deco-imgs/deco (52).jpg",
+    gslGif2,
     "/assets/deco-imgs/deco (64).jpg",
+    "/assets/deco-imgs/deco (68).jpg",
     "/assets/deco-imgs/deco (30).jpg",
     "/assets/deco-imgs/deco (60).jpg",
     "/assets/deco-imgs/deco (11).jpg",
@@ -88,7 +92,9 @@ function AsideRight({ darkMode }) {
     const extraImagesTemp = [
       "/assets/deco-imgs/deco (24).jpg",
       "/assets/deco-imgs/deco (52).jpg",
+      gslGif2,
       "/assets/deco-imgs/deco (64).jpg",
+      "/assets/deco-imgs/deco (68).jpg",
       "/assets/deco-imgs/deco (30).jpg",
       "/assets/deco-imgs/deco (60).jpg",
       "/assets/deco-imgs/deco (11).jpg",
@@ -176,7 +182,8 @@ function AsideRight({ darkMode }) {
         darkMode ? "opacity-80" : "opacity-95"
       } p-2 lg:pt-[220px] lg:max-w-[25%] text-center flex flex-wrap gap-2 lg:gap-4 justify-center items-center relative z-0`}
     >
-      <AsideImage src="/assets/deco-imgs/deco (68).jpg" />
+      <AsideImage src={gslGif1} />
+      {/* <AsideImage src="/assets/deco-imgs/deco (68).jpg" /> */}
 
       {extraImages.slice(0, 1).map((src, idx) => (
         <AsideImage className={"lg:hidden"} key={idx} src={src} />
