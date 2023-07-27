@@ -180,12 +180,12 @@ function AsideRight({ darkMode }) {
   useEffect(() => {
     const a = setTimeout(() => {
       setLoadingClasses(
-        "transition-all duration-1000 fixed bottom-0 right-0 w-0 h-0 filter brightness-50 sepia opacity-20 z-50"
+        "transition-all duration-1000 fixed -bottom-20 -right-20 w-0 h-0 filter brightness-50 sepia opacity-20 z-50"
       );
-    }, 3000);
+    }, 3200);
     const b = setTimeout(() => {
       setLoadingClasses("fixed hidden");
-    }, 4400);
+    }, 4600);
     return () => {
       clearTimeout(a);
       clearTimeout(b);
@@ -196,7 +196,7 @@ function AsideRight({ darkMode }) {
     <>
       {loadingClasses !== "fixed hidden" && (
         <img
-          src={Math.random() > 0.5 ? gslGif1 : gslGif2}
+          src={Math.random() > 0.6 ? gslGif1 : gslGif2}
           className={`${loadingClasses}`}
           alt="loading"
         />
