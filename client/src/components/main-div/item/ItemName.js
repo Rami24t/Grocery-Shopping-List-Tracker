@@ -25,16 +25,13 @@ function ItemName({
       onChange={handleChange}
       onBlur={handleBlur}
       onKeyDown={handleKeyDown}
-      className={`w-56 sm:w-52 md:w-80 lg:min-w-[59%] border text-md rounded-lg
-     focus:ring-blue-500 focus:border-blue-500 p-2.5
-      ${!needed && " line-through "}
-       m-2 inline-block leading-none 
-      ${
+      className={`w-56 sm:w-52 md:w-80 lg:min-w-[59%] border text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 ${
+        !needed && " line-through "
+      } m-2 inline-block leading-none ${
         darkMode
-          ? "hover:contrast-100 bg-blend-darken disabled:bg-blend-multiply contrast-[111%] border-gray-700 placeholder-gray-400 bg-gray-700 text-gray-50  disabled:text-gray-200"
-          : "contrast-[105%] hover:contrast-125  disabled:bg-blend-darken bg-blend-multiply text-white border-gray-300 placeholder-gray-500 "
-      } bg-no-repeat bg-center bg-cover 
-      filter focus:filter-none`}
+          ? "hover:contrast-100 bg-blend-darken disabled:bg-blend-multiply contrast-[111%] border-gray-700 placeholder-gray-400 text-gray-50 disabled:text-gray-200"
+          : "contrast-[105%] hover:contrast-125  disabled:bg-blend-darken bg-blend-multiply text-white border-gray-300 placeholder-gray-500"
+      } bg-no-repeat bg-center bg-cover filter focus:filter-none`}
       readOnly={true}
       title="item name"
       style={{
