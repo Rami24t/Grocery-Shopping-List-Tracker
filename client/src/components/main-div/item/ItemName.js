@@ -29,7 +29,7 @@ function ItemName({
         !needed && " line-through "
       } m-2 inline-block leading-none ${
         darkMode
-          ? "hover:contrast-100 bg-blend-darken disabled:bg-blend-multiply contrast-[111%] border-gray-700 placeholder-gray-400 text-gray-50 disabled:text-gray-200"
+          ? "hover:contrast-100 bg-blend-darken disabled:bg-blend-multiply contrast-[111%] border-gray-700 placeholder-gray-400 text-gray-50 disabled:text-gray-100"
           : "contrast-[105%] hover:contrast-125  disabled:bg-blend-darken bg-blend-multiply text-white border-gray-300 placeholder-gray-500"
       } bg-no-repeat bg-center bg-cover filter focus:filter-none`}
       readOnly={true}
