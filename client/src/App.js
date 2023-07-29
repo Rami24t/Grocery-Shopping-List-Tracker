@@ -262,16 +262,16 @@ function App() {
       />
       <div
         className={`${
-          darkMode ? "bg-grey-950" : "bg-white"
+          darkMode ? "bg-gray-950" : "bg-white"
         } overflow-x-hidden flex justify-around flex-wrap gap-0 relative`}
       >
         <aside className={`${
-          darkMode ? "bg-grey-950" : "bg-white"} aside-left`}>
+          darkMode ? "bg-gray-950" : "bg-white"} aside-left`}>
           <ArrowButtonsNav darkMode={darkMode} />
           {showSideNav && (
             <div
               className={`${
-                darkMode ? "bg-grey-950" : "bg-white"
+                darkMode ? "bg-gray-950" : "bg-white"
               } bg-opacity-50 click-away fixed top-0 right-0 h-screen w-screen z-40 filter`}
               onClick={() => {
                 setShowSideNav(false);
