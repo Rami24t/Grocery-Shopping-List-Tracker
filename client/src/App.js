@@ -263,9 +263,10 @@ function App() {
       <div
         className={`${
           darkMode ? "bg-black" : "bg-white"
-        } overflow-x-hidden bg-inherit flex justify-around flex-wrap gap-0 relative`}
+        } overflow-x-hidden flex justify-around flex-wrap gap-0 relative`}
       >
-        <aside className="aside-left bg-inherit">
+        <aside className={`${
+          darkMode ? "bg-black" : "bg-white"} aside-left`}>
           <ArrowButtonsNav darkMode={darkMode} />
           {showSideNav && (
             <div
