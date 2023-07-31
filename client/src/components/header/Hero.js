@@ -17,7 +17,7 @@ function Hero({
         {title}
         {/* {list} */}
       </h1>
-      <p className="app-header-subtitle m-1.5 p-1.5 text-sm text-gray-500">
+      <p className="app-header-subtitle m-1.5 p-1.5 mr-2.5 text-sm text-gray-500">
         {subtitle} {getEmoji()}{" "}
       </p>
     </div>
