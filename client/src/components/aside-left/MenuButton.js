@@ -3,7 +3,7 @@ import "./MenuButton.scss";
 import { linkClickSFXAudio, navLinkClickSFXAudio, playSFXAudio, slideOutInSFXAudio } from "../../utils/sfx";
 
 const MenuButton = React.memo(({ showSideNav, setShowSideNav, darkMode }) => {
-  const menuButtonBgColor = darkMode ? "bg-gray-950" : "bg-gray-50";
+  const menuButtonBgColor = darkMode ? "bg-black bg-gradient-to-l from-gray-950" : "bg-gray-50";
   const iconColor = darkMode ? "#a0a0ad" : "#667";
   const iconStyle = {
     '--color': iconColor,

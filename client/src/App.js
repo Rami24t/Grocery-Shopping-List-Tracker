@@ -250,7 +250,7 @@ function App() {
     <div
       id="app"
       className={`app-container ${
-        darkMode ? "bg-gray-950 text-white" : "bg-white text-gray-800"
+        darkMode ? "bg-black bg-gradient-to-l from-gray-950 text-white" : "bg-white bg-gradient-to-l from-gray-50 text-gray-800"
       }  ${isMobile && "text-center"}`}
     >
       <Header
@@ -262,16 +262,16 @@ function App() {
       />
       <div
         className={`${
-          darkMode ? "bg-gray-950" : "bg-white"
-        } overflow-x-hidden flex justify-around flex-wrap gap-0 relative`}
+          darkMode ? "bg-gradient-to-l from-gray-950 bg-black" : "bg-white bg-gradient-to-l from-gray-50"
+        } pt-3 overflow-x-hidden flex justify-around flex-wrap gap-0 relative`}
       >
         <aside className={`${
-          darkMode ? "bg-gray-950" : "bg-white"} aside-left`}>
+          darkMode ? "bg-gradient-to-r from-gray-950 md:from-black bg-black" : "bg-white"} aside-left`}>
           <ArrowButtonsNav darkMode={darkMode} />
           {showSideNav && (
             <div
               className={`${
-                darkMode ? "bg-gray-950" : "bg-white"
+                darkMode ? "bg-gradient-to-r bg-black to-gray-950" : "bg-white"
               } bg-opacity-50 click-away fixed top-0 right-0 h-screen w-screen z-40 filter`}
               onClick={() => {
                 setShowSideNav(false);
