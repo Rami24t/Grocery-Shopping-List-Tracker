@@ -1,6 +1,6 @@
 import React from "react";
 import "./MenuButton.scss";
-import { linkClickSFXAudio, navLinkClickSFXAudio, playSFXAudio, slideOutInSFXAudio } from "../../utils/sfx";
+import { linkClickSFXAudio, navLinkClickSFXAudio, playSFXAudio, slideOutInSFXAudio } from "../../assets/sfx";
 
 const MenuButton = React.memo(({ showSideNav, setShowSideNav, darkMode }) => {
   const menuButtonBgColor = darkMode ? "bg-black bg-gradient-to-l from-gray-950" : "bg-gray-50";

@@ -1,7 +1,7 @@
 import React from "react";
 import CopyrightDisclaimer from "./CopyrightDisclaimer";
 import Icons from "./Icons";
-import { navLinkClickSFXAudio } from "../../utils/sfx"; 
+import { navLinkClickSFXAudio } from "../../assets/sfx"; 
 
 function BottomFooter( {darkMode} ) {
   return (

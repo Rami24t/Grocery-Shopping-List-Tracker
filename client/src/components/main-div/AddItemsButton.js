@@ -3,7 +3,7 @@ import {
   openCloseAddFormSFX,
   openCloseAddFormSFXAudio,
   playSFXAudio,
-} from "../../utils/sfx";
+} from "../../assets/sfx";
 import useAudio from "../../hooks/useAudio";
 import { playAudio } from "../../utils/playAudio";
 

@@ -5,7 +5,7 @@ import {
   listCloseOpenSFXAudio,
   openListorClearSFXAudio,
   playSFXAudio,
-} from "../../utils/sfx";
+} from "../../assets/sfx";
 
 function List({
   title,

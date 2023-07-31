@@ -1,6 +1,6 @@
 import React from "react";
 import { BsLinkedin } from "react-icons/bs";
-import { navLinkClickSFXAudio, playSFXAudio } from "../../utils/sfx";
+import { navLinkClickSFXAudio, playSFXAudio } from "../../assets/sfx";
 
 function FooterIconLink({
   srText = "LinkedIn",

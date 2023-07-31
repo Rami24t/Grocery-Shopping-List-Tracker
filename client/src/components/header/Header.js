@@ -3,7 +3,7 @@ import InfoWidget from "./InfoWidget";
 import Hero from "./Hero";
 import quote from "../../data/randomQuote";
 import ToggleDarkModeButton from "./ToggleDarkModeButton";
-import { playSFXAudio, navLinkClickSFXAudio } from "../../utils/sfx";
+import { playSFXAudio, navLinkClickSFXAudio } from "../../assets/sfx";
 
 function Header({ list, needs, haves, darkMode, setDarkMode }) {
   const handleClick = (e) => {

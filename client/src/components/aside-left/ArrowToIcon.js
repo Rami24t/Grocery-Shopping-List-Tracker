@@ -4,7 +4,7 @@ import {
   toBottomTopSFXAudio,
   slideOutInSFXAudio,
   playSFXAudio,
-} from "../../utils/sfx";
+} from "../../assets/sfx";
 
 const ArrowToIcon = React.memo(({ toBottom, darkMode, shown }) => {
   function handleClick(e) {

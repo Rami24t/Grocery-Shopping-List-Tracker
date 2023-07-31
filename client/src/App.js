@@ -32,8 +32,7 @@ import {
   // switchSFXAudio,
   // inputErrorSFXAudio,
   // pencilCheckSFXAudio,
-  // mouseClickSFXAudio,
-} from "./utils/sfx";
+} from "./assets/sfx"
 
 function App() {
   const { dispatch } = React.useContext(Context);

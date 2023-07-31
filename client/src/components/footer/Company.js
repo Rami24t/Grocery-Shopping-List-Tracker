@@ -1,5 +1,5 @@
 import React from "react";
-import { playSFXAudio } from "../../utils/sfx";
+import { playSFXAudio } from "../../assets/sfx";
 
 function Company({ logo = "/logo-no-background.svg", name = "Rami Al-Saadi", link = "https://www.linkedin.com/in/rami-al-saadi-16a14223a/", sfx, darkMode}) {
   const handleClick = () => {

@@ -9,7 +9,7 @@ import {
   SvgSettings,
 } from "./SidenavSvgs";
 import { ItemsBadge, ProBadge } from "./LIBadges";
-import { slideOutInSFXAudio, navLinkClickSFXAudio, playSFXAudio } from "../../utils/sfx";
+import { slideOutInSFXAudio, navLinkClickSFXAudio, playSFXAudio } from "../../assets/sfx";
 
 const Sidenav = ({
   items,

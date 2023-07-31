@@ -1,5 +1,5 @@
 import React from "react";
-import { navLinkClickSFXAudio, playSFXAudio } from "../../utils/sfx";
+import { navLinkClickSFXAudio, playSFXAudio } from "../../assets/sfx";
 
 function FooterListItem({
   link,

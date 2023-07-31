@@ -1,5 +1,5 @@
 import React from "react";
-import { playSFXAudio, typeSFXAudio } from "../../../utils/sfx";
+import { playSFXAudio, typeSFXAudio } from "../../../assets/sfx";
 
 function ItemName({
   name,

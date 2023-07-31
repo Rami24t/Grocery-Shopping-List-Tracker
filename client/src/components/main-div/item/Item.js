@@ -6,7 +6,7 @@ import {
   writingSFXAudio,
   correctOrAddSFXAudio,
   playSFXAudio,
-} from "../../../utils/sfx";
+} from "../../../assets/sfx";
 
 const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
   const handleEdit = (e) => {

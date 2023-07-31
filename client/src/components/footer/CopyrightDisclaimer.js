@@ -1,5 +1,5 @@
 import React from "react";
-import { playSFXAudio } from "../../utils/sfx";
+import { playSFXAudio } from "../../assets/sfx";
 
 function CopyrightDisclaimer({
   year = "2023",

@@ -1,6 +1,6 @@
 import React from "react";
 import { BsSend } from "react-icons/bs";
-import { emailSFXAudio, navLinkClickSFXAudio, playSFXAudio } from "../../utils/sfx";
+import { emailSFXAudio, navLinkClickSFXAudio, playSFXAudio } from "../../assets/sfx";
 
 function SendEmailIconLink({ lastPartOfEmail = "24@gmail.com", firstPartOfEmail = "alsaadi.rami", darkMode }) {
   return <a

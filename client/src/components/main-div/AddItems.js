@@ -5,7 +5,7 @@ import {
   editClickSFXAudio,
   typeSFXAudio,
   playSFXAudio,
-} from "../../utils/sfx";
+} from "../../assets/sfx";
 
 function AddItems({ handleAdd, showAddItem, darkMode }) {
   const handleClick = (e) => {

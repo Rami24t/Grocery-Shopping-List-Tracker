@@ -1,5 +1,5 @@
 import React from "react";
-import { writingSFXAudio, editClickSFXAudio, playSFXAudio } from "../../../utils/sfx";
+import { writingSFXAudio, editClickSFXAudio, playSFXAudio } from "../../../assets/sfx";
 
 function FilterInput({ filter, handleChangeFilter, items, darkMode }) {
   function onEnter(e) {

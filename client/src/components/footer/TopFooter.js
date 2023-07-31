@@ -1,7 +1,7 @@
 import React from "react";
 import Company from "./Company";
 import FooterLists from "./FooterLists";
-import { navLinkClickSFXAudio } from "../../utils/sfx";
+import { navLinkClickSFXAudio } from "../../assets/sfx";
 
 function TopFooter( {darkMode} ) {
   return <div className="items-center footer-top flex flex-col md:flex-row flex-wrap gap-3 justify-between">

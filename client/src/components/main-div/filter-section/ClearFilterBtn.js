@@ -1,6 +1,6 @@
 import React from "react";
 import { BsFunnel, BsFunnelFill } from "react-icons/bs";
-import { pencilCheckSFXAudio, playSFXAudio } from "../../../utils/sfx";
+import { pencilCheckSFXAudio, playSFXAudio } from "../../../assets/sfx";
 
 function ClearFilterBtn({ filter, setFilter, darkMode }) {
   function clearFilter() {

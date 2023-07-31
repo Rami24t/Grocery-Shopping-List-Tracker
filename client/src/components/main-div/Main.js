@@ -3,7 +3,7 @@ import MainHeader from "./MainHeader";
 import AddItems from "./AddItems";
 import FilterSection from "./filter-section/FilterSection";
 import Lists from "./Lists";
-import { wrongFilterSFXAudio2, completionSFXAudio, playSFXAudio } from "../../utils/sfx";
+import { wrongFilterSFXAudio2, completionSFXAudio, playSFXAudio } from "../../assets/sfx";
 
 function Main({
   list,
