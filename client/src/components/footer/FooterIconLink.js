@@ -17,7 +17,7 @@ function FooterIconLink({
       onClick={handleClick}
       target="_blank"
       rel="noopener noreferrer"
-      className={`text-lg ${darkMode?' hover:text-white':'hover:text-gray-900'} text-gray-500 `}>
+      className={`text-lg ${darkMode?' hover:text-white text-gray-500':'hover:text-gray-900 text-gray-600'}  `}>
       <Icon />
       <span className="sr-only">{srText}</span>
     </a>
