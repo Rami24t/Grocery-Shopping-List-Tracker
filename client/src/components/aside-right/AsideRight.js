@@ -18,7 +18,8 @@ function AsideRight({ darkMode }) {
     decoImgs[52],
     gif2,
     decoImgs[64],
-    decoImgs[68],
+    gif1,
+    // decoImgs[68],
     decoImgs[30],
     decoImgs[60],
     decoImgs[11],
@@ -94,7 +95,8 @@ function AsideRight({ darkMode }) {
       decoImgs[52],
       gif2,
       decoImgs[64],
-      decoImgs[68],
+      gif1,
+      // decoImgs[68],
       decoImgs[30],
       decoImgs[60],
       decoImgs[11],
@@ -202,8 +204,8 @@ function AsideRight({ darkMode }) {
           darkMode ? "opacity-80" : "opacity-95"
         } p-2 lg:pt-[220px] lg:max-w-[25%] text-center flex flex-wrap gap-2 lg:gap-4 justify-center items-center relative z-0`}
       >
-        <AsideImage src={gif1} />
-        {/* <AsideImage src=decoImgs[68] /> */}
+        {/* <AsideImage src={gif1} /> */}
+        <AsideImage src={decoImgs[68]} />
 
         {extraImages.slice(0, 1).map((src, idx) => (
           <AsideImage className={"lg:hidden"} key={idx} src={src} />
