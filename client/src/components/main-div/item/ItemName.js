@@ -10,10 +10,10 @@ function ItemName({
   darkMode,
 }) {
   const handleChange = (e) => {
-    if (name.length < e.target.value.length) {
+    if (e.target.value.length > name.length) {
       playSFXAudio(typeSFXAudio);
     }
-    setName(e.target.value.trim());
+    setName(e.target.value);
   };
 
   return (
