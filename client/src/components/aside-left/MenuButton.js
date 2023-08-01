@@ -1,36 +1,47 @@
-import React from "react";
+import React, { useContext } from "react";
 import "./MenuButton.scss";
-import { linkClickSFXAudio, navLinkClickSFXAudio, playSFXAudio, slideOutInSFXAudio } from "../../assets/sfx";
+import { Context } from "../Context";
+import {
+  linkClickSFXAudio,
+  navLinkClickSFXAudio,
+  playSFXAudio,
+  slideOutInSFXAudio,
+} from "../../assets/sfx";
 
 const MenuButton = React.memo(({ showSideNav, setShowSideNav, darkMode }) => {
-  const menuButtonBgColor = darkMode ? "bg-black bg-gradient-to-l from-gray-950" : "bg-gray-50";
+  const { state } = useContext(Context);
+  const sound = state.settings.sound;
+  const menuButtonBgColor = darkMode
+    ? "bg-black bg-gradient-to-l from-gray-950"
+    : "bg-gray-50";
   const iconColor = darkMode ? "#a0a0ad" : "#667";
   const iconStyle = {
-    '--color': iconColor,
+    "--color": iconColor,
   };
   return (
     <div
       onClick={(e) => {
         e.stopPropagation();
-        // e.preventDefault();
         e.target.style.pointerEvents = "none";
         setTimeout(() => {
           e.target.style.pointerEvents = "";
         }, 800);
-        playSFXAudio(navLinkClickSFXAudio);
-        if (showSideNav) {
-          playSFXAudio(slideOutInSFXAudio)
-          setTimeout(() => {
-            slideOutInSFXAudio.pause();
+        if (sound) {
+          playSFXAudio(navLinkClickSFXAudio);
+          if (showSideNav) {
+            playSFXAudio(slideOutInSFXAudio);
+            setTimeout(() => {
+              slideOutInSFXAudio.pause();
+              slideOutInSFXAudio.currentTime = 3.5;
+            }, 800);
+          } else {
+            playSFXAudio(linkClickSFXAudio);
             slideOutInSFXAudio.currentTime = 3.5;
-          }, 800);
-        } else {
-          playSFXAudio(linkClickSFXAudio);
-          slideOutInSFXAudio.currentTime = 3.5;
-          slideOutInSFXAudio.play();
+            slideOutInSFXAudio.play();
+          }
         }
         setShowSideNav((prev) => !prev);
-        }}
+      }}
       className={`rounded-bl-2xl ${menuButtonBgColor}  bg-opacity-80 max-h-[60px] overflow-hidden cursor-pointer menu-btn z-50 ${
         showSideNav ? "open " : ""
       }`}

@@ -20,13 +20,24 @@ export function ContextProvider({ children }) {
                 showNeeds: action.payload.showNeeds,
                 showHaves: action.payload.showHaves
             };
+        case "TOGGLE_SOUND":
+            return {
+                ...state,
+                settings: {
+                    ...state.settings,
+                    sound: !state.settings.sound
+                }
+            };
             default:
             return state;
         }
     };
     const [state, dispatch] = useReducer(reducer, {
         showNeeds: true,
-        showHaves: true
+        showHaves: true,
+        settings: {
+            sound: true,
+        }
     });
 
     return (

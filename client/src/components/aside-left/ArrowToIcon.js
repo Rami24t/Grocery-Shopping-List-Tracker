@@ -1,26 +1,30 @@
-import React from "react";
+import React, { useContext } from "react";
 import { BiSolidArrowToTop } from "react-icons/bi";
 import {
   toBottomTopSFXAudio,
   slideOutInSFXAudio,
   playSFXAudio,
 } from "../../assets/sfx";
+import { Context } from "../Context";
 
 const ArrowToIcon = React.memo(({ toBottom, darkMode, shown }) => {
+  const { state } = useContext(Context);
   function handleClick(e) {
-      e.preventDefault();
-      window.scrollTo({
-        top: toBottom ? window.document.body.clientHeight : 0,
-      });
+    e.preventDefault();
+    window.scrollTo({
+      top: toBottom ? window.document.body.clientHeight : 0,
+    });
+    if(state.settings.sound){
       playSFXAudio(toBottomTopSFXAudio, slideOutInSFXAudio);
-        setTimeout(() => {
-          slideOutInSFXAudio.pause();
-        }, 550);
-        e.target.style.pointerEvents = "none";
-        setTimeout(() => {
-          e.target.style.pointerEvents = "";
-        }, 800);
+    setTimeout(() => {
+      slideOutInSFXAudio.pause();
+    }, 550);
     }
+    e.target.style.pointerEvents = "none";
+    setTimeout(() => {
+      e.target.style.pointerEvents = "";
+    }, 800);
+  }
 
   return (
     <a

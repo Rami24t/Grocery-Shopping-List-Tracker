@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import SidenavLI from "./SidenavLI";
 import {
   SvgAddItem,
@@ -9,7 +9,12 @@ import {
   SvgSettings,
 } from "./SidenavSvgs";
 import { ItemsBadge, ProBadge } from "./LIBadges";
-import { slideOutInSFXAudio, navLinkClickSFXAudio, playSFXAudio } from "../../assets/sfx";
+import {
+  slideOutInSFXAudio,
+  navLinkClickSFXAudio,
+  playSFXAudio,
+} from "../../assets/sfx";
+import { Context } from "../Context";
 
 const Sidenav = ({
   items,
@@ -18,6 +23,9 @@ const Sidenav = ({
   setShowSideNav,
   darkMode,
 }) => {
+  const { state } = useContext(Context);
+  const sound = state.settings.sound;
+
   function hideMobileSidenav(e) {
     e.stopPropagation();
     // e.preventDefault();
@@ -26,14 +34,16 @@ const Sidenav = ({
       e.target.parentNode.style.pointerEvents = "";
     }, 500);
     setShowSideNav(false);
-    playSFXAudio(slideOutInSFXAudio)
-    setTimeout(() => {
-      slideOutInSFXAudio.pause();
-      slideOutInSFXAudio.currentTime = 3.5;
-    }, 600);
+    if (sound) {
+      playSFXAudio(slideOutInSFXAudio);
+      setTimeout(() => {
+        slideOutInSFXAudio.pause();
+        slideOutInSFXAudio.currentTime = 3.5;
+      }, 600);
+    }
   }
   function handleClick() {
-    playSFXAudio(navLinkClickSFXAudio);
+    sound && playSFXAudio(navLinkClickSFXAudio);
   }
 
   const sideNavLinks = [
@@ -67,7 +77,9 @@ const Sidenav = ({
   return (
     <nav
       id="sidenav"
-      className={`text-center sm:text-start z-40 sm:z-30 overflow-hidden rounded-lg ${darkMode?'bg-black bg-gradient-to-r from-gray-950':'bg-white'}  bg-opacity-90 border-r-0 fixed sm:absolute sm:w-52 md:sticky top-0 sm:top-24 left-0 w-64 py-8 sm:py-4 transition-transform sm:translate-x-0
+      className={`text-center sm:text-start z-40 sm:z-30 overflow-hidden rounded-lg ${
+        darkMode ? "bg-black bg-gradient-to-r from-gray-950" : "bg-white"
+      }  bg-opacity-90 border-r-0 fixed sm:absolute sm:w-52 md:sticky top-0 sm:top-24 left-0 w-64 py-8 sm:py-4 transition-transform sm:translate-x-0
 ${
   showSideNav
     ? "w-full translate-x-0 ease-out duration-500"

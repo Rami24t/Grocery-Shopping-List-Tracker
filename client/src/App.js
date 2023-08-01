@@ -32,10 +32,12 @@ import {
   // switchSFXAudio,
   // inputErrorSFXAudio,
   // pencilCheckSFXAudio,
-} from "./assets/sfx"
+} from "./assets/sfx";
 
 function App() {
-  const { dispatch } = React.useContext(Context);
+  const { state, dispatch } = React.useContext(Context);
+  const sound = state.settings.sound;
+
   const [darkMode, setDarkMode] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
   const [list, setList] = useState(
@@ -58,7 +60,7 @@ function App() {
   const [showSideNav, setShowSideNav] = useState(false);
   const [filter, setFilter] = useState("");
   function handleChangeFilter(value) {
-    if (value.length > filter.length) {
+    if (sound && value.length > filter.length) {
       playSFXAudio(typeSFXAudio);
     }
     if (value.trim() === "") setFilter("");
@@ -104,12 +106,14 @@ function App() {
   //   [handleSave]
   // );
   function handleDelete(item) {
-    if (item.need && needs.length === 1) {
-      playSFXAudio(finishSFXAudio);
-    } else if (!item.need && haves.length === 1) {
-      playSFXAudio(clearSFXAudio);
+    if (sound) {
+      if (item.need && needs.length === 1) {
+        playSFXAudio(finishSFXAudio);
+      } else if (!item.need && haves.length === 1) {
+        playSFXAudio(clearSFXAudio);
+      }
+      playSFXAudio(deleteSFXAudio);
     }
-    playSFXAudio(deleteSFXAudio);
     setItems((prevItems) => {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
       // handleSave(updatedItems);
@@ -134,22 +138,23 @@ function App() {
   //   [items, handleSave]
   // );
   function handleToggle(item) {
-    if (item.need) {
-      if (needs.length === 1) {
-        playSFXAudio(finishSFXAudio);
+    if (sound)
+      if (item.need) {
+        if (needs.length === 1) {
+          playSFXAudio(finishSFXAudio);
+        } else {
+          playSFXAudio(haveSFXAudio, addSFXAudio2);
+          setTimeout(() => {
+            haveSFXAudio.pause();
+          }, 600);
+        }
       } else {
-        playSFXAudio(haveSFXAudio, addSFXAudio2);
-        setTimeout(() => {
-          haveSFXAudio.pause();
-        }, 600);
+        if (haves.length === 1) {
+          playSFXAudio(clearSFXAudio);
+        } else {
+          playSFXAudio(buttonClickSFXAudio2);
+        }
       }
-    } else {
-      if (haves.length === 1) {
-        playSFXAudio(clearSFXAudio);
-      } else {
-        playSFXAudio(buttonClickSFXAudio2);
-      }
-    }
     item.need = !item.need;
     refreshItems();
   }
@@ -180,12 +185,12 @@ function App() {
     const value = e.target.value.trim();
     if (value === "" || items.find((i) => i.name === value)) {
       e.target.value = "";
-      if (value !== "") {
+      if (sound && value !== "") {
         playSFXAudio(addDeniedSFXAudio);
       }
       return;
     }
-    playSFXAudio(addSFXAudio1);
+    sound && playSFXAudio(addSFXAudio1);
     // items.push({
     //   id: items.length + 1,
     //   name: value,
@@ -217,7 +222,7 @@ function App() {
       type: "SET_SHOW_ITEMS",
       payload: { showNeeds: true, showHaves: true },
     });
-    playSFXAudio(resetSFXAudio);
+    sound && playSFXAudio(resetSFXAudio);
   }
 
   function handleClear() {
@@ -226,11 +231,12 @@ function App() {
     setItems([]);
     handleSave([]);
     setFilter("");
-    playSFXAudio(
-      resetOrClearFilterSFXAudio,
-      wrongFilterSFXAudio,
-      openCloseAddFormSFXAudio
-    );
+    sound &&
+      playSFXAudio(
+        resetOrClearFilterSFXAudio,
+        wrongFilterSFXAudio,
+        openCloseAddFormSFXAudio
+      );
   }
 
   useEffect(() => {
@@ -249,7 +255,9 @@ function App() {
     <div
       id="app"
       className={`app-container ${
-        darkMode ? "bg-black bg-gradient-to-l from-gray-950 text-white" : "bg-white bg-gradient-to-l from-gray-50 text-gray-800"
+        darkMode
+          ? "bg-black bg-gradient-to-l from-gray-950 text-white"
+          : "bg-white bg-gradient-to-l from-gray-50 text-gray-800"
       }  ${isMobile && "text-center"}`}
     >
       <Header
@@ -261,11 +269,18 @@ function App() {
       />
       <div
         className={`${
-          darkMode ? "bg-gradient-to-l from-gray-950 bg-black" : "bg-white bg-gradient-to-l from-gray-50"
+          darkMode
+            ? "bg-gradient-to-l from-gray-950 bg-black"
+            : "bg-white bg-gradient-to-l from-gray-50"
         } pt-3 overflow-x-hidden flex justify-around flex-wrap gap-0 relative`}
       >
-        <aside className={`${
-          darkMode ? "bg-gradient-to-r from-gray-950 md:from-black bg-black" : "bg-white"} aside-left`}>
+        <aside
+          className={`${
+            darkMode
+              ? "bg-gradient-to-r from-gray-950 md:from-black bg-black"
+              : "bg-white"
+          } aside-left`}
+        >
           <ArrowButtonsNav darkMode={darkMode} />
           {showSideNav && (
             <div
@@ -274,11 +289,13 @@ function App() {
               } bg-opacity-50 click-away fixed top-0 right-0 h-screen w-screen z-40 filter`}
               onClick={() => {
                 setShowSideNav(false);
-                playSFXAudio(slideOutInSFXAudio);
-                setTimeout(() => {
-                  slideOutInSFXAudio.pause();
-                  slideOutInSFXAudio.currentTime = 3.5;
-                }, 600);
+                if (sound) {
+                  playSFXAudio(slideOutInSFXAudio);
+                  setTimeout(() => {
+                    slideOutInSFXAudio.pause();
+                    slideOutInSFXAudio.currentTime = 3.5;
+                  }, 600);
+                }
               }}
             ></div>
           )}
