@@ -12,7 +12,11 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
       ? `hover:bg-gray-100 hover:text-blue-800 bg-gray-100 border-gray-200 focus:ring-gray-300 ${
           !sound ? "text-gray-400" : "text-blue-700"
         }`
-      : "focus:ring-gray-500 bg-gray-800 text-gray-400 border-gray-700 hover:text-gray-100 hover:bg-gray-700"
+      : `focus:ring-gray-500 bg-gray-800 border-gray-700 hover:bg-gray-700 ${
+          !sound
+            ? "text-gray-400 hover:text-gray-100"
+            : "text-blue-400 hover:text-blue-300"
+        }`
   }`}
     >
       <AiTwotoneSound
