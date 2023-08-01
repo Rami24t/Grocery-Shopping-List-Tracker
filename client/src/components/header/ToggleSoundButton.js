@@ -12,10 +12,8 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
       ? `hover:bg-gray-100 hover:text-blue-800 bg-gray-100 border-gray-200 focus:ring-gray-300 ${
           !sound ? "text-gray-400" : "text-blue-700"
         }`
-      : `focus:ring-gray-500 bg-gray-800 border-gray-700 hover:bg-gray-700 ${
-          !sound
-            ? "text-gray-400 hover:text-gray-100"
-            : "text-blue-400 hover:text-blue-300"
+      : `focus:ring-gray-500 bg-gray-800 border-gray-700 hover:bg-gray-700 hover:text-blue-300 ${
+          !sound ? "text-gray-400" : "text-blue-400"
         }`
   }`}
     >
@@ -44,7 +42,7 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
         <div
           className={`m-0 p-0 w-2 h-4 peer-focus:outline-none peer-focus:ring-2 rounded-full peer ${
             darkMode
-              ? "peer-focus:ring-blue-800 focus:ring-gray-500 after:bg-gray-500 after:border-gray-600 bg-gray-900 border-gray-800 peer-checked:after:bg-gray-400 hover:bg-gray-800 peer-checked:bg-blue-900"
+              ? "peer-focus:ring-blue-800 focus:ring-gray-500 after:bg-gray-500 after:border-gray-600 bg-gray-900 border-gray-800 peer-checked:after:bg-gray-400 hover:bg-gray-800 peer-checked:bg-blue-800"
               : "peer-focus:ring-blue-300 after:bg-white border-gray-200 focus:ring-gray-300 peer-checked:bg-blue-500 bg-blue-400"
           } peer-checked:after:-translate-y-[120%] after:content-[''] after:absolute after:-bottom-[10%] after:left-[-10%] after:border after:rounded-full after:h-2 after:w-2 after:transition-transform`}
         ></div>
