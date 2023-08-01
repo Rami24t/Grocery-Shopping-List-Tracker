@@ -13,7 +13,7 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
           !sound ? "text-gray-400" : "text-blue-700"
         }`
       : `focus:ring-gray-500 bg-gray-800 border-gray-700 hover:bg-gray-700 hover:text-blue-300 ${
-          !sound ? "text-gray-400" : "text-blue-400"
+          !sound ? "text-gray-500" : "text-blue-400"
         }`
   }`}
     >
