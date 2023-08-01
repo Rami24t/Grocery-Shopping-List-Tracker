@@ -17,7 +17,17 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
     >
       <AiTwotoneSound
         className="w-5 h-5"
-        style={!sound ? { clipPath: "inset(0px 100% 0px 71%)" } : ""}
+        style={
+          !sound
+            ? {
+                clipPath: "inset(0px 100% 0px 71%)",
+                WebkitClipPath: "inset(0px 100% 0px 71%)",
+                MozClipPath: "inset(0px 100% 0px 71%)",
+                OClipPath: "inset(0px 100% 0px 71%)",
+                MsClipPath: "inset(0px 100% 0px 71%)",
+              }
+            : ""
+        }
       />
       <span className="sr-only">Toggle dark/light mode</span>
       <label className="relative ml-1 inline-flex items-center cursor-pointer">
