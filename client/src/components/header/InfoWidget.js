@@ -3,7 +3,7 @@ import { ShoppingBagSvg, ShoppingBagFillSvg } from "./ShoppingBagSvgs";
 
 // Abstract badge component for displaying the info badge
 const InfoBadge = ({ title, value, icon, darkMode, style }) => {
-  const infoBadgeCommonStyle = `absolute inline-flex items-center justify-center text-xs font-bold border-2 rounded-full  ${
+  const infoBadgeCommonStyle = `absolute inline-flex items-center justify-center text-xs font-bold border-2 rounded-full ${
     darkMode ? "border-gray-800" : "border-gray-300"
   }`;
   return (
@@ -39,7 +39,7 @@ const NeedsBadge = ({ needs, darkMode }) => {
       value={needs}
       icon={<ShoppingBagSvg className={`${color} inline w-1 h-1`} />}
       darkMode={darkMode}
-      style={`text-white ${darkMode?'bg-orange-700':'bg-orange-700'} ${
+      style={`text-white ${darkMode ? "bg-orange-700" : "bg-orange-700"} ${
         needs ? "-top-2 -right-2" : "-top-2 right-4"
       } w-7 h-7`}
     />
@@ -89,7 +89,7 @@ function InfoWidget({ haves, needs, darkMode, handleClick }) {
         title="Items Info Widget"
         className={`app-header-info-widget-container ${
           darkMode ? "text-white bg-gray-700" : "text-gray-800 bg-gray-300"
-        } bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-5 py-2.5 text-sm font-medium transition flex items-center justify-center`}
+        } bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-5 h-11 text-sm font-medium transition flex items-center justify-center`}
       >
         {!showNeedsBadge ? (
           <ShoppingBagFillSvg className={`${colorComplete} inline w-4 h-4`} />
