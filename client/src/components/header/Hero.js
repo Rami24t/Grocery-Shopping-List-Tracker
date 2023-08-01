@@ -8,7 +8,7 @@ function Hero({
   const getEmoji = () => (Math.random() * 100 > 50 ? "🧉" : "🚀");
 
   return (
-    <div className="app-header-hero text-center sm:text-left">
+    <div className="ml-4 app-header-hero text-center md:text-left mb-5 md:mb-0">
       <h1
         className={`${
           darkMode ? "text-white " : "text-gray-900"
@@ -17,7 +17,7 @@ function Hero({
         {title}
         {/* {list} */}
       </h1>
-      <p className={`app-header-subtitle ${!darkMode?'text-gray-500':'text-[#989]'} m-1.5 p-1.5 mr-2.5 text-sm`}>
+      <p className={`app-header-subtitle ${!darkMode?'text-gray-500':'text-[#989]'} m-1.5 ml-1 p-1.5 mr-2.5 text-sm`}>
         {subtitle} {getEmoji()}{" "}
       </p>
     </div>

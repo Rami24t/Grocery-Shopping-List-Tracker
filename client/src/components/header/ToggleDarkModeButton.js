@@ -2,8 +2,7 @@ import React from "react";
 
 function ToggleDarkModeButton({ darkMode, handleClick }) {
   
-  return  <>
-  <button onClick={handleClick} type="button" className={`-mt-11 float-right ml-3 px-1 cursor-pointer flex items-center w-9 h-9 justify-center text-xs font-medium border rounded-lg toggle-dark-state-example focus:z-10 focus:ring-2 focus:outline-none 
+  return <button onClick={handleClick} type="button" className={`-mt-11 float-right ml-1 px-1 cursor-pointer flex items-center w-9 h-9 justify-center text-xs font-medium border rounded-lg toggle-dark-state-example focus:z-10 focus:ring-2 focus:outline-none 
   ${!darkMode?"hover:bg-gray-100 hover:text-blue-800 text-blue-600 bg-gray-100 border-gray-200 focus:ring-gray-300": 
   "focus:ring-gray-500 bg-gray-800 text-gray-400 border-gray-700 hover:text-gray-100 hover:bg-gray-700"}`}>
     {
@@ -35,8 +34,6 @@ function ToggleDarkModeButton({ darkMode, handleClick }) {
             ></div>
           </label>
   </button>
-  <div className="clear-both invisible"/>
-  </>
 }
 
 export default React.memo(ToggleDarkModeButton);
