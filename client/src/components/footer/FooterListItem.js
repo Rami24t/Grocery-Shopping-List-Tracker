@@ -1,12 +1,10 @@
 import React from "react";
-import { navLinkClickSFXAudio, playSFXAudio } from "../../assets/sfx";
 
 function FooterListItem({
   link,
-  handleClick = () => {
-    playSFXAudio(navLinkClickSFXAudio);
-  },
+  handleClick,
 }) {
+  
   return (
     <li className="mb-4">
       <a
