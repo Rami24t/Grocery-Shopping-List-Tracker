@@ -180,10 +180,8 @@ function App() {
     refreshItems();
   }
 
-  function handleAdd(e) {
+  function handleAdd(value) {
     handleChangeFilter("");
-    const value = e.target.value.trim();
-    e.target.value = "";
     if (value === "" || items.find((i) => i.name === value)) {
       if (sound && value !== "") {
         playSFXAudio(addDeniedSFXAudio);
@@ -200,7 +198,6 @@ function App() {
         },
       ].sort((a, b) => a.name.localeCompare(b.name));
       setItems([...updatedItems]);
-      e.target.value = "";
       dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds: true } });
     }
   }

@@ -27,7 +27,8 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
 
   const handleBlur = (e) => {
     writingSFXAudio.pause();
-    handleAdd(e);
+    handleAdd(e.target.value.trim());
+    setValue("");
   };
 
   const handleChange = (e) => {
