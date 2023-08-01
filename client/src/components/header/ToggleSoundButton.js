@@ -20,11 +20,11 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
         style={
           !sound
             ? {
-                clipPath: "inset(0% 100% 0% 71%)",
-                WebkitClipPath: "inset(0% 100% 0% 71%)",
-                MozClipPath: "inset(0% 100% 0% 71%)",
-                OClipPath: "inset(0% 100% 0% 71%)",
-                MsClipPath: "inset(0% 100% 0% 71%)",
+                clipPath: "inset(0% 29% 0% 0%)",
+                WebkitClipPath: "inset(0% 29% 0% 0%)",
+                MozClipPath: "inset(0% 29% 0% 0%)",
+                OClipPath: "inset(0% 29% 0% 0%)",
+                MsClipPath: "inset(0% 29% 0% 0%)",
               }
             : ""
         }
