@@ -183,33 +183,26 @@ function App() {
   function handleAdd(e) {
     handleChangeFilter("");
     const value = e.target.value.trim();
+    e.target.value = "";
     if (value === "" || items.find((i) => i.name === value)) {
-      e.target.value = "";
       if (sound && value !== "") {
         playSFXAudio(addDeniedSFXAudio);
       }
       return;
+    } else {
+      sound && playSFXAudio(addSFXAudio1);
+      const updatedItems = [
+        ...items,
+        {
+          id: "RAGSL-" + (items.length + 1) + Date.now(),
+          name: value,
+          need: true,
+        },
+      ].sort((a, b) => a.name.localeCompare(b.name));
+      setItems([...updatedItems]);
+      e.target.value = "";
+      dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds: true } });
     }
-    sound && playSFXAudio(addSFXAudio1);
-    // items.push({
-    //   id: items.length + 1,
-    //   name: value,
-    //   need: true,
-    // });
-    // items.sort((a, b) => a.name.localeCompare(b.name));
-    // setItems([...items]);
-    const updatedItems = [
-      ...items,
-      {
-        id: items.length + 1,
-        name: value,
-        need: true,
-      },
-    ].sort((a, b) => a.name.localeCompare(b.name));
-    setItems(updatedItems);
-    e.target.value = "";
-    // state.setShowItems(true);
-    dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds: true } });
   }
 
   function handleReset() {
