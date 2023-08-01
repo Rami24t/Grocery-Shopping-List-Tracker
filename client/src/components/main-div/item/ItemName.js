@@ -1,5 +1,6 @@
-import React from "react";
+import React, { useContext } from "react";
 import { playSFXAudio, typeSFXAudio } from "../../../assets/sfx";
+import { Context } from "../../Context";
 
 function ItemName({
   name,
@@ -9,8 +10,9 @@ function ItemName({
   needed,
   darkMode,
 }) {
+  const { state } = useContext(Context);
   const handleChange = (e) => {
-    if (e.target.value.length > name.length) {
+    if (state.settings.sound && e.target.value.length > name.length) {
       playSFXAudio(typeSFXAudio);
     }
     setName(e.target.value);

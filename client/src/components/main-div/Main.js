@@ -1,9 +1,14 @@
-import React from "react";
+import React, { useContext } from "react";
 import MainHeader from "./MainHeader";
 import AddItems from "./AddItems";
 import FilterSection from "./filter-section/FilterSection";
 import Lists from "./Lists";
-import { wrongFilterSFXAudio2, completionSFXAudio, playSFXAudio } from "../../assets/sfx";
+import {
+  wrongFilterSFXAudio2,
+  completionSFXAudio,
+  playSFXAudio,
+} from "../../assets/sfx";
+import { Context } from "../Context";
 
 function Main({
   list,
@@ -24,6 +29,9 @@ function Main({
   handleClear,
   darkMode,
 }) {
+  const { state } = useContext(Context);
+  const { sound } = state.settings;
+
   function sanitize(str) {
     return str
       .trim()
@@ -44,15 +52,12 @@ function Main({
     items.length > 1 && filteredNeeds.length + filteredHaves.length <= 0;
 
   if (filter)
-    try {
+    if (sound)
       if (noFilteredResults) {
         playSFXAudio(wrongFilterSFXAudio2);
       } else {
         playSFXAudio(completionSFXAudio);
       }
-    } catch (error) {
-      console.log(error);
-    }
 
   return (
     <main className="min-w-[33%]  sm:z-50 text-center">
@@ -67,7 +72,11 @@ function Main({
         handleClear={handleClear}
         darkMode={darkMode}
       />
-      <AddItems handleAdd={handleAdd} darkMode={darkMode} showAddItem={showAddItem} />
+      <AddItems
+        handleAdd={handleAdd}
+        darkMode={darkMode}
+        showAddItem={showAddItem}
+      />
       <FilterSection
         filter={filter}
         setFilter={setFilter}

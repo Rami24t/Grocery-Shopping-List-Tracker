@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { BsPencil } from "react-icons/bs";
 import ItemName from "./ItemName";
 import {
@@ -7,8 +7,11 @@ import {
   correctOrAddSFXAudio,
   playSFXAudio,
 } from "../../../assets/sfx";
+import { Context } from "../../Context";
 
 const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
+  const { state } = useContext(Context);
+  const { sound } = state.settings;
   const handleEdit = (e) => {
     // e.preventDefault();
     e.target.disabled = true;
@@ -18,7 +21,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
     e.target.parentNode.firstChild.disabled = false;
     e.target.parentNode.firstChild.readOnly = false;
     e.target.parentNode.firstChild.focus();
-    playSFXAudio(editClickSFXAudio, writingSFXAudio);
+    sound && playSFXAudio(editClickSFXAudio, writingSFXAudio);
   };
 
   const handleBlur = (e) => {
@@ -44,7 +47,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
     if (item.name === value) return;
     setName(value);
     updateItem(item, { name: value });
-    playSFXAudio(correctOrAddSFXAudio);
+    sound && playSFXAudio(correctOrAddSFXAudio);
   };
 
   const handleCheck = (item) => {

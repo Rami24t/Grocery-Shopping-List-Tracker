@@ -1,12 +1,19 @@
-import React from "react";
-import { writingSFXAudio, editClickSFXAudio, playSFXAudio } from "../../../assets/sfx";
+import React, { useContext } from "react";
+import {
+  writingSFXAudio,
+  editClickSFXAudio,
+  playSFXAudio,
+} from "../../../assets/sfx";
+import { Context } from "../../Context";
 
 function FilterInput({ filter, handleChangeFilter, items, darkMode }) {
+  const { state } = useContext(Context);
+
   function onEnter(e) {
     if (e.key === "Enter") e.target.blur();
   }
   function handleFocus() {
-    playSFXAudio(editClickSFXAudio, writingSFXAudio);
+    state.settings.sound && playSFXAudio(editClickSFXAudio, writingSFXAudio);
   }
   function handleBlur() {
     writingSFXAudio.pause();
