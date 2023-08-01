@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useState } from "react";
 import { BsPlusCircle } from "react-icons/bs";
 import {
   writingSFXAudio,
@@ -8,6 +8,8 @@ import {
 } from "../../assets/sfx";
 
 function AddItems({ handleAdd, showAddItem, darkMode }) {
+  const [value, setValue] = useState("");
+
   const handleClick = (e) => {
     // e.preventDefault();
     e.stopPropagation();
@@ -25,8 +27,10 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
     handleAdd(e);
   };
 
-  const handleChange = () => {
-    playSFXAudio(typeSFXAudio);
+  const handleChange = (e) => {
+    if (e.target.value.length > value.length)
+      playSFXAudio(typeSFXAudio);
+    setValue(value);
   };
 
   return (
@@ -52,6 +56,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
       <div className="flex justify-center items-center gap-0">
         <input
           onChange={handleChange}
+          value={value}
           name="new-item"
           placeholder="New Item"
           onFocus={handleFocus}
