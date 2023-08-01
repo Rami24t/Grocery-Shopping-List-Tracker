@@ -1,5 +1,6 @@
 import React from "react";
 import { playSFXAudio } from "../../assets/sfx";
+import { Context } from "../Context";
 
 function CopyrightDisclaimer({
   year = "2023",
@@ -8,18 +9,25 @@ function CopyrightDisclaimer({
   sfx,
   darkMode,
 }) {
+  const { state } = React.useContext(Context);
   const handleClick = () => {
-    playSFXAudio(sfx);
+    state.settings.sound && playSFXAudio(sfx);
   };
   return (
-    <span className={`copyright-disclaimer mt-1 text-sm  sm:text-center ${darkMode?"text-gray-500":"text-gray-600"}`}>
+    <span
+      className={`copyright-disclaimer mt-1 text-sm  sm:text-center ${
+        darkMode ? "text-gray-500" : "text-gray-600"
+      }`}
+    >
       {`© ${year} `}
       <a
         href={link}
         onClick={handleClick}
         target="_blank"
         rel="noopener noreferrer"
-        className={`${darkMode?"hover:text-gray-400":"text-gray-700 hover:text-gray-800"} hover:underline`}  
+        className={`${
+          darkMode ? "hover:text-gray-400" : "text-gray-700 hover:text-gray-800"
+        } hover:underline`}
       >
         {author}
       </a>

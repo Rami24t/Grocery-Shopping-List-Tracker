@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext } from "react";
 import Item from "./item/Item";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
 import {
@@ -6,6 +6,7 @@ import {
   openListorClearSFXAudio,
   playSFXAudio,
 } from "../../assets/sfx";
+import { Context } from "../Context";
 
 function List({
   title,
@@ -18,11 +19,20 @@ function List({
   updateItem,
   darkMode,
 }) {
+  const { state } = useContext(Context);
+  const { sound } = state.settings;
+
   return (
     <article>
       <h3
         className={`flex justify-between min-w-[154px] items-center gap-2 max-w-max mx-auto cursor-pointer font-bold ${
-          items[0].need ? (darkMode?"text-orange-600 hover:text-orange-500":'text-red-600 hover:text-red-700') : (darkMode? "text-teal-400 hover:text-teal-300": 'text-green-700 hover:text-green-800')
+          items[0].need
+            ? darkMode
+              ? "text-orange-600 hover:text-orange-500"
+              : "text-red-600 hover:text-red-700"
+            : darkMode
+            ? "text-teal-400 hover:text-teal-300"
+            : "text-green-700 hover:text-green-800"
         }`}
         onClick={(e) => {
           e.target.style.pointerEvents = "none";
@@ -30,15 +40,13 @@ function List({
             e.target.style.pointerEvents = "auto";
           }, 500);
           setShowItems(!showItems);
-          try {
+
+          if (sound)
             if (showItems) {
               playSFXAudio(listCloseOpenSFXAudio);
             } else {
               playSFXAudio(openListorClearSFXAudio);
             }
-          } catch (error) {
-            console.log(error);
-          }
         }}
       >
         {title}:{" "}

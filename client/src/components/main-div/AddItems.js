@@ -1,4 +1,4 @@
-import { memo, useState } from "react";
+import { memo, useState, useContext } from "react";
 import { BsPlusCircle } from "react-icons/bs";
 import {
   writingSFXAudio,
@@ -6,9 +6,12 @@ import {
   typeSFXAudio,
   playSFXAudio,
 } from "../../assets/sfx";
+import { Context } from "../Context";
 
 function AddItems({ handleAdd, showAddItem, darkMode }) {
   const [value, setValue] = useState("");
+  const { state } = useContext(Context);
+  const { sound } = state.settings;
 
   const handleClick = (e) => {
     // e.preventDefault();
@@ -19,7 +22,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
   const onEnter = (e) => e.key === "Enter" && handleBlur(e);
 
   const handleFocus = () => {
-    playSFXAudio(editClickSFXAudio, writingSFXAudio);
+    sound && playSFXAudio(editClickSFXAudio, writingSFXAudio);
   };
 
   const handleBlur = (e) => {
@@ -28,7 +31,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
   };
 
   const handleChange = (e) => {
-    if (e.target.value.length > value.length)
+    if (sound && e.target.value.length > value.length)
       playSFXAudio(typeSFXAudio);
     setValue(value);
   };

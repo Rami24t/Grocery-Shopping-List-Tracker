@@ -6,6 +6,7 @@ import {
 } from "../../assets/sfx";
 import useAudio from "../../hooks/useAudio";
 import { playAudio } from "../../utils/playAudio";
+import { Context } from "../Context";
 
 const BUTTON_COOLDOWN_MS = 900;
 let INITIAL_AUDIO_CONTEXT;
@@ -22,6 +23,9 @@ function AddItemsButton({
   listIsEmpty,
   darkMode,
 }) {
+  const { state } = React.useContext(Context);
+  const { sound } = state.settings;
+
   const { reversedBuffer } = useAudio(openCloseAddFormSFX);
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
@@ -34,13 +38,14 @@ function AddItemsButton({
   const onClickHandler = () => {
     if (buttonDisabled) return;
 
-    if (!showAddItem) {
-      playSFXAudio(openCloseAddFormSFXAudio);
-    } else {
-      if (reversedBuffer) {
-        playAudio(reversedBuffer, INITIAL_AUDIO_CONTEXT);
+    if (sound)
+      if (!showAddItem) {
+        playSFXAudio(openCloseAddFormSFXAudio);
+      } else {
+        if (reversedBuffer) {
+          playAudio(reversedBuffer, INITIAL_AUDIO_CONTEXT);
+        }
       }
-    }
 
     setButtonDisabled(true);
     setTimeout(() => {
