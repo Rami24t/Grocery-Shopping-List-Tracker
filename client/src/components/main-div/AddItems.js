@@ -33,7 +33,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
   const handleChange = (e) => {
     if (sound && e.target.value.length > value.length)
       playSFXAudio(typeSFXAudio);
-    setValue(value);
+    setValue(e.target.value);
   };
 
   return (
