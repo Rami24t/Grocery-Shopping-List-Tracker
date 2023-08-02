@@ -196,11 +196,14 @@ function AsideRight({ darkMode }) {
     };
   }, []);
 
+  const [loadingImg] = useState(
+    Math.random() < 0.7 ? animatedImg3 : animatedImg1
+  );
   return (
     <>
-      {loadingClasses !== "fixed hidden" && (
-        <img src={animatedImg3} className={`${loadingClasses}`} alt="loading" />
-      )}
+      {loadingClasses !== "fixed hidden" ? (
+        <img src={loadingImg} className={`${loadingClasses}`} alt="loading" />
+      ) : null}
       <aside
         ref={ref}
         id="aside-right"
