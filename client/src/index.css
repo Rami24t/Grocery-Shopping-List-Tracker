@@ -12,21 +12,33 @@ html {
   scroll-behavior: smooth;
   background-color: #030712;
 }
-h1, h2, h3, h4, h5, h6 {
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
   font-family: 'Yeseva One', cursive;
 }
+
 .yellow-tail {
   font-family: 'Yellowtail', cursive;
 }
 
-#root, body{
+
+#root,
+body {
   width: 100%;
   line-height: 1.5;
   -webkit-font-smoothing: antialiased;
 }
-.app-container, body>div{
+
+.app-container,
+body>div {
   max-width: 100%;
 }
+
 
 *,
 *:before,
@@ -60,10 +72,11 @@ img {
   display: block;
 }
 
-input{
-  outline-color: rgba(10, 10, 220,0.6);
-}
 
-input:disabled{
+/* input {
+  outline-color: rgba(10, 10, 220, 0.6);
+} */
+
+input:disabled {
   opacity: unset;
 }

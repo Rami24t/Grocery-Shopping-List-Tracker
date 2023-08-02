@@ -27,8 +27,8 @@ function ItemName({
       onChange={handleChange}
       onBlur={handleBlur}
       onKeyDown={handleKeyDown}
-      className={`w-56 sm:w-52 md:w-80 lg:min-w-[59%] border text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 p-2.5 ${
-        !needed && " line-through "
+      className={`w-56 sm:w-52 md:w-80 lg:min-w-[59%] border text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 outline-[#0a0adc99] p-2.5 ${
+        !needed ? "line-through" : ""
       } m-2 inline-block leading-none ${
         darkMode
           ? "hover:contrast-100 bg-blend-darken disabled:bg-blend-multiply contrast-[111%] border-gray-700 placeholder-gray-400 text-gray-50"
