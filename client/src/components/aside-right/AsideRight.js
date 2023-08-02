@@ -1,6 +1,10 @@
 import React, { useEffect, useState, useCallback } from "react";
 import AsideImage from "./AsideImage";
-import { gif1, gif2, gif3 } from "../../assets/gifs";
+import {
+  animatedImg1,
+  animatedImg2,
+  animatedImg3,
+} from "../../assets/animatedImgs";
 import decoImgs from "../../assets/deco-imgs";
 
 function AsideRight({ darkMode }) {
@@ -16,10 +20,10 @@ function AsideRight({ darkMode }) {
   const [extraImages, setExtraImages] = useState([
     decoImgs[24],
     decoImgs[52],
-    gif2,
+    animatedImg2,
     decoImgs[64],
     decoImgs[60],
-    gif1,
+    animatedImg1,
     // decoImgs[68],
     decoImgs[30],
     decoImgs[49],
@@ -93,10 +97,10 @@ function AsideRight({ darkMode }) {
     const extraImagesTemp = [
       decoImgs[24],
       decoImgs[52],
-      gif2,
+      animatedImg2,
       decoImgs[64],
       decoImgs[60],
-      gif1,
+      animatedImg1,
       // decoImgs[68],
       decoImgs[30],
       decoImgs[49],
@@ -195,7 +199,7 @@ function AsideRight({ darkMode }) {
   return (
     <>
       {loadingClasses !== "fixed hidden" && (
-        <img src={gif3} className={`${loadingClasses}`} alt="loading" />
+        <img src={animatedImg3} className={`${loadingClasses}`} alt="loading" />
       )}
       <aside
         ref={ref}
@@ -204,7 +208,7 @@ function AsideRight({ darkMode }) {
           darkMode ? "opacity-80" : "opacity-95"
         } p-2 lg:pt-[220px] lg:max-w-[25%] text-center flex flex-wrap gap-2 lg:gap-4 justify-center items-center relative z-0`}
       >
-        {/* <AsideImage src={gif1} /> */}
+        {/* <AsideImage src={animImg1} /> */}
         <AsideImage src={decoImgs[68]} />
 
         {extraImages.slice(0, 1).map((src, idx) => (
