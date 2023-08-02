@@ -8,7 +8,9 @@ function Hero({
   const getEmoji = () => (Math.random() * 100 > 50 ? "🧉" : "🚀");
 
   return (
-    <div className="ml-4 mr-4 md:mt-2 mb-6 md:mb-0 app-header-hero text-center lg:text-left">
+    <div className="ml-4 mr-4 md:mt-1 mb-6 md:mb-0 app-header-hero text-center lg:text-left"
+    style={{minWidth: "59%"}}
+    >
       <h1
         className={`${
           darkMode ? "text-white " : "text-gray-900"
