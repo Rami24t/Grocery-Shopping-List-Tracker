@@ -31,7 +31,7 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
         darkMode ? "" : "bg-gray-50"
       }`}
     >
-      <div className="app-header-container mx-auto max-w-screen-xl px-2 py-4 sm:px-3 sm:py-6 sm:pb-9 lg:px-8 md:flex sm:items-center sm:justify-between">
+      <div className="app-header-container mx-auto max-w-screen-xl px-2 py-4 sm:px-3 sm:py-6 pb-6 sm:pb-9 lg:px-8 md:flex sm:items-center sm:justify-between">
         <Hero
           title="Grocery Shopping List 🛒"
           darkMode={darkMode}
