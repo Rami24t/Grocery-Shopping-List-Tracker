@@ -155,8 +155,10 @@ function App() {
           playSFXAudio(buttonClickSFXAudio2);
         }
       }
-    item.need = !item.need;
-    refreshItems();
+      item.need = !item.need;
+      setTimeout(() => {
+      refreshItems();
+      }, 100);
   }
   // const updateItem = useCallback(
   //   (item, update) => {
