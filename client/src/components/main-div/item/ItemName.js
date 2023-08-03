@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, memo } from "react";
 import { playSFXAudio, typeSFXAudio } from "../../../assets/sfx";
 import { Context } from "../../Context";
 
@@ -27,21 +27,19 @@ function ItemName({
       onChange={handleChange}
       onBlur={handleBlur}
       onKeyDown={handleKeyDown}
-      className={`w-56 sm:w-52 md:w-80 lg:min-w-[59%] border text-md rounded-lg focus:ring-blue-500 focus:border-blue-500 outline-[#0a0adc99] p-2.5 ${
-        !needed ? "line-through" : ""
-      } m-2 inline-block leading-none ${
+      className={`text-md w-56 sm:w-52 md:w-80 lg:min-w-[59%] p-2.5 m-2 inline-block leading-none rounded-lg bg-no-repeat bg-center bg-cover outline-[#0a0adc99] border focus:border-blue-500 focus:ring-blue-500 filter ${
         darkMode
-          ? "hover:contrast-100 bg-blend-darken disabled:bg-blend-multiply contrast-[111%] border-gray-700 placeholder-gray-400 text-gray-50"
-          : "contrast-[105%] hover:contrast-125  disabled:bg-blend-darken bg-blend-multiply text-white border-gray-300 placeholder-gray-500"
-      } bg-no-repeat bg-center bg-cover filter focus:filter-none`}
-      readOnly={true}
-      title="item name"
+          ? "text-gray-50 contrast-[111%] hover:contrast-100 focus:contrast-100 bg-blend-darken disabled:bg-blend-multiply border-gray-700 placeholder-gray-400"
+          : "text-white contrast-[105%] hover:contrast-125 focus:contrast-125 bg-blend-multiply disabled:bg-blend-darken border-gray-300 placeholder-gray-500"
+      } ${!needed ? "line-through" : ""}`}
+      title="Item Name"
       style={{
         backgroundColor: `rgba(0,0,19,0.${darkMode ? "7" : "4"})`,
         backgroundImage: `url("https://source.unsplash.com/random/200x40?${name})"`,
       }}
+      // readOnly={true}
     />
   );
 }
 
-export default ItemName;
+export default memo(ItemName);
