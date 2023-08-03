@@ -2,7 +2,11 @@ import React, { useState, memo } from "react";
 
 function Checkbox({ item, handleToggle, darkMode}) {
   const [needed, setNeeded] = useState(item.need);
-  const handleCheck = () => {
+  const handleCheck = (e) => {
+    e.target.disabled = true;
+    setTimeout(() => {
+      e.target.disabled = false;
+    }, 500);
     setNeeded(!needed);
     handleToggle(item);
   };
