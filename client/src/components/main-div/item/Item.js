@@ -82,10 +82,10 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
       <button
         type="button"
         onClick={handleEdit}
-        className={`leading-none w-6 h-6 rounded-lg m-2 text-center border hover:font-bold text-xl focus:ring-4 focus:outline-none  ${
+        className={`active:scale-110 transition-transform duration-200 leading-none w-6 h-6 rounded-lg m-2 text-center border hover:font-bold text-xl focus:ring-4 focus:outline-none  ${
           darkMode
-            ? "border-indigo-400 bg-indigo-950 text-indigo-300 focus:ring-indigo-700 hover:text-indigo-200 hover:border-indigo-300"
-            : " text-slate-600 hover:text-slate-800   border-indigo-300 focus:ring-slate-400 bg-gray-100 hover:border-gray-400 hover:bg-gray-200"
+            ? "text-indigo-300 hover:text-indigo-200 bg-indigo-950 hover:bg-indigo-900 border-indigo-400 hover:border-indigo-300 focus:ring-indigo-700"
+            : "text-indigo-700 hover:text-indigo-800 bg-indigo-100 hover:bg-indigo-200 border-indigo-600 hover:border-indigo-700 focus:ring-indigo-300"
         }`}
         title="Click to edit this item"
       >
@@ -98,10 +98,10 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
       <button
         onClick={() => handleDelete(item)}
         type="button"
-        className={`inline-flex items-center justify-center w-6 h-6 leading-none rounded-lg ml-3 m-2 text-center hover:border-red-500 hover:font-bold text-2xl border focus:ring-4 focus:outline-none ${
+        className={`active:scale-110 transition-transform duration-300 inline-flex items-center justify-center w-6 h-6 leading-none rounded-lg ml-3 m-2 text-center hover:border-red-500 hover:font-bold text-2xl border focus:ring-4 focus:outline-none ${
           darkMode
-            ? "border-red-600 hover:border-red-400 text-red-500 bg-red-950  focus:ring-red-900 hover:text-red-400"
-            : " text-red-600 hover:text-red-800   border-red-300 focus:ring-red-400 bg-red-100 hover:border-red-400 hover:bg-red-200"
+            ? " text-red-500 hover:text-red-400 bg-red-950 hover:bg-red-900 border-red-600 hover:border-red-400 focus:ring-red-900"
+            : " text-red-600 hover:text-red-800 bg-red-200 hover:bg-red-300 border-red-500 hover:border-red-700 focus:ring-red-300"
         } `}
         style={{ minWidth: "1.2rem" }}
         title="Click to permanently delete this item"
