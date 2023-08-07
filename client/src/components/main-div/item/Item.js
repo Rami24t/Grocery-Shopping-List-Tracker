@@ -32,6 +32,10 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
   const handleKeyDown = (e) => {
     if (e.key === "Enter") {
       e.target.blur();
+    } else if (e.key === "Escape") {
+      e.target.value = item.name;
+      setName(item.name);
+      e.target.blur();
     }
   };
 
@@ -45,7 +49,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
       return;
     }
     if (item.name === value) {
-      setInfo("");
+      setInfo("Edit cancelled");
       return;
     }
     setName(value);

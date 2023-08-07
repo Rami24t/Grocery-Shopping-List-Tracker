@@ -20,7 +20,15 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
     e.currentTarget.previousSibling.focus();
   };
 
-  const onEnter = (e) => e.key === "Enter" && handleBlur(e);
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter") handleBlur(e);
+    else if (e.key === "Escape") {
+      setValue("");
+      e.target.value = "";
+      e.target.blur();
+      setInfo("Add cancelled");
+    }
+  };
 
   const handleFocus = () => {
     sound && playSFXAudio(editClickSFXAudio, writingSFXAudio);
@@ -37,7 +45,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
   const handleChange = (e) => {
     if (sound && e.target.value.length > value.length)
       playSFXAudio(typeSFXAudio);
-      setInfo("Typing...");
+    setInfo("Typing...");
     setValue(e.target.value);
   };
 
@@ -76,7 +84,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
               ? "placeholder-gray-400 text-white border-gray-600 bg-gray-700 bg-opacity-70 "
               : "placeholder-gray-500 text-gray-800 border-gray-300 bg-white bg-opacity-70 "
           } inline-block p-4 border rounded-lg sm:text-md focus:ring-gray-500 focus:border-gray-400  `}
-          onKeyDown={onEnter}
+          onKeyDown={handleKeyDown}
         />
         <button
           title="Add Item"
