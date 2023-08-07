@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect } from "react";
 import MainHeader from "./MainHeader";
 import AddItems from "./AddItems";
 import FilterSection from "./filter-section/FilterSection";
@@ -29,8 +29,9 @@ function Main({
   handleClear,
   darkMode,
 }) {
-  const { state } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
   const { sound } = state.settings;
+  const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
 
   function sanitize(str) {
     return str
@@ -51,13 +52,21 @@ function Main({
   const noFilteredResults =
     items.length > 1 && filteredNeeds.length + filteredHaves.length <= 0;
 
-  if (filter)
-    if (sound)
-      if (noFilteredResults) {
-        playSFXAudio(wrongFilterSFXAudio2);
-      } else {
-        playSFXAudio(completionSFXAudio);
-      }
+  useEffect(() => {
+    if (filter) {
+      if (sound)
+        if (noFilteredResults) {
+          playSFXAudio(wrongFilterSFXAudio2);
+        } else {
+          playSFXAudio(completionSFXAudio);
+        }
+      setInfo(
+        noFilteredResults
+          ? "Filter doesn't match any item"
+          : "Showing filtered items"
+      );
+    }
+  }, [filter]);
 
   return (
     <main className="min-w-[33%]  sm:z-50 text-center">

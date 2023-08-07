@@ -10,8 +10,9 @@ import { Context } from "../Context";
 
 function AddItems({ handleAdd, showAddItem, darkMode }) {
   const [value, setValue] = useState("");
-  const { state } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
   const { sound } = state.settings;
+  const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
 
   const handleClick = (e) => {
     // e.preventDefault();
@@ -23,10 +24,12 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
 
   const handleFocus = () => {
     sound && playSFXAudio(editClickSFXAudio, writingSFXAudio);
+    setInfo("Type the name of the item you want to add");
   };
 
   const handleBlur = (e) => {
     writingSFXAudio.pause();
+    setInfo("");
     handleAdd(e.target.value.trim());
     setValue("");
   };
@@ -34,6 +37,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
   const handleChange = (e) => {
     if (sound && e.target.value.length > value.length)
       playSFXAudio(typeSFXAudio);
+      setInfo("Typing...");
     setValue(e.target.value);
   };
 

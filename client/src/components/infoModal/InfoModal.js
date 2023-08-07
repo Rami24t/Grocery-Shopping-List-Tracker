@@ -1,27 +1,32 @@
 import { useEffect } from "react";
 
-export default function InfoModal({
-  text = "I'm a modal dialog",
-  onClose,
-  darkMode,
+function InfoModal({
+  darkMode = true,
+  info = "",
+  setInfo,
 }) {
+  const close = () => setInfo("");
+
   useEffect(() => {
     const st = setTimeout(() => {
-      onClose();
+      setInfo("");
     }, 3000);
     return () => {
       clearTimeout(st);
     };
-  }, [onClose]);
+  }, [info]);
 
+  //  if (!info) return null;
   return (
     <div
-      onClick={onClose}
-      className={`p-1 cursor-pointer opacity-80 rounded-sm fixed left-5 bottom-1 ${
+      onClick={close}
+      className={`z-50 p-1 cursor-pointer opacity-80 rounded-sm fixed left-6 bottom-1 ${
         darkMode ? " bg-black text-white" : "bg-white text-black"
       } modal`}
     >
-      <div>{text}</div>
+      <div>{info}</div>
     </div>
   );
 }
+
+export default InfoModal;

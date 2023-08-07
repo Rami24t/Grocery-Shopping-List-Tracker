@@ -19,7 +19,8 @@ function List({
   updateItem,
   darkMode,
 }) {
-  const { state } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
+  const setInfo = (info) => { dispatch({ type: "SET_INFO", payload: info }); };
   const { sound } = state.settings;
 
   return (
@@ -44,8 +45,10 @@ function List({
           if (sound)
             if (showItems) {
               playSFXAudio(listCloseOpenSFXAudio);
+              setInfo(title + 's are now hidden');
             } else {
               playSFXAudio(openListorClearSFXAudio);
+              setInfo(title + 's are now visible');
             }
         }}
       >

@@ -4,11 +4,12 @@ import { pencilCheckSFXAudio, playSFXAudio } from "../../../assets/sfx";
 import { Context } from "../../Context";
 
 function ClearFilterBtn({ filter, setFilter, darkMode }) {
-  const { state } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
 
   function clearFilter() {
     if (state.settings.sound && filter.length > 0) {
       playSFXAudio(pencilCheckSFXAudio);
+      dispatch({ type: "SET_INFO", payload: "Filter cleared" });
     }
     setFilter("");
   }

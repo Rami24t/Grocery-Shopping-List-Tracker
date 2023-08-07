@@ -9,6 +9,9 @@ import MenuButton from "./components/aside-left/MenuButton";
 import { getLists } from "./utils/getLists";
 import { Context } from "./components/Context";
 import ArrowButtonsNav from "./components/aside-left/ArrowButtonsNav";
+import { createPortal } from "react-dom";
+import InfoModal from "./components/infoModal/InfoModal";
+
 import {
   addSFXAudio1,
   addSFXAudio2,
@@ -37,6 +40,7 @@ import {
 function App() {
   const { state, dispatch } = React.useContext(Context);
   const sound = state.settings.sound;
+  const setInfo = (info)=>dispatch({ type: "SET_INFO", payload: info })
 
   const [darkMode, setDarkMode] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
@@ -48,6 +52,7 @@ function App() {
     if (localStorage.getItem("lastVisitedList"))
       setList(localStorage.getItem("lastVisitedList"));
     else setList("1");
+    // setInfo(`Now Loading... `);
   }, []);
 
   function handleChangeList(e) {
@@ -81,7 +86,7 @@ function App() {
     if (localStorage.getItem(`list${list}`))
       setItems(JSON.parse(localStorage.getItem(`list${list}`)));
     // document.title = `Grocery 🛒 | List ${list}`;
-    document.title = `🛒📋Gr.Shop.List | 📱🧾🛍️🧺`;
+    document.title = `🛒📋Gr.Shop.List🧾📱`;
   }, [list]);
 
   // const handleSave = useCallback(
@@ -93,7 +98,9 @@ function App() {
   function handleSave(updatedItems) {
     // console.log(items, "saving items");
     localStorage.setItem(`list${list}`, JSON.stringify(updatedItems || items));
+    // setInfo(`List saved`);
     // console.log("save end");
+
   }
   // const handleDelete = useCallback(
   //   (item) => {
@@ -114,6 +121,7 @@ function App() {
       }
       playSFXAudio(deleteSFXAudio);
     }
+    setInfo(`Item ${item.name.slice(0,10)}... deleted`);
     setItems((prevItems) => {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
       // handleSave(updatedItems);
@@ -155,6 +163,7 @@ function App() {
           playSFXAudio(buttonClickSFXAudio2);
         }
       }
+      setInfo(`${item.name.match(/.*?[\w]+/)}... ${item.need ? "checked" : "unchecked"}`);
       item.need = !item.need;
       setTimeout(() => {
       refreshItems();
@@ -187,10 +196,12 @@ function App() {
     if (value === "" || items.find((i) => i.name === value)) {
       if (sound && value !== "") {
         playSFXAudio(addDeniedSFXAudio);
+        setInfo(`Item ${value.slice(0,10)}... already exists`);
       }
       return;
     } else {
       sound && playSFXAudio(addSFXAudio1);
+      setInfo(`Item ${value.slice(0,10)}... added`);
       const updatedItems = [
         ...items,
         {
@@ -215,6 +226,7 @@ function App() {
       payload: { showNeeds: true, showHaves: true },
     });
     sound && playSFXAudio(resetSFXAudio);
+    setInfo("List is now reset");
   }
 
   function handleClear() {
@@ -229,6 +241,7 @@ function App() {
         wrongFilterSFXAudio,
         openCloseAddFormSFXAudio
       );
+    setInfo("List is now cleared");
   }
 
   useEffect(() => {
@@ -238,6 +251,7 @@ function App() {
     )
       return;
     handleSave();
+    // setInfo("Autosaving complete");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items]);
 
@@ -335,6 +349,15 @@ function App() {
         <AsideRight darkMode={darkMode} />
       </div>
       <Footer darkMode={darkMode} />
+        {createPortal(
+          <InfoModal
+            info = {state.info}
+            setInfo={setInfo}
+            darkMode={darkMode}
+            text={"Sounds are now " + (!sound ? "muted" : "unmuted")}
+          />,
+          document.body
+        )}
     </div>
   );
 }

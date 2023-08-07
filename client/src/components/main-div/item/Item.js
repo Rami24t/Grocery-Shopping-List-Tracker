@@ -11,12 +11,17 @@ import Checkbox from "./Checkbox";
 import EditButton from "./EditButton";
 
 const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
-  const { state } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
   const { sound } = state.settings;
+  const setInfo = (info) => {
+    dispatch({ type: "SET_INFO", payload: info });
+  };
+
   const handleEdit = (e) => {
     e.target.parentNode.firstChild.disabled = false;
     e.target.parentNode.firstChild.focus();
     sound && playSFXAudio(editClickSFXAudio, writingSFXAudio);
+    setInfo(`Editing ${item.name.match(/.*?[\w]+/)}...`);
   };
 
   const handleBlur = (e) => {
@@ -36,17 +41,22 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
     const value = e.target.value.trim();
     if (value === "") {
       e.target.value = item.name;
+      setInfo("Edit cancelled");
       return;
     }
-    if (item.name === value) return;
+    if (item.name === value) {
+      setInfo("");
+      return;
+    }
     setName(value);
     updateItem(item, { name: value });
     sound && playSFXAudio(correctOrAddSFXAudio);
+    setInfo("Item updated");
   };
 
   const [name, setName] = useState(item.name);
 
-  function DeleteButton({darkMode}) {
+  function DeleteButton({ darkMode }) {
     return (
       <button
         onClick={() => handleDelete(item)}

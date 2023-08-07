@@ -1,4 +1,4 @@
-import React, { useContext, useState } from "react";
+import React, { useContext } from "react";
 import InfoWidget from "./InfoWidget";
 import Hero from "./Hero";
 import quote from "../../data/randomQuote";
@@ -6,15 +6,18 @@ import ToggleDarkModeButton from "./ToggleDarkModeButton";
 import ToggleSoundButton from "./ToggleSoundButton";
 import { playSFXAudio, navLinkClickSFXAudio } from "../../assets/sfx";
 import { Context } from "../Context";
-import { createPortal } from "react-dom";
-import InfoModal from "../infoModal/InfoModal";
 
 function Header({ list, needs, haves, darkMode, setDarkMode }) {
   const { state, dispatch } = useContext(Context);
   const { sound } = state.settings;
-  const [showModal, setShowModal] = useState(false);
 
   const toggleDarkModeClick = (e) => {
+    dispatch({
+      type: "SET_INFO",
+      payload: `Theme is now ${
+        darkMode ? "bright" : "dark"
+      }`,
+    });
     e.preventDefault();
     e.stopPropagation();
     setDarkMode((prev) => !prev);
@@ -26,7 +29,10 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
     e.stopPropagation();
     !sound && playSFXAudio(navLinkClickSFXAudio);
     dispatch({ type: "TOGGLE_SOUND" });
-    setShowModal(true);
+    dispatch({
+      type: "SET_INFO",
+      payload: `Sound is now ${sound ? "unmuted" : "muted"}`,
+    });
   };
 
   return (
@@ -60,15 +66,6 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
         />
         <div className="clear-both invisible" />
       </div>
-      {showModal &&
-        createPortal(
-          <InfoModal
-            onClose={() => setShowModal(false)}
-            darkMode={darkMode}
-            text={"Sounds are now " + (!sound ? "muted" : "unmuted")}
-          />,
-          document.body
-        )}
     </header>
   );
 }

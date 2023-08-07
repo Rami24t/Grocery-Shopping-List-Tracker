@@ -23,8 +23,9 @@ function AddItemsButton({
   listIsEmpty,
   darkMode,
 }) {
-  const { state } = React.useContext(Context);
+  const { state, dispatch } = React.useContext(Context);
   const { sound } = state.settings;
+  const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
 
   const { reversedBuffer } = useAudio(openCloseAddFormSFX);
   const [buttonDisabled, setButtonDisabled] = useState(false);
@@ -41,9 +42,11 @@ function AddItemsButton({
     if (sound)
       if (!showAddItem) {
         playSFXAudio(openCloseAddFormSFXAudio);
+        setInfo("Adding items form is now opened");
       } else {
         if (reversedBuffer) {
           playAudio(reversedBuffer, INITIAL_AUDIO_CONTEXT);
+          setInfo("Adding items form is now closed");
         }
       }
 
