@@ -64,6 +64,7 @@ function App() {
   const [showAddItem, setShowAddItem] = useState(false);
   const [showSideNav, setShowSideNav] = useState(false);
   const [filter, setFilter] = useState("");
+
   function handleChangeFilter(value) {
     if (sound && value.length > filter.length) {
       playSFXAudio(typeSFXAudio);

@@ -7,13 +7,14 @@ import {
 import { Context } from "../../Context";
 
 function FilterInput({ filter, handleChangeFilter, items, darkMode }) {
-  const { state } = useContext(Context);
-
+  const { state, dispatch } = useContext(Context);
+  const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
   function onEnter(e) {
     if (e.key === "Enter") e.target.blur();
   }
   function handleFocus() {
     state.settings.sound && playSFXAudio(editClickSFXAudio, writingSFXAudio);
+    setInfo("Start typing to filter items");
   }
   function handleBlur() {
     writingSFXAudio.pause();
