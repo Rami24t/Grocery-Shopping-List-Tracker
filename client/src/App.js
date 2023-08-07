@@ -121,7 +121,7 @@ function App() {
       }
       playSFXAudio(deleteSFXAudio);
     }
-    setInfo(`Item ${item.name.slice(0, 10)}... deleted`);
+    setInfo(`${item.name.match(/.*?[\w]+/)}... deleted`);
     setItems((prevItems) => {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
       // handleSave(updatedItems);
