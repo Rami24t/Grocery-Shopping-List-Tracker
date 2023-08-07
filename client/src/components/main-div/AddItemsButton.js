@@ -42,11 +42,11 @@ function AddItemsButton({
     if (sound)
       if (!showAddItem) {
         playSFXAudio(openCloseAddFormSFXAudio);
-        setInfo("Adding items form is now opened");
+        setInfo("Adding form is now open");
       } else {
         if (reversedBuffer) {
           playAudio(reversedBuffer, INITIAL_AUDIO_CONTEXT);
-          setInfo("Adding items form is now closed");
+          setInfo("Adding form closed");
         }
       }
 
