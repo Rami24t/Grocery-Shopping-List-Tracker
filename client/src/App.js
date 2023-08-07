@@ -167,7 +167,7 @@ function App() {
     setTimeout(() => {
       setInfo(
         `${item.name.match(/.*?[\w]+/)}... ${
-          item.need ? "checked" : "unchecked"
+          item.need ? "unchecked" : "checked"
         }`
       );
       refreshItems();
