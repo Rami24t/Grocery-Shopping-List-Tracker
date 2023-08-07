@@ -1,5 +1,4 @@
 import React, { useState, useContext } from "react";
-import ItemName from "./ItemName";
 import {
   editClickSFXAudio,
   writingSFXAudio,
@@ -7,6 +6,7 @@ import {
   playSFXAudio,
 } from "../../../assets/sfx";
 import { Context } from "../../Context";
+import ItemName from "./ItemName";
 import Checkbox from "./Checkbox";
 import EditButton from "./EditButton";
 
@@ -15,13 +15,11 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
   const { sound } = state.settings;
   const handleEdit = (e) => {
     e.target.parentNode.firstChild.disabled = false;
-    // e.target.parentNode.firstChild.readOnly = false;
     e.target.parentNode.firstChild.focus();
     sound && playSFXAudio(editClickSFXAudio, writingSFXAudio);
   };
 
   const handleBlur = (e) => {
-    // e.preventDefault();
     e.target.disabled = true;
     handleUpdate(e);
   };

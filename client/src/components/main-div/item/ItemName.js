@@ -37,7 +37,6 @@ function ItemName({
         backgroundColor: `rgba(0,0,19,0.${darkMode ? "7" : "4"})`,
         backgroundImage: `url("https://source.unsplash.com/random/200x40?${name})"`,
       }}
-      // readOnly={true}
     />
   );
 }
