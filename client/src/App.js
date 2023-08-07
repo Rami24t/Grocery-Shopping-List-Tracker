@@ -230,7 +230,7 @@ function App() {
       payload: { showNeeds: true, showHaves: true },
     });
     sound && playSFXAudio(resetSFXAudio);
-    setInfo("List is now reset");
+    setInfo("List is reset");
   }
 
   function handleClear() {
@@ -245,7 +245,7 @@ function App() {
         wrongFilterSFXAudio,
         openCloseAddFormSFXAudio
       );
-    setInfo("List is now cleared");
+    setInfo("List cleared");
   }
 
   useEffect(() => {
