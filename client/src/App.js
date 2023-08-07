@@ -40,7 +40,7 @@ import {
 function App() {
   const { state, dispatch } = React.useContext(Context);
   const sound = state.settings.sound;
-  const setInfo = (info)=>dispatch({ type: "SET_INFO", payload: info })
+  const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
 
   const [darkMode, setDarkMode] = useState(true);
   const [isMobile, setIsMobile] = useState(false);
@@ -100,7 +100,6 @@ function App() {
     localStorage.setItem(`list${list}`, JSON.stringify(updatedItems || items));
     // setInfo(`List saved`);
     // console.log("save end");
-
   }
   // const handleDelete = useCallback(
   //   (item) => {
@@ -121,7 +120,7 @@ function App() {
       }
       playSFXAudio(deleteSFXAudio);
     }
-    setInfo(`Item ${item.name.slice(0,10)}... deleted`);
+    setInfo(`Item ${item.name.slice(0, 10)}... deleted`);
     setItems((prevItems) => {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
       // handleSave(updatedItems);
@@ -163,11 +162,15 @@ function App() {
           playSFXAudio(buttonClickSFXAudio2);
         }
       }
-      setInfo(`${item.name.match(/.*?[\w]+/)}... ${item.need ? "checked" : "unchecked"}`);
-      item.need = !item.need;
-      setTimeout(() => {
+    item.need = !item.need;
+    setTimeout(() => {
+      setInfo(
+        `${item.name.match(/.*?[\w]+/)}... ${
+          item.need ? "checked" : "unchecked"
+        }`
+      );
       refreshItems();
-      }, 100);
+    }, 100);
   }
   // const updateItem = useCallback(
   //   (item, update) => {
@@ -196,12 +199,12 @@ function App() {
     if (value === "" || items.find((i) => i.name === value)) {
       if (sound && value !== "") {
         playSFXAudio(addDeniedSFXAudio);
-        setInfo(`Item ${value.slice(0,10)}... already exists`);
+        setInfo(`Item ${value.slice(0, 10)}... already exists`);
       }
       return;
     } else {
       sound && playSFXAudio(addSFXAudio1);
-      setInfo(`Item ${value.slice(0,10)}... added`);
+      setInfo(`Item ${value.slice(0, 10)}... added`);
       const updatedItems = [
         ...items,
         {
@@ -349,15 +352,15 @@ function App() {
         <AsideRight darkMode={darkMode} />
       </div>
       <Footer darkMode={darkMode} />
-        {createPortal(
-          <InfoModal
-            info = {state.info}
-            setInfo={setInfo}
-            darkMode={darkMode}
-            text={"Sounds are now " + (!sound ? "muted" : "unmuted")}
-          />,
-          document.body
-        )}
+      {createPortal(
+        <InfoModal
+          info={state.info}
+          setInfo={setInfo}
+          darkMode={darkMode}
+          text={"Sounds are now " + (!sound ? "muted" : "unmuted")}
+        />,
+        document.body
+      )}
     </div>
   );
 }
