@@ -49,7 +49,7 @@ const Sidenav = ({
   const sideNavLinks = [
     { title: "Home", href: "#app", Icon: SvgHome },
     {
-      title: "Add Item",
+      title: "Add Items",
       href: "#add-item-button",
       Icon: SvgAddItem,
       LIBadge: ItemsBadge,

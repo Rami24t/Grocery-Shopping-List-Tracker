@@ -55,7 +55,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
           !darkMode ? "text-gray-800" : "text-white"
         } `}
       >
-        <h3 className="text-center text-lg">Add Items</h3>
+        <h3 className="text-center text-lg">Add Item</h3>
       </label>
       <div className="flex justify-center items-center gap-0">
         <input
