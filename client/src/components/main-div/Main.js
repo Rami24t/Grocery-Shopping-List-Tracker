@@ -43,17 +43,17 @@ function Main({
   function validate(str) {
     return filter.trim() === "" || sanitize(str).includes(sanitize(filter));
   }
+  
   const filteredNeeds = filter
     ? needs.filter((item) => validate(item.name))
     : needs;
   const filteredHaves = filter
     ? haves.filter((item) => validate(item.name))
     : haves;
-  const noFilteredResults =
-    items.length > 1 && filteredNeeds.length + filteredHaves.length <= 0;
-
   useEffect(() => {
     if (filter) {
+    const noFilteredResults =
+      items.length > 1 && filteredNeeds.length + filteredHaves.length <= 0;
       if (sound)
         if (noFilteredResults) {
           playSFXAudio(wrongFilterSFXAudio2);
@@ -66,6 +66,7 @@ function Main({
           : "Showing filtered items"
       );
     }
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   return (
