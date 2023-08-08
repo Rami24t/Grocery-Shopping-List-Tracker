@@ -319,7 +319,7 @@ export const defaultItems = [
   },
   {
     id: "GL633.333",
-    name: "🫒 Oliven - Olives - زيتون",
+    name: "🫒 Olives - Oliven - زيتون",
     need: true,
     // category: "condiments",
   },
