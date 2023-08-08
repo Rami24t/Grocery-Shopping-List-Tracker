@@ -121,7 +121,8 @@ function App() {
       }
       playSFXAudio(deleteSFXAudio);
     }
-    setInfo(`${item.name.match(/.*?[\w]+/)}... deleted`);
+    // setInfo(`${item.name.match(/.*?[\w]+/)}... deleted`);
+    setInfo(`${item.name.match(/[^.]*?\s*\S{2,}\s*[^.]*?\s*\S{2,}[^.]*?/)}... deleted`);
     setItems((prevItems) => {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
       // handleSave(updatedItems);
