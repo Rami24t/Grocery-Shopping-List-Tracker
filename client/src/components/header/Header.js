@@ -31,7 +31,7 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
     dispatch({ type: "TOGGLE_SOUND" });
     dispatch({
       type: "SET_INFO",
-      payload: `Sound is now ${sound ? "unmuted" : "muted"}`,
+      payload: `Sound is now ${sound ? "muted" : "unmuted"}`,
     });
   };
 
