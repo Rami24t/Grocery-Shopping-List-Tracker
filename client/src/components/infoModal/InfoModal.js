@@ -1,10 +1,6 @@
 import { useEffect } from "react";
 
-function InfoModal({
-  darkMode = true,
-  info = "",
-  setInfo,
-}) {
+function InfoModal({ info = "", setInfo, darkMode = true }) {
   const close = () => setInfo("");
 
   useEffect(() => {
@@ -14,10 +10,9 @@ function InfoModal({
     return () => {
       clearTimeout(st);
     };
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [info]);
 
-  //  if (!info) return null;
   return (
     <div
       onClick={close}
