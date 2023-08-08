@@ -1,17 +1,7 @@
-import React, { useState, useEffect } from "react";
-import { defaultItems } from "./data/defaultItems";
-import Header from "./components/header/Header";
-import Sidenav from "./components/aside-left/Sidenav";
-import Main from "./components/main-div/Main";
-import AsideRight from "./components/aside-right/AsideRight";
-import Footer from "./components/footer/Footer";
-import MenuButton from "./components/aside-left/MenuButton";
-import { getLists } from "./utils/getLists";
-import { Context } from "./components/Context";
-import ArrowButtonsNav from "./components/aside-left/ArrowButtonsNav";
+import { useState, useEffect, useContext } from "react";
 import { createPortal } from "react-dom";
-import InfoModal from "./components/infoModal/InfoModal";
-
+import { Context } from "./components/Context";
+import { defaultItems } from "./data/defaultItems";
 import {
   addSFXAudio1,
   addSFXAudio2,
@@ -28,47 +18,68 @@ import {
   wrongFilterSFXAudio,
   openCloseAddFormSFXAudio,
   playSFXAudio,
-  // buttonClickSFXAudio,
-  // buttonSFXAudio,
-  // slideInSFXAudio,
-  // menuButtonClickAudio,
-  // switchSFXAudio,
-  // inputErrorSFXAudio,
-  // pencilCheckSFXAudio,
+  // buttonClickSFXAudio,buttonSFXAudio,slideInSFXAudio,menuButtonClickAudio,switchSFXAudio,inputErrorSFXAudio,pencilCheckSFXAudio,
 } from "./assets/sfx";
+import { getLists } from "./utils/getLists";
+import Header from "./components/header/Header";
+import MenuButton from "./components/aside-left/MenuButton";
+import Sidenav from "./components/aside-left/Sidenav";
+import ArrowButtonsNav from "./components/aside-left/ArrowButtonsNav";
+import Main from "./components/main-div/Main";
+import AsideRight from "./components/aside-right/AsideRight";
+import Footer from "./components/footer/Footer";
+import InfoModal from "./components/infoModal/InfoModal";
 
 function App() {
-  const { state, dispatch } = React.useContext(Context);
+  // Read from Context
+  const { state, dispatch } = useContext(Context);
   const sound = state.settings.sound;
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
 
+  // Dark Mode
   const [darkMode, setDarkMode] = useState(true);
-  const [isMobile, setIsMobile] = useState(false);
+
+  // isMobile - logic replaced by TailwindCSS responsive classes - disabled
+  // const [isMobile, setIsMobile] = useState(false); - disabled
+
+  // MultiLists feature - temporary disabled
   const [list, setList] = useState(
     localStorage.getItem("lastVisitedList") || "1"
   );
+
+  // First loading useEffect
   useEffect(() => {
-    setIsMobile(window.innerWidth <= 440);
+    // const MOBILE_MAX_WIDTH = 440; - disabled
+    //   setIsMobile(window.innerWidth <= MOBILE_MAX_WIDTH); - disabled
     if (localStorage.getItem("lastVisitedList"))
       setList(localStorage.getItem("lastVisitedList"));
     else setList("1");
-    // setInfo(`Now Loading... `);
   }, []);
 
+  // Multilist feature - temporary disabled
   function handleChangeList(e) {
     if (e.target.validity.valid) {
       setList(e.target.value);
       localStorage.setItem("lastVisitedList", e.target.value);
     }
   }
+
+  // useState to show/hide the AddItem form component
   const [showAddItem, setShowAddItem] = useState(false);
+  // useState to show/hide the SideNav menu component
   const [showSideNav, setShowSideNav] = useState(false);
+
+  // Filter --------------------------------------------
+  // useState of the filter input value
   const [filter, setFilter] = useState("");
 
+  // Filter onChange logic that updates the filter value
   function handleChangeFilter(value) {
+    // play relevant SFX audio if sound is on and the filter value is longer than the previous one (typing)
     if (sound && value.length > filter.length) {
       playSFXAudio(typeSFXAudio);
     }
+    // trim the value and if it's empty, keep the filter empty, otherwise update the filter value and show matching items
     if (value.trim() === "") setFilter("");
     else {
       setFilter(value);
@@ -78,11 +89,14 @@ function App() {
       });
     }
   }
+  // --------------------------------------------
 
+  // useState of all the 'items' of the list array - get the items from localStorage or use the defaultItems array if localStorage is empty
   const [items, setItems] = useState(
     JSON.parse(localStorage.getItem(`list${list}`)) || defaultItems
   );
 
+  // useEffect to load a list of items from persistant localStorage to the items state (when the app first loads or when the list changes)
   useEffect(() => {
     if (localStorage.getItem(`list${list}`))
       setItems(JSON.parse(localStorage.getItem(`list${list}`)));
@@ -96,11 +110,12 @@ function App() {
   //   },
   //   [items, list]
   // );
+  // Saves the list of all items to localStorage
+
+  // Main Section --------------------------------------------
+  // saves the list of items to persistent storage localStorage
   function handleSave(updatedItems) {
-    // console.log(items, "saving items");
     localStorage.setItem(`list${list}`, JSON.stringify(updatedItems || items));
-    // setInfo(`List saved`);
-    // console.log("save end");
   }
   // const handleDelete = useCallback(
   //   (item) => {
@@ -112,7 +127,10 @@ function App() {
   //   },
   //   [handleSave]
   // );
+
+  // deletes an item from the list
   function handleDelete(item) {
+    // play relevant SFX audio if sound is on
     if (sound) {
       if (item.need && needs.length === 1) {
         playSFXAudio(finishSFXAudio);
@@ -121,18 +139,23 @@ function App() {
       }
       playSFXAudio(deleteSFXAudio);
     }
-    // setInfo(`${item.name.match(/.*?[\w]+/)}... deleted`);
-    setInfo(`${item.name.match(/[^.]*?\s*\S{2,}\s*[^.]*?\s*\S{2,}[^.]*?/)}... deleted`);
+    // show an info message notification
+    setInfo(
+      `${item.name.match(/[^.]*?\s*\S{2,}\s*[^.]*?\s*\S{2,}[^.]*?/)}... deleted`
+    ); // setInfo(`${item.name.match(/.*?[\w]+/)}... deleted`);
+    // set the items state to a new array of items without the deleted item
     setItems((prevItems) => {
       const updatedItems = prevItems.filter((i) => i.id !== item.id);
       // handleSave(updatedItems);
-      // console.log("delete");
       return updatedItems;
     });
   }
+
+  // rerenders the items state to show the updated list of items (used after an item was updated or toggled)
   function refreshItems() {
     setItems([...items]);
   }
+
   // const handleToggle = useCallback(
   //   (item) => {
   //     const updatedItems = items.map((i) => {
@@ -146,7 +169,10 @@ function App() {
   //   },
   //   [items, handleSave]
   // );
+
+  // toggles an item's need property (true/false) and updates the items array state
   function handleToggle(item) {
+    // play relevant SFX audio if sound is on
     if (sound)
       if (item.need) {
         if (needs.length === 1) {
@@ -164,14 +190,16 @@ function App() {
           playSFXAudio(buttonClickSFXAudio2);
         }
       }
+    // toggle the item's need property
     item.need = !item.need;
+    // Toggle item to/from (needs/haves) and show the info message notification
     setTimeout(() => {
+      refreshItems();
       setInfo(
         `${item.name.match(/.*?[\w]+/)}... ${
           item.need ? "unchecked" : "checked"
         }`
       );
-      refreshItems();
     }, 100);
   }
   // const updateItem = useCallback(
@@ -187,17 +215,20 @@ function App() {
   //   },
   //   [items, handleSave]
   // );
+
+  // updates an item's properties given an item and an update object and updates the items array state to trigger a rerender
   function updateItem(item, update) {
-    // console.log(item, update);
     for (let key in update) {
       item[key] = update[key];
     }
-    // console.log(item, update);
     refreshItems();
   }
 
+  // adds an item to the list and updates the items array state to trigger a rerender
   function handleAdd(value) {
+    // clear the filter
     handleChangeFilter("");
+    // if the item does not exist already and is not an empty string, add item to the list and show and sort the list alphabetically and make sure the needs list is shown - play the relevant SFX audio (if sound is on) and show an info message notification.
     if (value === "" || items.find((i) => i.name === value)) {
       if (sound && value !== "") {
         playSFXAudio(addDeniedSFXAudio);
@@ -220,6 +251,7 @@ function App() {
     }
   }
 
+  // resets the items state in the current list to the default list, saves, clears the filter, hides the add item form, shows the items (needs and haves) lists and plays the relevant SFX audio(if the sound is on) and shows an info message notification
   function handleReset() {
     setItems(defaultItems);
     handleSave(defaultItems);
@@ -234,9 +266,8 @@ function App() {
     setInfo("List is reset");
   }
 
+  // clears the items state in the current list, saves, clears the filter, plays the relevant SFX audio(if sound is on) and shows an info message notification
   function handleClear() {
-    // const isSure = window.confirm("Are you sure you want to delete all items?");
-    // if (!isSure) return;
     setItems([]);
     handleSave([]);
     setFilter("");
@@ -249,6 +280,7 @@ function App() {
     setInfo("List cleared");
   }
 
+  // auto saves the list of items to to persistent storage(localStorage) after changes have been made if items exist and are not not the same as default ones.
   useEffect(() => {
     if (
       JSON.stringify(items.sort()) === JSON.stringify(defaultItems.sort()) ||
@@ -256,20 +288,23 @@ function App() {
     )
       return;
     handleSave();
-    // setInfo("Autosaving complete");
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items]);
 
+  // use the getLists function to get the needs and haves lists given the items array state.
   const { needs, haves } = getLists(items);
+  // -------------------------------
+
+  // JSX return statement for the App component - The app has header, main and footer.
 
   return (
     <div
       id="app"
       className={`app-container ${
         darkMode
-          ? "bg-black bg-gradient-to-l from-gray-950 text-white"
-          : "bg-white bg-gradient-to-l from-gray-50 text-gray-800"
-      }  ${isMobile && "text-center"}`}
+          ? "text-white bg-black bg-gradient-to-l from-gray-950"
+          : "text-gray-800 bg-white bg-gradient-to-l from-gray-50"
+      }`}
     >
       <Header
         list={list}
@@ -281,23 +316,23 @@ function App() {
       <div
         className={`${
           darkMode
-            ? "bg-gradient-to-l from-gray-950 bg-black"
+            ? "bg-black bg-gradient-to-l from-gray-950"
             : "bg-white bg-gradient-to-l from-gray-50"
         } pt-3 overflow-x-hidden flex justify-around flex-wrap gap-0 relative`}
       >
         <aside
           className={`${
             darkMode
-              ? "bg-gradient-to-r from-gray-950 md:from-black bg-black"
+              ? "bg-black bg-gradient-to-r from-gray-950 md:from-black"
               : "bg-white"
           } aside-left`}
         >
           <ArrowButtonsNav darkMode={darkMode} />
           {showSideNav && (
             <div
-              className={`${
-                darkMode ? "bg-gradient-to-r bg-black to-gray-950" : "bg-white"
-              } bg-opacity-50 click-away fixed top-0 right-0 h-screen w-screen z-40 filter`}
+              className={`click-away ${
+                darkMode ? "bg-black bg-gradient-to-r to-gray-950" : "bg-white"
+              } bg-opacity-50 fixed top-0 right-0 h-screen w-screen z-40 filter`}
               onClick={() => {
                 setShowSideNav(false);
                 if (sound) {
@@ -355,12 +390,7 @@ function App() {
       </div>
       <Footer darkMode={darkMode} />
       {createPortal(
-        <InfoModal
-          info={state.info}
-          setInfo={setInfo}
-          darkMode={darkMode}
-          text={"Sounds are now " + (!sound ? "muted" : "unmuted")}
-        />,
+        <InfoModal info={state.info} setInfo={setInfo} darkMode={darkMode} />,
         document.body
       )}
     </div>
