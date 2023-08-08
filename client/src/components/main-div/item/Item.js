@@ -1,14 +1,15 @@
 import React, { useState, useContext } from "react";
+import { Context } from "../../Context";
 import {
   editClickSFXAudio,
   writingSFXAudio,
   correctOrAddSFXAudio,
   playSFXAudio,
 } from "../../../assets/sfx";
-import { Context } from "../../Context";
 import ItemName from "./ItemName";
 import Checkbox from "./Checkbox";
 import EditButton from "./EditButton";
+import { MdDeleteForever } from "react-icons/md";
 
 const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
   const { state, dispatch } = useContext(Context);
@@ -65,7 +66,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
       <button
         onClick={() => handleDelete(item)}
         type="button"
-        className={`active:scale-110 transition-transform duration-300 inline-flex items-center justify-center w-6 h-6 leading-none rounded-lg ml-3 m-2 text-center hover:border-red-500 hover:font-bold text-2xl border focus:ring-4 focus:outline-none ${
+        className={`active:scale-110 transition-transform duration-300 inline-flex items-center justify-center w-6 h-6 leading-none rounded-lg ml-3 m-2 text-center hover:border-red-500 hover:font-bold text-3xl border focus:ring-4 focus:outline-none ${
           darkMode
             ? " text-red-500 hover:text-red-400 bg-red-950 hover:bg-red-900 border-red-600 hover:border-red-400 focus:ring-red-900"
             : " text-red-600 hover:text-red-800 bg-red-200 hover:bg-red-300 border-red-500 hover:border-red-700 focus:ring-red-300"
@@ -73,7 +74,8 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
         style={{ minWidth: "1.2rem" }}
         title="Click to permanently delete this item"
       >
-        <span className="mb-1">x</span>
+        {/* <span className="mb-1">x</span> */}
+        <MdDeleteForever />
       </button>
     );
   }
