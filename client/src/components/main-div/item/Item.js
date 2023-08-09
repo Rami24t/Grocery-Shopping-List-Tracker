@@ -66,16 +66,25 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
       <button
         onClick={() => handleDelete(item)}
         type="button"
-        className={`active:scale-110 transition-transform duration-300 inline-flex items-center justify-center w-6 h-6 leading-none rounded-lg ml-3 m-2 text-center hover:border-red-500 hover:font-bold text-3xl border focus:ring-4 focus:outline-none ${
-          darkMode
-            ? " text-red-500 hover:text-red-400 bg-red-950 hover:bg-red-900 border-red-600 hover:border-red-400 focus:ring-red-900"
-            : " text-red-600 hover:text-red-800 bg-red-200 hover:bg-red-300 border-red-500 hover:border-red-700 focus:ring-red-300"
-        } `}
+        // previously - last change:
+        //   className={`active:scale-110 transition-transform duration-300 inline-flex items-center justify-center w-6 h-6 leading-none rounded-lg ml-3 m-2 text-center hover:border-red-500 hover:font-bold text-3xl border focus:ring-4 focus:outline-none ${
+        //     darkMode
+        //       ? " text-red-500 hover:text-red-400 bg-red-950 hover:bg-red-900 border-red-600 hover:border-red-400 focus:ring-red-900"
+        //       : " text-red-600 hover:text-red-800 bg-red-200 hover:bg-red-300 border-red-500 hover:border-red-700 focus:ring-red-300"
+        //   } `}
+        // >
+        //   {/* <span className="mb-1">x</span> */}
+
         style={{ minWidth: "1.2rem" }}
         title="Click to permanently delete this item"
       >
-        {/* <span className="mb-1">x</span> */}
-        <MdDeleteForever />
+        <MdDeleteForever
+          className={` hover:scale-110 active:scale-125 transition-transform duration-300 inline-flex items-center justify-center w-8 h-8 leading-none rounded-lg text-center hover:font-bold text-3xl focus:ring-2 focus:outline-none ${
+            darkMode
+              ? " text-red-500 hover:text-red-400"
+              : " text-red-600 hover:text-red-800"
+          } `}
+        />
       </button>
     );
   }
