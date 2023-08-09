@@ -82,7 +82,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
           className={`ml-0.5 hover:scale-110 active:scale-125 transition-transform duration-300 inline-flex items-center justify-center w-8 h-8 leading-none rounded-lg text-center hover:font-bold text-3xl focus:ring-2 focus:outline-none ${
             darkMode
               ? " text-red-500 hover:text-red-400"
-              : " text-red-600 hover:text-red-800"
+              : " text-red-700 hover:text-red-800"
           } `}
         />
       </button>
