@@ -10,12 +10,6 @@ import { Context } from "../Context";
 
 const BUTTON_COOLDOWN_MS = 900;
 let INITIAL_AUDIO_CONTEXT;
-try {
-  INITIAL_AUDIO_CONTEXT = new (window.AudioContext ||
-    window.webkitAudioContext)();
-} catch (error) {
-  console.log(error);
-}
 
 function AddItemsButton({
   showAddItem,
@@ -24,10 +18,17 @@ function AddItemsButton({
   darkMode,
 }) {
   const { state, dispatch } = React.useContext(Context);
-  const { sound } = state.settings;
+  const { sound } = state?.settings;
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
 
-  const { reversedBuffer } = useAudio(openCloseAddFormSFX);
+  if(sound && !INITIAL_AUDIO_CONTEXT)
+  try {
+    INITIAL_AUDIO_CONTEXT = new (window.AudioContext ||
+      window.webkitAudioContext)();
+  } catch (error) {
+    console.log(error);
+  }
+  const { reversedBuffer } = useAudio(sound && openCloseAddFormSFX);
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
   useEffect(() => {

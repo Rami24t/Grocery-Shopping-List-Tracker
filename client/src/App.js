@@ -33,7 +33,7 @@ import InfoModal from "./components/infoModal/InfoModal";
 function App() {
   // Read from Context
   const { state, dispatch } = useContext(Context);
-  const sound = state.settings.sound;
+  const sound = state?.settings?.sound;
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
 
   // Dark Mode
@@ -54,6 +54,20 @@ function App() {
     if (localStorage.getItem("lastVisitedList"))
       setList(localStorage.getItem("lastVisitedList"));
     else setList("1");
+
+    // An IIFE(self calling function) that sets the light mode color theme according to the time(hour) of the day -- feature development pending
+    // (function (startHour, endHour) {
+    //   const currentHour = new Date().getHours();
+    //   setDarkMode(!(currentHour >= startHour && currentHour<= endHour));
+    // })(8, 16);
+
+    //We mute sounds at first to avoid warnings from browsers. We expect the user to turn on the sound manually -- enabled
+    // Or we turn it on automatically after 8 seconds -- disabled
+  //   const soundOnTimeOut = setTimeout(() => {
+  //   dispatch({ type: "TOGGLE_SOUND" });
+  //   }, 8000);
+  //   return () => clearTimeout(soundOnTimeOut); // Clear the timeout if the component unmounts
+
   }, []);
 
   // Multilist feature - temporary disabled
@@ -390,7 +404,7 @@ function App() {
       </div>
       <Footer darkMode={darkMode} />
       {createPortal(
-        <InfoModal info={state.info} setInfo={setInfo} darkMode={darkMode} />,
+        <InfoModal info={state?.info} setInfo={setInfo} darkMode={darkMode} />,
         document.body
       )}
     </div>
