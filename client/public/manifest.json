@@ -1,25 +1,26 @@
 {
   "short_name": "Grocery Shopping List",
-  "name": "Rami Al-Saadi's Grocery Shopping List Online Tracker App",
+  "name": "Rami Al-Saadi's Grocery Shopping List Tracker App",
+  "description": "A Grocery Shopping List Tracker App that is fun and easy to use. You never have to forget any item again!",
   "icons": [
     {
-      "src": "favicon.ico",
+      "src": "logo-no-background.svg",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
     {
-      "src": "logo192.png",
-      "type": "image/png",
+      "src": "logo2-no-background.svg",
+      "type": "image/svg",
       "sizes": "192x192"
     },
     {
-      "src": "logo512.png",
-      "type": "image/png",
+      "src": "logo-no-background.svg",
+      "type": "image/svg",
       "sizes": "512x512"
     }
   ],
   "start_url": ".",
-  "display": "standalone",
-  "theme_color": "#ffffff",
-  "background_color": "#000000"
+  "display": "fullscreen",
+  "theme_color": "#999999",
+  "background_color": "#111111"
 }
