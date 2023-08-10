@@ -6,7 +6,8 @@ const imagePaths = Array.from({ length: 3 }, (_, index) => ({
 
 const imgs = [];
 
-const isWebpSupported = await check_webp_feature("animation");
+const isWebpSupported = check_webp_feature("animation");
+// const isWebpSupported = await check_webp_feature("animation");
 imgs.push(
   ...(isWebpSupported
     ? imagePaths.map((image) => image.webp)
