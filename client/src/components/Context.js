@@ -1,6 +1,6 @@
 import React, { useReducer } from "react";
 
-export const Context = React.createContext();
+export const Context = React.createContext({});
 
 export function ContextProvider({ children }) {
   const reducer = (state, action) => {
@@ -27,8 +27,8 @@ export function ContextProvider({ children }) {
         return {
           ...state,
           settings: {
-            ...state.settings,
-            sound: !state.settings.sound,
+            ...state?.settings,
+            sound: !state?.settings?.sound,
           },
         };
       case "SET_INFO":
@@ -45,7 +45,7 @@ export function ContextProvider({ children }) {
     showHaves: true,
     info: "",
     settings: {
-      sound: true,
+      sound: false,
     },
   });
 
