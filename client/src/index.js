@@ -1,5 +1,6 @@
 import React from "react";
 import ReactDOM from "react-dom/client";
+import { register } from "./serviceWorkerRegistration";
 import App from "./App";
 import "./index.css";
 import ContextProvider from "./components/Context";
@@ -13,3 +14,5 @@ root.render(
     </ContextProvider>  
   </React.StrictMode>
 );
+
+register();
