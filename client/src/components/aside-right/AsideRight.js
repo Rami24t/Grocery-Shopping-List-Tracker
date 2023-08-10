@@ -6,6 +6,7 @@ import {
   animatedImg3,
 } from "../../assets/animatedImgs";
 import decoImgs from "../../assets/deco-imgs";
+//import ResizeObserver from "resize-observer-polyfill";
 
 function AsideRight({ darkMode }) {
   const [height, setHeight] = useState(0);
