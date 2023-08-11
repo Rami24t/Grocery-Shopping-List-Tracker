@@ -1,6 +1,12 @@
-import React from "react";
+import React, { useEffect} from "react";
 
 function AsideImage({ src, className }) {
+  useEffect(() => {
+    caches.open('v1').then(function(cache) {
+      cache.add(src);  
+    });
+  }, [src]);
+
   return (
     <div className={`img w-[47%] lg:w-full ${className}`}>
       <picture>

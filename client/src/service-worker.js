@@ -50,13 +50,13 @@ registerRoute(
 // precache, in this case same-origin .png requests like those from in public/
 registerRoute(
   // Add in any other file extensions or routing criteria as needed.
-  ({ url }) => url.origin === self.location.origin && url.pathname.endsWith('.png'), // Customize this strategy as needed, e.g., by changing to CacheFirst.
+  ({ url }) => url.origin === self.location.origin && (url.pathname.endsWith('.webp')||url.pathname.endsWith('.jpg')||url.pathname.endsWith('.gif')||url.pathname.endsWith('.mp3')||url.pathname.endsWith('.png')), // Customize this strategy as needed, e.g., by changing to CacheFirst.
   new StaleWhileRevalidate({
     cacheName: 'images',
     plugins: [
       // Ensure that once this runtime cache reaches a maximum size the
       // least-recently used images are removed.
-      new ExpirationPlugin({ maxEntries: 50 }),
+      new ExpirationPlugin({ maxEntries: 120 }),
     ],
   })
 );
@@ -72,18 +72,15 @@ self.addEventListener('message', (event) => {
 // Any other custom service worker logic can go here.
 
 
-// if ('serviceWorker' in navigator) 
-// {
-//     window.addEventListener('load', function () 
-//     { navigator.serviceWorker.register('serviceWorker.js')
-//         .then(
-//             function (registration) 
-//     {// Registration was successful
-//     console.log('ServiceWorker registration successful with scope: ', registration.scope);}, 
-//     function(err)
-//     {// registration failed
-//             console.log('ServiceWorker registration failed: ', err)
-//         }
-//         );
-//     });
-// }
+self.addEventListener('fetch', function(event) {
+  event.respondWith(
+    caches.match(event.request).then(function(response) {
+      return response || fetch(event.request).then(function(response) {
+        return caches.open('v1').then(function(cache) {
+          cache.put(event.request, response.clone());
+          return response;
+        });
+      });
+    })
+  );
+});
