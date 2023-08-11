@@ -4,7 +4,7 @@
   "description": "A Grocery Shopping List Tracker App that is fun and easy to use. You never have to forget any item again!",
   "icons": [
     {
-      "src": "logo-no-background.svg",
+      "src": "logo2-no-background.svg",
       "sizes": "64x64 32x32 24x24 16x16",
       "type": "image/x-icon"
     },
@@ -14,13 +14,17 @@
       "sizes": "192x192"
     },
     {
-      "src": "logo-no-background.svg",
+      "src": "logo2-no-background.svg",
       "type": "image/svg",
       "sizes": "512x512"
+    },
+    {
+      "src": "logo2-no-background.svg",
+      "type": "image/svg"
     }
   ],
   "start_url": ".",
   "display": "fullscreen",
-  "theme_color": "#999999",
-  "background_color": "#111111"
+  "theme_color": "#777777",
+  "background_color": "#030712"
 }
