@@ -180,7 +180,7 @@ function AsideRight({ darkMode }) {
   }, [height]);
 
   const [loadingClasses, setLoadingClasses] = useState(
-    "transition-all duration-1000 fixed bottom-0 right-0 w-screen h-screen filter brightness-50 sepia z-50 opacity-95"
+    "transition-all duration-1000 fixed bottom-0 right-0 w-screen h-screen filter brightness-50 z-50 opacity-95"
   );
   useEffect(() => {
     const a = setTimeout(() => {
@@ -197,9 +197,7 @@ function AsideRight({ darkMode }) {
     };
   }, []);
 
-  const [loadingImg] = useState(
-    Math.random() < 0.7 ? animatedImg3 : animatedImg1
-  );
+  const [loadingImg] = useState(animatedImg3);
   return (
     <>
       {loadingClasses !== "fixed hidden" ? (
