@@ -187,10 +187,10 @@ function AsideRight({ darkMode }) {
       setLoadingClasses(
         "transition-all duration-1000 fixed -bottom-20 -right-20 w-0 h-0 filter brightness-50 sepia opacity-20 z-50"
       );
-    }, 2000);
+    }, 1900);
     const b = setTimeout(() => {
       setLoadingClasses("fixed hidden");
-    }, 3100);
+    }, 3000);
     return () => {
       clearTimeout(a);
       clearTimeout(b);
