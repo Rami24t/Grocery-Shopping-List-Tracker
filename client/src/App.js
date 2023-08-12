@@ -63,11 +63,10 @@ function App() {
 
     //We mute sounds at first to avoid warnings from browsers. We expect the user to turn on the sound manually -- enabled
     // Or we turn it on automatically after 8 seconds -- disabled
-  //   const soundOnTimeOut = setTimeout(() => {
-  //   dispatch({ type: "TOGGLE_SOUND" });
-  //   }, 8000);
-  //   return () => clearTimeout(soundOnTimeOut); // Clear the timeout if the component unmounts
-
+    //   const soundOnTimeOut = setTimeout(() => {
+    //   dispatch({ type: "TOGGLE_SOUND" });
+    //   }, 8000);
+    //   return () => clearTimeout(soundOnTimeOut); // Clear the timeout if the component unmounts
   }, []);
 
   // Multilist feature - temporary disabled
@@ -158,11 +157,13 @@ function App() {
       `${item.name.match(/[^.]*?\s*\S{2,}\s*[^.]*?\s*\S{2,}[^.]*?/)}... deleted`
     ); // setInfo(`${item.name.match(/.*?[\w]+/)}... deleted`);
     // set the items state to a new array of items without the deleted item
-    setItems((prevItems) => {
-      const updatedItems = prevItems.filter((i) => i.id !== item.id);
-      // handleSave(updatedItems);
-      return updatedItems;
-    });
+    setTimeout(() => {
+      setItems((prevItems) => {
+        const updatedItems = prevItems.filter((i) => i.id !== item.id);
+        // handleSave(updatedItems);
+        return updatedItems;
+      });
+    }, 100);
   }
 
   // rerenders the items state to show the updated list of items (used after an item was updated or toggled)
