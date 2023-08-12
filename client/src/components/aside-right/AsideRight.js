@@ -15,7 +15,7 @@ function AsideRight({ darkMode }) {
     resizeObserver.observe(node);
   }, []);
 
-  const [extraImages, setExtraImages] = useState(...imagesArray);
+  const [extraImages, setExtraImages] = useState([...imagesArray]);
   useEffect(() => {
     const extraImagesNeeded = (height - 300) / 390 - extraImages.length + 1;
     // Math.floor
