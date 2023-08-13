@@ -5,7 +5,7 @@ Try it out for free on [the link](https://grocery-shopping-list-app.vercel.app/)
 ## Check out the Live Deployment on
 [grocery-shopping-list-app.vercel.app 
 ](https://grocery-shopping-list-app.vercel.app/)
-[<img src="https://github.com/Rami24t/Grocery-Shopping-List-Tracker/assets/103028944/8fb2d9aa-9bbb-49e1-aa7b-aa39eb403d13" alt="QR Code" width="150" height="150" />](https://grocery-shopping-list-app.vercel.app/)
+[<img src="https://github.com/Rami24t/Grocery-Shopping-List-Tracker/assets/103028944/8fb2d9aa-9bbb-49e1-aa7b-aa39eb403d13" alt="QR Code" width="100" height="100" />](https://grocery-shopping-list-app.vercel.app/)
 
 ## Snapshots
 
