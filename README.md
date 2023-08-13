@@ -5,6 +5,8 @@ Try it out for free on [the link](https://grocery-shopping-list-app.vercel.app/)
 ## Check out the Live Deployment on
 [grocery-shopping-list-app.vercel.app 
 ](https://grocery-shopping-list-app.vercel.app/)
+![Screenshot_2023-08-13-03-44-52(1)](https://github.com/Rami24t/Grocery-Shopping-List-Tracker/assets/103028944/8fb2d9aa-9bbb-49e1-aa7b-aa39eb403d13)
+
 
 ## Snapshots
 
@@ -24,3 +26,4 @@ Try it out for free on [the link](https://grocery-shopping-list-app.vercel.app/)
 - React JS
 - Tailwind CSS
 - React Icons
+![Screenshot_2023-08-13-03-44-52(1)](https://github.com/Rami24t/Grocery-Shopping-List-Tracker/assets/103028944/2a1ed331-3d08-4711-b896-e3b20633a97b)
