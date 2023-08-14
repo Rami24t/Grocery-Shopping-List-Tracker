@@ -4,7 +4,7 @@ import { ShoppingBagSvg, ShoppingBagFillSvg } from "./ShoppingBagSvgs";
 // Abstract badge component for displaying the info badge
 const InfoBadge = ({ title, value, icon, darkMode, style }) => {
   const infoBadgeCommonStyle = `absolute inline-flex items-center justify-center text-xs font-bold border-2 rounded-full ${
-    darkMode ? "border-gray-800" : "border-gray-300"
+    darkMode ? "border-gray-800" : "border-[#fff]"
   }`;
   return (
     <div title={title} className={`${style} ${infoBadgeCommonStyle}`}>
@@ -88,7 +88,7 @@ function InfoWidget({ haves, needs, darkMode, handleClick }) {
         onClick={handleClick}
         title="Items Info Widget"
         className={`app-header-info-widget-container ${
-          darkMode ? "text-white bg-gray-700" : "text-gray-800 bg-gray-300"
+          darkMode ? "text-white bg-gray-700" : "text-gray-800 bg-gray-100"
         } bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-5 h-11 text-sm font-medium transition flex items-center justify-center`}
       >
         {!showNeedsBadge ? (
