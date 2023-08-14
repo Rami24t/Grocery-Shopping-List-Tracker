@@ -17,7 +17,7 @@ function FooterList({
     <div>
       <h2
         className={` ${
-          darkMode ? "text-white" : "text-gray-800"
+          darkMode ? "text-white" : "text-red-900"
         } mb-6 text-sm font-semibold uppercase `}
       >
         {title}

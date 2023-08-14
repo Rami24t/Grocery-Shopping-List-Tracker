@@ -37,14 +37,12 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
   return (
     <header
       className={`app-header z-40 sticky bg-inherit w-full ${
-        darkMode ? "" : ""
+        darkMode ? "" : "bg-gradient-to-l to-yellow-200"
       }`}
     >
       <div
         className={`
-    app-header-container mx-auto max-w-screen-xl px-2 py-4 sm:px-3 sm:py-6 pb-6 sm:pb-9 lg:px-8 md:flex sm:items-center sm:justify-between
-    ${darkMode ? "" : "bg-gradient-to-l to-yellow-200"}
-    `}
+    app-header-container mx-auto max-w-screen-xl px-2 py-4 sm:px-3 sm:py-6 pb-6 sm:pb-9 lg:px-8 md:flex sm:items-center sm:justify-between`}
       >
         <Hero
           title="Grocery Shopping List"
