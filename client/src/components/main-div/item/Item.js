@@ -47,6 +47,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
     const value = e.target.value.trim();
     if (value === "") {
       e.target.value = item.name;
+      setName(item.name);
       setInfo("Edit cancelled");
       return;
     }
