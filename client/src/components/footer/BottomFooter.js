@@ -6,7 +6,7 @@ import { navLinkClickSFXAudio } from "../../assets/sfx";
 function BottomFooter({ darkMode }) {
   return (
     <div
-      className={`pt-1.5  pb-2 footer-bottom flex flex-wrap gap-2 items-center justify-around
+      className={`footer-bottom pt-1.5 pb-2 rounded-sm flex flex-wrap gap-2 items-center justify-around
     ${darkMode ? "" : "bg-gradient-to-r to-yellow-200"}
     `}
     >

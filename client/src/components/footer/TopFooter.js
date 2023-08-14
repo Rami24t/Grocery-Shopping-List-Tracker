@@ -5,7 +5,7 @@ import { navLinkClickSFXAudio } from "../../assets/sfx";
 import logoSvg from "../../assets/logo/logo.svg";
 
 function TopFooter( {darkMode} ) {
-  return <div className={`pr-4 pt-6 items-center footer-top flex flex-col md:flex-row flex-wrap gap-2.5 justify-between
+  return <div className={`rounded-sm md:pr-8 pt-6 items-center footer-top flex flex-col md:flex-row flex-wrap gap-2.5 justify-between
   ${darkMode ? "" : "bg-gradient-to-l to-yellow-200"}
   `}>
     <Company
