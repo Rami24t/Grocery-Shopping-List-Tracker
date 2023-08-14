@@ -1,11 +1,8 @@
 import React, { useEffect, useState, useCallback } from "react";
 import AsideImage from "./AsideImage";
-import {
-  animatedImg1,
-  animatedImg2,
-  animatedImg3,
-} from "../../assets/animatedImgs";
+import { animatedImg3 } from "../../assets/animatedImgs";
 import decoImgs from "../../assets/deco-imgs";
+import imagesArray from "./images";
 //import ResizeObserver from "resize-observer-polyfill";
 
 function AsideRight({ darkMode }) {
@@ -18,157 +15,11 @@ function AsideRight({ darkMode }) {
     resizeObserver.observe(node);
   }, []);
 
-  const [extraImages, setExtraImages] = useState([
-    decoImgs[24],
-    decoImgs[52],
-    animatedImg2,
-    decoImgs[64],
-    decoImgs[60],
-    animatedImg1,
-    // decoImgs[68],
-    decoImgs[30],
-    decoImgs[49],
-    decoImgs[11],
-    decoImgs[2],
-    decoImgs[59],
-    decoImgs[5],
-    decoImgs[27],
-    decoImgs[48],
-    decoImgs[61],
-    decoImgs[40],
-    decoImgs[22],
-    decoImgs[25],
-    decoImgs[47],
-    decoImgs[26],
-    decoImgs[4],
-    decoImgs[23],
-    decoImgs[9],
-    decoImgs[51],
-    decoImgs[55],
-    decoImgs[28],
-    decoImgs[67],
-    decoImgs[7],
-    decoImgs[29],
-    decoImgs[35],
-    decoImgs[8],
-    decoImgs[19],
-    decoImgs[10],
-    decoImgs[6],
-    decoImgs[1],
-    decoImgs[3],
-    decoImgs[12],
-    decoImgs[13],
-    decoImgs[16],
-    decoImgs[17],
-    decoImgs[50],
-    decoImgs[20],
-    decoImgs[21],
-    decoImgs[31],
-    decoImgs[32],
-    decoImgs[33],
-    decoImgs[36],
-    decoImgs[38],
-    decoImgs[39],
-    decoImgs[18],
-    decoImgs[41],
-    decoImgs[42],
-    decoImgs[43],
-    decoImgs[45],
-    decoImgs[44],
-    decoImgs[56],
-    decoImgs[46],
-    decoImgs[57],
-    decoImgs[58],
-    decoImgs[62],
-    decoImgs[63],
-    decoImgs[65],
-    decoImgs[66],
-    decoImgs[69],
-    decoImgs[72],
-    decoImgs[70],
-    decoImgs[71],
-    decoImgs[54],
-    decoImgs[34],
-    decoImgs[53],
-    decoImgs[37],
-  ]);
+  const [extraImages, setExtraImages] = useState([...imagesArray]);
   useEffect(() => {
     const extraImagesNeeded = (height - 300) / 390 - extraImages.length + 1;
     // Math.floor
-    const extraImagesTemp = [
-      decoImgs[24],
-      decoImgs[52],
-      animatedImg2,
-      decoImgs[64],
-      decoImgs[60],
-      animatedImg1,
-      // decoImgs[68],
-      decoImgs[30],
-      decoImgs[49],
-      decoImgs[11],
-      decoImgs[2],
-      decoImgs[59],
-      decoImgs[5],
-      decoImgs[27],
-      decoImgs[48],
-      decoImgs[61],
-      decoImgs[40],
-      decoImgs[22],
-      decoImgs[25],
-      decoImgs[47],
-      decoImgs[26],
-      decoImgs[4],
-      decoImgs[23],
-      decoImgs[9],
-      decoImgs[51],
-      decoImgs[55],
-      decoImgs[28],
-      decoImgs[67],
-      decoImgs[7],
-      decoImgs[29],
-      decoImgs[35],
-      decoImgs[8],
-      decoImgs[19],
-      decoImgs[10],
-      decoImgs[6],
-      decoImgs[1],
-      decoImgs[3],
-      decoImgs[12],
-      decoImgs[13],
-      decoImgs[16],
-      decoImgs[17],
-      decoImgs[50],
-      decoImgs[20],
-      decoImgs[21],
-      decoImgs[31],
-      decoImgs[32],
-      decoImgs[33],
-      decoImgs[36],
-      decoImgs[38],
-      decoImgs[39],
-      decoImgs[18],
-      decoImgs[41],
-      decoImgs[42],
-      decoImgs[43],
-      decoImgs[45],
-      decoImgs[44],
-      decoImgs[56],
-      decoImgs[46],
-      decoImgs[57],
-      decoImgs[58],
-      decoImgs[62],
-      decoImgs[63],
-      decoImgs[65],
-      decoImgs[66],
-      decoImgs[69],
-      decoImgs[72],
-      decoImgs[70],
-      decoImgs[71],
-      decoImgs[54],
-      decoImgs[34],
-      decoImgs[53],
-      decoImgs[37],
-    ];
+    const extraImagesTemp = [...imagesArray];
     if (extraImagesNeeded > 0)
       for (let i = 0; i < extraImagesNeeded; i++)
         extraImagesTemp.push(
@@ -180,26 +31,24 @@ function AsideRight({ darkMode }) {
   }, [height]);
 
   const [loadingClasses, setLoadingClasses] = useState(
-    "transition-all duration-1000 fixed bottom-0 right-0 w-screen h-screen filter brightness-50 sepia z-50 opacity-95"
+    "transition-all duration-1000 fixed bottom-0 right-0 w-screen h-screen filter brightness-50 z-50 opacity-95"
   );
   useEffect(() => {
     const a = setTimeout(() => {
       setLoadingClasses(
         "transition-all duration-1000 fixed -bottom-20 -right-20 w-0 h-0 filter brightness-50 sepia opacity-20 z-50"
       );
-    }, 3000);
+    }, 1900);
     const b = setTimeout(() => {
       setLoadingClasses("fixed hidden");
-    }, 4100);
+    }, 3000);
     return () => {
       clearTimeout(a);
       clearTimeout(b);
     };
   }, []);
 
-  const [loadingImg] = useState(
-    Math.random() < 0.7 ? animatedImg3 : animatedImg1
-  );
+  const [loadingImg] = useState(animatedImg3);
   return (
     <>
       {loadingClasses !== "fixed hidden" ? (
