@@ -29,7 +29,7 @@ function Company({
         />
         <span
           className={`yellow-tail self-center text-2xl font-semibold whitespace-nowrap ${
-            darkMode ? " text-white" : "text-gray-900"
+            darkMode ? " text-white" : "text-red-900"
           }`}
         >
           {name}
