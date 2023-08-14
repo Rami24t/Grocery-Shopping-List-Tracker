@@ -78,7 +78,9 @@ const Sidenav = ({
     <nav
       id="sidenav"
       className={`text-center sm:text-start z-40 sm:z-30 overflow-hidden rounded-lg ${
-        darkMode ? "bg-black bg-gradient-to-r from-gray-950" : "bg-white"
+        darkMode
+          ? "bg-black bg-gradient-to-r from-gray-950"
+          : "bg-gradient-to-l from-yellow-100 bg-yellow-100"
       }  bg-opacity-90 border-r-0 fixed sm:absolute sm:w-52 md:sticky top-0 sm:top-24 left-0 w-64 py-8 sm:py-4 transition-transform sm:translate-x-0
 ${
   showSideNav

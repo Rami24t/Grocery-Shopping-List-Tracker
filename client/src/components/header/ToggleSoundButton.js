@@ -9,7 +9,7 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
       className={`-mt-10 md:-mt-11 float-left ml-4 px-1 cursor-pointer flex items-center w-9 h-9 justify-center text-xs font-medium border rounded-lg toggle-dark-state-example focus:z-10 focus:ring-2 focus:outline-none 
   ${
     !darkMode
-      ? `hover:bg-gray-100 hover:text-blue-800 bg-gray-100 border-gray-200 focus:ring-gray-300 ${
+      ? `hover:bg-gray-100 hover:text-blue-800 bg-gray-100 border-gray-200 focus:ring-gray-300 bg-opacity-50 ${
           !sound ? "text-gray-400" : "text-blue-700"
         }`
       : `focus:ring-gray-500 bg-gray-800 border-gray-700 hover:bg-gray-700 hover:text-blue-300 ${

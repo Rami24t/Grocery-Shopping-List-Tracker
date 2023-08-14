@@ -320,7 +320,7 @@ function App() {
       className={`app-container ${
         darkMode
           ? "text-white bg-black bg-gradient-to-l from-gray-950"
-          : "text-gray-800 bg-white bg-gradient-to-l from-gray-50"
+          : "text-amber-800 bg-yellow-50 bg-gradient-to-r from-yellow-100"
       }`}
     >
       <Header
@@ -333,22 +333,22 @@ function App() {
       <div
         className={`${
           darkMode
-            ? "bg-black bg-gradient-to-l from-gray-950"
-            : "bg-white bg-gradient-to-l from-gray-50"
-        } pt-3 overflow-x-hidden flex justify-around flex-wrap gap-0 relative`}
+            ? "bg-black bg-gradient-to-l from-gray-950 border-red-950"
+            : "bg-yellow-50 bg-gradient-to-r from-yellow-100 border-red-100"
+        } pt-5 pb-7 border-b border-t overflow-x-hidden flex justify-around flex-wrap gap-0 relative`}
       >
         <aside
-          className={`${
+          className={`aside-left rounded-lg ${
             darkMode
               ? "bg-black bg-gradient-to-r from-gray-950 md:from-black"
-              : "bg-white"
-          } aside-left`}
+              : "bg-yellow-100"
+          }`}
         >
           <ArrowButtonsNav darkMode={darkMode} />
           {showSideNav && (
             <div
               className={`click-away ${
-                darkMode ? "bg-black bg-gradient-to-r to-gray-950" : "bg-white"
+                darkMode ? "bg-black bg-gradient-to-r to-gray-950" : "bg-yellow-50"
               } bg-opacity-50 fixed top-0 right-0 h-screen w-screen z-40 filter`}
               onClick={() => {
                 setShowSideNav(false);

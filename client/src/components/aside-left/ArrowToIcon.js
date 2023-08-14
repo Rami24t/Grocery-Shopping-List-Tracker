@@ -14,11 +14,11 @@ const ArrowToIcon = React.memo(({ toBottom, darkMode, shown }) => {
     window.scrollTo({
       top: toBottom ? window.document.body.clientHeight : 0,
     });
-    if(state.settings.sound){
+    if (state.settings.sound) {
       playSFXAudio(toBottomTopSFXAudio, slideOutInSFXAudio);
-    setTimeout(() => {
-      slideOutInSFXAudio.pause();
-    }, 550);
+      setTimeout(() => {
+        slideOutInSFXAudio.pause();
+      }, 550);
     }
     e.target.style.pointerEvents = "none";
     setTimeout(() => {
@@ -35,9 +35,9 @@ const ArrowToIcon = React.memo(({ toBottom, darkMode, shown }) => {
       } ${
         darkMode
           ? "bg-gray-900 text-gray-400 cursor-pointer hover:text-gray-200 "
-          : "bg-gray-400 text-white font-extrabold hover:bg-gray-500"
+          : "bg-gray-400 text-amber-50 font-extrabold hover:bg-gray-500"
       } w-7 h-7 transition-all duration-700 ${
-        toBottom ? "-scale-y-100 top-5" : "bottom-5"
+        toBottom ? "-scale-y-100 bottom-5" : "top-5"
       } `}
     >
       <BiSolidArrowToTop />

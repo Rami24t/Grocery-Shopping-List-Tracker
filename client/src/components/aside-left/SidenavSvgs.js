@@ -6,9 +6,7 @@ const SidenavSvg = React.memo(({ darkMode, path }) => (
     xmlns="http://www.w3.org/2000/svg"
     fill="currentColor"
     className={` ${
-      darkMode
-        ? "text-gray-400 group-hover:text-white"
-        : "text-gray-500  group-hover:text-gray-900"
+      darkMode ? "text-gray-400" : "text-amber-500"
     } flex-shrink-0 w-6 h-6 transition duration-75 `}
     viewBox="0 0 20 20"
   >

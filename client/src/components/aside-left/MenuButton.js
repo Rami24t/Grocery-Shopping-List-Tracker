@@ -14,8 +14,8 @@ const MenuButton = React.memo(({ showSideNav, setShowSideNav, darkMode }) => {
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
   const menuButtonBgColor = darkMode
     ? "bg-black bg-gradient-to-l from-gray-950"
-    : "bg-gray-50";
-  const iconColor = darkMode ? "#a0a0ad" : "#667";
+    : "bg-yellow-100";
+  const iconColor = darkMode ? "#a0a0ad" : "#f59e0b";
   const iconStyle = {
     "--color": iconColor,
   };

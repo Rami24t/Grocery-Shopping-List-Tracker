@@ -1,11 +1,15 @@
 import React from "react";
 import CopyrightDisclaimer from "./CopyrightDisclaimer";
 import Icons from "./Icons";
-import { navLinkClickSFXAudio } from "../../assets/sfx"; 
+import { navLinkClickSFXAudio } from "../../assets/sfx";
 
-function BottomFooter( {darkMode} ) {
+function BottomFooter({ darkMode }) {
   return (
-    <div className="footer-bottom flex flex-wrap gap-2 items-center justify-around pb-2">
+    <div
+      className={`pt-1.5  pb-2 footer-bottom flex flex-wrap gap-2 items-center justify-around
+    ${darkMode ? "" : "bg-gradient-to-r to-yellow-200"}
+    `}
+    >
       <CopyrightDisclaimer
         year="2023"
         author="Rami Al-Saadi™"
@@ -13,7 +17,7 @@ function BottomFooter( {darkMode} ) {
         darkMode={darkMode}
         sfx={navLinkClickSFXAudio}
       />
-      <Icons  darkMode={darkMode} sfx={navLinkClickSFXAudio} />
+      <Icons darkMode={darkMode} sfx={navLinkClickSFXAudio} />
     </div>
   );
 }

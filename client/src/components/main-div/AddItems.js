@@ -58,13 +58,13 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
       } mt-4  mx-auto add-item border rounded-lg ${
         darkMode
           ? "bg-gray-950 border-gray-800 text-white"
-          : "bg-gray-50 border-gray-300 text-gray-600"
+          : "bg-slate-50 bg-opacity-40 border-slate-300 text-gray-600"
       }  `}
     >
       <label
         htmlFor="new-item"
         className={`block mb-2 text-sm font-medium ${
-          !darkMode ? "text-gray-800" : "text-white"
+          !darkMode ? "text-orange-900" : "text-white"
         } `}
       >
         <h3 className="text-center text-lg">Add Item</h3>
@@ -82,7 +82,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
           className={` ${
             darkMode
               ? "placeholder-gray-400 text-white border-gray-600 bg-gray-700 bg-opacity-70 "
-              : "placeholder-gray-500 text-gray-800 border-gray-300 bg-white bg-opacity-70 "
+              : "focus:ring-blue-300  focus:border-blue-300 placeholder-gray-400 bg-gray-50 bg-opacity-80 border-gray-300 text-gray-800"
           } inline-block p-4 border rounded-lg sm:text-md focus:ring-gray-500 focus:border-gray-400  `}
           onKeyDown={handleKeyDown}
         />

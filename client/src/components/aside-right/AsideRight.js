@@ -59,7 +59,7 @@ function AsideRight({ darkMode }) {
         id="aside-right"
         className={`${
           darkMode ? "opacity-80" : "opacity-95"
-        } p-2 lg:pt-[220px] lg:max-w-[25%] text-center flex flex-wrap gap-2 lg:gap-4 justify-center items-center relative z-0`}
+        } gap-1 rounded-full overflow-auto lg:gap-4 p-0 mt-4 lg:mt-0 lg:pt-[220px] lg:max-w-[25%] text-center flex flex-wrap justify-center items-center relative z-0`}
       >
         {/* <AsideImage src={animImg1} /> */}
         <AsideImage src={decoImgs[68]} />
