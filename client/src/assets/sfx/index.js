@@ -33,84 +33,86 @@ import editClickSFX from "./uiclick4-79818.mp3";
 import toBottomTopSFX from "./uisound1-79819.mp3";
 import wrongFilterSFX from "./wrong-answer-129254.mp3";
 
+const COMMON_SFX_VOLUME = 0.4;
 const addSFXAudio1 = new Audio(addSFX1);
-addSFXAudio1.volume = 0.5;
+addSFXAudio1.volume = COMMON_SFX_VOLUME;
 const haveSFXAudio = new Audio(haveSFX);
-haveSFXAudio.volume = 0.5;
+haveSFXAudio.volume = COMMON_SFX_VOLUME;
 const buttonSFXAudio = new Audio(buttonSFX);
-buttonSFXAudio.volume = 0.5;
+buttonSFXAudio.volume = COMMON_SFX_VOLUME;
 const addSFXAudio2 = new Audio(addSFX2);
-addSFXAudio2.volume = 0.5;
+addSFXAudio2.volume = COMMON_SFX_VOLUME;
 const buttonClickSFXAudio = new Audio(buttonClickSFX);
-buttonClickSFXAudio.volume = 0.5;
+buttonClickSFXAudio.volume = COMMON_SFX_VOLUME;
 const buttonClickSFXAudio2 = new Audio(buttonClickSFX2);
-buttonClickSFXAudio2.volume = 0.5;
+buttonClickSFXAudio2.volume = COMMON_SFX_VOLUME;
 const completionSFXAudio = new Audio(CompletionSFX);
-completionSFXAudio.volume = 0.5;
+completionSFXAudio.volume = COMMON_SFX_VOLUME;
 const menuOpenSFXAudio = new Audio(menuOpenSFX);
-menuOpenSFXAudio.volume = 0.5;
+menuOpenSFXAudio.volume = COMMON_SFX_VOLUME;
 const finishSFXAudio = new Audio(finishSFX);
-finishSFXAudio.volume = 0.5;
+finishSFXAudio.volume = COMMON_SFX_VOLUME;
 const slideInSFXAudio = new Audio(slideInSFX);
-slideInSFXAudio.volume = 0.5;
+slideInSFXAudio.volume = COMMON_SFX_VOLUME;
 const linkClickSFXAudio = new Audio(linkClickSFX);
-linkClickSFXAudio.volume = 0.5;
+linkClickSFXAudio.volume = COMMON_SFX_VOLUME;
 const listCloseOpenSFXAudio = new Audio(listCloseOpenSFX);
-listCloseOpenSFXAudio.volume = 0.5;
+listCloseOpenSFXAudio.volume = COMMON_SFX_VOLUME;
 const toBottomTopSFXAudio = new Audio(toBottomTopSFX);
-toBottomTopSFXAudio.volume = 0.5;
+toBottomTopSFXAudio.volume = COMMON_SFX_VOLUME;
 const editClickSFXAudio = new Audio(editClickSFX);
-editClickSFXAudio.volume = 0.5;
+editClickSFXAudio.volume = COMMON_SFX_VOLUME;
 const menuButtonClickAudio = new Audio(menuButtonClick);
-menuButtonClickAudio.volume = 0.5;
+menuButtonClickAudio.volume = COMMON_SFX_VOLUME;
 const deleteSFXAudio = new Audio(deleteSFX);
-deleteSFXAudio.volume = 0.5;
+deleteSFXAudio.volume = COMMON_SFX_VOLUME;
 const wrongFilterSFXAudio = new Audio(wrongFilterSFX);
-wrongFilterSFXAudio.volume = 0.5;
+wrongFilterSFXAudio.volume = COMMON_SFX_VOLUME;
 const wrongFilterSFXAudio2 = new Audio(wrongFilterSFX2);
-wrongFilterSFXAudio2.volume = 0.5;
+wrongFilterSFXAudio2.volume = COMMON_SFX_VOLUME;
 const correctOrAddSFXAudio = new Audio(correctOrAddSFX);
-correctOrAddSFXAudio.volume = 0.5;
+correctOrAddSFXAudio.volume = COMMON_SFX_VOLUME;
 const openCloseAddFormSFXAudio = new Audio(openCloseAddFormSFX);
-openCloseAddFormSFXAudio.volume = 0.5;
+openCloseAddFormSFXAudio.volume = COMMON_SFX_VOLUME;
 const navLinkClickSFXAudio = new Audio(navLinkClickSFX);
-navLinkClickSFXAudio.volume = 0.5;
+navLinkClickSFXAudio.volume = COMMON_SFX_VOLUME;
 const slideOutInSFXAudio = new Audio(slideOutInSFX);
-slideOutInSFXAudio.volume = 0.5;
+slideOutInSFXAudio.volume = COMMON_SFX_VOLUME;
 const clearSFXAudio = new Audio(clearSFX);
-clearSFXAudio.volume = 0.5;
+clearSFXAudio.volume = COMMON_SFX_VOLUME;
 const addDeniedSFXAudio = new Audio(addDeniedSFX);
-addDeniedSFXAudio.volume = 0.5;
+addDeniedSFXAudio.volume = COMMON_SFX_VOLUME;
 const writingSFXAudio = new Audio(writingSFX);
-writingSFXAudio.volume = 0.5;
+writingSFXAudio.volume = COMMON_SFX_VOLUME;
 const openListorClearSFXAudio = new Audio(openListorClearSFX);
-openListorClearSFXAudio.volume = 0.5;
+openListorClearSFXAudio.volume = COMMON_SFX_VOLUME;
 const typeSFXAudio = new Audio(typeSFX);
-typeSFXAudio.volume = 0.5;
+typeSFXAudio.volume = COMMON_SFX_VOLUME;
 const resetSFXAudio = new Audio(resetSFX);
-resetSFXAudio.volume = 0.5;
+resetSFXAudio.volume = COMMON_SFX_VOLUME;
 const pencilCheckSFXAudio = new Audio(pencilCheckSFX);
-pencilCheckSFXAudio.volume = 0.5;
+pencilCheckSFXAudio.volume = COMMON_SFX_VOLUME;
 const mouseClickSFXAudio = new Audio(mouseClickSFX);
-mouseClickSFXAudio.volume = 0.5;
+mouseClickSFXAudio.volume = COMMON_SFX_VOLUME;
 const resetOrClearFilterSFXAudio = new Audio(resetOrClearFilterSFX);
-resetOrClearFilterSFXAudio.volume = 0.5;
+resetOrClearFilterSFXAudio.volume = COMMON_SFX_VOLUME;
 const inputErrorSFXAudio = new Audio(inputErrorSFX);
-inputErrorSFXAudio.volume = 0.5;
+inputErrorSFXAudio.volume = COMMON_SFX_VOLUME;
 const switchSFXAudio = new Audio(switchSFX);
-switchSFXAudio.volume = 0.5;
+switchSFXAudio.volume = COMMON_SFX_VOLUME;
 const emailSFXAudio = new Audio(emailSFX);
-emailSFXAudio.volume = 0.5;
+emailSFXAudio.volume = COMMON_SFX_VOLUME;
 
 const playSFXAudio = (...audios) => {
-try {
-    audios.forEach(audio => {
-    audio.currentTime = 0;
-    audio.readyState >= 1 && audio.play();
+  try {
+    audios.forEach((audio) => {
+      audio.currentTime = 0;
+      audio.readyState >= 1 && audio.play();
     });
-} catch (error) {
-    console.log(error);  
-}};
+  } catch (error) {
+    console.log(error);
+  }
+};
 
 export {
   playSFXAudio,

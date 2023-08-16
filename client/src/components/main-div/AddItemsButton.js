@@ -5,7 +5,7 @@ import {
   playSFXAudio,
 } from "../../assets/sfx";
 import useAudio from "../../hooks/useAudio";
-import { playAudio } from "../../utils/playAudio";
+import { playAudio40 } from "../../utils/playAudio40";
 import { Context } from "../Context";
 
 const BUTTON_COOLDOWN_MS = 900;
@@ -46,7 +46,7 @@ function AddItemsButton({
         setInfo("Adding form is now open");
       } else {
         if (reversedBuffer) {
-          playAudio(reversedBuffer, INITIAL_AUDIO_CONTEXT);
+          playAudio40(reversedBuffer, INITIAL_AUDIO_CONTEXT);
           setInfo("Adding form closed");
         }
       }
