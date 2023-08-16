@@ -122,7 +122,7 @@ function checkValidServiceWorker(swUrl, config) {
       }
     })
     .catch(() => {
-      console.log(
+      alert(
         "No internet connection found. App is running in offline mode."
       );
     });
