@@ -9,7 +9,7 @@ import {
 import ItemName from "./ItemName";
 import Checkbox from "./Checkbox";
 import EditButton from "./EditButton";
-import { MdDeleteForever } from "react-icons/md";
+import DeleteButton from "./DeleteButton";
 
 const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
   const { state, dispatch } = useContext(Context);
@@ -63,34 +63,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
 
   const [name, setName] = useState(item.name);
 
-  function DeleteButton({ darkMode }) {
-    return (
-      <button
-        onClick={() => handleDelete(item)}
-        type="button"
-        // previously - last change:
-        //   className={`active:scale-110 transition-transform duration-300 inline-flex items-center justify-center w-6 h-6 leading-none rounded-lg ml-3 m-2 text-center hover:border-red-500 hover:font-bold text-3xl border focus:ring-4 focus:outline-none ${
-        //     darkMode
-        //       ? " text-red-500 hover:text-red-400 bg-red-950 hover:bg-red-900 border-red-600 hover:border-red-400 focus:ring-red-900"
-        //       : " text-red-600 hover:text-red-800 bg-red-200 hover:bg-red-300 border-red-500 hover:border-red-700 focus:ring-red-300"
-        //   } `}
-        // >
-        //   {/* <span className="mb-1">x</span> */}
-
-        style={{ minWidth: "1.2rem" }}
-        title="Click to permanently delete this item"
-      >
-        <MdDeleteForever
-          className={`ml-0.5 w-8 h-8 rounded-lg text-3xl text-center transition-transform duration-300 hover:scale-110 active:scale-125 hover:font-bold inline-flex items-center justify-center leading-none focus:ring-2 focus:outline-none ${
-            darkMode
-              ? " text-red-500 hover:text-red-400"
-              : " text-red-700 hover:text-red-800"
-          } `}
-        />
-      </button>
-    );
-  }
-
+  
   return (
     <div className="flex justify-around items-center">
       <ItemName
@@ -103,7 +76,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
       />
       <Checkbox item={item} handleToggle={handleToggle} darkMode={darkMode} />
       <EditButton handleEdit={handleEdit} darkMode={darkMode} />
-      <DeleteButton darkMode={darkMode} />
+      <DeleteButton darkMode={darkMode} handleClick={()=>handleDelete(item)} />
     </div>
   );
 };
