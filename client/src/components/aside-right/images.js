@@ -3,7 +3,7 @@ import { animatedImg1, animatedImg2 } from "../../assets/animatedImgs";
 
 const images = [
   decoImgs[24],
-  decoImgs[52],
+  Math.random() >0.5 ? decoImgs[73]:decoImgs[52],
   animatedImg1,
   decoImgs[64],
   decoImgs[60],

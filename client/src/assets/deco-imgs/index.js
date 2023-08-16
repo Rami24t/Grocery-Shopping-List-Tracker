@@ -1,5 +1,5 @@
 import { check_webp_feature } from "../../utils/check_webp_feature";
-const images = Array.from({ length: 72 }, (_, index) => ({
+const images = Array.from({ length: 73 }, (_, index) => ({
   jpg: require(`./deco (${index + 1}).jpg`),
   webp: require(`./deco (${index + 1}).webp`),
 }));
@@ -18,8 +18,6 @@ function loadImages() {
 loadImages();
 
 export default decoImgs;
-
-
 
 // import { check_webp_feature } from "../../utils/check_webp_feature";
 // const images = Array.from({ length: 72 }, (_, index) => ({
