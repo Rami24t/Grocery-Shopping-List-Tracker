@@ -92,7 +92,7 @@ export const defaultItems = [
   {
     id: "GL263.646",
     name: "🍆 Makdouss - مكدوس",
-    need: true,
+    need: false,
     // category: "pickled",
   },
   {
