@@ -22,11 +22,14 @@ function ClearFilterBtn({ filter, setFilter, darkMode }) {
       {filter.length > 0 ? (
         <>
           <BsFunnelFill
-            className={`inline ${darkMode ? "text-gray-100" : "text-gray-800"}`}
+            title="Clear filter"
+            className={`inline ${
+              darkMode ? "text-gray-100" : "text-orange-700"
+            }`}
           />
           <div
             className={`pointer-events-none inline w-[3px] h-8 rounded-full rotate-45 -translate-x-3 -translate-y-[3px] ${
-              darkMode ? "bg-red-400" : "bg-red-800"
+              darkMode ? "bg-red-400" : "bg-red-700"
             } opacity-75`}
           ></div>
         </>
