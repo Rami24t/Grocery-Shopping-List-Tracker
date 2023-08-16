@@ -5,8 +5,7 @@ import {
   editClickSFXAudio,
   writingSFXAudio,
   typeSFXAudio,
-} from "../../../assets/sfx"
-
+} from "../../../assets/sfx";
 import { Context } from "../../Context";
 
 function ItemNameInput({ item, updateItem, darkMode }) {
@@ -15,10 +14,9 @@ function ItemNameInput({ item, updateItem, darkMode }) {
   const setInfo = (info) => {
     dispatch({ type: "SET_INFO", payload: info });
   };
-  const [name, setName] = useState(item.name);
-  const needed = item.need;
-  console.log(item.name + " " + item.needed + " " + item.id + " " + item.category);
 
+  const needed = item.need;
+  const [name, setName] = useState(item.name);
   const handleChange = (e) => {
     if (sound && e.target.value.length > name.length) {
       playSFXAudio(typeSFXAudio);
@@ -49,7 +47,6 @@ function ItemNameInput({ item, updateItem, darkMode }) {
   const handleFocus = (e) => {
     sound && playSFXAudio(editClickSFXAudio, writingSFXAudio);
     setInfo(`Editing ${item.name.match(/.*?[\w]+/)}...`);
-
   };
 
   const handleBlur = (e) => {

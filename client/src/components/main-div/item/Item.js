@@ -5,14 +5,9 @@ import EditButton from "./EditButton";
 import DeleteButton from "./DeleteButton";
 
 const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
-
   return (
     <div className="flex justify-around items-center">
-      <ItemNameInput
-        item={item}
-        updateItem={updateItem}
-        darkMode={darkMode}
-      />
+      <ItemNameInput item={item} updateItem={updateItem} darkMode={darkMode} />
       <Checkbox item={item} handleToggle={handleToggle} darkMode={darkMode} />
       <EditButton darkMode={darkMode} />
       <DeleteButton
