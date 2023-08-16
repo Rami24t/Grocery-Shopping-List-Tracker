@@ -302,7 +302,7 @@ export const defaultItems = [
   {
     id: "GL616.570",
     name: "🌶 Hot Sauce - Würzsaucen: Scharfe Soße - صلصة حارة",
-    need: true,
+    need: false,
     // category: "condiments",
   },
   {
