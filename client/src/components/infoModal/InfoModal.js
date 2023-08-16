@@ -13,6 +13,7 @@ function InfoModal({ info = "", setInfo, darkMode = true }) {
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [info]);
 
+  if (!info) return null;
   return (
     <div
       onClick={close}

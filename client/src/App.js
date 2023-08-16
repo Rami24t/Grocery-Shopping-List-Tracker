@@ -348,7 +348,9 @@ function App() {
           {showSideNav && (
             <div
               className={`click-away ${
-                darkMode ? "bg-black bg-gradient-to-r to-gray-950" : "bg-yellow-50"
+                darkMode
+                  ? "bg-black bg-gradient-to-r to-gray-950"
+                  : "bg-yellow-50"
               } bg-opacity-50 fixed top-0 right-0 h-screen w-screen z-40 filter`}
               onClick={() => {
                 setShowSideNav(false);
