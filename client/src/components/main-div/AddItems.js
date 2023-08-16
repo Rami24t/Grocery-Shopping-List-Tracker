@@ -81,9 +81,9 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
           id="new-item"
           className={` ${
             darkMode
-              ? "placeholder-gray-400 text-white border-gray-600 bg-gray-700 bg-opacity-70 "
+              ? "focus:border-blue-500 focus:ring-blue-500 placeholder-gray-400 text-white border-gray-600 bg-gray-700 bg-opacity-70 "
               : "focus:ring-blue-300  focus:border-blue-300 placeholder-gray-400 bg-gray-50 bg-opacity-80 border-gray-300 text-gray-800"
-          } inline-block p-4 border rounded-lg sm:text-md focus:ring-gray-500 focus:border-gray-400  `}
+          } inline-block p-4 border rounded-lg sm:text-md outline-[#0a0adc99]`}
           onKeyDown={handleKeyDown}
         />
         <button
