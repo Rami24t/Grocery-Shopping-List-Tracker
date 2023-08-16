@@ -1,7 +1,13 @@
 import React, { memo } from "react";
 import { BsPencil } from "react-icons/bs";
 
-function EditButton({ handleEdit, darkMode }) {
+function EditButton({ darkMode }) {
+  const handleEdit = (e) => {
+    if (e.target.tagName === "svg") e.target = e.target.parentNode;
+    e.target.parentNode.firstChild.disabled = false;
+    e.target.parentNode.firstChild.focus();
+  };
+
   return (
     <button
       type="button"
