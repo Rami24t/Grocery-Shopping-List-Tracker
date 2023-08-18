@@ -491,4 +491,10 @@ export const defaultItems = [
     need: true,
     // category: "nuts",
   },
+  {
+    id: "GL856.819",
+    name: "Hommus - حمص",
+    need: false,
+    // category: "vegetarian",
+  },
 ];
