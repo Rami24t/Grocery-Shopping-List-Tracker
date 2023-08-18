@@ -90,12 +90,6 @@ export const defaultItems = [
     // category: "seeds",
   },
   {
-    id: "GL263.646",
-    name: "🍆 Makdouss - مكدوس",
-    need: false,
-    // category: "pickled",
-  },
-  {
     id: "GL275.619",
     name: "🥒 Pickles - كبيس",
     need: true,
@@ -310,6 +304,12 @@ export const defaultItems = [
     name: "🌶 Pepper - Peperoni - فلفل حار",
     need: true,
     // category: "vegetables",
+  },
+  {
+    id: "GL263.646",
+    name: "🍆 Makdouss - مكدوس",
+    need: false,
+    // category: "pickled",
   },
   {
     id: "GL33.570",
