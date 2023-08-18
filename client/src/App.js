@@ -55,12 +55,11 @@ function App() {
       setList(localStorage.getItem("lastVisitedList"));
     else setList("1");
 
-    // An IIFE(self calling function) that sets the light mode color theme according to the time(hour) of the day -- feature development pending
-    // (function (startHour, endHour) {
-    //   const currentHour = new Date().getHours();
-    //   setDarkMode(!(currentHour >= startHour && currentHour<= endHour));
-    // })(8, 16);
-
+    // An IIFE(self calling function) that sets the starting light mode color theme according to the time(hour) of the day
+    (function (startHour, endHour) {
+      const currentHour = new Date().getHours();
+      setTimeout(() => {setDarkMode(!(currentHour >= startHour && currentHour <= endHour))}, 2500);
+    })(8, 16);
     //We mute sounds at first to avoid warnings from browsers. We expect the user to turn on the sound manually -- enabled
     // Or we turn it on automatically after 8 seconds -- disabled
     //   const soundOnTimeOut = setTimeout(() => {
