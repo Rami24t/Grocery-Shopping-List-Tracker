@@ -306,12 +306,6 @@ export const defaultItems = [
     // category: "vegetables",
   },
   {
-    id: "GL263.646",
-    name: "🍆 Makdouss - مكدوس",
-    need: false,
-    // category: "pickled",
-  },
-  {
     id: "GL33.570",
     name: "🫑 Bell Pepper - Paprika - فلفل حلو",
     need: true,
@@ -352,6 +346,12 @@ export const defaultItems = [
     name: "🥛 Coconut Milk - Kokosmilch - حليب جوز الهند",
     need: true,
     // category: "beverages",
+  },
+  {
+    id: "GL263.646",
+    name: "🍆 Makdouss - مكدوس",
+    need: false,
+    // category: "pickled",
   },
   {
     id: "GL54.175",
