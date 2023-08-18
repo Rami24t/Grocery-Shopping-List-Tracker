@@ -493,7 +493,7 @@ export const defaultItems = [
   },
   {
     id: "GL856.819",
-    name: "Hommus - حمص",
+    name: "Hummus - حمص",
     need: false,
     // category: "vegetarian",
   },
