@@ -20,7 +20,8 @@ import {
   playSFXAudio,
   // buttonClickSFXAudio,
   buttonSFXAudio,
-  // slideInSFXAudio,menuButtonClickAudio,switchSFXAudio,inputErrorSFXAudio,pencilCheckSFXAudio,
+  // slideInSFXAudio,
+  menuButtonClickAudio,switchSFXAudio,inputErrorSFXAudio,pencilCheckSFXAudio,
 } from "./assets/sfx";
 import { getLists } from "./utils/getLists";
 import Header from "./components/header/Header";
@@ -304,7 +305,7 @@ function App() {
     if (undoArrayRef.current.length <= 1) return;
     setItems(undoArrayRef.current[undoArrayRef.current.length - 1]);
     undoArrayRef.current.length = undoArrayRef.current.length - 1;
-    sound && playSFXAudio(buttonClickSFXAudio2);
+    sound && playSFXAudio(menuButtonClickAudio);
     setInfo("Undo");
   }
 
