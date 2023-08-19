@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from "react";
+import { useState, useRef, useEffect, useContext } from "react";
 import { createPortal } from "react-dom";
 import { Context } from "./components/Context";
 import { defaultItems } from "./data/defaultItems";
@@ -18,7 +18,9 @@ import {
   wrongFilterSFXAudio,
   openCloseAddFormSFXAudio,
   playSFXAudio,
-  // buttonClickSFXAudio,buttonSFXAudio,slideInSFXAudio,menuButtonClickAudio,switchSFXAudio,inputErrorSFXAudio,pencilCheckSFXAudio,
+  // buttonClickSFXAudio,
+  buttonSFXAudio,
+  // slideInSFXAudio,menuButtonClickAudio,switchSFXAudio,inputErrorSFXAudio,pencilCheckSFXAudio,
 } from "./assets/sfx";
 import { getLists } from "./utils/getLists";
 import Header from "./components/header/Header";
@@ -107,6 +109,7 @@ function App() {
   const [items, setItems] = useState(
     JSON.parse(localStorage.getItem(`list${list}`)) || defaultItems
   );
+  const undoArrayRef = useRef([[1,2,3,4,5,6]]);
 
   // useEffect to load a list of items from persistant localStorage to the items state (when the app first loads or when the list changes)
   useEffect(() => {
@@ -142,6 +145,9 @@ function App() {
 
   // deletes an item from the list
   function handleDelete(item) {
+    if(JSON.stringify(undoArrayRef.current[undoArrayRef.current.length - 1].sort()) === JSON.stringify(items.sort()) || !items.find((i) => i.id === item.id))
+      return;
+    undoArrayRef.current.push([...items]);
     // play relevant SFX audio if sound is on
     if (sound) {
       if (item.need && needs.length === 1) {
@@ -154,13 +160,11 @@ function App() {
     setTimeout(() => {
       // show an info message notification
       setInfo(
-        `${item.name.match(
-          /[^.]*?\s*\S{2,}\s*[^.]*?\s*\S{2,}[^.]*?/
-        )}... deleted`
-      ); // setInfo(`${item.name.match(/.*?[\w]+/)}... deleted`);
-      // set the items state to a new array of items without the deleted item
-      setItems((prevItems) => {
-        const updatedItems = prevItems.filter((i) => i.id !== item.id);
+        `${item.name.match(/[^.]*?\s*\S{2,}\s*[^.]*?\s*\S{2,}[^.]*?/)}... deleted`
+        );// setInfo(`${item.name.match(/.*?[\w]+/)}... deleted`);
+        // set the items state to a new array of items without the deleted item
+        setItems((prevItems) => {
+          const updatedItems = prevItems.filter((i) => i.id !== item.id);
         // handleSave(updatedItems);
         return updatedItems;
       });
@@ -281,6 +285,14 @@ function App() {
     sound && playSFXAudio(resetSFXAudio);
     setInfo("List is reset");
   }
+  function handleUndo() {
+    if(undoArrayRef.current.length <= 1) return;
+    setItems(undoArrayRef.current[undoArrayRef.current.length - 1]);
+    undoArrayRef.current.length = undoArrayRef.current.length - 1;
+    sound && playSFXAudio(buttonClickSFXAudio2);
+    playSFXAudio(buttonSFXAudio);
+    setInfo("Undo");
+  }
 
   // clears the items state in the current list, saves, clears the filter, plays the relevant SFX audio(if sound is on) and shows an info message notification
   function handleClear() {
@@ -394,6 +406,7 @@ function App() {
           setFilter={setFilter}
           handleChangeFilter={handleChangeFilter}
           handleDelete={handleDelete}
+          handleUndo={handleUndo}
           handleToggle={handleToggle}
           updateItem={updateItem}
           handleAdd={handleAdd}
