@@ -296,6 +296,9 @@ function App() {
 
   // clears the items state in the current list, saves, clears the filter, plays the relevant SFX audio(if sound is on) and shows an info message notification
   function handleClear() {
+    if(JSON.stringify(undoArrayRef.current[undoArrayRef.current.length - 1].sort()) === JSON.stringify(items.sort()))
+      return;
+      undoArrayRef.current.push(items);
     setItems([]);
     handleSave([]);
     setFilter("");
