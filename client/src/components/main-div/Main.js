@@ -9,6 +9,7 @@ import {
   playSFXAudio,
 } from "../../assets/sfx";
 import { Context } from "../Context";
+import UndoButton from "./UndoButton";
 
 function Main({
   list,
@@ -22,6 +23,7 @@ function Main({
   handleChangeList,
   handleChangeFilter,
   handleDelete,
+  handleUndo,
   handleAdd,
   handleToggle,
   updateItem,
@@ -94,6 +96,7 @@ function Main({
         items={items.length}
         darkMode={darkMode}
       />
+      <UndoButton darkMode={darkMode} handleUndo={handleUndo} />
       <Lists
         needs={needs}
         haves={haves}
