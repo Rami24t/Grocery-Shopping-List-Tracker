@@ -275,7 +275,6 @@ function App() {
       setItems([...updatedItems]);
       if(JSON.stringify(undoArrayRef.current[undoArrayRef.current.length - 1].sort()) !== JSON.stringify(updatedItems.sort()))
         undoArrayRef.current.push([...updatedItems]);
-      undoArrayRef.current.push([...updatedItems]);
       dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds: true } });
     }
   }
