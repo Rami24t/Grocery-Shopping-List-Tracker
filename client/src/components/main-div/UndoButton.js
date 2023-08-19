@@ -21,7 +21,7 @@ const UndoButton = ({ darkMode, handleUndo, disabled = true }) => {
         title="undo"
         className={`transition duration-300 ease-in-out group absolute -top-4 right-1 rounded-full ${
           isCoolDown || disabled
-            ? "opacity-70 cursor-default"
+            ? "opacity-90 cursor-default"
             : "active:scale-90"
         } ${
           darkMode
