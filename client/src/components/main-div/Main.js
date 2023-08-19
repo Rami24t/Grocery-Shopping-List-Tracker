@@ -23,6 +23,7 @@ function Main({
   handleChangeList,
   handleChangeFilter,
   handleDelete,
+  disableUndoBtn,
   handleUndo,
   handleAdd,
   handleToggle,
@@ -45,7 +46,7 @@ function Main({
   function validate(str) {
     return filter.trim() === "" || sanitize(str).includes(sanitize(filter));
   }
-  
+
   const filteredNeeds = filter
     ? needs.filter((item) => validate(item.name))
     : needs;
@@ -54,8 +55,8 @@ function Main({
     : haves;
   useEffect(() => {
     if (filter) {
-    const noFilteredResults =
-      items.length > 1 && filteredNeeds.length + filteredHaves.length <= 0;
+      const noFilteredResults =
+        items.length > 1 && filteredNeeds.length + filteredHaves.length <= 0;
       if (sound)
         if (noFilteredResults) {
           playSFXAudio(wrongFilterSFXAudio2);
@@ -68,7 +69,7 @@ function Main({
           : "Showing filtered items"
       );
     }
-  // eslint-disable-next-line react-hooks/exhaustive-deps
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [filter]);
 
   return (
@@ -96,7 +97,11 @@ function Main({
         items={items.length}
         darkMode={darkMode}
       />
-      <UndoButton darkMode={darkMode} handleUndo={handleUndo} />
+      <UndoButton
+        disabled={disableUndoBtn}
+        handleUndo={handleUndo}
+        darkMode={darkMode}
+      />
       <Lists
         needs={needs}
         haves={haves}

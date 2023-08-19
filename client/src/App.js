@@ -147,9 +147,12 @@ function App() {
 
   // deletes an item from the list
   function handleDelete(item) {
-    if (!items.find((i) => i.id === item.id))
-      return;
-    if(JSON.stringify(undoArrayRef.current[undoArrayRef.current.length - 1].sort()) !== JSON.stringify(items.sort()))
+    if (!items.find((i) => i.id === item.id)) return;
+    if (
+      JSON.stringify(
+        undoArrayRef.current[undoArrayRef.current.length - 1].sort()
+      ) !== JSON.stringify(items.sort())
+    )
       undoArrayRef.current.push([...items]);
     // play relevant SFX audio if sound is on
     if (sound) {
@@ -270,10 +273,14 @@ function App() {
           name: value,
           need: true,
         },
-      ]
+      ];
       // .sort((a, b) => a.name.localeCompare(b.name));
       setItems([...updatedItems]);
-      if(JSON.stringify(undoArrayRef.current[undoArrayRef.current.length - 1].sort()) !== JSON.stringify(updatedItems.sort()))
+      if (
+        JSON.stringify(
+          undoArrayRef.current[undoArrayRef.current.length - 1].sort()
+        ) !== JSON.stringify(updatedItems.sort())
+      )
         undoArrayRef.current.push([...updatedItems]);
       dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds: true } });
     }
@@ -303,7 +310,11 @@ function App() {
 
   // clears the items state in the current list, saves, clears the filter, plays the relevant SFX audio(if sound is on) and shows an info message notification
   function handleClear() {
-    if (JSON.stringify(undoArrayRef.current[undoArrayRef.current.length - 1].sort()) !== JSON.stringify(items.sort()))
+    if (
+      JSON.stringify(
+        undoArrayRef.current[undoArrayRef.current.length - 1].sort()
+      ) !== JSON.stringify(items.sort())
+    )
       undoArrayRef.current.push([...items]);
     setItems([]);
     handleSave([]);
@@ -414,6 +425,7 @@ function App() {
           filter={filter}
           setFilter={setFilter}
           handleChangeFilter={handleChangeFilter}
+          disableUndoBtn={undoArrayRef.current.length <= 1}
           handleDelete={handleDelete}
           handleUndo={handleUndo}
           handleToggle={handleToggle}
