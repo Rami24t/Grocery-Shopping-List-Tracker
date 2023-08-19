@@ -17,7 +17,7 @@ function Hero({
           darkMode ? "text-white " : "text-amber-700"
         } text-2xl font-bold sm:text-3xl`}
       >
-        {title} <Icon class="inline  "/>
+        {title} <Icon className="inline  "/>
         {/* {list} */}
       </h1>
       <p
