@@ -270,7 +270,8 @@ function App() {
           name: value,
           need: true,
         },
-      ].sort((a, b) => a.name.localeCompare(b.name));
+      ]
+      // .sort((a, b) => a.name.localeCompare(b.name));
       setItems([...updatedItems]);
       if(JSON.stringify(undoArrayRef.current[undoArrayRef.current.length - 1].sort()) !== JSON.stringify(updatedItems.sort()))
         undoArrayRef.current.push([...updatedItems]);
