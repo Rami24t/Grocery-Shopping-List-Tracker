@@ -60,7 +60,9 @@ function App() {
     // An IIFE(self calling function) that sets the starting light mode color theme according to the time(hour) of the day
     (function (startHour, endHour) {
       const currentHour = new Date().getHours();
-      setTimeout(() => {setDarkMode(!(currentHour >= startHour && currentHour <= endHour))}, 2500);
+      setTimeout(() => {
+        setDarkMode(!(currentHour >= startHour && currentHour <= endHour));
+      }, 2500);
     })(8, 16);
     //We mute sounds at first to avoid warnings from browsers. We expect the user to turn on the sound manually -- enabled
     // Or we turn it on automatically after 8 seconds -- disabled
@@ -109,7 +111,7 @@ function App() {
   const [items, setItems] = useState(
     JSON.parse(localStorage.getItem(`list${list}`)) || defaultItems
   );
-  const undoArrayRef = useRef([[1,2,3,4,5,6]]);
+  const undoArrayRef = useRef([[0]]);
 
   // useEffect to load a list of items from persistant localStorage to the items state (when the app first loads or when the list changes)
   useEffect(() => {
@@ -145,9 +147,10 @@ function App() {
 
   // deletes an item from the list
   function handleDelete(item) {
-    if(JSON.stringify(undoArrayRef.current[undoArrayRef.current.length - 1].sort()) === JSON.stringify(items.sort()) || !items.find((i) => i.id === item.id))
+    if (!items.find((i) => i.id === item.id))
       return;
-    undoArrayRef.current.push([...items]);
+    if(JSON.stringify(undoArrayRef.current[undoArrayRef.current.length - 1].sort()) !== JSON.stringify(items.sort()))
+      undoArrayRef.current.push([...items]);
     // play relevant SFX audio if sound is on
     if (sound) {
       if (item.need && needs.length === 1) {
@@ -160,11 +163,13 @@ function App() {
     setTimeout(() => {
       // show an info message notification
       setInfo(
-        `${item.name.match(/[^.]*?\s*\S{2,}\s*[^.]*?\s*\S{2,}[^.]*?/)}... deleted`
-        );// setInfo(`${item.name.match(/.*?[\w]+/)}... deleted`);
-        // set the items state to a new array of items without the deleted item
-        setItems((prevItems) => {
-          const updatedItems = prevItems.filter((i) => i.id !== item.id);
+        `${item.name.match(
+          /[^.]*?\s*\S{2,}\s*[^.]*?\s*\S{2,}[^.]*?/
+        )}... deleted`
+      ); // setInfo(`${item.name.match(/.*?[\w]+/)}... deleted`);
+      // set the items state to a new array of items without the deleted item
+      setItems((prevItems) => {
+        const updatedItems = prevItems.filter((i) => i.id !== item.id);
         // handleSave(updatedItems);
         return updatedItems;
       });
@@ -267,6 +272,9 @@ function App() {
         },
       ].sort((a, b) => a.name.localeCompare(b.name));
       setItems([...updatedItems]);
+      if(JSON.stringify(undoArrayRef.current[undoArrayRef.current.length - 1].sort()) !== JSON.stringify(updatedItems.sort()))
+        undoArrayRef.current.push([...updatedItems]);
+      undoArrayRef.current.push([...updatedItems]);
       dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds: true } });
     }
   }
@@ -286,19 +294,17 @@ function App() {
     setInfo("List is reset");
   }
   function handleUndo() {
-    if(undoArrayRef.current.length <= 1) return;
+    if (undoArrayRef.current.length <= 1) return;
     setItems(undoArrayRef.current[undoArrayRef.current.length - 1]);
     undoArrayRef.current.length = undoArrayRef.current.length - 1;
     sound && playSFXAudio(buttonClickSFXAudio2);
-    playSFXAudio(buttonSFXAudio);
     setInfo("Undo");
   }
 
   // clears the items state in the current list, saves, clears the filter, plays the relevant SFX audio(if sound is on) and shows an info message notification
   function handleClear() {
-    if(JSON.stringify(undoArrayRef.current[undoArrayRef.current.length - 1].sort()) === JSON.stringify(items.sort()))
-      return;
-      undoArrayRef.current.push(items);
+    if (JSON.stringify(undoArrayRef.current[undoArrayRef.current.length - 1].sort()) !== JSON.stringify(items.sort()))
+      undoArrayRef.current.push([...items]);
     setItems([]);
     handleSave([]);
     setFilter("");
