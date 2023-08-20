@@ -88,6 +88,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
         />
         <button
           title="Add Item"
+          aria-label="Add Item"
           className={`${
             darkMode ? "hover:text-white" : "hover:text-gray-900"
           } inline-block p-3 text-center text-gray-500`}

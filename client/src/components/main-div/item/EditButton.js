@@ -14,9 +14,10 @@ function EditButton({ darkMode }) {
       onClick={handleEdit}
       onDoubleClick={handleEdit}
       title="Click to edit this item"
+      aria-label="edit"
     >
       <BsPencil
-        onClick={(e) => e.target = e.target.parentNode }
+        onClick={(e) => (e.target = e.target.parentNode)}
         className={`block m-2 text-center hover:font-bold text-2xl hover:scale-110 active:scale-110 transition-transform duration-200 ${
           darkMode
             ? "text-indigo-400 hover:text-indigo-200"

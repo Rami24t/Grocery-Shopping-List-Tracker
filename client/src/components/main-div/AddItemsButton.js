@@ -21,13 +21,13 @@ function AddItemsButton({
   const { sound } = state?.settings;
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
 
-  if(sound && !INITIAL_AUDIO_CONTEXT)
-  try {
-    INITIAL_AUDIO_CONTEXT = new (window.AudioContext ||
-      window.webkitAudioContext)();
-  } catch (error) {
-    console.log(error);
-  }
+  if (sound && !INITIAL_AUDIO_CONTEXT)
+    try {
+      INITIAL_AUDIO_CONTEXT = new (window.AudioContext ||
+        window.webkitAudioContext)();
+    } catch (error) {
+      console.log(error);
+    }
   const { reversedBuffer } = useAudio(sound && openCloseAddFormSFX);
   const [buttonDisabled, setButtonDisabled] = useState(false);
 
@@ -63,6 +63,8 @@ function AddItemsButton({
     <button
       disabled={listIsEmpty || buttonDisabled}
       onClick={onClickHandler}
+      title={listIsEmpty ? 'Open "Add Items" form' : 'Close "Add Items" form'}
+      aria-label="Open/Close Add Items form"
       id="add-item-button"
       className={`${
         darkMode

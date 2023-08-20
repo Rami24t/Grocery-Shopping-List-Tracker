@@ -16,6 +16,8 @@ function ClearFilterBtn({ filter, setFilter, darkMode }) {
 
   return (
     <button
+      title="Clear filter"
+      aria-label="Clear filter"
       onClick={clearFilter}
       className=" font-bold text-xl flex items-center p-2 ms-0.5"
     >

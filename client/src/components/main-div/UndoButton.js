@@ -19,6 +19,7 @@ const UndoButton = ({ darkMode, handleUndo, disabled = true }) => {
       <button
         disabled={disabled}
         title="undo"
+        aria-label="undo"
         className={`transition duration-300 ease-in-out group absolute -top-4 right-1 rounded-full ${
           isCoolDown || disabled
             ? "opacity-90 cursor-default"
