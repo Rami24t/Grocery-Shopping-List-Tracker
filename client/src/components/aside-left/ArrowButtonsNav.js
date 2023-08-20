@@ -19,9 +19,11 @@ function ArrowButtonsNav({ darkMode }) {
     {
       toBottom: true,
       darkMode,
-      shown: scrollY <window.document.body.clientHeight - 2 * window.innerHeight && scrollY > 10,
-    }
-  ]
+      shown:
+        scrollY < window.document.body.clientHeight - 2 * window.innerHeight &&
+        scrollY > 10,
+    },
+  ];
 
   return (
     <>
