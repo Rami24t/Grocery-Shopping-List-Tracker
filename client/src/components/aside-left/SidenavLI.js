@@ -13,15 +13,15 @@ function SideNavLI({
   return (
     <li>
       <a
-        title={title +' . Go to '+ href.slice(1).toUpperCase()}
-        aria-label={title +' . Go to '+ href.slice(1).toUpperCase()}
+        title={title}
+        aria-label={title}
         onClick={onClick && onClick}
         href={href}
-        className={` ${
+        className={`${
           darkMode
-            ? "text-white hover:bg-gray-700"
-            : "text-amber-500 hover:bg-red-800 hover:text-amber-300"
-        } flex items-center p-2  rounded-lg   `}
+            ? "text-white hover:bg-gray-700 focus:bg-gray-700"
+            : "text-amber-500 hover:bg-red-800 focus:bg-red-800 hover:text-amber-300 focus:text-amber-300"
+        } flex items-center p-2 rounded-lg`}
       >
         <Icon darkMode={darkMode} />
         <span className={`${margin} flex-1 sm:ml-3 whitespace-nowrap`}>

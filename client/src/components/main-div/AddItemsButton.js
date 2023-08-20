@@ -68,20 +68,20 @@ function AddItemsButton({
       id="add-item-button"
       className={`${
         darkMode
-          ? "text-slate-200 hover:text-slate-100"
-          : "text-slate-100 hover:text-slate-50"
+          ? "text-slate-200 hover:text-slate-100 focus:text-slate-100"
+          : "text-slate-100 hover:text-slate-50 focus:text-slate-50"
       } font-semibold transition-all inline-flex items-center justify-between gap-1.5 w-10 relative rounded-lg ${
         !showAddItem
           ? darkMode
-            ? "bg-indigo-700 hover:bg-indigo-600"
-            : "bg-blue-700 hover:bg-blue-800 "
+            ? "bg-indigo-700 hover:bg-indigo-600 focus:bg-indigo-600"
+            : "bg-blue-700 hover:bg-blue-800 focus:bg-blue-800"
           : listIsEmpty
           ? darkMode
             ? "bg-red-950 hidden"
             : "hidden"
           : darkMode
-          ? "bg-red-800  hover:bg-red-700"
-          : "bg-red-600  hover:bg-red-700"
+          ? "bg-red-800  hover:bg-red-700 focus:bg-red-700"
+          : "bg-red-600  hover:bg-red-700 focus:bg-red-700"
       }
           px-3 py-2 text-xs font-medium  transition focus:outline-none focus:ring  `}
       type="button"

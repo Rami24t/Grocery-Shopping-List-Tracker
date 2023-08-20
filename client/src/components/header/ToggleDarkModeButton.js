@@ -7,11 +7,11 @@ function ToggleDarkModeButton({ darkMode, handleClick }) {
       type="button"
       title={darkMode ? "Bright Mode" : "Dark Mode"}
       aria-label="Toggle dark mode"
-      className={`-mt-11 float-right ml-1 px-1 cursor-pointer flex items-center w-9 h-9 justify-center text-xs font-medium border rounded-lg toggle-dark-state-example focus:z-10 focus:ring-2 focus:outline-none 
+      className={`group -mt-11 float-right ml-1 px-1 cursor-pointer flex items-center w-9 h-9 justify-center text-xs font-medium border rounded-lg toggle-dark-state-example focus:z-10 focus:ring-2 focus:outline-none 
   ${
     !darkMode
-      ? "hover:bg-gray-100 hover:text-blue-800 text-blue-600 bg-gray-100 border-gray-200 focus:ring-gray-300 bg-opacity-50"
-      : "focus:ring-gray-500 bg-gray-800 text-gray-400 border-gray-700 hover:text-gray-100 hover:bg-gray-700"
+      ? "hover:bg-gray-100 focus:bg-gray-100 hover:text-blue-800 focus:text-blue-800 text-blue-600 bg-gray-100 border-gray-200 focus:ring-gray-300 bg-opacity-50"
+      : "focus:ring-gray-500 bg-gray-800 text-gray-400 border-gray-700 hover:text-gray-100 focus:text-gray-100 hover:bg-gray-700 focus:bg-gray-700"
   }`}
     >
       {!darkMode ? (
@@ -35,8 +35,13 @@ function ToggleDarkModeButton({ darkMode, handleClick }) {
           <path d="M10 15a5 5 0 1 0 0-10 5 5 0 0 0 0 10Zm0-11a1 1 0 0 0 1-1V1a1 1 0 0 0-2 0v2a1 1 0 0 0 1 1Zm0 12a1 1 0 0 0-1 1v2a1 1 0 1 0 2 0v-2a1 1 0 0 0-1-1ZM4.343 5.757a1 1 0 0 0 1.414-1.414L4.343 2.929a1 1 0 0 0-1.414 1.414l1.414 1.414Zm11.314 8.486a1 1 0 0 0-1.414 1.414l1.414 1.414a1 1 0 0 0 1.414-1.414l-1.414-1.414ZM4 10a1 1 0 0 0-1-1H1a1 1 0 0 0 0 2h2a1 1 0 0 0 1-1Zm15-1h-2a1 1 0 1 0 0 2h2a1 1 0 0 0 0-2ZM4.343 14.243l-1.414 1.414a1 1 0 1 0 1.414 1.414l1.414-1.414a1 1 0 0 0-1.414-1.414ZM14.95 6.05a1 1 0 0 0 .707-.293l1.414-1.414a1 1 0 1 0-1.414-1.414l-1.414 1.414a1 1 0 0 0 .707 1.707Z"></path>
         </svg>
       )}
-      <span  aria-label="Toggle dark mode" className="sr-only">Toggle dark/light mode</span>
-      <label  aria-label="Toggle dark mode" className="relative ml-1 inline-flex items-center cursor-pointer">
+      <span aria-label="Toggle dark mode" className="sr-only">
+        Toggle dark/light mode
+      </span>
+      <label
+        aria-label="Toggle dark mode"
+        className="relative ml-1 inline-flex items-center cursor-pointer"
+      >
         <input
           type="checkbox"
           checked={!darkMode}
@@ -51,7 +56,7 @@ function ToggleDarkModeButton({ darkMode, handleClick }) {
                 ${
                   !darkMode
                     ? "after:bg-white bg-gray-100 border-gray-200 focus:ring-gray-300"
-                    : "focus:ring-gray-500 after:bg-gray-500 after:border-gray-600 bg-gray-900 border-gray-800 after:hover:bg-gray-400 hover:bg-gray-800"
+                    : "focus:ring-gray-500 after:bg-gray-500 after:border-gray-600 bg-gray-900 border-gray-800 after:group-hover:bg-gray-400 group-hover:bg-gray-800 after:group-focus:bg-gray-400 focus:bg-gray-800"
                 }`}
         ></div>
       </label>

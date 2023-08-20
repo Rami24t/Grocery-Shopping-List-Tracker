@@ -18,10 +18,10 @@ function EditButton({ darkMode }) {
     >
       <BsPencil
         onClick={(e) => (e.target = e.target.parentNode)}
-        className={`block m-2 text-center hover:font-bold text-2xl hover:scale-110 active:scale-110 transition-transform duration-200 ${
+        className={`block m-2 text-center hover:font-bold hover:scale-110 focus:font-bold focus:scale-110 active:scale-110  text-2xltransition-transform duration-200 ${
           darkMode
-            ? "text-indigo-400 hover:text-indigo-200"
-            : "text-indigo-700 hover:text-indigo-900"
+            ? "text-indigo-400 hover:text-indigo-200 focus:text-indigo-200"
+            : "text-indigo-700 hover:text-indigo-900 focus:text-indigo-900"
         }`}
       />
     </button>

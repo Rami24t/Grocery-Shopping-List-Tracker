@@ -28,14 +28,16 @@ const ArrowToIcon = React.memo(({ toBottom, darkMode, shown }) => {
 
   return (
     <a
+      title={toBottom ? "Go To Bottom" : "Go To Top"}
+      aria-label={toBottom ? "To Bottom" : "To Top"}
       href={`${toBottom ? "#footer" : "#app"}`}
       onClick={handleClick}
       className={`text-xl rounded-e-xl  bg-opacity-80 flex items-center justify-center fixed z-40  ${
         shown ? "-left-0.5" : "-left-8"
       } ${
         darkMode
-          ? "bg-gray-900 text-gray-400 cursor-pointer hover:text-gray-200 "
-          : "bg-gray-400 text-amber-50 font-extrabold hover:bg-gray-500"
+          ? "bg-gray-900 text-gray-400 cursor-pointer hover:text-gray-200  focus:text-gray-200"
+          : "bg-gray-400 text-amber-50 font-extrabold hover:bg-gray-500 focus:bg-gray-500"
       } w-7 h-7 transition-all duration-700 ${
         toBottom ? "-scale-y-100 bottom-5" : "top-5"
       } `}
