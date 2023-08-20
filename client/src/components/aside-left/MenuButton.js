@@ -20,7 +20,10 @@ const MenuButton = React.memo(({ showSideNav, setShowSideNav, darkMode }) => {
     "--color": iconColor,
   };
   return (
-    <div
+    <button
+      type="button"
+      title={showSideNav ? "Close Menu" : "Open Menu"}
+      aria-label="Menu Button"
       onClick={(e) => {
         e.stopPropagation();
         e.target.style.pointerEvents = "none";
@@ -51,7 +54,7 @@ const MenuButton = React.memo(({ showSideNav, setShowSideNav, darkMode }) => {
     >
       <div className={`ml-3 icon-left`} style={iconStyle}></div>
       <div className={`ml-3 icon-right`} style={iconStyle}></div>
-    </div>
+    </button>
   );
 });
 
