@@ -18,10 +18,8 @@ import {
   wrongFilterSFXAudio,
   openCloseAddFormSFXAudio,
   playSFXAudio,
-  // buttonClickSFXAudio,
-  buttonSFXAudio,
-  // slideInSFXAudio,
-  menuButtonClickAudio,switchSFXAudio,inputErrorSFXAudio,pencilCheckSFXAudio,
+  menuButtonClickAudio,
+  // buttonClickSFXAudio, buttonSFXAudio, slideInSFXAudio, switchSFXAudio, inputErrorSFXAudio, pencilCheckSFXAudio, 
 } from "./assets/sfx";
 import { getLists } from "./utils/getLists";
 import Header from "./components/header/Header";
