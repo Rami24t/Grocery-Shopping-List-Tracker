@@ -18,8 +18,8 @@ const UndoButton = ({ darkMode, handleUndo, disabled = true }) => {
     <div className="relative">
       <button
         disabled={disabled}
-        title="undo"
-        aria-label="undo"
+        title={disabled ? "Nothing to undo" : "Click to Undo"}
+        aria-label={disabled ? "Nothing to undo" : "Click to Undo"}
         className={`transition duration-300 ease-in-out group absolute -top-4 right-1 rounded-full ${
           isCoolDown || disabled
             ? "opacity-90 cursor-default"

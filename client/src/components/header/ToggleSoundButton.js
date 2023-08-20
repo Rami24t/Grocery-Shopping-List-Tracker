@@ -5,7 +5,7 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
   return (
     <button
       onClick={handleClick}
-      title={sound ? "mute" : "unmute"}
+      title={sound ? "Mute" : "Unmute"}
       aria-label="Mute/Unmute"
       type="button"
       className={`-mt-10 md:-mt-11 float-left ml-4 px-1 cursor-pointer flex items-center w-9 h-9 justify-center text-xs font-medium border rounded-lg toggle-dark-state-example focus:z-10 focus:ring-2 focus:outline-none 

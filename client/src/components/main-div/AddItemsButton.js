@@ -63,7 +63,7 @@ function AddItemsButton({
     <button
       disabled={listIsEmpty || buttonDisabled}
       onClick={onClickHandler}
-      title={!showAddItem ? 'Open "Add Items" form' : 'Close "Add Items" form'}
+      title={!showAddItem ? 'Open "Add" Form' : 'Close "Add" Form'}
       aria-label="Open/Close the 'Add Items' form"
       id="add-item-button"
       className={`${
