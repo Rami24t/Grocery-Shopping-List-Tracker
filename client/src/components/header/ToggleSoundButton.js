@@ -20,6 +20,7 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
   }`}
     >
       <AiTwotoneSound
+      aria-label="Mute/Unmute"
         className="w-5 h-5"
         style={
           !sound
@@ -33,10 +34,15 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
             : ""
         }
       />
-      <span className="sr-only">Toggle dark/light mode</span>
-      <label className="relative ml-1 inline-flex items-center cursor-pointer">
+      <span 
+      aria-label="Mute/Unmute"
+       className="sr-only">Mute/Unmute</span>
+      <label
+      aria-label="Mute/Unmute"
+       className="relative ml-1 inline-flex items-center cursor-pointer">
         <input
           type="checkbox"
+          aria-label="Mute/Unmute"
           checked={sound}
           readOnly={true}
           className="m-0 p-0 sr-only peer"

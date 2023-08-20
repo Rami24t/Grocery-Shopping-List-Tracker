@@ -20,12 +20,16 @@ function List({
   darkMode,
 }) {
   const { state, dispatch } = useContext(Context);
-  const setInfo = (info) => { dispatch({ type: "SET_INFO", payload: info }); };
+  const setInfo = (info) => {
+    dispatch({ type: "SET_INFO", payload: info });
+  };
   const { sound } = state.settings;
 
   return (
     <article>
       <h3
+        title={"Click to show/hide items"}
+        aria-label="Show/Hide items"
         className={`flex justify-between min-w-[154px] items-center gap-2 max-w-max mx-auto cursor-pointer font-bold ${
           items[0].need
             ? darkMode
@@ -45,10 +49,10 @@ function List({
           if (sound)
             if (showItems) {
               playSFXAudio(listCloseOpenSFXAudio);
-              setInfo(title + 's are now hidden');
+              setInfo(title + "s are now hidden");
             } else {
               playSFXAudio(openListorClearSFXAudio);
-              setInfo(title + 's are now visible');
+              setInfo(title + "s are now visible");
             }
         }}
       >
