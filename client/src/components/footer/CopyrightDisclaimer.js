@@ -26,8 +26,10 @@ function CopyrightDisclaimer({
         target="_blank"
         rel="noopener noreferrer"
         className={`${
-          darkMode ? "hover:text-gray-400" : "text-gray-700 hover:text-gray-800"
-        } hover:underline`}
+          darkMode
+            ? "hover:text-gray-400 focus:text-gray-400"
+            : "text-gray-700 hover:text-gray-800 focus:text-gray-800"
+        } hover:underline focus:underline`}
       >
         {author}
       </a>

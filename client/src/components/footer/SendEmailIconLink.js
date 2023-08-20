@@ -18,9 +18,12 @@ function SendEmailIconLink({
   return (
     <a
       title="Email Me"
+      aria-label="Send Email"
       href="#send-email"
       className={` ${
-        darkMode ? "hover:text-white" : "hover:text-gray-900"
+        darkMode
+          ? "hover:text-white focus:text-white"
+          : "hover:text-gray-900 focus:text-gray-900"
       } text-gray-500 `}
       onClick={() => {
         if (sound) {

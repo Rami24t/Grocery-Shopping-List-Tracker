@@ -1,15 +1,11 @@
 import React from "react";
 
-function FooterListItem({
-  link,
-  handleClick,
-}) {
-  
+function FooterListItem({ link, handleClick }) {
   return (
     <li className="mb-4">
       <a
         href={link.url}
-        className="hover:underline"
+        className="hover:underline focus:underline"
         target="_blank"
         rel="noopener noreferrer"
         onClick={handleClick}

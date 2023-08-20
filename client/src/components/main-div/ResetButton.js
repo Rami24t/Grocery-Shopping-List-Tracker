@@ -3,8 +3,8 @@ import React from "react";
 function ResetButton({ items, handleClear, handleReset, darkMode }) {
   return (
     <button
-      title={items.length>0 ? "Clear Items" : "Reset Items"}
-      aria-label={items.length>0 ? "Clear" : "Reset"}
+      title={items.length > 0 ? "Clear Items" : "Reset Items"}
+      aria-label={items.length > 0 ? "Clear" : "Reset"}
       onClick={(e) => {
         items.length ? handleClear(e) : handleReset(e);
         e.target.disabled = true;
@@ -14,17 +14,17 @@ function ResetButton({ items, handleClear, handleReset, darkMode }) {
       }}
       className={`${
         darkMode
-          ? "text-slate-200 hover:text-slate-100"
-          : "text-slate-100 hover:text-slate-50"
+          ? "text-slate-200 hover:text-slate-100 focus:text-slate-100"
+          : "text-slate-100 hover:text-slate-50 focus:text-slate-50"
       } font-semibold transition-all w-10 relative rounded-lg
       ${
         !items.length
           ? darkMode
-            ? "bg-indigo-700  hover:bg-indigo-600"
-            : "bg-indigo-600  hover:bg-indigo-700"
+            ? "bg-indigo-700 hover:bg-indigo-600 focus:bg-indigo-600"
+            : "bg-indigo-600 hover:bg-indigo-700 focus:bg-indigo-700"
           : darkMode
-          ? "bg-red-800  hover:bg-red-700"
-          : "bg-red-600  hover:bg-red-700"
+          ? "bg-red-800 hover:bg-red-700 focus:bg-red-700"
+          : "bg-red-600 hover:bg-red-700 focus:bg-red-700"
       } px-3 py-2 text-xs font-medium transition focus:outline-none focus:ring`}
       type="button"
     >
