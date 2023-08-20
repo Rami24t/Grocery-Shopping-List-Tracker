@@ -6,7 +6,7 @@ import DeleteButton from "./DeleteButton";
 
 const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
   return (
-    <div className="flex justify-around items-center">
+    <li className="flex justify-around items-center">
       <ItemNameInput item={item} updateItem={updateItem} darkMode={darkMode} />
       <Checkbox item={item} handleToggle={handleToggle} darkMode={darkMode} />
       <EditButton darkMode={darkMode} />
@@ -14,7 +14,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
         darkMode={darkMode}
         handleClick={() => handleDelete(item)}
       />
-    </div>
+    </li>
   );
 };
 

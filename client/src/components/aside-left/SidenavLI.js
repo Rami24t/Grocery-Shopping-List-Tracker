@@ -13,6 +13,8 @@ function SideNavLI({
   return (
     <li>
       <a
+        title={title +' . Go to '+ href.slice(1).toUpperCase()}
+        aria-label={title +' . Go to '+ href.slice(1).toUpperCase()}
         onClick={onClick && onClick}
         href={href}
         className={` ${
