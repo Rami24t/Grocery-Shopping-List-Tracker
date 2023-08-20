@@ -15,7 +15,7 @@ function Checkbox({ item, handleToggle, darkMode}) {
       type="checkbox"
       onChange={handleCheck}
       checked={!needed}
-      id="needed"
+      name="needed"
       className={`opacity-75 filter  ${
         darkMode && needed ? "invert hue-rotate-180 brightness-75 " : ""
       } cursor-pointer inline-block leading-none w-5 h-6 m-2 border rounded focus:ring-3 ${
