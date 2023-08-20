@@ -23,7 +23,8 @@ function Checkbox({ item, handleToggle, darkMode}) {
           ? "border-gray-300 bg-gray-50 focus:ring-blue-300"
           : " bg-gray-700 border-gray-600 focus:ring-blue-600 ring-offset-gray-800 focus:ring-offset-gray-800"
       }`}
-      style={{ minWidth: "1.2rem" }}
+      style={{ minWidth: "24px", minHeight: "24px" }}
+      // style={{ minWidth: "1.2rem" }}
       title={`Click to ${needed ? "check" : "uncheck"}`}
     />
   );

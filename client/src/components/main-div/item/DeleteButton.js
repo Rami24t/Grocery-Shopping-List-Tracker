@@ -6,7 +6,8 @@ export default function DeleteButton({ darkMode, handleClick }) {
     <button
       onClick={handleClick}
       type="button"
-      style={{ minWidth: "1.2rem" }}
+      style={{ minWidth: "24px", minHeight: "24px" }}
+      // style={{ minWidth: "1.2rem" }}
       title="Click to permanently delete this item"
       aria-label="delete"
     >
