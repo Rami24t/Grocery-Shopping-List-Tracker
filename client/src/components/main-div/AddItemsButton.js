@@ -63,8 +63,8 @@ function AddItemsButton({
     <button
       disabled={listIsEmpty || buttonDisabled}
       onClick={onClickHandler}
-      title={listIsEmpty ? 'Open "Add Items" form' : 'Close "Add Items" form'}
-      aria-label="Open/Close Add Items form"
+      title={!showAddItem ? 'Open "Add Items" form' : 'Close "Add Items" form'}
+      aria-label="Open/Close the 'Add Items' form"
       id="add-item-button"
       className={`${
         darkMode

@@ -3,8 +3,8 @@ import React from "react";
 function ResetButton({ items, handleClear, handleReset, darkMode }) {
   return (
     <button
-      title="Reset items to default"
-      aria-label="Reset items to default"
+      title={items.length>0 ? "Clear items" : "Reset items to default"}
+      aria-label={items.length>0 ? "Clear" : "Reset"}
       onClick={(e) => {
         items.length ? handleClear(e) : handleReset(e);
         e.target.disabled = true;
