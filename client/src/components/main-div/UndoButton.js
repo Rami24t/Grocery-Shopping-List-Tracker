@@ -27,13 +27,13 @@ const UndoButton = ({ darkMode, handleUndo, disabled = true }) => {
           darkMode
             ? `border-violet-800 border ${
                 !disabled
-                  ? "hover:text-violet-200 hover:border-violet-700 hover:bg-violet-900 hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-violet-600 focus:border-violet-600 focus:ring-opacity-60 bg-violet-950 text-violet-300"
-                  : "bg-slate-900 text-violet-400"
+                  ? "text-violet-300 hover:text-violet-200 hover:border-violet-700 hover:bg-violet-900 hover:bg-opacity-80 focus:outline-none focus:ring-2 focus:ring-violet-600 focus:border-violet-600 focus:ring-opacity-60 bg-violet-950"
+                  : "text-violet-400 bg-slate-900"
               }`
-            : `text-violet-800 border-violet-200 border bg-violet-100 ${
+            : `border-violet-200 border bg-violet-100 ${
                 !disabled
-                  ? "hover:text-violet-900 hover:bg-white  hover:border-violet-50 focus:bg-violet-100 focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-violet-200"
-                  : "text-violet-500"
+                  ? "text-violet-800 hover:text-violet-900 hover:bg-white  hover:border-violet-50 focus:bg-violet-100 focus:outline-none focus:ring-2 focus:ring-violet-400 focus:border-violet-200"
+                  : "text-violet-600"
               }`
         } ${!disabled ? "text-xl p-1.5" : "p-1 text-lg"}`}
         onClick={handleClick}
