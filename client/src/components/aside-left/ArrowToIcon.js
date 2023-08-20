@@ -29,7 +29,7 @@ const ArrowToIcon = React.memo(({ toBottom, darkMode, shown }) => {
   return (
     <a
       title={toBottom ? "Go To Bottom" : "Go To Top"}
-      aria-label={toBottom ? "To Bottom" : "To Top"}
+      aria-label={toBottom ? "Scroll To Bottom" : "Scroll To Top"}
       href={`${toBottom ? "#footer" : "#app"}`}
       onClick={handleClick}
       className={`text-xl rounded-e-xl  bg-opacity-80 flex items-center justify-center fixed z-40  ${

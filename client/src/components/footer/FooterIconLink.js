@@ -11,6 +11,7 @@ function FooterIconLink({
   return (
     <a
       title={`my ${srText}`}
+      aria-label={`Visit my ${srText}`}
       href={url}
       onClick={handleClick}
       target="_blank"

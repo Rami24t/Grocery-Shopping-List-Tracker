@@ -5,6 +5,7 @@ function FooterListItem({ link, handleClick }) {
     <li className="mb-4">
       <a
         href={link.url}
+        aria-label={link.text}
         className="hover:underline focus:underline"
         target="_blank"
         rel="noopener noreferrer"

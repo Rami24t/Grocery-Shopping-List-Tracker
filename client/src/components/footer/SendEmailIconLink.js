@@ -18,7 +18,7 @@ function SendEmailIconLink({
   return (
     <a
       title="Email Me"
-      aria-label="Send Email"
+      aria-label="Send Me An Email"
       href="#send-email"
       className={` ${
         darkMode

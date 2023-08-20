@@ -17,6 +17,7 @@ function Company({
     <div className="mb-6 md:mb-0">
       <a
         href={link}
+        aria-label={"Visit " + {name} + "'s link"}
         onClick={handleClick}
         target="_blank"
         rel="noopener noreferrer"
