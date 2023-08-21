@@ -12,7 +12,7 @@ export default function DeleteButton({ darkMode, handleClick }) {
       aria-label="delete"
     >
       <MdDeleteForever
-        className={`ml-0.5 w-8 h-8 rounded-lg text-3xl text-center transition-transform duration-300 hover:scale-110 active:scale-125 hover:font-bold focus:font-bold inline-flex items-center justify-center leading-none focus:ring-2 focus:outline-none ${
+        className={`ml-1 w-8 h-8 rounded-lg text-3xl text-center transition-transform duration-300 hover:scale-110 active:scale-125 hover:font-bold focus:font-bold inline-flex items-center justify-center leading-none focus:ring-2 focus:outline-none ${
           darkMode
             ? " text-red-500 hover:text-red-400 focus:text-red-400"
             : " text-red-700 hover:text-red-800 focus:text-red-800"
