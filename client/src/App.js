@@ -19,7 +19,7 @@ import {
   openCloseAddFormSFXAudio,
   playSFXAudio,
   menuButtonClickAudio,
-  // buttonClickSFXAudio, buttonSFXAudio, slideInSFXAudio, switchSFXAudio, inputErrorSFXAudio, pencilCheckSFXAudio, 
+  // buttonClickSFXAudio, buttonSFXAudio, slideInSFXAudio, switchSFXAudio, inputErrorSFXAudio,
 } from "./assets/sfx";
 import { getLists } from "./utils/getLists";
 import Header from "./components/header/Header";

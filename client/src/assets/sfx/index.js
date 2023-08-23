@@ -1,16 +1,12 @@
 import addSFX1 from "./achive-sound-132273.mp3";
 import haveSFX from "./beep-6-96243.mp3";
-import buttonSFX from "./button-8-88355.mp3";
 import addSFX2 from "./button-pressed-38129.mp3";
-import buttonClickSFX from "./click-3-44710.mp3";
 import buttonClickSFX2 from "./click-button-140881.mp3";
 import CompletionSFX from "./click-game-menu-147356.mp3";
 import menuOpenSFX from "./clickselect-92098.mp3";
 import finishSFX from "./divinity-138419.mp3";
-import slideInSFX from "./door-open-107728.mp3";
 import emailSFX from "./e-mail-39993.mp3";
 import clearSFX from "./error-2-126514.mp3";
-import inputErrorSFX from "./error-call-to-attention-129258.mp3";
 import wrongFilterSFX2 from "./error-when-entering-the-game-menu-132111.mp3";
 import resetOrClearFilterSFX from "./fantasy_ui_button_6-102219.mp3";
 import listCloseOpenSFX from "./killswitch-being-turned-on-100591.mp3";
@@ -24,7 +20,6 @@ import writingSFX from "./scribbling-68130.mp3";
 import addDeniedSFX from "./select_denied_03-45945.mp3";
 import slideOutInSFX from "./sliding_wooden_cabinet_door_1-of-2-81503.mp3";
 import openCloseAddFormSFX from "./spring-click-sound-95507.mp3";
-import switchSFX from "./switch-93378.mp3";
 import navLinkClickSFX from "./switch-light-04-82204.mp3";
 import deleteSFX from "./toy-button-105724.mp3";
 import correctOrAddSFX from "./ui_correct_button2-103167.mp3";
@@ -32,18 +27,19 @@ import menuButtonClick from "./ui-click-43196.mp3";
 import editClickSFX from "./uiclick4-79818.mp3";
 import toBottomTopSFX from "./uisound1-79819.mp3";
 import wrongFilterSFX from "./wrong-answer-129254.mp3";
+// import buttonSFX from "./button-8-88355.mp3";
+// import buttonClickSFX from "./click-3-44710.mp3";
+// import slideInSFX from "./door-open-107728.mp3";
+// import inputErrorSFX from "./error-call-to-attention-129258.mp3";
+// import switchSFX from "./switch-93378.mp3";
 
 const COMMON_SFX_VOLUME = 0.4;
 const addSFXAudio1 = new Audio(addSFX1);
 addSFXAudio1.volume = COMMON_SFX_VOLUME;
 const haveSFXAudio = new Audio(haveSFX);
 haveSFXAudio.volume = COMMON_SFX_VOLUME;
-const buttonSFXAudio = new Audio(buttonSFX);
-buttonSFXAudio.volume = COMMON_SFX_VOLUME;
 const addSFXAudio2 = new Audio(addSFX2);
 addSFXAudio2.volume = COMMON_SFX_VOLUME;
-const buttonClickSFXAudio = new Audio(buttonClickSFX);
-buttonClickSFXAudio.volume = COMMON_SFX_VOLUME;
 const buttonClickSFXAudio2 = new Audio(buttonClickSFX2);
 buttonClickSFXAudio2.volume = COMMON_SFX_VOLUME;
 const completionSFXAudio = new Audio(CompletionSFX);
@@ -52,8 +48,6 @@ const menuOpenSFXAudio = new Audio(menuOpenSFX);
 menuOpenSFXAudio.volume = COMMON_SFX_VOLUME;
 const finishSFXAudio = new Audio(finishSFX);
 finishSFXAudio.volume = COMMON_SFX_VOLUME;
-const slideInSFXAudio = new Audio(slideInSFX);
-slideInSFXAudio.volume = COMMON_SFX_VOLUME;
 const linkClickSFXAudio = new Audio(linkClickSFX);
 linkClickSFXAudio.volume = COMMON_SFX_VOLUME;
 const listCloseOpenSFXAudio = new Audio(listCloseOpenSFX);
@@ -96,12 +90,18 @@ const mouseClickSFXAudio = new Audio(mouseClickSFX);
 mouseClickSFXAudio.volume = COMMON_SFX_VOLUME;
 const resetOrClearFilterSFXAudio = new Audio(resetOrClearFilterSFX);
 resetOrClearFilterSFXAudio.volume = COMMON_SFX_VOLUME;
-const inputErrorSFXAudio = new Audio(inputErrorSFX);
-inputErrorSFXAudio.volume = COMMON_SFX_VOLUME;
-const switchSFXAudio = new Audio(switchSFX);
-switchSFXAudio.volume = COMMON_SFX_VOLUME;
 const emailSFXAudio = new Audio(emailSFX);
 emailSFXAudio.volume = COMMON_SFX_VOLUME;
+// const buttonSFXAudio = new Audio(buttonSFX);
+// buttonSFXAudio.volume = COMMON_SFX_VOLUME;
+// const buttonClickSFXAudio = new Audio(buttonClickSFX);
+// buttonClickSFXAudio.volume = COMMON_SFX_VOLUME;
+// const slideInSFXAudio = new Audio(slideInSFX);
+// slideInSFXAudio.volume = COMMON_SFX_VOLUME;
+// const inputErrorSFXAudio = new Audio(inputErrorSFX);
+// inputErrorSFXAudio.volume = COMMON_SFX_VOLUME;
+// const switchSFXAudio = new Audio(switchSFX);
+// switchSFXAudio.volume = COMMON_SFX_VOLUME;
 
 const playSFXAudio = (...audios) => {
   try {
@@ -118,14 +118,11 @@ export {
   playSFXAudio,
   addSFXAudio1,
   haveSFXAudio,
-  buttonSFXAudio,
   addSFXAudio2,
-  buttonClickSFXAudio,
   buttonClickSFXAudio2,
   completionSFXAudio,
   menuOpenSFXAudio,
   finishSFXAudio,
-  slideInSFXAudio,
   linkClickSFXAudio,
   listCloseOpenSFXAudio,
   toBottomTopSFXAudio,
@@ -148,7 +145,10 @@ export {
   pencilCheckSFXAudio,
   mouseClickSFXAudio,
   resetOrClearFilterSFXAudio,
-  inputErrorSFXAudio,
-  switchSFXAudio,
   emailSFXAudio,
+  // buttonSFXAudio,
+  // buttonClickSFXAudio,
+  // slideInSFXAudio,
+  // inputErrorSFXAudio,
+  // switchSFXAudio,
 };
