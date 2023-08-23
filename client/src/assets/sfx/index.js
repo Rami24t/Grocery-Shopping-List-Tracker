@@ -29,9 +29,9 @@ import toBottomTopSFX from "./uisound1-79819.mp3";
 import wrongFilterSFX from "./wrong-answer-129254.mp3";
 // import buttonSFX from "./button-8-88355.mp3";
 // import buttonClickSFX from "./click-3-44710.mp3";
-// import slideInSFX from "./door-open-107728.mp3";
+import slideOutSFX from "./door-open-107728.mp3";
 // import inputErrorSFX from "./error-call-to-attention-129258.mp3";
-// import switchSFX from "./switch-93378.mp3";
+// import switchSFX from "./switch-93378.mp3";x
 
 const COMMON_SFX_VOLUME = 0.4;
 const addSFXAudio1 = new Audio(addSFX1);
@@ -96,8 +96,8 @@ emailSFXAudio.volume = COMMON_SFX_VOLUME;
 // buttonSFXAudio.volume = COMMON_SFX_VOLUME;
 // const buttonClickSFXAudio = new Audio(buttonClickSFX);
 // buttonClickSFXAudio.volume = COMMON_SFX_VOLUME;
-// const slideInSFXAudio = new Audio(slideInSFX);
-// slideInSFXAudio.volume = COMMON_SFX_VOLUME;
+const slideOutSFXAudio = new Audio(slideOutSFX);
+slideOutSFXAudio.volume = COMMON_SFX_VOLUME;
 // const inputErrorSFXAudio = new Audio(inputErrorSFX);
 // inputErrorSFXAudio.volume = COMMON_SFX_VOLUME;
 // const switchSFXAudio = new Audio(switchSFX);
@@ -146,9 +146,9 @@ export {
   mouseClickSFXAudio,
   resetOrClearFilterSFXAudio,
   emailSFXAudio,
+  slideOutSFXAudio,
   // buttonSFXAudio,
   // buttonClickSFXAudio,
-  // slideInSFXAudio,
   // inputErrorSFXAudio,
   // switchSFXAudio,
 };

@@ -10,7 +10,7 @@ import {
   resetSFXAudio,
   buttonClickSFXAudio2,
   deleteSFXAudio,
-  slideOutInSFXAudio,
+  slideOutSFXAudio,
   resetOrClearFilterSFXAudio,
   clearSFXAudio,
   finishSFXAudio,
@@ -19,7 +19,6 @@ import {
   openCloseAddFormSFXAudio,
   playSFXAudio,
   menuButtonClickAudio,
-  // buttonClickSFXAudio, buttonSFXAudio, slideInSFXAudio, switchSFXAudio, inputErrorSFXAudio,
 } from "./assets/sfx";
 import { getLists } from "./utils/getLists";
 import Header from "./components/header/Header";
@@ -384,13 +383,7 @@ function App() {
               } bg-opacity-50 fixed top-0 right-0 h-screen w-screen z-40 filter`}
               onClick={() => {
                 setShowSideNav(false);
-                if (sound) {
-                  playSFXAudio(slideOutInSFXAudio);
-                  setTimeout(() => {
-                    slideOutInSFXAudio.pause();
-                    slideOutInSFXAudio.currentTime = 3.5;
-                  }, 600);
-                }
+                if (sound) playSFXAudio(slideOutSFXAudio);
               }}
             ></div>
           )}
