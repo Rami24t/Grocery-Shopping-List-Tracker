@@ -51,12 +51,12 @@ registerRoute(
 registerRoute(
   // Add in any other file extensions or routing criteria as needed.
   ({ url }) =>
-    url.origin === self.location.origin && 
+    url.origin === self.location.origin &&
     (url.pathname.endsWith(".webp") ||
-    url.pathname.endsWith(".mp3") ||
-    url.pathname.endsWith(".png")), // Customize this strategy as needed, e.g., by changing to CacheFirst.
-    // url.pathname.endsWith(".jpg") ||
-    // url.pathname.endsWith(".gif") ||
+      url.pathname.endsWith(".mp3") ||
+      url.pathname.endsWith(".png")), // Customize this strategy as needed, e.g., by changing to CacheFirst.
+  // url.pathname.endsWith(".jpg") ||
+  // url.pathname.endsWith(".gif") ||
   new StaleWhileRevalidate({
     cacheName: "images",
     plugins: [
