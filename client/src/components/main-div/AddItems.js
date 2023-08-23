@@ -79,6 +79,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
           onBlur={handleBlur}
           type="text"
           id="new-item"
+          autoComplete="on"
           className={` ${
             darkMode
               ? "focus:border-blue-500 focus:ring-blue-500 placeholder-gray-400 text-white border-gray-600 bg-gray-700 bg-opacity-70 "

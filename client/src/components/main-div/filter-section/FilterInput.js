@@ -34,6 +34,7 @@ function FilterInput({ filter, handleChangeFilter, items, darkMode }) {
       type="text"
       id="filter"
       name="filter"
+      autoComplete="on"
       value={filter}
       onChange={handleChange}
       onFocus={handleFocus}

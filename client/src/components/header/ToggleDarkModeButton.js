@@ -48,6 +48,7 @@ function ToggleDarkModeButton({ darkMode, handleClick }) {
           readOnly={true}
           aria-label="Toggle dark mode"
           className="m-0 p-0 sr-only peer"
+          name="toggle-dark-mode"
         />
         <div
           className={`m-0 p-0 w-2 h-4 peer-focus:outline-none peer-focus:ring-2 rounded-full peer ${

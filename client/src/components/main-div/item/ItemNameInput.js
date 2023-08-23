@@ -68,7 +68,8 @@ function ItemNameInput({ item, updateItem, darkMode }) {
     <input
       type="text"
       disabled={true}
-      name="name"
+      name="item-name"
+      autoComplete="on"
       value={name}
       onChange={handleChange}
       onFocus={handleFocus}

@@ -47,6 +47,7 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
           checked={sound}
           readOnly={true}
           className="m-0 p-0 sr-only peer"
+          name="toggle-sound"
         />
         <div
           className={`m-0 p-0 w-2 h-4 peer-focus:outline-none peer-focus:ring-2 rounded-full peer ${
