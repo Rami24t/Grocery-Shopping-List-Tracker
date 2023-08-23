@@ -31,16 +31,16 @@ function AsideRight({ darkMode }) {
   }, [height]);
 
   const [loadingClasses, setLoadingClasses] = useState(
-    "transition-all duration-1000 fixed bottom-0 right-0 w-screen h-screen filter brightness-50 z-50 opacity-95"
+    "transition-all duration-1000 fixed bottom-0 right-0 w-screen h-screen filter brightness-50 z-50 opacity-95 aspect-auto"
   );
   useEffect(() => {
     const a = setTimeout(() => {
       setLoadingClasses(
-        "transition-all duration-1000 fixed -bottom-20 -right-20 w-0 h-0 filter brightness-50 sepia opacity-20 z-50"
+        "transition-all duration-1000 fixed -bottom-20 -right-20 w-0 h-0 filter brightness-50 sepia opacity-20 z-50 aspect-auto"
       );
     }, 1900);
     const b = setTimeout(() => {
-      setLoadingClasses("fixed hidden");
+      setLoadingClasses("fixed hidden aspect-auto");
     }, 3000);
     return () => {
       clearTimeout(a);
@@ -51,7 +51,7 @@ function AsideRight({ darkMode }) {
   const [loadingImg] = useState(animatedImg3);
   return (
     <>
-      {loadingClasses !== "fixed hidden" ? (
+      {loadingClasses !== "fixed hidden aspect-auto" ? (
         <img src={loadingImg} className={`${loadingClasses}`} alt="loading" />
       ) : null}
       <aside
