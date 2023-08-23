@@ -51,12 +51,12 @@ registerRoute(
 registerRoute(
   // Add in any other file extensions or routing criteria as needed.
   ({ url }) =>
-    url.origin === self.location.origin &&
+    url.origin === self.location.origin && 
     (url.pathname.endsWith(".webp") ||
-      url.pathname.endsWith(".jpg") ||
-      url.pathname.endsWith(".gif") ||
-      url.pathname.endsWith(".mp3") ||
-      url.pathname.endsWith(".png")), // Customize this strategy as needed, e.g., by changing to CacheFirst.
+    url.pathname.endsWith(".mp3") ||
+    url.pathname.endsWith(".png")), // Customize this strategy as needed, e.g., by changing to CacheFirst.
+    // url.pathname.endsWith(".jpg") ||
+    // url.pathname.endsWith(".gif") ||
   new StaleWhileRevalidate({
     cacheName: "images",
     plugins: [
@@ -77,18 +77,18 @@ self.addEventListener("message", (event) => {
 
 // Any other custom service worker logic can go here.
 
-self.addEventListener("fetch", function (event) {
-  event.respondWith(
-    caches.match(event.request).then(function (response) {
-      return (
-        response ||
-        fetch(event.request).then(function (response) {
-          return caches.open("v1").then(function (cache) {
-            cache.put(event.request, response.clone());
-            return response;
-          });
-        })
-      );
-    })
-  );
-});
+// self.addEventListener("fetch", function (event) {
+//   event.respondWith(
+//     caches.match(event.request).then(function (response) {
+//       return (
+//         response ||
+//         fetch(event.request).then(function (response) {
+//           return caches.open("v1").then(function (cache) {
+//             cache.put(event.request, response.clone());
+//             return response;
+//           });
+//         })
+//       );
+//     })
+//   );
+// });
