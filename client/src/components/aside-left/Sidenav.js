@@ -38,7 +38,7 @@ const Sidenav = ({
       playSFXAudio(slideOutInSFXAudio);
       setTimeout(() => {
         slideOutInSFXAudio.pause();
-        slideOutInSFXAudio.currentTime = 3.5;
+        slideOutInSFXAudio.currentTime = 3.6;
       }, 600);
     }
   }

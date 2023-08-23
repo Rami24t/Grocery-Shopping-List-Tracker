@@ -17,6 +17,7 @@ const ArrowToIcon = React.memo(({ toBottom, darkMode, shown }) => {
       playSFXAudio(toBottomTopSFXAudio, slideOutInSFXAudio);
       setTimeout(() => {
         slideOutInSFXAudio.pause();
+        slideOutInSFXAudio.currentTime = 3.6;
       }, 550);
     }
     e.target.style.pointerEvents = "none";

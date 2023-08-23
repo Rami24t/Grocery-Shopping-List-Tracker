@@ -37,15 +37,12 @@ const MenuButton = React.memo(({ showSideNav, setShowSideNav, darkMode }) => {
           if (showSideNav) {
             playSFXAudio(slideOutSFXAudio);
             setInfo("Menu closed");
-            // setTimeout(() => {
-            //   slideOutSFXAudio.pause();
-            //   slideOutInSFXAudio.currentTime = 3.5;
-            // }, 800);
+            slideOutInSFXAudio.currentTime = 3.6;
           } else {
             playSFXAudio(linkClickSFXAudio);
             setInfo("Menu is now open");
             try {
-              slideOutInSFXAudio.currentTime = 3.5;
+              slideOutInSFXAudio.currentTime = 3.6;
               slideOutInSFXAudio.play();
             } catch (err) {
               console.log(err);
