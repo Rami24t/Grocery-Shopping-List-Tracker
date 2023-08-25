@@ -17,8 +17,11 @@ function Lists({
 
   return !needs?.length && !haves.length ? (
     <article id="list" className="flex flex-col justify-around m-5 p-5">
-      <h3 className="text-lg">List {list} is Empty!</h3>
-      <p className="text-sm m-4">Add some items to your list.</p>
+      <h3 className="text-lg">Empty list!</h3>
+      {/* <h3 className="text-lg">List {list} is Empty!</h3> */}
+      <a href="#new-item" className="text-sm m-4" title="Empty List! Add Items.">
+      Add some items to your list.
+      </a>
     </article>
   ) : (
     <section id="list">
