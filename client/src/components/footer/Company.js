@@ -3,7 +3,7 @@ import { playSFXAudio } from "../../assets/sfx";
 import { Context } from "../Context";
 
 function Company({
-  logo = "/logo-no-background.svg",
+  logo,
   name = "Rami Al-Saadi",
   link = "https://www.linkedin.com/in/rami-al-saadi-16a14223a/",
   sfx,
@@ -25,7 +25,7 @@ function Company({
       >
         <img
           src={logo}
-          className={`h-8 mr-3 ${darkMode ? "" : "filter invert"}`}
+          className={`h-12 mr-2 aspect-square ${darkMode ? "" : "filter invert"}`}
           alt={name + "'s Logo"}
         />
         <span
@@ -36,7 +36,7 @@ function Company({
           {name}
         </span>
       </a>
-      <p className="block ml-auto w-36 text-end text-xs opacity-50 select-none">
+      <p className="block -mt-2.5 ml-auto w-36 text-end text-xs opacity-50 select-none">
         {" "}
         's 🛒 Shopping List
       </p>
