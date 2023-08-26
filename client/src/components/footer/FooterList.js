@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import  { useContext, memo } from "react";
 import FooterListItem from "./FooterListItem";
 import { navLinkClickSFXAudio, playSFXAudio } from "../../assets/sfx";
 import { Context } from "../Context";
@@ -35,4 +35,4 @@ function FooterList({
   );
 }
 
-export default React.memo(FooterList);
+export default memo(FooterList);

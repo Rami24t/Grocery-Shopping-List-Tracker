@@ -1,4 +1,5 @@
-import React from "react";
+import { memo } from "react";
+
 import CopyrightDisclaimer from "./CopyrightDisclaimer";
 import Icons from "./Icons";
 import { navLinkClickSFXAudio } from "../../assets/sfx";
@@ -22,4 +23,4 @@ function BottomFooter({ darkMode }) {
   );
 }
 
-export default React.memo(BottomFooter);
+export default memo(BottomFooter);

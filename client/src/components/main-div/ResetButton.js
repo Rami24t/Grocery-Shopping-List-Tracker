@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 
 function ResetButton({ items, handleClear, handleReset, darkMode }) {
   return (
@@ -44,4 +44,4 @@ function ResetButton({ items, handleClear, handleReset, darkMode }) {
   );
 }
 
-export default React.memo(ResetButton);
+export default memo(ResetButton);

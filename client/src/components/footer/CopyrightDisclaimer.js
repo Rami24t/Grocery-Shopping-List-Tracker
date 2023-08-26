@@ -1,4 +1,4 @@
-import React from "react";
+import { useContext, memo } from "react";
 import { playSFXAudio } from "../../assets/sfx";
 import { Context } from "../Context";
 
@@ -9,7 +9,7 @@ function CopyrightDisclaimer({
   sfx,
   darkMode,
 }) {
-  const { state } = React.useContext(Context);
+  const { state } = useContext(Context);
   const handleClick = () => {
     state.settings.sound && playSFXAudio(sfx);
   };
@@ -39,4 +39,4 @@ function CopyrightDisclaimer({
   );
 }
 
-export default React.memo(CopyrightDisclaimer);
+export default memo(CopyrightDisclaimer);

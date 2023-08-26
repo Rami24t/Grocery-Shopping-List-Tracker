@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import Company from "./Company";
 import FooterLists from "./FooterLists";
 import { navLinkClickSFXAudio } from "../../assets/sfx";
@@ -19,4 +19,4 @@ function TopFooter( {darkMode} ) {
   </div>;
 }
 
-export default React.memo(TopFooter);
+export default memo(TopFooter);

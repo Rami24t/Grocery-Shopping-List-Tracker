@@ -1,4 +1,4 @@
-import React from "react";
+import { memo, useContext } from "react";
 import List from "./List";
 import { Context } from "../Context";
 
@@ -13,7 +13,7 @@ function Lists({
   list,
   darkMode,
 }) {
-  const { state, dispatch } = React.useContext(Context);
+  const { state, dispatch } = useContext(Context);
 
   return !needs?.length && !haves.length ? (
     <article id="list" className="flex flex-col justify-around m-5 p-5">
@@ -55,4 +55,4 @@ function Lists({
   );
 }
 
-export default React.memo(Lists);
+export default memo(Lists);

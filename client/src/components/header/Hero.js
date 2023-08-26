@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 
 function Hero({
   title = "Grocery Shopping List 🛒",
@@ -31,4 +31,4 @@ function Hero({
   );
 }
 
-export default React.memo(Hero);
+export default memo(Hero);

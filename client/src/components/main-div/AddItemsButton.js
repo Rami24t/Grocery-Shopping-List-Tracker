@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import  { memo, useContext, useEffect, useState } from "react";
 import {
   openCloseAddFormSFX,
   openCloseAddFormSFXAudio,
@@ -17,7 +17,7 @@ function AddItemsButton({
   listIsEmpty,
   darkMode,
 }) {
-  const { state, dispatch } = React.useContext(Context);
+  const { state, dispatch } = useContext(Context);
   const { sound } = state?.settings;
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
 
@@ -98,4 +98,4 @@ function AddItemsButton({
   );
 }
 
-export default React.memo(AddItemsButton);
+export default memo(AddItemsButton);

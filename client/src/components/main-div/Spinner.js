@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 
 const Spinner = ({ size = 8, darkMode }) => {
   return (
@@ -26,4 +26,4 @@ const Spinner = ({ size = 8, darkMode }) => {
   );
 };
 
-export default React.memo(Spinner);
+export default memo(Spinner);

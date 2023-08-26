@@ -1,4 +1,6 @@
-import React, { useEffect, useState, useCallback } from "react";
+import { memo } from "react";
+
+import  { useEffect, useState, useCallback } from "react";
 import AsideImage from "./AsideImage";
 import { animatedImg3 } from "../../assets/animatedImgs";
 import decoImgs from "../../assets/deco-imgs";
@@ -83,4 +85,4 @@ function AsideRight({ darkMode }) {
   );
 }
 
-export default React.memo(AsideRight);
+export default memo(AsideRight);

@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import  { memo, useContext } from "react";
 import { BiSolidArrowToTop } from "react-icons/bi";
 import {
   toBottomTopSFXAudio,
@@ -7,7 +7,7 @@ import {
 } from "../../assets/sfx";
 import { Context } from "../Context";
 
-const ArrowToIcon = React.memo(({ toBottom, darkMode, shown }) => {
+const ArrowToIcon = memo(({ toBottom, darkMode, shown }) => {
   const { state } = useContext(Context);
   function handleClick(e) {
     window.scrollTo({

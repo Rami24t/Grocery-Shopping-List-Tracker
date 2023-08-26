@@ -1,4 +1,3 @@
-import React from "react";
 import { MdDeleteForever } from "react-icons/md";
 
 export default function DeleteButton({ darkMode, handleClick }) {

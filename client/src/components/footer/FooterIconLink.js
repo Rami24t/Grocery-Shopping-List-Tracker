@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import { BsLinkedin } from "react-icons/bs";
 
 function FooterIconLink({
@@ -28,4 +28,4 @@ function FooterIconLink({
   );
 }
 
-export default React.memo(FooterIconLink);
+export default memo(FooterIconLink);

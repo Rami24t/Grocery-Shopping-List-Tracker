@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import  { memo, useContext } from "react";
 import { BsFunnel, BsFunnelFill } from "react-icons/bs";
 import { pencilCheckSFXAudio, playSFXAudio } from "../../../assets/sfx";
 import { Context } from "../../Context";
@@ -42,4 +42,4 @@ function ClearFilterBtn({ filter, setFilter, darkMode }) {
   );
 }
 
-export default React.memo(ClearFilterBtn);
+export default memo(ClearFilterBtn);

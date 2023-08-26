@@ -1,5 +1,4 @@
-import React from "react";
-
+import { memo } from "react";
 const ShoppingBagSvgPath = (
   <path
     stroke="currentColor"
@@ -25,11 +24,11 @@ const Svg = ({ className, fill, path }) => (
   </svg>
 );
 
-const ShoppingBagSvg = React.memo(({ className }) =>
+const ShoppingBagSvg = memo(({ className }) =>
   Svg({ className, path: ShoppingBagSvgPath, fill: "none" })
 );
 
-const ShoppingBagFillSvg = React.memo(({ className }) =>
+const ShoppingBagFillSvg = memo(({ className }) =>
   Svg({ className, path: ShoppingBagFillSvgPath, fill: "currentColor" })
 );
 

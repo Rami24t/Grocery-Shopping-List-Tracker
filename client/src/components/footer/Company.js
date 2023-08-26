@@ -1,4 +1,4 @@
-import React from "react";
+import { memo, useContext } from "react";
 import { playSFXAudio } from "../../assets/sfx";
 import { Context } from "../Context";
 
@@ -9,7 +9,7 @@ function Company({
   sfx,
   darkMode,
 }) {
-  const { state } = React.useContext(Context);
+  const { state } = useContext(Context);
   const handleClick = () => {
     state.settings.sound && playSFXAudio(sfx);
   };
@@ -44,4 +44,4 @@ function Company({
   );
 }
 
-export default React.memo(Company);
+export default memo(Company);

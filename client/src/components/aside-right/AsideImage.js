@@ -1,5 +1,4 @@
-import React from "react";
-
+import { memo } from 'react';
 function AsideImage({ src, className }) {
   // useEffect(() => {
   //   caches.open('v1').then(function(cache) {
@@ -22,4 +21,4 @@ function AsideImage({ src, className }) {
   );
 }
 
-export default React.memo(AsideImage);
+export default memo(AsideImage);

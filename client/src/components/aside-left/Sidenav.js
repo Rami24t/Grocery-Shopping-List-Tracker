@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext, memo } from "react";
 import SidenavLI from "./SidenavLI";
 import {
   SvgAddItem,
@@ -23,8 +23,9 @@ const Sidenav = ({
   setShowSideNav,
   darkMode,
 }) => {
-  const { state } = useContext(Context);
+  const { state, dispatch } = useContext(Context);
   const sound = state.settings.sound;
+  const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
 
   function hideMobileSidenav(e) {
     e.stopPropagation();
@@ -42,7 +43,8 @@ const Sidenav = ({
       }, 600);
     }
   }
-  function handleClick() {
+  function handleClick(e) {
+    setInfo(e.target.innerText);
     sound && playSFXAudio(navLinkClickSFXAudio);
   }
 
@@ -110,4 +112,4 @@ ${
   );
 };
 
-export default React.memo(Sidenav);
+export default memo(Sidenav);

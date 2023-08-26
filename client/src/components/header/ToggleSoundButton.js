@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import { AiTwotoneSound } from "react-icons/ai";
 
 function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
@@ -61,4 +61,4 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
   );
 }
 
-export default React.memo(ToggleSoundButton);
+export default memo(ToggleSoundButton);

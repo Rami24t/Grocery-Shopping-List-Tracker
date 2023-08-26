@@ -1,9 +1,8 @@
-import React from "react";
-
+import { memo } from "react";
 const badgesCommonStyle =
   "px-2 inline-flex items-center justify-center text-sm font-medium rounded-full px-2 inline-flex items-center justify-center text-sm font-medium rounded-full";
 
-export const ProBadge = React.memo(({ darkMode }) => (
+export const ProBadge = memo(({ darkMode }) => (
   <span
     className={` ${
       darkMode
@@ -15,7 +14,7 @@ export const ProBadge = React.memo(({ darkMode }) => (
   </span>
 ));
 
-export const ItemsBadge = React.memo(({ items, darkMode }) => (
+export const ItemsBadge = memo(({ items, darkMode }) => (
   <span
     className={` ${
       darkMode

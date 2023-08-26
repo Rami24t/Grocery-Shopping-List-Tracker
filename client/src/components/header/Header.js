@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import  { useContext, memo } from "react";
 import InfoWidget from "./InfoWidget";
 import Hero from "./Hero";
 import quote from "../../data/randomQuote";
@@ -73,4 +73,4 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
   );
 }
 
-export default React.memo(Header);
+export default memo(Header);

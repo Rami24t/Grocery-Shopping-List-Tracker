@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import  { memo, useContext } from "react";
 import Item from "./item/Item";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
 import {
@@ -100,4 +100,4 @@ function List({
   );
 }
 
-export default React.memo(List);
+export default memo(List);

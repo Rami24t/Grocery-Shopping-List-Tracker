@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import  {useContext, memo} from "react";
 import FooterIconLink from "./FooterIconLink";
 import SendEmailIconLink from "./SendEmailIconLink";
 import { BsYoutube, BsLinkedin } from "react-icons/bs";
@@ -41,4 +41,4 @@ function Icons({ darkMode}) {
   </div>;
 }
 
-export default React.memo(Icons);
+export default memo(Icons);

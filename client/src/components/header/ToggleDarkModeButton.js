@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 
 function ToggleDarkModeButton({ darkMode, handleClick }) {
   return (
@@ -65,4 +65,4 @@ function ToggleDarkModeButton({ darkMode, handleClick }) {
   );
 }
 
-export default React.memo(ToggleDarkModeButton);
+export default memo(ToggleDarkModeButton);

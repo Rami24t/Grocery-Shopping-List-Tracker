@@ -1,6 +1,6 @@
-import React from "react";
+import { memo } from "react";
 
-const SidenavSvg = React.memo(({ darkMode, path }) => (
+const SidenavSvg = memo(({ darkMode, path }) => (
   <svg
     aria-hidden="true"
     xmlns="http://www.w3.org/2000/svg"
@@ -14,7 +14,7 @@ const SidenavSvg = React.memo(({ darkMode, path }) => (
   </svg>
 ));
 
-const SvgHome = React.memo(({ darkMode }) => (
+const SvgHome = memo(({ darkMode }) => (
   <SidenavSvg
     darkMode={darkMode}
     path={
@@ -26,7 +26,7 @@ const SvgHome = React.memo(({ darkMode }) => (
   />
 ));
 
-const SvgEditList = React.memo(({ darkMode }) => (
+const SvgEditList = memo(({ darkMode }) => (
   <SidenavSvg
     darkMode={darkMode}
     path={
@@ -35,7 +35,7 @@ const SvgEditList = React.memo(({ darkMode }) => (
   />
 ));
 
-const SvgAddItem = React.memo(({ darkMode }) => (
+const SvgAddItem = memo(({ darkMode }) => (
   <SidenavSvg
     darkMode={darkMode}
     path={
@@ -47,7 +47,7 @@ const SvgAddItem = React.memo(({ darkMode }) => (
   />
 ));
 
-const SvgBagFilled = React.memo(({ darkMode }) => (
+const SvgBagFilled = memo(({ darkMode }) => (
   <SidenavSvg
     darkMode={darkMode}
     path={
@@ -60,7 +60,7 @@ const SvgBagFilled = React.memo(({ darkMode }) => (
   />
 ));
 
-const SvgSettings = React.memo(({ darkMode }) => (
+const SvgSettings = memo(({ darkMode }) => (
   <SidenavSvg
     darkMode={darkMode}
     path={
@@ -73,7 +73,7 @@ const SvgSettings = React.memo(({ darkMode }) => (
   />
 ));
 
-const SvgPerson = React.memo(({ darkMode }) => (
+const SvgPerson = memo(({ darkMode }) => (
   <SidenavSvg
     darkMode={darkMode}
     path={

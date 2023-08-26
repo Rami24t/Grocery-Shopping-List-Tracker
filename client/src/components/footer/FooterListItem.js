@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 
 function FooterListItem({ link, handleClick }) {
   return (
@@ -20,4 +20,4 @@ function FooterListItem({ link, handleClick }) {
   );
 }
 
-export default React.memo(FooterListItem);
+export default memo(FooterListItem);

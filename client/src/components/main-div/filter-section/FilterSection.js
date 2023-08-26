@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import { SvgSearch } from "./SvgSearch";
 import FilterInput from "./FilterInput";
 import ClearFilterBtn from "./ClearFilterBtn";
@@ -20,4 +20,4 @@ function FilterSection({ filter, setFilter, handleChangeFilter, items, darkMode 
   );
 }
 
-export default React.memo(FilterSection);
+export default memo(FilterSection);

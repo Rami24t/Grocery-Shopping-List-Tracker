@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import  { memo, useContext, useEffect } from "react";
 import MainHeader from "./MainHeader";
 import AddItems from "./AddItems";
 import FilterSection from "./filter-section/FilterSection";
@@ -117,4 +117,4 @@ function Main({
   );
 }
 
-export default React.memo(Main);
+export default memo(Main);

@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import AddItemsButton from "./AddItemsButton";
 import ResetButton  from "./ResetButton";
 
@@ -41,4 +41,4 @@ function MainHeader({
   );
 }
 
-export default React.memo(MainHeader);
+export default memo(MainHeader);

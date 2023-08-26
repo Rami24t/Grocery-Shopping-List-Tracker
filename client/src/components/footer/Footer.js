@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import TopFooter from "./TopFooter";
 import BottomFooter from "./BottomFooter";
 
@@ -23,4 +23,4 @@ function Footer({ darkMode }) {
   );
 }
 
-export default React.memo(Footer);
+export default memo(Footer);

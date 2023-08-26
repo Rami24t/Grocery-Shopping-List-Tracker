@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import FooterList from "./FooterList";
 import { LiaReact } from "react-icons/lia";
 import { BiLogoTailwindCss } from "react-icons/bi";
@@ -35,4 +35,4 @@ function FooterLists({ darkMode }) {
   );
 }
 
-export default React.memo(FooterLists);
+export default memo(FooterLists);

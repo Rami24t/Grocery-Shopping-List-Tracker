@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 import { ShoppingBagSvg, ShoppingBagFillSvg } from "./ShoppingBagSvgs";
 
 // Abstract badge component for displaying the info badge
@@ -47,7 +47,7 @@ const NeedsBadge = ({ needs, darkMode }) => {
 };
 
 // Badge component for displaying the total info badge
-const ItemsBadge = React.memo(({ items, darkMode }) => (
+const ItemsBadge = memo(({ items, darkMode }) => (
   <InfoBadge
     title="Total Items"
     value={items}
@@ -124,4 +124,4 @@ function InfoWidget({ haves, needs, darkMode, handleClick }) {
   );
 }
 
-export default React.memo(InfoWidget);
+export default memo(InfoWidget);

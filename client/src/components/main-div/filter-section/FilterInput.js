@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { memo, useContext } from "react";
 import {
   writingSFXAudio,
   editClickSFXAudio,
@@ -50,4 +50,4 @@ function FilterInput({ filter, handleChangeFilter, items, darkMode }) {
   );
 }
 
-export default React.memo(FilterInput);
+export default memo(FilterInput);

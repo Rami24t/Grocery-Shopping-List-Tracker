@@ -1,4 +1,3 @@
-import React from "react";
 import ItemNameInput from "./ItemNameInput";
 import Checkbox from "./Checkbox";
 import EditButton from "./EditButton";

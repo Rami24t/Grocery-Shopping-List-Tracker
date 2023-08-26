@@ -1,4 +1,4 @@
-import React from "react";
+import { memo } from "react";
 
 function SideNavLI({
   title,
@@ -33,4 +33,4 @@ function SideNavLI({
   );
 }
 
-export default React.memo(SideNavLI);
+export default memo(SideNavLI);

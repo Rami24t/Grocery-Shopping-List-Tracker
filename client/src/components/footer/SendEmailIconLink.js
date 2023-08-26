@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import  { useContext, memo } from "react";
 import { BsSend } from "react-icons/bs";
 import {
   emailSFXAudio,
@@ -44,4 +44,4 @@ function SendEmailIconLink({
   );
 }
 
-export default React.memo(SendEmailIconLink);
+export default memo(SendEmailIconLink);
