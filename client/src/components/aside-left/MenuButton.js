@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import { useContext, useEffect, memo } from "react";
 import "./MenuButton.scss";
 import { Context } from "../Context";
 import {
@@ -9,8 +9,10 @@ import {
   slideOutSFXAudio,
 } from "../../assets/sfx";
 
-const MenuButton = React.memo(({ showSideNav, setShowSideNav, darkMode }) => {
-  slideOutSFXAudio.playbackRate = 1.7;
+const MenuButton = memo(({ showSideNav, setShowSideNav, darkMode }) => {
+  useEffect(() => {
+    slideOutSFXAudio.playbackRate = 1.7;
+  }, []);
   const { state, dispatch } = useContext(Context);
   const sound = state.settings.sound;
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
@@ -32,15 +34,14 @@ const MenuButton = React.memo(({ showSideNav, setShowSideNav, darkMode }) => {
         setTimeout(() => {
           e.target.style.pointerEvents = "";
         }, 800);
+        showSideNav ? setInfo("Menu closed") : setInfo("Menu is now open");
         if (sound) {
           playSFXAudio(navLinkClickSFXAudio);
           if (showSideNav) {
             playSFXAudio(slideOutSFXAudio);
-            setInfo("Menu closed");
             slideOutInSFXAudio.currentTime = 3.6;
           } else {
             playSFXAudio(linkClickSFXAudio);
-            setInfo("Menu is now open");
             try {
               slideOutInSFXAudio.currentTime = 3.6;
               slideOutInSFXAudio.play();
