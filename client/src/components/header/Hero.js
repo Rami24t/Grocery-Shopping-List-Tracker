@@ -14,7 +14,7 @@ function Hero({
     >
       <h1
         className={`${
-          darkMode ? "text-white " : "text-amber-700"
+          darkMode ? "text-white " : "text-red-700"
         } text-2xl font-bold sm:text-3xl`}
       >
         {title} <Icon className="inline  "/>
