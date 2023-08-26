@@ -383,6 +383,7 @@ function App() {
               } bg-opacity-50 fixed top-0 right-0 h-screen w-screen z-40 filter`}
               onClick={() => {
                 setShowSideNav(false);
+                setInfo("");
                 if (sound) playSFXAudio(slideOutSFXAudio);
               }}
             ></div>
