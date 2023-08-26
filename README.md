@@ -1,5 +1,5 @@
 # Grocery-Shopping-List-Tracker
-A fully-responsive webapp to solve the problem of forgetting what you need to buy from the grocery store.
+A fully-responsive webapp (SPA/WPA) to solve the problem of forgetting what you need to buy from the grocery store.
 Try it out for free on [the link](https://grocery-shopping-list-app.vercel.app/) below!
 
 ## Check out the Live Deployment on
