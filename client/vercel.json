@@ -1,7 +1,16 @@
 {
     "headers": [
         {
-            "source": "/src/assets/(.*)",
+            "source": "./src/assets/(.*)",
+            "headers": [
+                {
+                    "key": "Cache-Control",
+                    "value": "max-age=86400"
+                }
+            ]
+        },
+        {
+            "source": "/static/media/(.*)",
             "headers": [
                 {
                     "key": "Cache-Control",
