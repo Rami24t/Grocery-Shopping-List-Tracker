@@ -17,7 +17,7 @@ function InfoModal({ info = "", setInfo, darkMode = true }) {
   return (
     <div
       onClick={close}
-      className={`z-50 p-1 cursor-pointer opacity-80 rounded-sm fixed left-7 bottom-1 ${
+      className={`z-50 p-1 cursor-pointer opacity-80 rounded-sm fixed left-7 bottom-11 ${
         darkMode ? " bg-black text-white" : "bg-white text-black"
       } modal`}
     >
