@@ -32,12 +32,12 @@ import Footer from "./components/footer/Footer";
 import InfoModal from "./components/infoModal/InfoModal";
 
 function App() {
-  // Read from Context
+  // Read sound and info from Context
   const { state, dispatch } = useContext(Context);
   const sound = state?.settings?.sound;
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
 
-  // Dark Mode
+  // Dark Mode useState
   const [darkMode, setDarkMode] = useState(true);
 
   // isMobile - logic replaced by TailwindCSS responsive classes - disabled
@@ -63,9 +63,10 @@ function App() {
     // else setList("1");
 
     // An IIFE(self calling function) that sets the starting light mode color theme according to the time(hour) of the day
+    let timeout;
     (function (startHour, endHour) {
       const currentHour = new Date().getHours();
-      setTimeout(() => {
+      timeout = setTimeout(() => {
         setDarkMode(!(currentHour >= startHour && currentHour <= endHour));
       }, 2500);
     })(8, 16);
@@ -78,6 +79,8 @@ function App() {
 
     // Set the document's title
     document.title = `🛒📋Gr.Shop.List🧾📱`;
+
+    return () => clearTimeout(timeout); // Clear the timeout if the component unmounts
   }, []);
 
   // Multilist feature - temporary disabled
@@ -94,7 +97,7 @@ function App() {
   // useState to show/hide the SideNav menu component
   const [showSideNav, setShowSideNav] = useState(false);
 
-  // Filter --------------------------------------------
+  // Filter ----------------------------------------------------------
   // useState of the filter input value
   const [filter, setFilter] = useState("");
 
@@ -114,7 +117,7 @@ function App() {
       });
     }
   }
-  // --------------------------------------------
+  // --------------------------------------------------------------
 
   // Before implementing useLocalStorage hook - disabled
   // useState of all the 'items' of the list array - get the items from localStorage or use the defaultItems array if localStorage is empty
@@ -303,13 +306,13 @@ function App() {
         ...items,
       ];
       // .sort((a, b) => a.name.localeCompare(b.name));
-      setItems([...updatedItems]);
       if (
         JSON.stringify(
           undoArrayRef.current[undoArrayRef.current.length - 1].sort()
         ) !== JSON.stringify(updatedItems.sort())
       )
-        undoArrayRef.current.push([...updatedItems]);
+        undoArrayRef.current.push([...items]);
+      setItems([...updatedItems]);
       dispatch({ type: "SET_SHOW_ITEMS", payload: { showNeeds: true } });
     }
   }
