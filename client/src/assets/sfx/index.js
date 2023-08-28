@@ -27,11 +27,8 @@ import menuButtonClick from "./ui-click-43196.mp3";
 import editClickSFX from "./uiclick4-79818.mp3";
 import toBottomTopSFX from "./uisound1-79819.mp3";
 import wrongFilterSFX from "./wrong-answer-129254.mp3";
-// import buttonSFX from "./button-8-88355.mp3";
-// import buttonClickSFX from "./click-3-44710.mp3";
 import slideOutSFX from "./door-open-107728.mp3";
-// import inputErrorSFX from "./error-call-to-attention-129258.mp3";
-// import switchSFX from "./switch-93378.mp3";x
+// import buttonSFX from "./button-8-88355.mp3"; import buttonClickSFX from "./click-3-44710.mp3" import inputErrorSFX from "./error-call-to-attention-129258.mp3"; import switchSFX from "./switch-93378.mp3";
 
 const COMMON_SFX_VOLUME = 0.4;
 const addSFXAudio1 = new Audio(addSFX1);
@@ -92,16 +89,9 @@ const resetOrClearFilterSFXAudio = new Audio(resetOrClearFilterSFX);
 resetOrClearFilterSFXAudio.volume = COMMON_SFX_VOLUME;
 const emailSFXAudio = new Audio(emailSFX);
 emailSFXAudio.volume = COMMON_SFX_VOLUME;
-// const buttonSFXAudio = new Audio(buttonSFX);
-// buttonSFXAudio.volume = COMMON_SFX_VOLUME;
-// const buttonClickSFXAudio = new Audio(buttonClickSFX);
-// buttonClickSFXAudio.volume = COMMON_SFX_VOLUME;
 const slideOutSFXAudio = new Audio(slideOutSFX);
 slideOutSFXAudio.volume = COMMON_SFX_VOLUME;
-// const inputErrorSFXAudio = new Audio(inputErrorSFX);
-// inputErrorSFXAudio.volume = COMMON_SFX_VOLUME;
-// const switchSFXAudio = new Audio(switchSFX);
-// switchSFXAudio.volume = COMMON_SFX_VOLUME;
+// const buttonSFXAudio = new Audio(buttonSFX); buttonSFXAudio.volume = COMMON_SFX_VOLUME; const buttonClickSFXAudio = new Audio(buttonClickSFX); buttonClickSFXAudio.volume = COMMON_SFX_VOLUME; const inputErrorSFXAudio = new Audio(inputErrorSFX); inputErrorSFXAudio.volume = COMMON_SFX_VOLUME; const switchSFXAudio = new Audio(switchSFX); switchSFXAudio.volume = COMMON_SFX_VOLUME;
 
 const playSFXAudio = (...audios) => {
   try {
@@ -147,8 +137,5 @@ export {
   resetOrClearFilterSFXAudio,
   emailSFXAudio,
   slideOutSFXAudio,
-  // buttonSFXAudio,
-  // buttonClickSFXAudio,
-  // inputErrorSFXAudio,
-  // switchSFXAudio,
+  // buttonSFXAudio, buttonClickSFXAudio, inputErrorSFXAudio, switchSFXAudio,
 };
