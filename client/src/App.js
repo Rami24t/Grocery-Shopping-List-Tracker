@@ -1,6 +1,7 @@
 import { useState, useRef, useEffect, useContext } from "react";
 import { createPortal } from "react-dom";
 import { Context } from "./components/Context";
+import useLocalStorage from "./hooks/useLocalStorage";
 import { defaultItems } from "./data/defaultItems";
 import {
   addSFXAudio1,
@@ -42,18 +43,24 @@ function App() {
   // isMobile - logic replaced by TailwindCSS responsive classes - disabled
   // const [isMobile, setIsMobile] = useState(false); - disabled
 
+  // Before implementing useLocalStorage hook - disabled
   // MultiLists feature - temporary disabled
-  const [list, setList] = useState(
-    localStorage.getItem("lastVisitedList") || "1"
-  );
+  // const [list, setList] = useState(
+  //   localStorage.getItem("lastVisitedList") || "1"
+  // );
+
+  // After implementing useLocalStorage hook
+  // MultiLists feature - temporary disabled
+  const [list, setList] = useLocalStorage("lastVisitedList", 1);
 
   // First loading useEffect
   useEffect(() => {
     // const MOBILE_MAX_WIDTH = 440; - disabled
     //   setIsMobile(window.innerWidth <= MOBILE_MAX_WIDTH); - disabled
-    if (localStorage.getItem("lastVisitedList"))
-      setList(localStorage.getItem("lastVisitedList"));
-    else setList("1");
+    // Before implementing useLocalStorage hook - disabled
+    // if (localStorage.getItem("lastVisitedList"))
+    //   setList(localStorage.getItem("lastVisitedList"));
+    // else setList("1");
 
     // An IIFE(self calling function) that sets the starting light mode color theme according to the time(hour) of the day
     (function (startHour, endHour) {
@@ -68,13 +75,17 @@ function App() {
     //   dispatch({ type: "TOGGLE_SOUND" });
     //   }, 8000);
     //   return () => clearTimeout(soundOnTimeOut); // Clear the timeout if the component unmounts
+
+    // Set the document's title
+    document.title = `🛒📋Gr.Shop.List🧾📱`;
   }, []);
 
   // Multilist feature - temporary disabled
   function handleChangeList(e) {
     if (e.target.validity.valid) {
       setList(e.target.value);
-      localStorage.setItem("lastVisitedList", e.target.value);
+      // before implementing useLocalStorage hook - disabled
+      // localStorage.setItem("lastVisitedList", e.target.value);
     }
   }
 
@@ -105,19 +116,35 @@ function App() {
   }
   // --------------------------------------------
 
+  // Before implementing useLocalStorage hook - disabled
   // useState of all the 'items' of the list array - get the items from localStorage or use the defaultItems array if localStorage is empty
-  const [items, setItems] = useState(
-    JSON.parse(localStorage.getItem(`list${list}`)) || defaultItems
+  // const [items, setItems] = useState(
+  //   JSON.parse(localStorage.getItem(`list${list}`)) || defaultItems
+  // );
+  // useLocalStorage for all the 'items' of the list array - get the items from localStorage or use the defaultItems array if localStorage is empty
+  const [items, setItems, resetItems] = useLocalStorage(
+    `list${list}`,
+    defaultItems
   );
   const undoArrayRef = useRef([[0]]);
 
+  /*
   // useEffect to load a list of items from persistant localStorage to the items state (when the app first loads or when the list changes)
-  useEffect(() => {
-    if (localStorage.getItem(`list${list}`))
-      setItems(JSON.parse(localStorage.getItem(`list${list}`)));
-    // document.title = `Grocery 🛒 | List ${list}`;
-    document.title = `🛒📋Gr.Shop.List🧾📱`;
-  }, [list]);
+  useEffect(
+    () => {
+      // Before implementing useLocalStorage hook - disabled
+      // if (localStorage.getItem(`list${list}`))
+      //   setItems(JSON.parse(localStorage.getItem(`list${list}`)));
+
+      // document.title = `Grocery 🛒 | List ${list}`;
+      // document.title = `🛒📋Gr.Shop.List🧾📱`;
+    },
+    [
+      // MultiLists feature - temporary disabled
+      // list
+    ]
+  );
+  */
 
   // const handleSave = useCallback(
   //   (updatedItems) => {
@@ -128,10 +155,13 @@ function App() {
   // Saves the list of all items to localStorage
 
   // Main Section --------------------------------------------
+
+  // before implementing useLocalStorage hook - disabled
   // saves the list of items to persistent storage localStorage
-  function handleSave(updatedItems) {
-    localStorage.setItem(`list${list}`, JSON.stringify(updatedItems || items));
-  }
+  // function handleSave(updatedItems) {
+  //   setItems(updatedItems || items);
+  // }
+
   // const handleDelete = useCallback(
   //   (item) => {
   //     setItems((prevItems) => {
@@ -265,12 +295,12 @@ function App() {
       sound && playSFXAudio(addSFXAudio1);
       setInfo(`Item ${value.slice(0, 10)}... added`);
       const updatedItems = [
-        ...items,
         {
           id: "RAGSL-" + (items.length + 1) + Date.now(),
           name: value,
           need: true,
         },
+        ...items,
       ];
       // .sort((a, b) => a.name.localeCompare(b.name));
       setItems([...updatedItems]);
@@ -286,8 +316,12 @@ function App() {
 
   // resets the items state in the current list to the default list, saves, clears the filter, hides the add item form, shows the items (needs and haves) lists and plays the relevant SFX audio(if the sound is on) and shows an info message notification
   function handleReset() {
-    setItems(defaultItems);
-    handleSave(defaultItems);
+    // before implementing useLocalStorage hook - disabled
+    // setItems(defaultItems);
+    // handleSave(defaultItems);
+    // after implementing useLocalStorage hook
+    resetItems(defaultItems);
+
     setFilter("");
     setShowAddItem(false);
     // state.setShowItems(true,true);
@@ -315,7 +349,8 @@ function App() {
     )
       undoArrayRef.current.push([...items]);
     setItems([]);
-    handleSave([]);
+    // before implementing useLocalStorage hook - disabled
+    // handleSave([]);
     setFilter("");
     sound &&
       playSFXAudio(
@@ -326,6 +361,7 @@ function App() {
     setInfo("List cleared");
   }
 
+  /*
   // auto saves the list of items to to persistent storage(localStorage) after changes have been made if items exist and are not not the same as default ones.
   useEffect(() => {
     if (
@@ -336,6 +372,7 @@ function App() {
     handleSave();
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [items]);
+  */
 
   // use the getLists function to get the needs and haves lists given the items array state.
   const { needs, haves } = getLists(items);
