@@ -297,9 +297,9 @@ function App() {
     handleChangeFilter("");
     // if the item does not exist already and is not an empty string, add item to the list and show and sort the list alphabetically and make sure the needs list is shown - play the relevant SFX audio (if sound is on) and show an info message notification.
     if (value === "" || items.find((i) => i.name === value)) {
-      if (sound && value !== "") {
-        playSFXAudio(addDeniedSFXAudio);
-        setInfo(`Item ${value.slice(0, 10)}... already exists`);
+      if (value !== "") {
+        sound && playSFXAudio(addDeniedSFXAudio);
+        setInfo(`Item ${value.slice(0, 10)} already exists!`);
       }
       return;
     } else {
