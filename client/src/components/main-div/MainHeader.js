@@ -1,6 +1,6 @@
 import { memo } from "react";
 import AddItemsButton from "./AddItemsButton";
-import ResetButton  from "./ResetButton";
+import ResetButton from "./ResetButton";
 
 function MainHeader({
   showAddItem,
@@ -10,11 +10,11 @@ function MainHeader({
   handleChangeList,
   handleReset,
   handleClear,
-  darkMode
+  darkMode,
 }) {
   return (
     <div className="flex flex-wrap items-center justify-around py-2 mb-2 gap-3">
-      <h2 className="text-center text-xl font-semibold ">
+      <h2 className="text-center text-xl font-semibold select-none">
         Items in List
         {/* <input
           className={`"inline-block m-2 p-1 w-10 text-xl font-semibold  ${darkMode?'placeholder-gray-400 bg-gray-700 border-gray-600  text-white':' text-gray-900'}`}
@@ -30,12 +30,17 @@ function MainHeader({
           size={1}
         /> */}
       </h2>
-      <ResetButton handleReset={handleReset} handleClear={handleClear} darkMode={darkMode} items={items} />
+      <ResetButton
+        handleReset={handleReset}
+        handleClear={handleClear}
+        darkMode={darkMode}
+        items={items}
+      />
       <AddItemsButton
         showAddItem={showAddItem}
         setShowAddItem={setShowAddItem}
         listIsEmpty={!items.length}
-        darkMode={darkMode} 
+        darkMode={darkMode}
       />
     </div>
   );

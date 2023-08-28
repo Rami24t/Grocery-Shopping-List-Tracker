@@ -1,4 +1,4 @@
-import  { useContext, memo } from "react";
+import { useContext, memo } from "react";
 import FooterListItem from "./FooterListItem";
 import { navLinkClickSFXAudio, playSFXAudio } from "../../assets/sfx";
 import { Context } from "../Context";
@@ -18,7 +18,7 @@ function FooterList({
       <h2
         className={` ${
           darkMode ? "text-white" : "text-red-900"
-        } mb-6 text-sm font-semibold uppercase `}
+        } mb-6 text-sm font-semibold uppercase select-none`}
       >
         {title}
       </h2>
