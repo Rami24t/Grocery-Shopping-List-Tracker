@@ -1,4 +1,4 @@
-import  { useState, useContext, memo } from "react";
+import { useState, useContext, memo, useEffect } from "react";
 import {
   playSFXAudio,
   correctOrAddSFXAudio,
@@ -17,6 +17,10 @@ function ItemNameInput({ item, updateItem, darkMode }) {
 
   const needed = item.need;
   const [name, setName] = useState(item.name);
+  useEffect(() => {
+    setName(item.name);
+  }, [item.name]);
+
   const handleChange = (e) => {
     if (sound && e.target.value.length > name.length) {
       playSFXAudio(typeSFXAudio);

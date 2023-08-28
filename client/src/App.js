@@ -179,10 +179,10 @@ function App() {
   // deletes an item from the list
   function handleDelete(item) {
     if (!items.find((i) => i.id === item.id)) return;
+    const lastUndo = undoArrayRef.current[undoArrayRef.current.length - 1];
     if (
-      JSON.stringify(
-        undoArrayRef.current[undoArrayRef.current.length - 1].sort()
-      ) !== JSON.stringify(items.sort())
+      !Array.isArray(lastUndo) ||
+      JSON.stringify(lastUndo.sort()) !== JSON.stringify(items.sort())
     )
       undoArrayRef.current.push([...items]);
     // play relevant SFX audio if sound is on
@@ -231,6 +231,13 @@ function App() {
 
   // toggles an item's need property (true/false) and updates the items array state
   function handleToggle(item) {
+    // if (!items.find((i) => i.id === item.id)) return;
+    const lastUndo = undoArrayRef.current[undoArrayRef.current.length - 1];
+    if (
+      Array.isArray(lastUndo) ||
+      JSON.stringify(item) !== JSON.stringify(lastUndo)
+    )
+      undoArrayRef.current.push({ ...item });
     // play relevant SFX audio if sound is on
     if (sound)
       if (item.need) {
@@ -276,7 +283,8 @@ function App() {
   // );
 
   // updates an item's properties given an item and an update object and updates the items array state to trigger a rerender
-  function updateItem(item, update) {
+  function updateItem(item, update, isUndo = false) {
+    !isUndo && undoArrayRef.current.push({ ...item });
     for (let key in update) {
       item[key] = update[key];
     }
@@ -306,10 +314,10 @@ function App() {
         ...items,
       ];
       // .sort((a, b) => a.name.localeCompare(b.name));
+      const lastUndo = undoArrayRef.current[undoArrayRef.current.length - 1];
       if (
-        JSON.stringify(
-          undoArrayRef.current[undoArrayRef.current.length - 1].sort()
-        ) !== JSON.stringify(updatedItems.sort())
+        !Array.isArray(lastUndo) ||
+        JSON.stringify(lastUndo.sort()) !== JSON.stringify(updatedItems.sort())
       )
         undoArrayRef.current.push([...items]);
       setItems([...updatedItems]);
@@ -335,20 +343,46 @@ function App() {
     sound && playSFXAudio(resetSFXAudio);
     setInfo("List is reset");
   }
+
+  // undoes the last change made to the list of items
   function handleUndo() {
-    if (undoArrayRef.current.length <= 1) return;
-    setItems(undoArrayRef.current[undoArrayRef.current.length - 1]);
-    undoArrayRef.current.length = undoArrayRef.current.length - 1;
+    const undoArrayLength = undoArrayRef.current.length;
+    if (undoArrayLength <= 1) return;
+    let info = "";
+    const lastUndo = undoArrayRef.current[undoArrayLength - 1];
+    if (!Array.isArray(lastUndo)) {
+      // undo update
+      const foundItem = items[items.findIndex((el) => el.id === lastUndo.id)];
+      info =
+        foundItem.name !== lastUndo.name
+          ? "Undo update"
+          : lastUndo.need
+          ? "Undo check"
+          : "Undo uncheck";
+      updateItem(foundItem, { ...lastUndo }, true);
+    } else {
+      // undo delete/add/reset/clear
+      info =
+        items.length === 0
+          ? "Undo clear"
+          : items === defaultItems
+          ? "Undo clear and reset"
+          : items.length < lastUndo.length
+          ? "Undo delete"
+          : "Undo add";
+      setItems(lastUndo);
+    }
+    undoArrayRef.current.length = undoArrayLength - 1;
+    setInfo(info);
     sound && playSFXAudio(menuButtonClickAudio);
-    setInfo("Undo");
   }
 
   // clears the items state in the current list, saves, clears the filter, plays the relevant SFX audio(if sound is on) and shows an info message notification
   function handleClear() {
+    const lastUndo = undoArrayRef.current[undoArrayRef.current.length - 1];
     if (
-      JSON.stringify(
-        undoArrayRef.current[undoArrayRef.current.length - 1].sort()
-      ) !== JSON.stringify(items.sort())
+      !Array.isArray(lastUndo) ||
+      JSON.stringify(lastUndo.sort()) !== JSON.stringify(items.sort())
     )
       undoArrayRef.current.push([...items]);
     setItems([]);
