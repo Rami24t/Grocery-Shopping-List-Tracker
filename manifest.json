@@ -6,7 +6,8 @@
     {
       "src": "maskable_icon_x48.png",
       "sizes": "48x48 32x32 24x24 16x16",
-      "type": "image/png"
+      "type": "image/png",
+      "purpose": "any maskable"
     },
     {
       "src": "maskable_icon_x72.png",
