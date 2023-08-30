@@ -44,7 +44,14 @@ const Sidenav = ({
     }
   }
   function handleClick(e) {
-    setInfo(e.target.innerText);
+    setInfo(
+      e.target.nodeName === "LI" || e.target.nodeName === "A"
+        ? e.target.innerText
+        : e.target.parentNode.nodeName === "LI" ||
+          e.target.parentNode.nodeName === "A"
+        ? e.target.parentNode.innerText
+        : null
+    );
     sound && playSFXAudio(navLinkClickSFXAudio);
   }
 
@@ -68,8 +75,8 @@ const Sidenav = ({
     { title: "Edit List", href: "#list", Icon: SvgEditList },
     { title: "About", href: "#footer", Icon: SvgPerson },
     {
-      title: "Settings",
-      href: "#settings",
+      title: "options",
+      href: "#language-changed",
       Icon: SvgSettings,
       LIBadge: ProBadge,
       margin: "ml-10",
