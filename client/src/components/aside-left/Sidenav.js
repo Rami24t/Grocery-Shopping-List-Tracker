@@ -45,11 +45,10 @@ const Sidenav = ({
   }
   function handleClick(e) {
     setInfo(
-      e.target.nodeName === "LI" || e.target.nodeName === "A"
-        ? e.target.innerText
-        : e.target.parentNode.nodeName === "LI" ||
-          e.target.parentNode.nodeName === "A"
-        ? e.target.parentNode.innerText
+      e.target.nodeName === "A"
+        ? e.target.children[1].innerText
+        : e.target.parentNode.nodeName === "A"
+        ? e.target.parentNode.children[1].innerText
         : null
     );
     sound && playSFXAudio(navLinkClickSFXAudio);
@@ -75,8 +74,8 @@ const Sidenav = ({
     { title: "Edit List", href: "#list", Icon: SvgEditList },
     { title: "About", href: "#footer", Icon: SvgPerson },
     {
-      title: "options",
-      href: "#language-changed",
+      title: "Extras",
+      href: "#extras",
       Icon: SvgSettings,
       LIBadge: ProBadge,
       margin: "ml-10",
@@ -108,6 +107,7 @@ ${
               Icon={link.Icon}
               LIBadge={link.LIBadge}
               items={link.items}
+              badgeText={link.languageText}
               margin={link.margin}
               onClick={link.onClick}
               darkMode={darkMode}
