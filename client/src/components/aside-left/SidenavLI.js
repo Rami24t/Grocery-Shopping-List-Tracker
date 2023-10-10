@@ -8,6 +8,7 @@ function SideNavLI({
   Icon,
   LIBadge,
   items,
+  badgeText,
   margin,
 }) {
   return (
@@ -15,7 +16,7 @@ function SideNavLI({
       <a
         title={title}
         aria-label={title}
-        onClick={onClick && onClick}
+        onClick={onClick || (() => {})}
         href={href}
         className={`${
           darkMode
@@ -27,7 +28,7 @@ function SideNavLI({
         <span className={`${margin} flex-1 sm:ml-3 whitespace-nowrap`}>
           {title}
         </span>
-        {LIBadge && <LIBadge darkMode={darkMode} items={items} />}
+        {LIBadge && <LIBadge darkMode={darkMode} items={items} text={badgeText} />}
       </a>
     </li>
   );
