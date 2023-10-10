@@ -2,15 +2,15 @@ import { memo } from "react";
 const badgesCommonStyle =
   "px-2 inline-flex items-center justify-center text-sm font-medium rounded-full px-2 inline-flex items-center justify-center text-sm font-medium rounded-full";
 
-export const ProBadge = memo(({ darkMode }) => (
+export const LanguageBadge = memo(({ text = "DE", darkMode }) => (
   <span
     className={` ${
       darkMode
-        ? "bg-gray-800 hover:bg-gray-600 focus:bg-gray-600 text-gray-300"
-        : "text-amber-800 bg-amber-200 "
-    } sm:ml-3 pb-[1px] ${badgesCommonStyle}}`}
+        ? "text-gray-300 bg-gray-700 hover:bg-gray-600 focus:bg-gray-600"
+        : "text-orange-700 bg-yellow-200 hover:bg-amber-200 focus:bg-amber-200"
+    } sm:ml-3 ${badgesCommonStyle}}`}
   >
-    Pro
+    {text}
   </span>
 ));
 
