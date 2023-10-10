@@ -1,5 +1,6 @@
-import { memo } from "react";
+import { memo, useContext } from "react";
 import { ShoppingBagSvg, ShoppingBagFillSvg } from "./ShoppingBagSvgs";
+import { Context } from "../Context";
 
 // Abstract badge component for displaying the info badge
 const InfoBadge = ({ title, value, icon, darkMode, style }) => {
@@ -73,6 +74,10 @@ const CompletionPercentageBadge = ({ haves, items, darkMode }) => {
 };
 
 function InfoWidget({ haves, needs, darkMode, handleClick }) {
+  const { state } = useContext(Context);
+  const language = state.settings.language;
+  const rtlAlignment = language === 2;
+
   const items = haves + needs;
   const both = needs && haves;
 
@@ -83,13 +88,17 @@ function InfoWidget({ haves, needs, darkMode, handleClick }) {
   const colorIncomplete = darkMode ? "text-orange-100" : "text-orange-800";
 
   return (
-    <div className="app-header-info-widget mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center">
+    <div
+      className={`app-header-info-widget mt-4 flex flex-col gap-4 sm:mt-0 sm:flex-row sm:items-center`}
+    >
       <div
         onClick={handleClick}
         title="Items Info Widget"
         className={`app-header-info-widget-container ${
           darkMode ? "text-white bg-gray-700" : "text-gray-800 bg-white"
-        } bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-5 h-11 text-sm font-medium transition flex items-center justify-center`}
+        } bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-4 h-11 text-sm font-medium transition flex items-center justify-center ${
+          rtlAlignment ? "flex-row-reverse" : "flex-row"
+        }`}
       >
         {!showNeedsBadge ? (
           <ShoppingBagFillSvg className={`${colorComplete} inline w-4 h-4`} />
@@ -97,9 +106,8 @@ function InfoWidget({ haves, needs, darkMode, handleClick }) {
           <ShoppingBagSvg className={`${colorIncomplete} inline w-4 h-4`} />
         )}
         <span
-          className={`relative ml-3 cursor-pointer ${
-            darkMode ? "filter brightness-75 " : ""
-          }`}
+          className={`relative cursor-pointer ${rtlAlignment ? "mr-2" : "ml-2"}
+           ${darkMode ? "filter brightness-75 " : ""}`}
         >
           📋
         </span>
