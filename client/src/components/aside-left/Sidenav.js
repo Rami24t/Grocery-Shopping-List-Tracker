@@ -8,7 +8,7 @@ import {
   SvgPerson,
   SvgSettings,
 } from "./SidenavSvgs";
-import { ItemsBadge, ProBadge } from "./LIBadges";
+import { ItemsBadge, LanguageBadge } from "./Badges";
 import {
   slideOutInSFXAudio,
   navLinkClickSFXAudio,
@@ -26,6 +26,7 @@ const Sidenav = ({
   const { state, dispatch } = useContext(Context);
   const sound = state.settings.sound;
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
+  const languageText = state.LANGUAGES[state.settings.language];
 
   function hideMobileSidenav(e) {
     e.stopPropagation();
@@ -74,11 +75,17 @@ const Sidenav = ({
     { title: "Edit List", href: "#list", Icon: SvgEditList },
     { title: "About", href: "#footer", Icon: SvgPerson },
     {
-      title: "Extras",
-      href: "#extras",
+      title: "Language",
+      href: "#Lang=" + languageText,
       Icon: SvgSettings,
-      LIBadge: ProBadge,
+      LIBadge: LanguageBadge,
+      languageText: languageText,
       margin: "ml-10",
+      onClick: () => {
+        dispatch({
+          type: "CHANGE_LANGUAGE",
+        });
+      },
     },
   ];
 
