@@ -1,16 +1,19 @@
-import  { useContext, memo } from "react";
+import { useContext, memo } from "react";
 import InfoWidget from "./InfoWidget";
 import Hero from "./Hero";
-import quote from "../../data/randomQuote";
-import ToggleDarkModeButton from "./ToggleDarkModeButton";
-import ToggleSoundButton from "./ToggleSoundButton";
+import ToggleDarkModeButton from "./DarkModeButton";
+import ToggleSoundButton from "./SoundButton";
 import { playSFXAudio, navLinkClickSFXAudio } from "../../assets/sfx";
 import { Context } from "../Context";
 import { TiShoppingCart } from "react-icons/ti";
+import { headerText } from "../../data/text";
+import LanguageButton from "./LanguageButton";
 
 function Header({ list, needs, haves, darkMode, setDarkMode }) {
   const { state, dispatch } = useContext(Context);
   const { sound } = state.settings;
+  const { language } = state.settings;
+  const rtlAlignment = language === 2;
 
   const toggleDarkModeClick = (e) => {
     dispatch({
@@ -33,6 +36,7 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
       payload: `Sound is now ${sound ? "muted" : "unmuted"}`,
     });
   };
+  const changeLanguage = () => dispatch({ type: "CHANGE_LANGUAGE" });
   const icon = TiShoppingCart;
   return (
     <header
@@ -42,13 +46,16 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
     >
       <div
         className={`
-    app-header-container mx-auto max-w-screen-xl px-2 py-4 sm:px-3 sm:py-6 pb-6 sm:pb-9 lg:px-8 md:flex sm:items-center sm:justify-between`}
+    app-header-container mx-auto max-w-screen-xl px-2 py-4 sm:px-3 sm:py-6 pb-6 sm:pb-9 lg:px-8 md:flex sm:items-center sm:justify-between
+    ${rtlAlignment ? "md:flex-row-reverse" : "md:flex-row"}    
+    `}
       >
         <Hero
-          title="Grocery Shopping List"
+          title={headerText.TITLES[language]}
           Icon={icon}
           darkMode={darkMode}
-          subtitle={quote}
+          subtitle={headerText.SUBTITLES[language]}
+          rtlAlignment={language === 2}
         />
         <InfoWidget
           needs={needs}
@@ -56,6 +63,11 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
           darkMode={darkMode}
           setDarkMode={setDarkMode}
           handleClick={toggleDarkModeClick}
+        />
+        <LanguageButton
+          text={state.LANGUAGES[(language + 1) % state.LANGUAGES.length]}
+          darkMode={darkMode}
+          handleClick={changeLanguage}
         />
         <ToggleSoundButton
           handleClick={toggleSoundClick}
