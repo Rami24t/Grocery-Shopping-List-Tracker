@@ -1,14 +1,20 @@
-import { memo } from "react";
+import { memo, useContext } from "react";
 import { AiTwotoneSound } from "react-icons/ai";
+import { Context } from "../Context";
 
 function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
+  const { state } = useContext(Context);
+  const { language } = state.settings;
+  const rtlAlignment = language === 2;
+
   return (
     <button
       onClick={handleClick}
       title={sound ? "Mute" : "Unmute"}
       aria-label="Mute/Unmute"
       type="button"
-      className={`group -mt-10 md:-mt-11 float-left ml-4 px-1 cursor-pointer flex items-center w-9 h-9 justify-center text-xs font-medium border rounded-lg toggle-dark-state-example focus:z-10 focus:ring-2 focus:outline-none 
+      className={`group -mt-10 md:-mt-11 float-left px-1 cursor-pointer flex items-center w-9 h-9 justify-center text-xs font-medium border rounded-lg toggle-dark-state-example focus:z-10 focus:ring-2 focus:outline-none 
+      ${rtlAlignment ? "mr-5" : "ml-4"}
   ${
     !darkMode
       ? `hover:bg-gray-100 hover:text-blue-800 focus:bg-gray-100 focus:text-blue-800 bg-gray-100 border-gray-200 focus:ring-gray-300 bg-opacity-50 ${
