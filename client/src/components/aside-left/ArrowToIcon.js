@@ -6,9 +6,12 @@ import {
   playSFXAudio,
 } from "../../assets/sfx";
 import { Context } from "../Context";
+import { arrowToText } from "../../data/text";
 
 const ArrowToIcon = memo(({ toBottom, darkMode, shown }) => {
   const { state } = useContext(Context);
+  const { language } = state.settings;
+
   function handleClick(e) {
     window.scrollTo({
       top: toBottom ? window.document.body.clientHeight : 0,
@@ -28,8 +31,8 @@ const ArrowToIcon = memo(({ toBottom, darkMode, shown }) => {
 
   return (
     <button
-      title={toBottom ? "Go To Bottom" : "Back To Top"}
-      aria-label={toBottom ? "Scroll To Bottom" : "Scroll To Top"}
+      title={toBottom ? arrowToText.TO_BOTTOM[language] : arrowToText.TO_TOP[language]}
+      aria-label={toBottom ? arrowToText.TO_BOTTOM[language] : arrowToText.TO_TOP[language]}
       onClick={handleClick}
       className={`text-2xl rounded-e-2xl  bg-opacity-80 flex items-center justify-center fixed z-40  ${
         shown ? "-left-0.5" : "-left-8"
