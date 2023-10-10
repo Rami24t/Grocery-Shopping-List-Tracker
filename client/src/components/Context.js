@@ -2,7 +2,7 @@ import { createContext, useReducer } from "react";
 
 export const Context = createContext({});
 
-export function ContextProvider({ children }) {
+function ContextProvider({ children }) {
   const reducer = (state, action) => {
     switch (action.type) {
       case "SET_SHOW_ITEMS":
@@ -36,18 +36,32 @@ export function ContextProvider({ children }) {
           ...state,
           info: action.payload,
         };
+      case "CHANGE_LANGUAGE":
+        return {
+          ...state,
+          settings: {
+            ...state?.settings,
+            language: (state.settings.language + 1) % LANGUAGES_LENGTH,
+          },
+        };
+
       default:
         return state;
     }
   };
-  const [state, dispatch] = useReducer(reducer, {
+
+  const LANGUAGES_LENGTH = 3;
+  const initialState = {
+    LANGUAGES: ["EN", "DE", "AR"],
     showNeeds: true,
     showHaves: true,
     info: "",
     settings: {
       sound: false,
+      language: 0,
     },
-  });
+  };
+  const [state, dispatch] = useReducer(reducer, initialState);
 
   return (
     <Context.Provider value={{ state, dispatch }}>{children}</Context.Provider>
