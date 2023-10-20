@@ -9,16 +9,8 @@ export const headerText = {
     "قَاْئِمَةُ التَّسَوُّق الإلكِتْرُونِيَّة",
   ],
   SUBTITLES: [randomQuote[0], randomQuote[1], randomQuote[2]],
-  DARK_ON: [
-    "Theme is now dark",
-    "Dunkler Modus an",
-    "الوضع الدّاكن",
-  ],
-  DARK_OFF: [
-    "Theme is now bright",
-    "Heller Modus an",
-    "الوضع السّاطع",
-  ],
+  DARK_ON: ["Theme is now dark", "Dunkler Modus an", "الوضع الدّاكن"],
+  DARK_OFF: ["Theme is now bright", "Heller Modus an", "الوضع السّاطع"],
   SOUND_ON: ["Sound is now on", "Ton an", "إلغاء كتم الصّوت"],
   SOUND_OFF: ["Sound is now muted", "Ton aus", "كتم الصّوت"],
 };
@@ -31,7 +23,11 @@ export const arrowToText = {
 export const darkModeButtonText = {
   TITLE_DARK: ["To Bright Mode", "Zum Helleren Modus", "إلى الوضع السّاطع"],
   TITLE_LIGHT: ["To Dark Mode", "Zum Dunkleren Modus", "إلى الوضع الدّاكن"],
-  LABEL: ["Toggle dark/light modes", "Wechseln Sie zwischen hell und dunkel", "تبديل الوضع الدّاكن والسّاطع"],
+  LABEL: [
+    "Toggle dark/light modes",
+    "Wechseln Sie zwischen hell und dunkel",
+    "تبديل الوضع الدّاكن والسّاطع",
+  ],
 };
 
 export const soundButtonText = {
@@ -41,6 +37,25 @@ export const soundButtonText = {
 };
 
 export const listText = {
-  TITLE: ["Click to show/hide items", "Klicken Sie, um Elemente anzuzeigen/auszublenden", "انقر لإظهار/إخفاء العناصر"],
-  LABEL: ["Show/Hide items", "Elemente anzeigen/ausblenden", "إظهار/إخفاء العناصر"],
+  TITLE: [
+    "Click to show/hide items",
+    "Klicken Sie, um Elemente anzuzeigen/auszublenden",
+    "انقر لإظهار/إخفاء العناصر",
+  ],
+  LABEL: [
+    "Show/Hide items",
+    "Elemente anzeigen/ausblenden",
+    "إظهار/إخفاء العناصر",
+  ],
+};
+
+export const listsText = {
+  EMPTY_TITLE: ["Empty list!", "Leere Liste!", "قَاْئِمَةُ فَارِغَة!"],
+  EMPTY_TEXT: [
+    "Add some items to your list.",
+    "Fügen Sie einige Elemente zu Ihrer Liste hinzu.",
+    "أضف بعض العناصر إلى قائمتك.",
+  ],
+  NEEDS_TITLE: ["Need", "Brauche", "أحتاج"],
+  HAVES_TITLE: ["Have", "Habe", "لدي"],
 };
