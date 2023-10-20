@@ -7,13 +7,21 @@ import {
   typeSFXAudio,
 } from "../../../assets/sfx";
 import { Context } from "../../Context";
+import { itemNameText } from "../../../data/text";
 
 function ItemNameInput({ item, updateItem, darkMode }) {
   const { state, dispatch } = useContext(Context);
-  const { sound } = state.settings;
+  const { sound, language } = state.settings;
+  const rtlAlignment = language === 2;
   const setInfo = (info) => {
     dispatch({ type: "SET_INFO", payload: info });
   };
+
+  const title = itemNameText.TITLE[language];
+  const infoEditCancelled = itemNameText.INFO_EDIT_CANCELLED[language];
+  const infoEditing = itemNameText.INFO_EDITING[language];
+  const infoItemUpdated = itemNameText.INFO_ITEM_UPDATED[language];
+  const placeholder = itemNameText.PLACEHOLDER[language];
 
   const needed = item.need;
   const [name, setName] = useState(item.name);
@@ -35,22 +43,26 @@ function ItemNameInput({ item, updateItem, darkMode }) {
     if (value === "") {
       e.target.value = item.name;
       setName(item.name);
-      setInfo("Edit cancelled");
+      // setInfo("Edit cancelled");
+      setInfo(infoEditCancelled);
       return;
     }
     if (item.name === value) {
-      setInfo("Edit cancelled");
+      // setInfo("Edit cancelled");
+      setInfo(infoEditCancelled);
       return;
     }
     setName(value);
     updateItem(item, { name: value });
     sound && playSFXAudio(correctOrAddSFXAudio);
-    setInfo("Item updated");
+    // setInfo("Item updated");
+    setInfo(infoItemUpdated);
   };
 
   const handleFocus = (e) => {
     sound && playSFXAudio(editClickSFXAudio, writingSFXAudio);
-    setInfo(`Editing ${item.name.match(/.*?[\w]+/)}...`);
+    // setInfo(`Editing ${item.name.match(/.*?[\w]+/)}...`);
+    setInfo(`${!rtlAlignment ? infoEditing : ''} ${item.name.match(/.*?[\w]+/)}... ${rtlAlignment ? infoEditing : ''}`);
   };
 
   const handleBlur = (e) => {
@@ -84,7 +96,8 @@ function ItemNameInput({ item, updateItem, darkMode }) {
           ? "text-gray-50 contrast-[111%] hover:contrast-100 focus:contrast-100 bg-blend-darken disabled:bg-blend-multiply border-gray-700 placeholder-gray-400"
           : "text-white contrast-[105%] hover:contrast-125 focus:contrast-125 bg-blend-multiply disabled:bg-blend-darken border-gray-300 placeholder-gray-500"
       } ${!needed ? "line-through" : ""}`}
-      title="Item Name"
+      title={title}
+      placeholder={placeholder}
       style={{
         backgroundColor: `rgba(0,0,19,0.${darkMode ? "7" : "4"})`,
         backgroundImage: `url("https://source.unsplash.com/random/200x40?${name})"`,

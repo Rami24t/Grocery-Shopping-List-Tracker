@@ -59,3 +59,23 @@ export const listsText = {
   NEEDS_TITLE: ["Need", "Brauche", "أحتاج"],
   HAVES_TITLE: ["Have", "Habe", "لدي"],
 };
+
+export const itemNameText = {
+  TITLE: ["Item Name", "Artikelname", "اسم العنصر"],
+  INFO_EDIT_CANCELLED: [
+    "Edit cancelled",
+    "Bearbeitung abgebrochen",
+    "تمّ إلغاء التّعديل",
+  ],
+  INFO_EDITING: [
+    "Editing",
+    "Bearbeiten",
+    "تعديل",
+  ],
+  INFO_ITEM_UPDATED: [
+    "Item updated",
+    "Artikel aktualisiert",
+    "تمّ تحديث العنصر",
+  ],
+  PLACEHOLDER: ["Enter item name", "Geben Sie den Artikelnamen ein", "أدخل اسم العنصر"],
+};
