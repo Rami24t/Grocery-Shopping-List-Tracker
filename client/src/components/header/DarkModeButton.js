@@ -1,18 +1,20 @@
 import { memo, useContext } from "react";
 import { Context } from "../Context";
-import { headerText } from "../../data/text";
+import { darkModeButtonText } from "../../data/text";
 
 function ToggleDarkModeButton({ darkMode, handleClick }) {
   const { state } = useContext(Context);
   const { language } = state.settings;
+  const title = darkMode ? darkModeButtonText.TITLE_DARK[language] : darkModeButtonText.TITLE_LIGHT[language];
+  const arialLabel = darkModeButtonText.LABEL[language];
   // const rtlAlignment = language === 2;
 
   return (
     <button
       onClick={handleClick}
       type="button"
-      title={darkMode ? "Bright Mode" : "Dark Mode"}
-      aria-label="Toggle dark mode"
+      title={title}
+      aria-label={arialLabel}
       className={`group -mt-11 float-right ml-1 px-1 cursor-pointer flex items-center w-9 h-9 justify-center text-xs font-medium border rounded-lg toggle-dark-state-example focus:z-10 focus:ring-2 focus:outline-none 
   ${
     !darkMode
@@ -45,14 +47,14 @@ function ToggleDarkModeButton({ darkMode, handleClick }) {
         Toggle dark/light mode
       </span>
       <label
-        aria-label="Toggle dark mode"
+        aria-label={arialLabel}
         className="relative ml-1 inline-flex items-center cursor-pointer"
       >
         <input
           type="checkbox"
           checked={!darkMode}
           readOnly={true}
-          aria-label="Toggle dark mode"
+          aria-label={arialLabel}
           className="m-0 p-0 sr-only peer"
           name="toggle-dark-mode"
         />

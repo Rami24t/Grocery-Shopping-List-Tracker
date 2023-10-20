@@ -27,3 +27,9 @@ export const arrowToText = {
   TO_TOP: ["Back To Top", "Zurück Nach Oben", "إلى فوق"],
   TO_BOTTOM: ["Go To Bottom", "Nach Unten", "إلى تحت"],
 };
+
+export const darkModeButtonText = {
+  TITLE_DARK: ["To Bright Mode", "Zum Helleren Modus", "إلى الوضع السّاطع"],
+  TITLE_LIGHT: ["To Dark Mode", "Zum Dunkleren Modus", "إلى الوضع الدّاكن"],
+  LABEL: ["Toggle dark/light modes", "Wechseln Sie zwischen hell und dunkel", "تبديل الوضع الدّاكن والسّاطع"],
+};
