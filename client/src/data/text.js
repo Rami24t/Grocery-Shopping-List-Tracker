@@ -12,12 +12,12 @@ export const headerText = {
   DARK_ON: [
     "Theme is now dark",
     "Dunkler Modus an",
-    "الوضع الدّاكن قيد التّشغيل",
+    "الوضع الدّاكن",
   ],
   DARK_OFF: [
     "Theme is now bright",
     "Heller Modus an",
-    "الوضع السّاطع قيد التّشغيل",
+    "الوضع السّاطع",
   ],
   SOUND_ON: ["Sound is now on", "Ton an", "إلغاء كتم الصّوت"],
   SOUND_OFF: ["Sound is now muted", "Ton aus", "كتم الصّوت"],
