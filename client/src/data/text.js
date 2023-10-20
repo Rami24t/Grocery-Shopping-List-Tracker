@@ -39,3 +39,8 @@ export const soundButtonText = {
   TITLE_OFF: ["Unmute", "Ton An", "إلغاء كتم الصّوت"],
   LABEL: ["Mute/Unmute", "Ton An/Aus", "كتم الصّوت/إلغاء كتم الصّوت"],
 };
+
+export const listText = {
+  TITLE: ["Click to show/hide items", "Klicken Sie, um Elemente anzuzeigen/auszublenden", "انقر لإظهار/إخفاء العناصر"],
+  LABEL: ["Show/Hide items", "Elemente anzeigen/ausblenden", "إظهار/إخفاء العناصر"],
+};
