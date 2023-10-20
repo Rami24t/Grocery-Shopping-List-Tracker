@@ -33,3 +33,9 @@ export const darkModeButtonText = {
   TITLE_LIGHT: ["To Dark Mode", "Zum Dunkleren Modus", "إلى الوضع الدّاكن"],
   LABEL: ["Toggle dark/light modes", "Wechseln Sie zwischen hell und dunkel", "تبديل الوضع الدّاكن والسّاطع"],
 };
+
+export const soundButtonText = {
+  TITLE_ON: ["Mute", "Ton Aus", "كتم الصّوت"],
+  TITLE_OFF: ["Unmute", "Ton An", "إلغاء كتم الصّوت"],
+  LABEL: ["Mute/Unmute", "Ton An/Aus", "كتم الصّوت/إلغاء كتم الصّوت"],
+};

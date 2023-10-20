@@ -1,17 +1,22 @@
 import { memo, useContext } from "react";
 import { AiTwotoneSound } from "react-icons/ai";
 import { Context } from "../Context";
+import { soundButtonText } from "../../data/text";
 
 function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
   const { state } = useContext(Context);
   const { language } = state.settings;
   const rtlAlignment = language === 2;
+  const arialLabel = soundButtonText.LABEL[language];
+  const title = sound ? soundButtonText.TITLE_ON[language] : soundButtonText.TITLE_OFF[language];
 
   return (
     <button
       onClick={handleClick}
-      title={sound ? "Mute" : "Unmute"}
-      aria-label="Mute/Unmute"
+      // title={sound ? "Mute" : "Unmute"}
+      title={title}
+      // aria-label="Mute/Unmute"
+      aria-label={arialLabel}
       type="button"
       className={`group -mt-10 md:-mt-11 float-left px-1 cursor-pointer flex items-center w-9 h-9 justify-center text-xs font-medium border rounded-lg toggle-dark-state-example focus:z-10 focus:ring-2 focus:outline-none 
       ${rtlAlignment ? "mr-5" : "ml-4"}
@@ -26,7 +31,8 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
   }`}
     >
       <AiTwotoneSound
-        aria-label="Mute/Unmute"
+        // aria-label="Mute/Unmute"
+        aria-label={arialLabel}
         className="w-5 h-5"
         style={
           !sound
@@ -41,15 +47,15 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
         }
       />
       <span aria-label="Mute/Unmute" className="sr-only">
-        Mute/Unmute
+        {arialLabel}
       </span>
       <label
-        aria-label="Mute/Unmute"
+        aria-label={arialLabel}
         className="relative ml-1 inline-flex items-center cursor-pointer"
       >
         <input
           type="checkbox"
-          aria-label="Mute/Unmute"
+          aria-label={arialLabel}
           checked={sound}
           readOnly={true}
           className="m-0 p-0 sr-only peer"
