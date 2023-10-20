@@ -18,7 +18,7 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
   const toggleDarkModeClick = (e) => {
     dispatch({
       type: "SET_INFO",
-      payload: `Theme is now ${darkMode ? "bright" : "dark"}`,
+      payload: darkMode ?  headerText.DARK_OFF[language] : headerText.DARK_ON[language],
     });
     e.preventDefault();
     e.stopPropagation();
@@ -33,7 +33,7 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
     dispatch({ type: "TOGGLE_SOUND" });
     dispatch({
       type: "SET_INFO",
-      payload: `Sound is now ${sound ? "muted" : "unmuted"}`,
+      payload: sound ? headerText.SOUND_OFF[language] : headerText.SOUND_ON[language],
     });
   };
   const changeLanguage = () => dispatch({ type: "CHANGE_LANGUAGE" });

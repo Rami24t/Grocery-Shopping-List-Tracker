@@ -1,6 +1,12 @@
-import { memo } from "react";
+import { memo, useContext } from "react";
+import { Context } from "../Context";
+import { headerText } from "../../data/text";
 
 function ToggleDarkModeButton({ darkMode, handleClick }) {
+  const { state } = useContext(Context);
+  const { language } = state.settings;
+  // const rtlAlignment = language === 2;
+
   return (
     <button
       onClick={handleClick}
