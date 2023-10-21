@@ -1,6 +1,8 @@
-import { memo } from "react";
+import { memo, useContext } from "react";
 import AddItemsButton from "./AddItemsButton";
 import ResetButton from "./ResetButton";
+import { Context } from "../Context";
+import { mainHeaderText } from "../../data/text";
 
 function MainHeader({
   showAddItem,
@@ -12,10 +14,13 @@ function MainHeader({
   handleClear,
   darkMode,
 }) {
+  const { language } = useContext(Context).state.settings;
+  const title = mainHeaderText["TITLE"][language];
+  
   return (
     <div className="flex flex-wrap items-center justify-around py-2 mb-2 gap-3">
       <h2 className="text-center text-xl font-semibold select-none">
-        Items in List
+        {title}
         {/* <input
           className={`"inline-block m-2 p-1 w-10 text-xl font-semibold  ${darkMode?'placeholder-gray-400 bg-gray-700 border-gray-600  text-white':' text-gray-900'}`}
           type="number"

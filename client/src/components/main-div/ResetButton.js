@@ -1,4 +1,4 @@
-import { memo } from "react";
+import { memo, useContext } from "react";
 
 function ResetButton({ items, handleClear, handleReset, darkMode }) {
   return (

@@ -84,3 +84,7 @@ export const checkboxText = {
   TITLE_NEEDED: ["Click to check", "Klicken Sie zum Umschalten", "انقر للتبديل"],
   TITLE_NOT_NEEDED: ["Click to uncheck", "Klicken Sie zum Umschalten", "انقر للتبديل"],
 };
+
+export const mainHeaderText = {
+  TITLE: ["Items in List", "Artikel in Liste", "العناصر في القائمة"],
+};
