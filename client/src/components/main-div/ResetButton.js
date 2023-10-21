@@ -1,10 +1,16 @@
 import { memo, useContext } from "react";
+import { Context } from "../Context";
+import { resetButtonText } from "../../data/text";
 
 function ResetButton({ items, handleClear, handleReset, darkMode }) {
+  const { language } = useContext(Context).state.settings;
+  const title = items.length > 0 ? resetButtonText.TITLE_CLEAR[language] : resetButtonText.TITLE_RESET[language];
+  const label = items.length ? resetButtonText.TEXT_CLEAR[language] : resetButtonText.TEXT_RESET[language];
+
   return (
     <button
-      title={items.length > 0 ? "Clear Items" : "Reset Items"}
-      aria-label={items.length > 0 ? "Clear" : "Reset"}
+      title={title}
+      aria-label={title}
       onClick={(e) => {
         items.length ? handleClear(e) : handleReset(e);
         e.target.disabled = true;
@@ -12,11 +18,15 @@ function ResetButton({ items, handleClear, handleReset, darkMode }) {
           e.target.disabled = false;
         }, 900);
       }}
-      className={`${
+      className={`
+      ${
+        language === 1 && !items.length ? "w-15" : language ===1 ? "w-12" : "w-10"
+      }
+      ${
         darkMode
           ? "text-slate-200 hover:text-slate-100 focus:text-slate-100"
           : "text-slate-100 hover:text-slate-50 focus:text-slate-50"
-      } font-semibold transition-all w-10 relative rounded-lg
+      } font-semibold transition-all relative rounded-lg
       ${
         !items.length
           ? darkMode
@@ -28,7 +38,7 @@ function ResetButton({ items, handleClear, handleReset, darkMode }) {
       } px-3 py-2 text-xs font-medium transition focus:outline-none focus:ring`}
       type="button"
     >
-      {items.length ? "Clear" : "Reset"}
+      {label}
       <div
         className={`aspect-square rounded-full px-[3px] py-[2px] pt-[5px] transition-transform flex text-center items-center justify-center min-w-[12px] min-h-[12px] font-bold ${
           darkMode

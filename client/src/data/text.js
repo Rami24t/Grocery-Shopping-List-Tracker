@@ -88,3 +88,10 @@ export const checkboxText = {
 export const mainHeaderText = {
   TITLE: ["Items in List", "Artikel in Liste", "العناصر في القائمة"],
 };
+
+export const resetButtonText = {
+  TITLE_CLEAR: ["Clear Items", "Elemente löschen", "مسح العناصر"],
+  TITLE_RESET: ["Reset Items", "Elemente zurücksetzen", "إعادة تعيين العناصر"],
+  TEXT_CLEAR: ["Clear", "Löschen", "مسح"],
+  TEXT_RESET: ["Reset", "Zurücksetzen", "إعادة"],
+};
