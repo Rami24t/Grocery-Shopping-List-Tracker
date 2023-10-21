@@ -1,6 +1,11 @@
-import  { useState, memo } from "react";
+import  { useState, memo, useContext } from "react";
+import { checkboxText } from "../../../data/text";
+import { Context } from "../../Context";
 
 function Checkbox({ item, handleToggle, darkMode}) {
+  const { language } = (useContext(Context)).state.settings;
+  const title = checkboxText[`TITLE_${item.need ? "NEEDED" : "NOT_NEEDED"}`][language];
+
   const [needed, setNeeded] = useState(item.need);
   const handleCheck = (e) => {
     e.target.disabled = true;
@@ -25,7 +30,7 @@ function Checkbox({ item, handleToggle, darkMode}) {
       }`}
       style={{ minWidth: "24px", minHeight: "24px" }}
       // style={{ minWidth: "1.2rem" }}
-      title={`Click to ${needed ? "check" : "uncheck"}`}
+      title={title}
     />
   );
 }

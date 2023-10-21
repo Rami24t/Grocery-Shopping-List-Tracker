@@ -79,3 +79,8 @@ export const itemNameText = {
   ],
   PLACEHOLDER: ["Enter item name", "Geben Sie den Artikelnamen ein", "أدخل اسم العنصر"],
 };
+
+export const checkboxText = {
+  TITLE_NEEDED: ["Click to check", "Klicken Sie zum Umschalten", "انقر للتبديل"],
+  TITLE_NOT_NEEDED: ["Click to uncheck", "Klicken Sie zum Umschalten", "انقر للتبديل"],
+};
