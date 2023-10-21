@@ -95,3 +95,12 @@ export const resetButtonText = {
   TEXT_CLEAR: ["Clear", "Löschen", "مسح"],
   TEXT_RESET: ["Reset", "Zurücksetzen", "إعادة"],
 };
+
+export const addItemsButtonText = {
+  INFO_OPEN: ["Adding form is now open", "Hinzufügen Formular ist jetzt geöffnet", "تمّ فتح نموذج الإضافة"],
+  INFO_CLOSED: ["Adding form is now closed", "Hinzufügen Formular ist jetzt geschlossen", "تمّ إغلاق نموذج الإضافة"],
+  TITLE_OPEN: ['Open "Add" Form', "Öffnen Sie das Hinzufügen Formular", "فتح نموذج الإضافة"],
+  TITLE_CLOSED: ['Close "Add" Form', "Schließen Sie das Hinzufügen Formular", "إغلاق نموذج الإضافة"],
+  LABEL: ["Open/Close the 'Add Items' form", "Öffnen/Schließen Sie das Hinzufügen Formular", "فتح/إغلاق نموذج الإضافة"],
+  TEXT: ["Add ", "Hinzufügen ", "إضافة "],
+};
