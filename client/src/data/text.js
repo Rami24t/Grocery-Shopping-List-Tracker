@@ -104,3 +104,7 @@ export const addItemsButtonText = {
   LABEL: ["Open/Close the 'Add Items' form", "Öffnen/Schließen Sie das Hinzufügen Formular", "فتح/إغلاق نموذج الإضافة"],
   TEXT: ["Add ", "Hinzufügen ", "إضافة "],
 };
+
+export const deleteButtonText = {
+  TITLE: ["Click to delete this item", "Klicken Sie, um dieses Element zu löschen", "انقر لحذف هذا العنصر"],
+};

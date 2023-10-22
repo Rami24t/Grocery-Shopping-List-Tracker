@@ -1,13 +1,18 @@
+import { useContext } from "react";
+import { Context } from "../../Context";
 import { MdDeleteForever } from "react-icons/md";
+import { deleteButtonText } from "../../../data/text";
 
 export default function DeleteButton({ darkMode, handleClick }) {
+  const { language } = useContext(Context).state.settings;
+  const title = deleteButtonText.TITLE[language];
   return (
     <button
       onClick={handleClick}
       type="button"
       style={{ minWidth: "24px", minHeight: "24px" }}
       // style={{ minWidth: "1.2rem" }}
-      title="Click to permanently delete this item"
+      title={title}
       aria-label="delete"
     >
       <MdDeleteForever
