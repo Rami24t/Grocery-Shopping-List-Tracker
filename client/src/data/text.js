@@ -102,7 +102,7 @@ export const checkboxText = {
 };
 
 export const mainHeaderText = {
-  TITLE: ["Items in List", "Artikel in Liste", "العناصر في القائمة"],
+  TITLE: ["Items in List", "Artikel in Liste", "عناصر القائمة"],
 };
 
 export const resetButtonText = {
