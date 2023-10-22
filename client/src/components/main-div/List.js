@@ -26,7 +26,7 @@ function List({
   // };
   const { sound } = state.settings;
   const { language } = state.settings;
-  // const rtlAlignment = language === 2;
+  const rtlAlignment = language === 2;
   const titleText = listText.TITLE[language];
   const arialLabel = listText.LABEL[language];
 
@@ -37,7 +37,9 @@ function List({
         title={titleText}
         // aria-label="Show/Hide items"
         aria-label={arialLabel}
-        className={`flex justify-between min-w-[154px] items-center gap-2 max-w-max mx-auto cursor-pointer font-bold ${
+        className={`flex justify-between min-w-[154px] items-center gap-2 max-w-max mx-auto cursor-pointer font-bold 
+        ${rtlAlignment ? "flex-row-reverse" : ""}
+        ${
           items[0].need
             ? darkMode
               ? "text-orange-600 hover:text-orange-500 focus:text-orange-500"
@@ -76,8 +78,8 @@ function List({
             !filteredItems.length ? "invisible" : ""
           } p-2 cursor-pointer text-lg transition-transform inline-flex text-center items-center justify-center w-4 h-4 ${
             showItems
-              ? "duration-500 rotate-90 translate-x-0.5"
-              : "-rotate-0 transform -translate-y-0.5"
+              ? `duration-500 rotate-90 translate-x-0.5 ${rtlAlignment ? "rotate-180 -translate-y-0.5" : ""}`
+              : `transform -translate-y-0.5 ${rtlAlignment ? "rotate-180 translate-y-0" : ""}`
           }`}
         >
           &gt;

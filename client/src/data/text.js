@@ -72,7 +72,7 @@ export const listsText = {
     "Fügen Sie einige Elemente zu Ihrer Liste hinzu.",
     "أضف بعض العناصر إلى قائمتك.",
   ],
-  NEEDS_TITLE: ["Need", "Brauche", "أحتاج"],
+  NEEDS_TITLE: ["Need", "Brauche", " أحتاج "],
   HAVES_TITLE: ["Have", "Habe", "لدي"],
 };
 
