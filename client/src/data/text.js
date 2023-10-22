@@ -131,5 +131,5 @@ export const addItemsText = {
 };
 
 export const deleteButtonText = {
-  TITLE: ["Click to delete this item", "Klicken Sie, um dieses Element zu löschen", "انقر لحذف هذا العنصر"],
+  TITLE: ["Click to delete this item", "Klicken Sie, um dieses Element zu löschen", "احذف هذا العنصر"],
 };
