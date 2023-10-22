@@ -73,11 +73,11 @@ export const listsText = {
     "أضف بعض العناصر إلى قائمتك.",
   ],
   NEEDS_TITLE: ["Need", "Brauche", " أحتاج "],
-  HAVES_TITLE: ["Have", "Habe", "لدي"],
+  HAVES_TITLE: ["Have", " Habe ", " لدي "],
 };
 
 export const itemNameText = {
-  TITLE: ["Item Name", "Artikelname", "اسم العنصر"],
+  TITLE: ["Item Name", "Artikelname", "إسم العنصر"],
   INFO_EDIT_CANCELLED: [
     "Edit cancelled",
     "Bearbeitung abgebrochen",
@@ -93,7 +93,7 @@ export const itemNameText = {
     "Artikel aktualisiert",
     "تمّ تحديث العنصر",
   ],
-  PLACEHOLDER: ["Enter item name", "Geben Sie den Artikelnamen ein", "أدخل اسم العنصر"],
+  PLACEHOLDER: ["Enter item name", "Geben Sie den Artikelnamen ein", "أدخل إسم العنصر"],
 };
 
 export const checkboxText = {
@@ -106,7 +106,7 @@ export const mainHeaderText = {
 };
 
 export const resetButtonText = {
-  TITLE_CLEAR: ["Clear Items", "Elemente löschen", "مسح العناصر"],
+  TITLE_CLEAR: ["Clear All Items", "Alle Elemente löschen", "إمسح كل العناصر"],
   TITLE_RESET: ["Reset Items", "Elemente zurücksetzen", "إعادة تعيين العناصر"],
   TEXT_CLEAR: ["Clear", "Löschen", "مسح"],
   TEXT_RESET: ["Reset", "Zurücksetzen", "إعادة"],
@@ -124,10 +124,10 @@ export const addItemsButtonText = {
 export const addItemsText = {
   TITLE: ["Add Item", "Element hinzufügen", "إضافة عنصر"],
   BUTTON_TITLE: ["Add", "Hinzufügen", "أضف"],
-  PLACEHOLDER: ["New item name", "Neuer Artikelname", "اسم العنصر الجديد"],
-  INFO_FOCUSED: ["Type the name of the item you want to add", "Geben Sie den Namen ein", "أدخل اسم العنصر الذي تريد إضافته"],
+  PLACEHOLDER: ["New item name", "Neuer Artikelname", "إسم العنصر الجديد"],
+  INFO_FOCUSED: ["Type the name of the item you want to add", "Geben Sie den Namen ein", "أدخل إسم العنصر الذي تريد إضافته"],
   INFO_CANCELLED: ["Add cancelled", "Hinzufügen abgebrochen", "تمّ إلغاء الإضافة"],
-  INFO_TYPING: ["Typing...", "Tippen...", "..كتابة..."],
+  INFO_TYPING: ["Typing...", "Tippen...", "...كتابة"],
 };
 
 export const editButtonText = {
@@ -136,5 +136,5 @@ export const editButtonText = {
 };
 
 export const deleteButtonText = {
-  TITLE: ["Click to delete this item", "Klicken Sie, um dieses Element zu löschen", "احذف هذا العنصر"],
+  TITLE: ["Click to delete this item", "Klicken Sie, um dieses Element zu löschen", "إضغط لحذف هذا العنصر"],
 };
