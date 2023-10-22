@@ -130,6 +130,11 @@ export const addItemsText = {
   INFO_TYPING: ["Typing...", "Tippen...", "..كتابة..."],
 };
 
+export const editButtonText = {
+  TITLE: ["Click to edit this item", "Klicken Sie, um dieses Element zu bearbeiten", "انقر لتعديل هذا العنصر"],
+  LABEL: ["Edit", "Bearbeiten", "تعديل"],
+};
+
 export const deleteButtonText = {
   TITLE: ["Click to delete this item", "Klicken Sie, um dieses Element zu löschen", "احذف هذا العنصر"],
 };
