@@ -36,6 +36,22 @@ export const soundButtonText = {
   LABEL: ["Mute/Unmute", "Ton An/Aus", "كتم الصّوت/إلغاء كتم الصّوت"],
 };
 
+export const filterInputText = {
+  TITLE: ["Filter Items", "Filtern Sie Elemente", "تصفية العناصر"],
+  INFO_FILTER_CLEARED: [
+    "Filter cleared",
+    "Filter gelöscht",
+    "تمّ مسح التّصفية",
+  ],
+  INFO_FOCUSED: ["Start typing to filter items", "Tippen Sie zum Filtern", "ابدأ الكتابة لتصفية العناصر"],
+  INFO_TYPING: ["Typing", "Tippen", "كتابة"],
+  PLACEHOLDER: [
+    "Start typing to filter {items} items ...",
+    "Tippen, um {items} Elemente zu filtern ...",
+    "... ابدأ بالكتابة لتصفية {items} عنصر",
+  ],
+};  
+
 export const listText = {
   TITLE: [
     "Click to show/hide items",
