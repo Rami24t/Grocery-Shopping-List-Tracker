@@ -25,6 +25,7 @@ function AddItemsButton({
   const title = showAddItem ? addItemsButtonText.TITLE_CLOSED[language] : addItemsButtonText.TITLE_OPEN[language];
   const label = addItemsButtonText.LABEL[language];
   const text = addItemsButtonText.TEXT[language];
+  const rtlAlignment = language === 2;
 
   if (sound && !INITIAL_AUDIO_CONTEXT)
     try {
@@ -70,7 +71,7 @@ function AddItemsButton({
       title={title}
       aria-label={label}
       id="add-item-button"
-      // ${language === 1 ? "w-13" : "w-10"}
+      // ${language === 1 ? "w-13" : "w-10"} 
       className={`
        ${
         darkMode
@@ -89,13 +90,15 @@ function AddItemsButton({
           ? "bg-red-800  hover:bg-red-700 focus:bg-red-700"
           : "bg-red-600  hover:bg-red-700 focus:bg-red-700"
       }
-          px-3 py-2 text-xs font-medium  transition focus:outline-none focus:ring  `}
+          py-2 text-xs font-medium transition focus:outline-none focus:ring  
+          ${rtlAlignment? 'pl-1.5 pr-3 flex-row-reverse' : language ===1 ? 'pl-3 pr-0.5 mr-1.5' : 'pl-3 pr-1.5'}
+          `}
       type="button"
     >
       {text}
       <div
         className={`font-semibold transition-transform flex text-center items-center justify-center w-3 h-3 -translate-y-0.5 ${
-          showAddItem ? "duration-500 rotate-90" : "rotate-0"
+          showAddItem ? "duration-500 rotate-90" : `${rtlAlignment ? 'rotate-180':'rotate-0'}`
         }`}
       >
         &gt;
