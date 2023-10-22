@@ -48,8 +48,8 @@ function FilterInput({ filter, handleChangeFilter, items, darkMode }) {
       onFocus={handleFocus}
       onBlur={handleBlur}
       onKeyDown={handleKeyDown}
-      className={`scroll-mt-3 outline-[#0a0adc99] ms-0.5 w-56 md:w-64 lg:w-80 border text-sm rounded-lg block pl-7 p-2.5
-      ${rtlAlignment ? "text-end" : ""}
+      className={`scroll-mt-3 outline-[#0a0adc99] ms-0.5 w-56 md:w-64 lg:w-80 border text-sm rounded-lg block p-2.5
+      ${rtlAlignment ? "text-end pr-8" : "pl-7"}
        ${
         !darkMode
           ? "focus:ring-blue-300  focus:border-blue-300 placeholder-gray-400 bg-gray-50 bg-opacity-80 border-gray-300 text-gray-800"
