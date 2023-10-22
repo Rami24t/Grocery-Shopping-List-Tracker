@@ -89,7 +89,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
           type="text"
           id="new-item"
           autoComplete="on"
-          className={` ${
+          className={` ${rtlAlignment && "text-right"} ${
             darkMode
               ? "focus:border-blue-500 focus:ring-blue-500 placeholder-gray-400 text-white border-gray-600 bg-gray-700 bg-opacity-70 "
               : "focus:ring-blue-300  focus:border-blue-300 placeholder-gray-400 bg-gray-50 bg-opacity-80 border-gray-300 text-gray-800"
