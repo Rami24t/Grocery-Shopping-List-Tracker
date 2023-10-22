@@ -121,6 +121,15 @@ export const addItemsButtonText = {
   TEXT: ["Add ", "Hinzufügen ", "إضافة "],
 };
 
+export const addItemsText = {
+  TITLE: ["Add Item", "Element hinzufügen", "إضافة عنصر"],
+  BUTTON_TITLE: ["Add", "Hinzufügen", "أضف"],
+  PLACEHOLDER: ["New item name", "Neuer Artikelname", "اسم العنصر الجديد"],
+  INFO_FOCUSED: ["Type the name of the item you want to add", "Geben Sie den Namen ein", "أدخل اسم العنصر الذي تريد إضافته"],
+  INFO_CANCELLED: ["Add cancelled", "Hinzufügen abgebrochen", "تمّ إلغاء الإضافة"],
+  INFO_TYPING: ["Typing...", "Tippen...", "..كتابة..."],
+};
+
 export const deleteButtonText = {
   TITLE: ["Click to delete this item", "Klicken Sie, um dieses Element zu löschen", "انقر لحذف هذا العنصر"],
 };

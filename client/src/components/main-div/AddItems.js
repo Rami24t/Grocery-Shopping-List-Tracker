@@ -7,12 +7,20 @@ import {
   playSFXAudio,
 } from "../../assets/sfx";
 import { Context } from "../Context";
+import { addItemsText } from "../../data/text";
 
 function AddItems({ handleAdd, showAddItem, darkMode }) {
   const [value, setValue] = useState("");
   const { state, dispatch } = useContext(Context);
-  const { sound } = state.settings;
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
+  const { sound, language } = state.settings;
+  const rtlAlignment = language === 2;
+  const title = addItemsText["TITLE"][language];
+  const infoFocused = addItemsText["INFO_FOCUSED"][language];
+  const infoCancelled = addItemsText["INFO_CANCELLED"][language];
+  const infoTyping = addItemsText["INFO_TYPING"][language];
+  const placeholder = addItemsText["PLACEHOLDER"][language];
+  const buttonTitle = addItemsText["BUTTON_TITLE"][language];
 
   const handleClick = (e) => {
     // e.preventDefault();
@@ -26,13 +34,13 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
       setValue("");
       e.target.value = "";
       e.target.blur();
-      setInfo("Add cancelled");
+      setInfo(infoCancelled);
     }
   };
 
   const handleFocus = () => {
     sound && playSFXAudio(editClickSFXAudio, writingSFXAudio);
-    setInfo("Type the name of the item you want to add");
+    setInfo(infoFocused);
   };
 
   const handleBlur = (e) => {
@@ -45,7 +53,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
   const handleChange = (e) => {
     if (sound && e.target.value.length > value.length)
       playSFXAudio(typeSFXAudio);
-    setInfo("Typing...");
+    setInfo(infoTyping);
     setValue(e.target.value);
   };
 
@@ -54,7 +62,7 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
       className={`overflow-hidden transition-all duration-500 ${
         !showAddItem
           ? "w-0 h-0 p-0 border-0 scale-0 opacity-50"
-          : "w-80 pl-3 pt-3 pb-5 shadow-sm mb-5 "
+          : `w-80 pt-3 pb-5 shadow-sm mb-5 ${rtlAlignment? "pl-3 " :"pr-3 "}`
       } mt-4  mx-auto add-item border rounded-lg ${
         darkMode
           ? "bg-gray-950 border-gray-800 text-white"
@@ -67,14 +75,15 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
           !darkMode ? "text-orange-900" : "text-white"
         } `}
       >
-        <h3 className="text-center text-lg">Add Item</h3>
+        <h3 className="text-center text-lg">{title}</h3>
       </label>
-      <div className="flex justify-center items-center gap-0">
+      {/* <div className="flex justify-center items-center gap-0"> */}
+      <div className={`flex justify-center items-center gap-0 ${rtlAlignment && "flex-row-reverse"}`} >
         <input
           onChange={handleChange}
           value={value}
           name="new-item"
-          placeholder="New Item"
+          placeholder={placeholder}
           onFocus={handleFocus}
           onBlur={handleBlur}
           type="text"
@@ -88,8 +97,8 @@ function AddItems({ handleAdd, showAddItem, darkMode }) {
           onKeyDown={handleKeyDown}
         />
         <button
-          title="Add Item"
-          aria-label="Add Item"
+          title={buttonTitle}
+          aria-label={buttonTitle}
           className={`${
             darkMode
               ? "hover:text-white focus:text-white"
