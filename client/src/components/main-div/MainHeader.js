@@ -16,9 +16,10 @@ function MainHeader({
 }) {
   const { language } = useContext(Context).state.settings;
   const title = mainHeaderText["TITLE"][language];
+  const rtlAlignment = language === 2;
   
   return (
-    <div className="flex flex-wrap items-center justify-around py-2 mb-2 gap-3">
+    <div className={`flex flex-wrap items-center justify-around py-2 mb-2 gap-3 ${rtlAlignment && "flex-row-reverse"}`}>
       <h2 className="text-center text-xl font-semibold select-none">
         {title}
         {/* <input
