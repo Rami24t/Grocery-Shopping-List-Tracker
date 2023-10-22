@@ -56,7 +56,7 @@ export const listText = {
   TITLE: [
     "Click to show/hide items",
     "Klicken Sie, um Elemente anzuzeigen/auszublenden",
-    "انقر لإظهار/إخفاء العناصر",
+    "إضغط لإظهار/إخفاء العناصر",
   ],
   LABEL: [
     "Show/Hide items",
@@ -97,8 +97,8 @@ export const itemNameText = {
 };
 
 export const checkboxText = {
-  TITLE_NEEDED: ["Click to check", "Klicken Sie zum Umschalten", "انقر للتبديل"],
-  TITLE_NOT_NEEDED: ["Click to uncheck", "Klicken Sie zum Umschalten", "انقر للتبديل"],
+  TITLE_NEEDED: ["Click to check", "Klicken Sie zum Umschalten", "إضغط للتبديل"],
+  TITLE_NOT_NEEDED: ["Click to uncheck", "Klicken Sie zum Umschalten", "إضغط للتبديل"],
 };
 
 export const mainHeaderText = {
@@ -131,7 +131,7 @@ export const addItemsText = {
 };
 
 export const editButtonText = {
-  TITLE: ["Click to edit this item", "Klicken Sie, um dieses Element zu bearbeiten", "انقر لتعديل هذا العنصر"],
+  TITLE: ["Click to edit this item", "Klicken Sie, um dieses Element zu bearbeiten", "إضغط لتعديل هذا العنصر"],
   LABEL: ["Edit", "Bearbeiten", "تعديل"],
 };
 
