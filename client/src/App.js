@@ -30,12 +30,37 @@ import Main from "./components/main-div/Main";
 import AsideRight from "./components/aside-right/AsideRight";
 import Footer from "./components/footer/Footer";
 import InfoModal from "./components/infoModal/InfoModal";
+import { appText } from "./data/text";
 
 function App() {
   // Read sound and info from Context
   const { state, dispatch } = useContext(Context);
-  const sound = state?.settings?.sound;
+  const { sound, language } = state?.settings;
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
+  const rtlAlignment = language === 2;
+
+  const text = {
+    info: {
+      deleted: appText.INFO_DELETED[language],
+      checked: appText.INFO_CHECKED[language],
+      unchecked: appText.INFO_UNCHECKED[language],
+      alreadyExists: appText.INFO_ALREADY_EXISTS[language],
+      added: appText.INFO_ADDED[language],
+      reset: appText.INFO_RESET[language],
+      cleared: appText.INFO_CLEARED[language],
+      undo: {
+        update: appText.INFO_UNDO_UPDATE[language],
+        delete: appText.INFO_UNDO_DELETE[language],
+        add: appText.INFO_UNDO_ADD[language],
+        reset: appText.INFO_UNDO_RESET[language],
+        clear: appText.INFO_UNDO_CLEAR[language],
+        check: appText.INFO_UNDO_CHECK[language],
+        uncheck: appText.INFO_UNDO_UNCHECK[language],
+      },
+    },
+    item: appText.ITEM[language],
+    docTitle: appText.DOC_TITLE[language],
+  };
 
   // Dark Mode useState
   const [darkMode, setDarkMode] = useState(true);
@@ -77,11 +102,13 @@ function App() {
     //   }, 8000);
     //   return () => clearTimeout(soundOnTimeOut); // Clear the timeout if the component unmounts
 
-    // Set the document's title
-    document.title = `🛒📋Gr.Shop.List🧾📱`;
-
     return () => clearTimeout(timeout); // Clear the timeout if the component unmounts
   }, []);
+
+  useEffect(() => {
+    // document.title = `🛒📋Gr.Shop.List🧾📱`;
+    document.title = text.docTitle;
+  }, [text.docTitle]);
 
   // Multilist feature - temporary disabled
   function handleChangeList(e) {
@@ -196,10 +223,15 @@ function App() {
     }
     setTimeout(() => {
       // show an info message notification
+      // setInfo(
+      //   `${item.name.match(
+      //     /[^.]*?\s*\S{2,}\s*[^.]*?\s*\S{2,}[^.]*?/
+      //   )}... deleted`
+      // );
       setInfo(
-        `${item.name.match(
-          /[^.]*?\s*\S{2,}\s*[^.]*?\s*\S{2,}[^.]*?/
-        )}... deleted`
+        `${item.name.match(/[^.]*?\s*\S{2,}\s*[^.]*?\s*\S{2,}[^.]*?/)}... ${
+          text.info.deleted
+        }`
       ); // setInfo(`${item.name.match(/.*?[\w]+/)}... deleted`);
       // set the items state to a new array of items without the deleted item
       setItems((prevItems) => {
@@ -263,7 +295,7 @@ function App() {
       refreshItems();
       setInfo(
         `${item.name.match(/.*?[\w]+/)}... ${
-          item.need ? "unchecked" : "checked"
+          item.need ? text.info.unchecked : text.info.checked
         }`
       );
     }, 100);
@@ -299,12 +331,16 @@ function App() {
     if (value === "" || items.find((i) => i.name === value)) {
       if (value !== "") {
         sound && playSFXAudio(addDeniedSFXAudio);
-        setInfo(`Item ${value.slice(0, 10)} already exists!`);
+        setInfo(
+          `${rtlAlignment ? "!" : text.item} ${value.slice(0, 10)} ${
+            text.info.alreadyExists
+          }`
+        );
       }
       return;
     } else {
       sound && playSFXAudio(addSFXAudio1);
-      setInfo(`Item ${value.slice(0, 10)}... added`);
+      setInfo(`${text.item} ${value.slice(0, 10)}... ${text.info.added}`);
       const updatedItems = [
         {
           id: "RAGSL-" + (items.length + 1) + Date.now(),
@@ -341,7 +377,7 @@ function App() {
       payload: { showNeeds: true, showHaves: true },
     });
     sound && playSFXAudio(resetSFXAudio);
-    setInfo("List is reset");
+    setInfo(text.info.reset);
   }
 
   // undoes the last change made to the list of items
@@ -355,21 +391,21 @@ function App() {
       const foundItem = items[items.findIndex((el) => el.id === lastUndo.id)];
       info =
         foundItem.name !== lastUndo.name
-          ? "Undo update"
+          ? text.info.undo.update
           : lastUndo.need
-          ? "Undo check"
-          : "Undo uncheck";
+          ? text.info.undo.check
+          : text.info.undo.uncheck;
       updateItem(foundItem, { ...lastUndo }, true);
     } else {
       // undo delete/add/reset/clear
       info =
         items.length === 0
-          ? "Undo clear"
+          ? text.info.undo.clear
           : items === defaultItems
-          ? "Undo clear and reset"
+          ? text.info.undo.reset
           : items.length < lastUndo.length
-          ? "Undo delete"
-          : "Undo add";
+          ? text.info.undo.delete
+          : text.info.undo.add;
       setItems(lastUndo);
     }
     undoArrayRef.current.length = undoArrayLength - 1;
@@ -395,7 +431,7 @@ function App() {
         wrongFilterSFXAudio,
         openCloseAddFormSFXAudio
       );
-    setInfo("List cleared");
+    setInfo(text.info.cleared);
   }
 
   /*
