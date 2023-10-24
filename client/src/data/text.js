@@ -1,6 +1,6 @@
 import randomQuote from "./randomQuote";
 
-const LANGUAGES = ["English", "Deutsch", "العربيّة"];
+// export const LANGUAGES = ["English", "Deutsch", "العربيّة"];
 
 export const headerText = {
   TITLES: [
@@ -43,14 +43,18 @@ export const filterInputText = {
     "Filter gelöscht",
     "تمّ مسح التّصفية",
   ],
-  INFO_FOCUSED: ["Start typing to filter items", "Tippen Sie zum Filtern", "ابدأ الكتابة لتصفية العناصر"],
+  INFO_FOCUSED: [
+    "Start typing to filter items",
+    "Tippen Sie zum Filtern",
+    "ابدأ الكتابة لتصفية العناصر",
+  ],
   INFO_TYPING: ["Typing", "Tippen", "كتابة"],
   PLACEHOLDER: [
     "Start typing to filter {items} items ...",
     "Tippen, um {items} Elemente zu filtern ...",
     "... ابدأ بالكتابة لتصفية {items} عنصر",
   ],
-};  
+};
 
 export const listText = {
   TITLE: [
@@ -83,22 +87,30 @@ export const itemNameText = {
     "Bearbeitung abgebrochen",
     "تمّ إلغاء التّعديل",
   ],
-  INFO_EDITING: [
-    "Editing",
-    "Bearbeiten",
-    "تعديل",
-  ],
+  INFO_EDITING: ["Editing", "Bearbeiten", "تعديل"],
   INFO_ITEM_UPDATED: [
     "Item updated",
     "Artikel aktualisiert",
     "تمّ تحديث العنصر",
   ],
-  PLACEHOLDER: ["Enter item name", "Geben Sie den Artikelnamen ein", "أدخل إسم العنصر"],
+  PLACEHOLDER: [
+    "Enter item name",
+    "Geben Sie den Artikelnamen ein",
+    "أدخل إسم العنصر",
+  ],
 };
 
 export const checkboxText = {
-  TITLE_NEEDED: ["Click to check", "Klicken Sie zum Umschalten", "إضغط للتبديل"],
-  TITLE_NOT_NEEDED: ["Click to uncheck", "Klicken Sie zum Umschalten", "إضغط للتبديل"],
+  TITLE_NEEDED: [
+    "Click to check",
+    "Klicken Sie zum Umschalten",
+    "إضغط للتبديل",
+  ],
+  TITLE_NOT_NEEDED: [
+    "Click to uncheck",
+    "Klicken Sie zum Umschalten",
+    "إضغط للتبديل",
+  ],
 };
 
 export const mainHeaderText = {
@@ -113,11 +125,31 @@ export const resetButtonText = {
 };
 
 export const addItemsButtonText = {
-  INFO_OPEN: ["Adding form is now open", "Hinzufügen Formular ist jetzt geöffnet", "تمّ فتح نموذج الإضافة"],
-  INFO_CLOSED: ["Adding form is now closed", "Hinzufügen Formular ist jetzt geschlossen", "تمّ إغلاق نموذج الإضافة"],
-  TITLE_OPEN: ['Open "Add" Form', "Öffnen Sie das Hinzufügen Formular", "فتح نموذج الإضافة"],
-  TITLE_CLOSED: ['Close "Add" Form', "Schließen Sie das Hinzufügen Formular", "إغلاق نموذج الإضافة"],
-  LABEL: ["Open/Close the 'Add Items' form", "Öffnen/Schließen Sie das Hinzufügen Formular", "فتح/إغلاق نموذج الإضافة"],
+  INFO_OPEN: [
+    "Adding form is now open",
+    "Hinzufügen Formular ist jetzt geöffnet",
+    "تمّ فتح نموذج الإضافة",
+  ],
+  INFO_CLOSED: [
+    "Adding form is now closed",
+    "Hinzufügen Formular ist jetzt geschlossen",
+    "تمّ إغلاق نموذج الإضافة",
+  ],
+  TITLE_OPEN: [
+    'Open "Add" Form',
+    "Öffnen Sie das Hinzufügen Formular",
+    "فتح نموذج الإضافة",
+  ],
+  TITLE_CLOSED: [
+    'Close "Add" Form',
+    "Schließen Sie das Hinzufügen Formular",
+    "إغلاق نموذج الإضافة",
+  ],
+  LABEL: [
+    "Open/Close the 'Add Items' form",
+    "Öffnen/Schließen Sie das Hinzufügen Formular",
+    "فتح/إغلاق نموذج الإضافة",
+  ],
   TEXT: ["Add ", "Hinzufügen ", "إضافة "],
 };
 
@@ -125,16 +157,91 @@ export const addItemsText = {
   TITLE: ["Add Item", "Element hinzufügen", "إضافة عنصر"],
   BUTTON_TITLE: ["Add", "Hinzufügen", "أضف"],
   PLACEHOLDER: ["New item name", "Neuer Artikelname", "إسم العنصر الجديد"],
-  INFO_FOCUSED: ["Type the name of the item you want to add", "Geben Sie den Namen ein", "أدخل إسم العنصر الذي تريد إضافته"],
-  INFO_CANCELLED: ["Add cancelled", "Hinzufügen abgebrochen", "تمّ إلغاء الإضافة"],
+  INFO_FOCUSED: [
+    "Type the name of the item you want to add",
+    "Geben Sie den Namen ein",
+    "أدخل إسم العنصر الذي تريد إضافته",
+  ],
+  INFO_CANCELLED: [
+    "Add cancelled",
+    "Hinzufügen abgebrochen",
+    "تمّ إلغاء الإضافة",
+  ],
   INFO_TYPING: ["Typing...", "Tippen...", "...كتابة"],
 };
 
 export const editButtonText = {
-  TITLE: ["Click to edit this item", "Klicken Sie, um dieses Element zu bearbeiten", "إضغط لتعديل هذا العنصر"],
+  TITLE: [
+    "Click to edit this item",
+    "Klicken Sie, um dieses Element zu bearbeiten",
+    "إضغط لتعديل هذا العنصر",
+  ],
   LABEL: ["Edit", "Bearbeiten", "تعديل"],
 };
 
 export const deleteButtonText = {
-  TITLE: ["Click to delete this item", "Klicken Sie, um dieses Element zu löschen", "إضغط لحذف هذا العنصر"],
+  TITLE: [
+    "Click to delete this item",
+    "Klicken Sie, um dieses Element zu löschen",
+    "إضغط لحذف هذا العنصر",
+  ],
+};
+
+export const appText = {
+  DOC_TITLE: [
+    "🛒📋Gr.Shop.List🧾📱",
+    "🛒📋Einkaufsliste🧾📱",
+    "🛒📋قَاْئِمَةُ التَّسَوُّق🧾📱",
+  ],
+  INFO_DELETED: ["deleted", "gelöscht", "حذف"],
+  INFO_CHECKED: ["checked", "verschoben", "نقل"],
+  INFO_UNCHECKED: ["unchecked", "zurückversetzt", "إعادة"],
+  INFO_ALREADY_EXISTS: [
+    "already exists!",
+    "existiert bereits!",
+    "موجود مسبقاً",
+  ],
+  INFO_ADDED: ["added", "hinzugefügt", "أضيف"],
+  INFO_RESET: [
+    "List is reset",
+    "Liste ist zurückgesetzt",
+    "تمّ إعادة تعيين القائمة",
+  ],
+  INFO_CLEARED: [
+    "List cleared",
+    "Die Liste ist gelöscht",
+    "تمّ مسح القائمة بالكامل",
+  ],
+  INFO_UNDO_UPDATE: [
+    "Undo update",
+    "Bearbeitung rückgängig gemacht",
+    "تراجع عن التعديل",
+  ],
+  INFO_UNDO_DELETE: [
+    "Undo delete",
+    "Löschen rückgängig gemacht",
+    "تراجع عن الحذف",
+  ],
+  INFO_UNDO_CHECK: [
+    "Undo check",
+    "Checken rückgängig gemacht",
+    "تراجع عن النقل",
+  ],
+  INFO_UNDO_UNCHECK: ["Undo uncheck", "Unchecken rückgängig gemacht", "تراجع"],
+  INFO_UNDO_ADD: [
+    "Undo add",
+    "Hinzufügen rückgängig gemacht",
+    "تراجع عن الإضافة",
+  ],
+  INFO_UNDO_CLEAR: [
+    "Undo clear",
+    "Löschen aller Listenelemente rückgängig gemacht",
+    "تراجع عن المسح الكامل",
+  ],
+  INFO_UNDO_RESET: [
+    "Undo clear and reset",
+    "Alle Löschen und Zurücksetzen rückgängig gemacht",
+    "تراجع عن المسح والإعادة",
+  ],
+  ITEM: ["Item", "Das Element", "العنصر"],
 };
