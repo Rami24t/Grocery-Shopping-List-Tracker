@@ -340,7 +340,7 @@ function App() {
       return;
     } else {
       sound && playSFXAudio(addSFXAudio1);
-      setInfo(`${text.item} ${value.slice(0, 10)}... ${text.info.added}`);
+      setInfo(`${!rtlAlignment? `${text.item} `: ''}${value.slice(0, 10)}... ${text.info.added}`);
       const updatedItems = [
         {
           id: "RAGSL-" + (items.length + 1) + Date.now(),
