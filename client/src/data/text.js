@@ -1,6 +1,7 @@
 import randomQuote from "./randomQuote";
 
-// export const LANGUAGES = ["English", "Deutsch", "العربيّة"];
+export const LANGUAGES = ["ENG", "DEU", "عربي"];
+// export const LANGUAGES = ["EN", "DE", "العربيّة"];
 
 export const headerText = {
   TITLES: [
@@ -244,4 +245,14 @@ export const appText = {
     "تراجع عن المسح والإعادة",
   ],
   ITEM: ["Item", "Das Element", "العنصر"],
+};
+
+export const sidenavText = {
+  HOME: ["Home", "Startseite", "الصّفحة الرّئيسيّة"],
+  ADD_ITEMS: ["Add Items", "Elemente hinzufügen", "إضافة عناصر"],
+  SEARCH_LIST: ["Search List", "Liste durchsuchen", "بحث في القائمة"],
+  // SETTINGS : ["Settings", "Einstellungen", "إعدادات"],
+  EDIT_LIST: ["Edit List", "Liste bearbeiten", "تعديل في القائمة"],
+  CONTACT: ["Contact links", "Kontakt Links", "روابط التّواصل"],
+  LANGUAGE: ["Language", "Sprache", "تغيير اللّغة"],
 };

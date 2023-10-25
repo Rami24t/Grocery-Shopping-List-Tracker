@@ -15,6 +15,7 @@ import {
   playSFXAudio,
 } from "../../assets/sfx";
 import { Context } from "../Context";
+import { sidenavText, LANGUAGES } from "../../data/text";
 
 const Sidenav = ({
   items,
@@ -24,9 +25,20 @@ const Sidenav = ({
   darkMode,
 }) => {
   const { state, dispatch } = useContext(Context);
-  const sound = state.settings.sound;
+  const { sound, language } = state.settings;
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
-  const languageText = state.LANGUAGES[state.settings.language];
+  // const languageText = state.LANGUAGES[language]; responsibility moved to data/text.js
+  const text = {
+    titles: [
+      sidenavText.HOME[language],
+      sidenavText.ADD_ITEMS[language],
+      sidenavText.SEARCH_LIST[language],
+      sidenavText.EDIT_LIST[language],
+      sidenavText.CONTACT[language],
+      sidenavText.LANGUAGE[language],
+    ],
+    language: LANGUAGES[language],
+  };
 
   function hideMobileSidenav(e) {
     e.stopPropagation();
@@ -56,9 +68,9 @@ const Sidenav = ({
   }
 
   const sideNavLinks = [
-    { title: "Home", href: "#app", Icon: SvgHome },
+    { title: text.titles[0], href: "#app", Icon: SvgHome },
     {
-      title: "Add Items",
+      title: text.titles[1],
       href: "#add-item-button",
       Icon: SvgAddItem,
       LIBadge: ItemsBadge,
@@ -71,15 +83,15 @@ const Sidenav = ({
         }, 400);
       },
     },
-    { title: "Search List", href: "#filter", Icon: SvgBagFilled },
-    { title: "Edit List", href: "#list", Icon: SvgEditList },
-    { title: "About", href: "#footer", Icon: SvgPerson },
+    { title: text.titles[2], href: "#filter", Icon: SvgBagFilled },
+    { title: text.titles[3], href: "#list", Icon: SvgEditList },
+    { title: text.titles[4], href: "#footer", Icon: SvgPerson },
     {
-      title: "Language",
-      href: "#Lang=" + languageText,
+      title: text.titles[5],
+      href: "#Lang=" + text.language,
       Icon: SvgSettings,
       LIBadge: LanguageBadge,
-      languageText: languageText,
+      languageText: text.language,
       margin: "ml-10",
       onClick: () => {
         dispatch({
