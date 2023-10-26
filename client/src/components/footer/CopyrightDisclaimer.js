@@ -5,6 +5,7 @@ import { Context } from "../Context";
 function CopyrightDisclaimer({
   year = "2023",
   author = "Rami Al-Saadi™",
+  rights = "All Rights Reserved",
   link = "https://www.linkedin.com/in/rami-al-saadi-16a14223a/",
   sfx,
   darkMode,
@@ -34,7 +35,7 @@ function CopyrightDisclaimer({
       >
         {author}
       </a>
-      .&nbsp; All Rights Reserved.
+      .&nbsp; {rights}
     </span>
   );
 }
