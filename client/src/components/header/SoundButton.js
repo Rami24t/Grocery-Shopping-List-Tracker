@@ -8,7 +8,9 @@ function ToggleSoundButton({ handleClick, darkMode, sound = true }) {
   const { language } = state.settings;
   const rtlAlignment = language === 2;
   const arialLabel = soundButtonText.LABEL[language];
-  const title = sound ? soundButtonText.TITLE_ON[language] : soundButtonText.TITLE_OFF[language];
+  const title = sound
+    ? soundButtonText.TITLE_ON[language]
+    : soundButtonText.TITLE_OFF[language];
 
   return (
     <button
