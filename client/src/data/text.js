@@ -273,5 +273,19 @@ export const footerListsText = {
 export const bottomFooterText = {
   YEAR: ["2023", "2023", "2023"],
   AUTHOR: ["Rami Al-Saadi™", "Rami Al-Saadi™", "Rami Al-Saadi™"],
-  RIGHTS: ["All Rights Reserved", "Alle Rechte vorbehalten", "جميع الحقوق محفوظة"],
+  RIGHTS: [
+    "All Rights Reserved",
+    "Alle Rechte vorbehalten",
+    "جميع الحقوق محفوظة",
+  ],
+};
+
+export const iconsText = {
+  EMAIL: ["Email me?", "E-Mail an mich?", "أرسل لي بريداً"],
+  LINKEDIN: ["LinkedIn profile", "LinkedIn Profil", "حسابي في لينكدإن"],
+  // FACEBOOK: ["Facebook page", "Facebook Seite", "صفحتي في فيسبوك"],
+  INSTAGRAM: ["Instagram page", "Instagram Seite", "صفحتي في إنستغرام"],
+  GITHUB: ["GitHub account", "GitHub Konto", "حسابي في جيت هب"],
+  YOUTUBE: ["YouTube channel", "YouTube Kanal", "قناتي في يوتيوب"],
+  VISIT_MY: ["Visit my", "Besuchen Sie mein", ""],
 };

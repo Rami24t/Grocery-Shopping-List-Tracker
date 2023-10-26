@@ -2,7 +2,7 @@ import { memo } from "react";
 import { BsLinkedin } from "react-icons/bs";
 
 function FooterIconLink({
-  srText = "LinkedIn",
+  title = "LinkedIn",
   url = "https://www.linkedin.com/in/rami-al-saadi-16a14223a/",
   handleClick = () => {},
   Icon = BsLinkedin,
@@ -10,8 +10,8 @@ function FooterIconLink({
 }) {
   return (
     <a
-      title={`my ${srText}`}
-      aria-label={`Visit my ${srText}`}
+      title={title}
+      aria-label={title}
       href={url}
       onClick={handleClick}
       target="_blank"
@@ -23,7 +23,7 @@ function FooterIconLink({
       }  `}
     >
       <Icon />
-      <span className="sr-only">{srText}</span>
+      <span className="sr-only">{title}</span>
     </a>
   );
 }
