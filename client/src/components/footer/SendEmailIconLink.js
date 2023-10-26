@@ -1,4 +1,4 @@
-import  { useContext, memo } from "react";
+import { useContext, memo } from "react";
 import { BsSend } from "react-icons/bs";
 import {
   emailSFXAudio,
@@ -10,6 +10,7 @@ import { Context } from "../Context";
 function SendEmailIconLink({
   lastPartOfEmail = "24@gmail.com",
   firstPartOfEmail = "alsaadi.rami",
+  title = "Email Me",
   darkMode,
 }) {
   const { state } = useContext(Context);
@@ -17,8 +18,8 @@ function SendEmailIconLink({
 
   return (
     <a
-      title="Email Me"
-      aria-label="Send Me An Email"
+      title={title}
+      aria-label={title}
       href="#send-email"
       className={` ${
         darkMode
