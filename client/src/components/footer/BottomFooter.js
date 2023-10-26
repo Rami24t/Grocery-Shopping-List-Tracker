@@ -14,6 +14,7 @@ function BottomFooter({ darkMode }) {
       <CopyrightDisclaimer
         year="2023"
         author="Rami Al-Saadi™"
+        rights="All Rights Reserved"
         link="https://www.linkedin.com/in/rami-al-saadi-16a14223a/"
         darkMode={darkMode}
         sfx={navLinkClickSFXAudio}
