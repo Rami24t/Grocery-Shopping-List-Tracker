@@ -256,3 +256,10 @@ export const sidenavText = {
   CONTACT: ["Contact links", "Kontakt Links", "روابط التّواصل"],
   LANGUAGE: ["Language", "Sprache", "تغيير اللّغة"],
 };
+
+export const topFooterText = {
+  COMPANY_NAME: ["Rami Al-Saadi", "Rami Al-Saadi", "رَامِيْ السَّعْدِيّ"],
+  // SUBTEXT: [" 's 🛒 Shopping List", " s 🛒 Einkaufsliste"," قَاْئِمَةُ التَّسَوُّق 🛒"],
+  // SUBTEXT: ["Web developer", "Webentwickler", "مبرمج الويب"],
+  SUBTEXT: [" 's Web Development", " s Webentwicklung", "برمجة تطبيقات الويب "],
+};
