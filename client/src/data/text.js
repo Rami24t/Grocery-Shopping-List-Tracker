@@ -264,6 +264,12 @@ export const topFooterText = {
   SUBTEXT: [" 's Web Development", " s Webentwicklung", "برمجة تطبيقات الويب "],
 };
 
+export const footerListsText = {
+  RESOURCES: ["Resources", "Ressourcen", "مصادر"],
+  FOLLOW_ME: ["Follow me", "Folge mir", "تابعني"],
+  // LEGAL: ["Legal", "Legal", "قانوني"],
+};
+
 export const bottomFooterText = {
   YEAR: ["2023", "2023", "2023"],
   AUTHOR: ["Rami Al-Saadi™", "Rami Al-Saadi™", "Rami Al-Saadi™"],

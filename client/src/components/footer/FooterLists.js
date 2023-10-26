@@ -1,14 +1,20 @@
-import { memo } from "react";
+import { memo, useContext } from "react";
 import FooterList from "./FooterList";
 import { LiaReact } from "react-icons/lia";
 import { BiLogoTailwindCss } from "react-icons/bi";
+import { Context } from "../Context";
+import { footerListsText } from "../../data/text";
 
 function FooterLists({ darkMode }) {
+  const { language } = useContext(Context).state.settings;
+  const { RESOURCES, FOLLOW_ME } = footerListsText;
+  const rtl = language === 2;
+  
   return (
     <div className="footer-lists flex gap-20 justify-around items-start">
       <FooterList
         darkMode={darkMode}
-        title="Resources"
+        title={RESOURCES[language]}
         links={[
           { text: "Rami", url: "https://www.github.com/rami24t" },
           {
@@ -21,7 +27,7 @@ function FooterLists({ darkMode }) {
       />
       <FooterList
         darkMode={darkMode}
-        title="Follow me"
+        title={FOLLOW_ME[language]}
         links={[
           { text: "Github", url: "https://www.github.com/rami24t" },
           {
