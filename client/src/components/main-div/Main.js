@@ -1,4 +1,4 @@
-import  { memo, useContext, useEffect } from "react";
+import { memo, useContext, useEffect } from "react";
 import MainHeader from "./MainHeader";
 import AddItems from "./AddItems";
 import FilterSection from "./filter-section/FilterSection";
@@ -10,6 +10,7 @@ import {
 } from "../../assets/sfx";
 import { Context } from "../Context";
 import UndoButton from "./UndoButton";
+import { mainText } from "../../data/text";
 
 function Main({
   list,
@@ -33,7 +34,12 @@ function Main({
   darkMode,
 }) {
   const { state, dispatch } = useContext(Context);
-  const { sound } = state.settings;
+  const { sound, language } = state.settings;
+  const infoText = {
+    matches: mainText.INFO_MATCHES[language],
+    noMatches: mainText.INFO_NO_MATCHES[language],
+  };
+
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
 
   function sanitize(str) {
@@ -65,8 +71,10 @@ function Main({
         }
       setInfo(
         noFilteredResults
-          ? "Filter doesn't match any item"
-          : "Showing filtered items"
+          ? // ? "Filter doesn't match any item"
+            infoText.noMatches
+          : // : "Showing filtered items"
+            infoText.matches
       );
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps

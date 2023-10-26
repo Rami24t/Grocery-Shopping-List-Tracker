@@ -289,3 +289,16 @@ export const iconsText = {
   YOUTUBE: ["YouTube channel", "YouTube Kanal", "قناتي في يوتيوب"],
   VISIT_MY: ["Visit my", "Besuchen Sie mein", ""],
 };
+
+export const mainText = {
+  INFO_NO_MATCHES: [
+    "Filter doesn't match any item",
+    "Filter passt zu keinem Element",
+    "التّصفية لا تطابق أيّ عنصر",
+  ],
+  INFO_MATCHES: [
+    "Showing filtered items",
+    "Die treffer werden angezeigt",
+    "تمّ عرض العناصر المطابقة",
+  ],
+};
