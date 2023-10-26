@@ -8,8 +8,7 @@ import { footerListsText } from "../../data/text";
 function FooterLists({ darkMode }) {
   const { language } = useContext(Context).state.settings;
   const { RESOURCES, FOLLOW_ME } = footerListsText;
-  const rtl = language === 2;
-  
+
   return (
     <div className="footer-lists flex gap-20 justify-around items-start">
       <FooterList
