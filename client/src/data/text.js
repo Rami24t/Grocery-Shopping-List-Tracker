@@ -263,3 +263,9 @@ export const topFooterText = {
   // SUBTEXT: ["Web developer", "Webentwickler", "مبرمج الويب"],
   SUBTEXT: [" 's Web Development", " s Webentwicklung", "برمجة تطبيقات الويب "],
 };
+
+export const bottomFooterText = {
+  YEAR: ["2023", "2023", "2023"],
+  AUTHOR: ["Rami Al-Saadi™", "Rami Al-Saadi™", "Rami Al-Saadi™"],
+  RIGHTS: ["All Rights Reserved", "Alle Rechte vorbehalten", "جميع الحقوق محفوظة"],
+};
