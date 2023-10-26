@@ -5,7 +5,9 @@ import { darkModeButtonText } from "../../data/text";
 function ToggleDarkModeButton({ darkMode, handleClick }) {
   const { state } = useContext(Context);
   const { language } = state.settings;
-  const title = darkMode ? darkModeButtonText.TITLE_DARK[language] : darkModeButtonText.TITLE_LIGHT[language];
+  const title = darkMode
+    ? darkModeButtonText.TITLE_DARK[language]
+    : darkModeButtonText.TITLE_LIGHT[language];
   const arialLabel = darkModeButtonText.LABEL[language];
   // const rtlAlignment = language === 2;
 
