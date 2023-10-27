@@ -336,3 +336,19 @@ export const undoButtonText = {
     "لا شيء للتراجع عنه",
   ],
 };
+
+export const menuButtonText = {
+  TITLE_OPEN: ["Open Menu", "Menü öffnen", "فتح القائمة"],
+  TITLE_CLOSE: ["Close Menu", "Menü schließen", "إغلاق القائمة"],
+  INFO_OPENED: [
+    "Menu is now open",
+    "Menü ist jetzt geöffnet",
+    "تمّ فتح القائمة",
+  ],
+  INFO_CLOSED: [
+    "Menu closed",
+    "Menü ist jetzt geschlossen",
+    "تمّ إغلاق القائمة",
+  ],
+  LABEL: ["Open/Close Menu Button", "Menü öffnen/schließen", "فتح/إغلاق"],
+};

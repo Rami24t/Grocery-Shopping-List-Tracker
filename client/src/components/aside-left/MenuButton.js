@@ -8,13 +8,22 @@ import {
   slideOutInSFXAudio,
   slideOutSFXAudio,
 } from "../../assets/sfx";
+import { menuButtonText } from "../../data/text";
 
 const MenuButton = memo(({ showSideNav, setShowSideNav, darkMode }) => {
   useEffect(() => {
     slideOutSFXAudio.playbackRate = 1.7;
   }, []);
   const { state, dispatch } = useContext(Context);
-  const sound = state.settings.sound;
+  const { sound, language } = state.settings;
+
+  const title = showSideNav
+    ? menuButtonText.TITLE_CLOSE[language]
+    : menuButtonText.TITLE_OPEN[language];
+  const info = showSideNav
+    ? menuButtonText.INFO_CLOSED[language]
+    : menuButtonText.INFO_OPENED[language];
+
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
   const menuButtonBgColor = darkMode
     ? "bg-black bg-gradient-to-l from-gray-950"
@@ -26,15 +35,15 @@ const MenuButton = memo(({ showSideNav, setShowSideNav, darkMode }) => {
   return (
     <button
       type="button"
-      title={showSideNav ? "Close Menu" : "Open Menu"}
-      aria-label="Menu Button"
+      title={title}
+      aria-label={menuButtonText.LABEL[language]}
       onClick={(e) => {
         e.stopPropagation();
         e.target.style.pointerEvents = "none";
         setTimeout(() => {
           e.target.style.pointerEvents = "";
         }, 800);
-        showSideNav ? setInfo("Menu closed") : setInfo("Menu is now open");
+        setInfo(info);
         if (sound) {
           playSFXAudio(navLinkClickSFXAudio);
           if (showSideNav) {
