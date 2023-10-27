@@ -302,3 +302,19 @@ export const mainText = {
     "تمّ عرض العناصر المطابقة",
   ],
 };
+
+export const infoWidgetText = {
+  HAVES: ["Haves", "Habe", "لدي"],
+  NEEDS: ["Needs", "Brauche", "أحتاج"],
+  TOTAL: ["Total Items", "Gesamt", "المجموع"],
+  PERCENTAGE: [
+    "Completion Percentage",
+    "Fertigstellungsprozentsatz",
+    "النّسبة",
+  ],
+  WIDGET: [
+    "Items Info Widget",
+    "Elemente Informations Widget",
+    "معلومات العناصر",
+  ],
+};

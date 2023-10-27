@@ -1,6 +1,7 @@
 import { memo, useContext } from "react";
 import { ShoppingBagSvg, ShoppingBagFillSvg } from "./ShoppingBagSvgs";
 import { Context } from "../Context";
+import { infoWidgetText as titles } from "../../data/text";
 
 // Abstract badge component for displaying the info badge
 const InfoBadge = ({ title, value, icon, darkMode, style }) => {
@@ -9,18 +10,18 @@ const InfoBadge = ({ title, value, icon, darkMode, style }) => {
   }`;
   return (
     <div title={title} className={`${style} ${infoBadgeCommonStyle}`}>
-      {value || 0} <span className="sr-only">{title.toLowerCase()}</span>
+      {value || 0} <span className="sr-only">{title}</span>
       {icon}
     </div>
   );
 };
 
 // Badge component for displaying the "Haves" info badge
-const HavesBadge = ({ haves, needs, darkMode }) => {
+const HavesBadge = ({ haves, needs, title, darkMode }) => {
   const color = darkMode ? "text-white" : "text-green-300";
   return (
     <InfoBadge
-      title="Haves"
+      title={title}
       value={haves}
       icon={<ShoppingBagFillSvg className={`${color} inline w-1 h-1`} />}
       darkMode={darkMode}
@@ -32,11 +33,11 @@ const HavesBadge = ({ haves, needs, darkMode }) => {
 };
 
 // Badge component for displaying the "Needs" info badge
-const NeedsBadge = ({ needs, darkMode }) => {
+const NeedsBadge = ({ needs, title, darkMode }) => {
   const color = darkMode ? "text-orange-100" : "text-orange-200";
   return (
     <InfoBadge
-      title="Needs"
+      title={title}
       value={needs}
       icon={<ShoppingBagSvg className={`${color} inline w-1 h-1`} />}
       darkMode={darkMode}
@@ -48,9 +49,9 @@ const NeedsBadge = ({ needs, darkMode }) => {
 };
 
 // Badge component for displaying the total info badge
-const ItemsBadge = memo(({ items, darkMode }) => (
+const ItemsBadge = memo(({ items, title, darkMode }) => (
   <InfoBadge
-    title="Total Items"
+    title={title}
     value={items}
     darkMode={darkMode}
     style={`-bottom-2 -left-1.5 w-6 h-6 text-gray-300 bg-blue-800`}
@@ -58,11 +59,11 @@ const ItemsBadge = memo(({ items, darkMode }) => (
 ));
 
 // Badge component for displaying the completion percentage badge
-const CompletionPercentageBadge = ({ haves, items, darkMode }) => {
+const CompletionPercentageBadge = ({ haves, items, title, darkMode }) => {
   const completionPercentage = Math.round((100 * haves) / items) || 0;
   return (
     <InfoBadge
-      title="Completion Percentage"
+      title={title}
       value={completionPercentage}
       icon={
         <span className={`inline text-[10px] font-bold animate-pulse`}>%</span>
@@ -93,7 +94,7 @@ function InfoWidget({ haves, needs, darkMode, handleClick }) {
     >
       <div
         onClick={handleClick}
-        title="Items Info Widget"
+        title={titles.WIDGET[language]}
         className={`app-header-info-widget-container ${
           darkMode ? "text-white bg-gray-700" : "text-gray-800 bg-white"
         } bg-opacity-60 min-w-[90px] mx-auto opacity-95 relative rounded-lg px-4 h-11 text-sm font-medium transition flex items-center justify-center ${
@@ -113,20 +114,34 @@ function InfoWidget({ haves, needs, darkMode, handleClick }) {
         </span>
         {Boolean(needs) && (
           <CompletionPercentageBadge
+            title={titles.PERCENTAGE[language]}
             haves={haves}
             items={items}
             darkMode={darkMode}
           />
         )}
-        {Boolean(both) && <ItemsBadge items={items} darkMode={darkMode} />}
+        {Boolean(both) && (
+          <ItemsBadge
+            title={titles.TOTAL[language]}
+            items={items}
+            darkMode={darkMode}
+          />
+        )}
         {showHavesBadge && (
           <HavesBadge
+            title={titles.HAVES[language]}
             haves={haves}
             needs={showNeedsBadge}
             darkMode={darkMode}
           />
         )}
-        {showNeedsBadge && <NeedsBadge needs={needs} darkMode={darkMode} />}
+        {showNeedsBadge && (
+          <NeedsBadge
+            title={titles.NEEDS[language]}
+            needs={needs}
+            darkMode={darkMode}
+          />
+        )}
       </div>
     </div>
   );
