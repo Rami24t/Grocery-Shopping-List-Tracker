@@ -323,3 +323,16 @@ export const clearFilterBtnText = {
   INFO: ["Filter cleared", "Filter gelöscht", "تمّ مسح التّصفية"],
   TITLE: ["Clear filter", "Filter löschen", "مسح التّصفية"],
 };
+
+export const undoButtonText = {
+  TITLE_ENABLED: [
+    "Click to undo",
+    "Klicken Sie, um rückgängig zu machen",
+    "إضغط للتراجع",
+  ],
+  TITLE_DISABLED: [
+    "Nothing to undo",
+    "Nichts zum Rückgängigmachen",
+    "لا شيء للتراجع عنه",
+  ],
+};

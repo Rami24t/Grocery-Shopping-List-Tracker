@@ -1,8 +1,14 @@
-import  { useState, memo } from "react";
+import { useState, useContext, memo } from "react";
 import { GiReturnArrow } from "react-icons/gi";
+import { Context } from "../Context";
+import { undoButtonText } from "../../data/text";
 
 const UndoButton = ({ darkMode, handleUndo, disabled = true }) => {
   const [isCoolDown, setIsCoolDown] = useState(false);
+  const { language } = useContext(Context).state.settings;
+  const title = disabled
+    ? undoButtonText.TITLE_DISABLED[language]
+    : undoButtonText.TITLE_ENABLED[language];
 
   const handleClick = () => {
     if (!isCoolDown) {
@@ -18,8 +24,8 @@ const UndoButton = ({ darkMode, handleUndo, disabled = true }) => {
     <div className="relative">
       <button
         disabled={disabled}
-        title={disabled ? "Nothing to undo" : "Click to Undo"}
-        aria-label={disabled ? "Nothing to undo" : "Click to Undo"}
+        title={title}
+        aria-label={title}
         className={`transition duration-300 ease-in-out group absolute -top-4 right-1 rounded-full ${
           isCoolDown || disabled
             ? "opacity-90 cursor-default"
