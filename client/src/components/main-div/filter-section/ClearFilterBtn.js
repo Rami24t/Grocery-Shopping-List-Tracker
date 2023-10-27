@@ -1,30 +1,33 @@
-import  { memo, useContext } from "react";
+import { memo, useContext } from "react";
 import { BsFunnel, BsFunnelFill } from "react-icons/bs";
 import { pencilCheckSFXAudio, playSFXAudio } from "../../../assets/sfx";
 import { Context } from "../../Context";
+import { clearFilterBtnText as text } from "../../../data/text";
 
 function ClearFilterBtn({ filter, setFilter, darkMode }) {
   const { state, dispatch } = useContext(Context);
+  const { language } = state.settings;
+  const title = text.TITLE[language];
 
   function clearFilter() {
-    if (state.settings.sound && filter.length > 0) {
-      playSFXAudio(pencilCheckSFXAudio);
-      dispatch({ type: "SET_INFO", payload: "Filter cleared" });
+    if (filter.length > 0) {
+      if (state.settings.sound) playSFXAudio(pencilCheckSFXAudio);
+      dispatch({ type: "SET_INFO", payload: text.INFO[language] });
     }
     setFilter("");
   }
 
   return (
     <button
-      title="Clear filter"
-      aria-label="Clear filter"
+      title={title}
+      aria-label={title}
       onClick={clearFilter}
       className=" font-bold text-xl flex items-center p-2 ms-0.5"
     >
       {filter.length > 0 ? (
         <>
           <BsFunnelFill
-            title="Clear filter"
+            title={title}
             className={`inline ${
               darkMode ? "text-gray-100" : "text-orange-700"
             }`}
