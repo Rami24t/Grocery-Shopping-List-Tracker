@@ -1,4 +1,4 @@
-import  { memo, useContext } from "react";
+import { memo, useContext } from "react";
 import { BsPencil } from "react-icons/bs";
 import { Context } from "../../Context";
 import { editButtonText } from "../../../data/text";
@@ -26,6 +26,9 @@ function EditButton({ darkMode }) {
     >
       <BsPencil
         onClick={(e) => (e.target = e.target.parentNode)}
+        // className={`block text-center hover:font-bold focus:font-bold text-2xl transition-transform duration-200 ${
+        //   rtlAlignment ? "ml-0.5 -scale-x-100 hover:-scale-x-110 focus:-scale-x-110 active:-scale-x-110 hover:scale-y-110 focus:scale-y-110 active:scale-y-110" : "mr-1 hover:scale-110 focus:scale-110 active:scale-110"
+        // } ${
         className={`block text-center hover:font-bold hover:scale-110 focus:font-bold focus:scale-110 active:scale-110 text-2xl transition-transform duration-200 ${
           rtlAlignment ? "ml-0.5" : "mr-1"
         } ${

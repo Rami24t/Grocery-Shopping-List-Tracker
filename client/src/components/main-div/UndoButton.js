@@ -9,6 +9,7 @@ const UndoButton = ({ darkMode, handleUndo, disabled = true }) => {
   const title = disabled
     ? undoButtonText.TITLE_DISABLED[language]
     : undoButtonText.TITLE_ENABLED[language];
+  const rtl = language === 2;
 
   const handleClick = () => {
     if (!isCoolDown) {
@@ -26,7 +27,9 @@ const UndoButton = ({ darkMode, handleUndo, disabled = true }) => {
         disabled={disabled}
         title={title}
         aria-label={title}
-        className={`transition duration-300 ease-in-out group absolute -top-4 right-1 rounded-full ${
+        className={`transition duration-300 ease-in-out group absolute -top-4 rounded-full ${
+          rtl ? "left-1.5" : "right-1.5"
+        } ${
           isCoolDown || disabled
             ? "opacity-90 cursor-default"
             : "active:scale-90"
