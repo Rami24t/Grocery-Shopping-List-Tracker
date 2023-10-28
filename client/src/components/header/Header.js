@@ -18,7 +18,9 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
   const toggleDarkModeClick = (e) => {
     dispatch({
       type: "SET_INFO",
-      payload: darkMode ?  headerText.DARK_OFF[language] : headerText.DARK_ON[language],
+      payload: darkMode
+        ? headerText.DARK_OFF[language]
+        : headerText.DARK_ON[language],
     });
     e.preventDefault();
     e.stopPropagation();
@@ -33,7 +35,9 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
     dispatch({ type: "TOGGLE_SOUND" });
     dispatch({
       type: "SET_INFO",
-      payload: sound ? headerText.SOUND_OFF[language] : headerText.SOUND_ON[language],
+      payload: sound
+        ? headerText.SOUND_OFF[language]
+        : headerText.SOUND_ON[language],
     });
   };
   const changeLanguage = () => dispatch({ type: "CHANGE_LANGUAGE" });
@@ -46,7 +50,7 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
     >
       <div
         className={`
-    app-header-container mx-auto max-w-screen-xl px-2 py-4 sm:px-3 sm:py-6 pb-6 sm:pb-9 lg:px-8 md:flex sm:items-center sm:justify-between
+    app-header-container mx-auto max-w-screen-xl px-2 py-5 sm:px-3 sm:py-6 pb-6 sm:pb-9 lg:px-8 md:flex sm:items-center sm:justify-between
     ${rtlAlignment ? "md:flex-row-reverse" : "md:flex-row"}    
     `}
       >
@@ -65,7 +69,7 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
           handleClick={toggleDarkModeClick}
         />
         <LanguageButton
-          text={state.LANGUAGES[(language) % state.LANGUAGES.length]}
+          text={state.LANGUAGES[language % state.LANGUAGES.length]}
           darkMode={darkMode}
           handleClick={changeLanguage}
         />
