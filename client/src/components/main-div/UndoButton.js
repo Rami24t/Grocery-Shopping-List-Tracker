@@ -28,10 +28,12 @@ const UndoButton = ({ darkMode, handleUndo, disabled = true }) => {
         title={title}
         aria-label={title}
         className={`transition duration-300 ease-in-out group absolute -top-4 rounded-full ${
-          rtl ? "left-1.5" : "right-1.5"
+          rtl ? "left-1.5 -scale-x-100" : "right-1.5"
         } ${
           isCoolDown || disabled
             ? "opacity-90 cursor-default"
+            : rtl
+            ? "active:-scale-x-90 active:scale-y-90"
             : "active:scale-90"
         } ${
           darkMode
@@ -51,7 +53,9 @@ const UndoButton = ({ darkMode, handleUndo, disabled = true }) => {
         <GiReturnArrow
           className={
             !disabled
-              ? "rotate-180 -scale-x-100 transition-transform group-active:rotate-90 group-hover:rotate-90 group-hover:-scale-x-75 group-focus:rotate-90 group-focus:-scale-x-75 group-active:-scale-x-75 : "
+              ? rtl
+                ? `transition-transform group-focus:rotate-45 group-hover:rotate-45 group-active:rotate-45 group-focus:scale-x-90 group-hover:scale-x-90 group-active:scale-x-75`
+                : `transition-transform rotate-180 -scale-x-100 group-focus:rotate-90 group-hover:rotate-90 group-active:rotate-90 group-focus:-scale-x-75 group-hover:-scale-x-75 group-active:-scale-x-75`
               : ""
           }
         />
