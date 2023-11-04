@@ -9,31 +9,38 @@ function FooterLists({ darkMode }) {
   const { language } = useContext(Context).state.settings;
   const { RESOURCES, FOLLOW_ME } = footerListsText;
 
+  const footerListsStyle = "flex gap-20 justify-around items-start";
+
+  const resourcesTitle = RESOURCES[language];
+  const resourcesLinks = [
+    { text: "Rami", url: "https://www.github.com/rami24t" },
+    { text: "React", url: "https://react.dev/", Logo: LiaReact },
+    {
+      text: "Tailwind CSS",
+      url: "https://tailwindcss.com/",
+      Logo: BiLogoTailwindCss,
+    },
+  ];
+  const followMeTitle = FOLLOW_ME[language];
+  const followMeLinks = [
+    { text: "Github", url: "https://www.github.com/rami24t" },
+    {
+      text: "LinkedIn",
+      url: "https://www.linkedin.com/in/rami-al-saadi-16a14223a/",
+    },
+  ];
+
   return (
-    <div className="footer-lists flex gap-20 justify-around items-start">
+    <div className={footerListsStyle}>
       <FooterList
         darkMode={darkMode}
-        title={RESOURCES[language]}
-        links={[
-          { text: "Rami", url: "https://www.github.com/rami24t" },
-          {
-            text: "Tailwind CSS",
-            url: "https://tailwindcss.com/",
-            Logo: BiLogoTailwindCss,
-          },
-          { text: "React", url: "https://react.dev/", Logo: LiaReact },
-        ]}
+        title={resourcesTitle}
+        links={resourcesLinks}
       />
       <FooterList
         darkMode={darkMode}
-        title={FOLLOW_ME[language]}
-        links={[
-          { text: "Github", url: "https://www.github.com/rami24t" },
-          {
-            text: "LinkedIn",
-            url: "https://www.linkedin.com/in/rami-al-saadi-16a14223a/",
-          },
-        ]}
+        title={followMeTitle}
+        links={followMeLinks}
       />
       {/* <FooterList title="Legal" links={[{ text: "Privacy Policy" }, { text: "Terms & Conditions" }]} /> */}
     </div>
