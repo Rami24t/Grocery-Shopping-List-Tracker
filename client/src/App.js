@@ -340,7 +340,11 @@ function App() {
       return;
     } else {
       sound && playSFXAudio(addSFXAudio1);
-      setInfo(`${!rtlAlignment? `${text.item} `: ''}${value.slice(0, 10)}... ${text.info.added}`);
+      setInfo(
+        `${!rtlAlignment ? `${text.item} ` : ""}${value.slice(0, 10)}... ${
+          text.info.added
+        }`
+      );
       const updatedItems = [
         {
           id: "RAGSL-" + (items.length + 1) + Date.now(),
@@ -449,105 +453,114 @@ function App() {
 
   // use the getLists function to get the needs and haves lists given the items array state.
   const { needs, haves } = getLists(items);
-  // -------------------------------
+  // ----------------------------------------------------------------------------------------
 
-  // JSX return statement for the App component - The app has header, main and footer.
+  // App Styles ---------------------------------------------------------------------------------
+  const appContainerStyle = `app-container ${
+    darkMode
+      ? "text-white bg-black bg-gradient-to-l from-gray-950"
+      : "text-amber-800 bg-yellow-50 bg-gradient-to-r from-yellow-100"
+  }`;
+  const middleContainerStyle = `${
+    darkMode
+      ? "bg-black bg-gradient-to-l from-gray-950 border-red-950"
+      : "bg-yellow-50 bg-gradient-to-r from-yellow-100 border-red-100"
+  } pt-5 pb-7 border-b border-t overflow-x-hidden flex justify-around flex-wrap gap-0 relative`;
+  const asideLeftStyle = `rounded-lg ${
+    darkMode
+      ? "bg-black bg-gradient-to-r from-gray-950 md:from-black"
+      : "bg-yellow-100"
+  }`;
+  const menuButtonContainerStyle = `z-50 fixed -top-2 ${
+    showSideNav ? "-right-0" : "-right-1"
+  } w-[50px] h-[50px] sm:hidden overflow-clip`;
+  const clickAwayStyle = `${
+    darkMode ? "bg-black bg-gradient-to-r to-gray-950" : "bg-yellow-50"
+  } bg-opacity-50 fixed top-0 right-0 h-screen w-screen z-40 filter`;
+  // -----------------------------------------------------------------------------------------------
 
-  return (
-    <div
-      id="app"
-      className={`app-container ${
-        darkMode
-          ? "text-white bg-black bg-gradient-to-l from-gray-950"
-          : "text-amber-800 bg-yellow-50 bg-gradient-to-r from-yellow-100"
-      }`}
-    >
-      <Header
-        list={list}
-        needs={needs.length}
-        haves={haves.length}
+  // JSX and return statement for the App component - The app has header, main and footer.
+  const header = (
+    <Header
+      list={list}
+      needs={needs.length}
+      haves={haves.length}
+      darkMode={darkMode}
+      setDarkMode={setDarkMode}
+    />
+  );
+  const asideLeft = (
+    <aside className={asideLeftStyle}>
+      <ArrowButtonsNav darkMode={darkMode} />
+      {showSideNav && (
+        <div
+          className={clickAwayStyle}
+          onClick={() => {
+            setShowSideNav(false);
+            setInfo("");
+            if (sound) playSFXAudio(slideOutSFXAudio);
+          }}
+        ></div>
+      )}
+      <div className={menuButtonContainerStyle}>
+        <MenuButton
+          showSideNav={showSideNav}
+          setShowSideNav={setShowSideNav}
+          darkMode={darkMode}
+        />
+      </div>
+      <Sidenav
+        items={items.length}
+        setShowAddItem={setShowAddItem}
+        showSideNav={showSideNav}
+        setShowSideNav={setShowSideNav}
         darkMode={darkMode}
         setDarkMode={setDarkMode}
       />
-      <div
-        className={`${
-          darkMode
-            ? "bg-black bg-gradient-to-l from-gray-950 border-red-950"
-            : "bg-yellow-50 bg-gradient-to-r from-yellow-100 border-red-100"
-        } pt-5 pb-7 border-b border-t overflow-x-hidden flex justify-around flex-wrap gap-0 relative`}
-      >
-        <aside
-          className={`aside-left rounded-lg ${
-            darkMode
-              ? "bg-black bg-gradient-to-r from-gray-950 md:from-black"
-              : "bg-yellow-100"
-          }`}
-        >
-          <ArrowButtonsNav darkMode={darkMode} />
-          {showSideNav && (
-            <div
-              className={`click-away ${
-                darkMode
-                  ? "bg-black bg-gradient-to-r to-gray-950"
-                  : "bg-yellow-50"
-              } bg-opacity-50 fixed top-0 right-0 h-screen w-screen z-40 filter`}
-              onClick={() => {
-                setShowSideNav(false);
-                setInfo("");
-                if (sound) playSFXAudio(slideOutSFXAudio);
-              }}
-            ></div>
-          )}
-          <div
-            className={`z-50 fixed -top-2 ${
-              showSideNav ? "-right-0" : "-right-1"
-            } w-[50px] h-[50px]
-        sm:hidden overflow-clip`}
-          >
-            <MenuButton
-              showSideNav={showSideNav}
-              setShowSideNav={setShowSideNav}
-              darkMode={darkMode}
-            />
-          </div>
-          <Sidenav
-            items={items.length}
-            setShowAddItem={setShowAddItem}
-            showSideNav={showSideNav}
-            setShowSideNav={setShowSideNav}
-            darkMode={darkMode}
-            setDarkMode={setDarkMode}
-          />
-        </aside>
-        <Main
-          list={list}
-          items={items}
-          needs={needs}
-          haves={haves}
-          setList={setList}
-          filter={filter}
-          setFilter={setFilter}
-          handleChangeFilter={handleChangeFilter}
-          disableUndoBtn={undoArrayRef.current.length <= 1}
-          handleDelete={handleDelete}
-          handleUndo={handleUndo}
-          handleToggle={handleToggle}
-          updateItem={updateItem}
-          handleAdd={handleAdd}
-          showAddItem={showAddItem}
-          setShowAddItem={setShowAddItem}
-          handleChangeList={handleChangeList}
-          handleReset={handleReset}
-          handleClear={handleClear}
-          darkMode={darkMode}
-        />
-        <AsideRight darkMode={darkMode} />
+    </aside>
+  );
+  const main = (
+    <Main
+      list={list}
+      items={items}
+      needs={needs}
+      haves={haves}
+      setList={setList}
+      filter={filter}
+      setFilter={setFilter}
+      handleChangeFilter={handleChangeFilter}
+      disableUndoBtn={undoArrayRef.current.length <= 1}
+      handleDelete={handleDelete}
+      handleUndo={handleUndo}
+      handleToggle={handleToggle}
+      updateItem={updateItem}
+      handleAdd={handleAdd}
+      showAddItem={showAddItem}
+      setShowAddItem={setShowAddItem}
+      handleChangeList={handleChangeList}
+      handleReset={handleReset}
+      handleClear={handleClear}
+      darkMode={darkMode}
+    />
+  );
+  const asideRight = <AsideRight darkMode={darkMode} />;
+  const footer = <Footer darkMode={darkMode} />;
+  const infoModal = createPortal(
+    <InfoModal info={state?.info} setInfo={setInfo} darkMode={darkMode} />,
+    document.body
+  );
+
+  // JSX and return statement for the App component - The app has header, main and footer.
+  return (
+    <div id="app" className={appContainerStyle}>
+      {header}
+      <div className={middleContainerStyle}>
+        {asideLeft}
+        {main}
+        {asideRight}
       </div>
-      <Footer darkMode={darkMode} />
-      {createPortal(
-        <InfoModal info={state?.info} setInfo={setInfo} darkMode={darkMode} />,
-        document.body
-      )}
+      {footer}
+      {infoModal}
     </div>
   );
 }
