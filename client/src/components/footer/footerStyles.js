@@ -9,5 +9,5 @@ export const footerStyles = {
     dark: "border-gray-800",
     light: "border-gray-200",
     common: "my-5  sm:mx-auto lg:my-8",
-  }
+  },
 };
