@@ -15,7 +15,7 @@ import {
   playSFXAudio,
 } from "../../assets/sfx";
 import { Context } from "../Context";
-import { sidenavText, LANGUAGES } from "../../data/text";
+import { sidenavText } from "../../data/text";
 
 const Sidenav = ({
   items,
@@ -37,7 +37,7 @@ const Sidenav = ({
       sidenavText.CONTACT[language],
       sidenavText.LANGUAGE[language],
     ],
-    language: LANGUAGES[language],
+    language: sidenavText.LANGUAGES[language],
   };
 
   function hideMobileSidenav(e) {

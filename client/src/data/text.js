@@ -1,8 +1,5 @@
 import randomQuote from "./randomQuote";
 
-export const LANGUAGES = ["ENG", "DEU", "عربي"];
-// export const LANGUAGES = ["EN", "DE", "العربيّة"];
-
 export const headerText = {
   TITLES: [
     "Grocery Shopping List",
@@ -14,6 +11,7 @@ export const headerText = {
   DARK_OFF: ["Theme is now bright", "Heller Modus an", "الوضع السّاطع"],
   SOUND_ON: ["Sound is now on", "Ton an", "إلغاء كتم الصّوت"],
   SOUND_OFF: ["Sound is now muted", "Ton aus", "كتم الصّوت"],
+  LANGUAGES: ["EN", "DE", "AR"],
 };
 
 export const arrowToText = {
@@ -255,6 +253,7 @@ export const sidenavText = {
   EDIT_LIST: ["Edit List", "Liste bearbeiten", "تعديل في القائمة"],
   CONTACT: ["Contact links", "Kontakt Links", "روابط التّواصل"],
   LANGUAGE: ["Language", "Sprache", "تغيير اللّغة"],
+  LANGUAGES: ["ENG", "DEU", "عربي"],
 };
 
 export const topFooterText = {
