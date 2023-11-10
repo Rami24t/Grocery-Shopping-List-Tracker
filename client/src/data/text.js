@@ -249,7 +249,7 @@ export const appText = {
 
 export const sidenavText = {
   HOME: ["Home", "Startseite", "الصّفحة الرّئيسيّة"],
-  ADD_ITEMS: ["Add Items", "Elemente hinzufügen", "إضافة عناصر"],
+  ADD_ITEMS: ["Add Items", "Hinzufügen", "إضافة عناصر"],
   SEARCH_LIST: ["Search List", "Liste durchsuchen", "بحث في القائمة"],
   // SETTINGS : ["Settings", "Einstellungen", "إعدادات"],
   EDIT_LIST: ["Edit List", "Liste bearbeiten", "تعديل في القائمة"],
