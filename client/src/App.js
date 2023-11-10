@@ -59,7 +59,7 @@ function App() {
       },
     },
     item: appText.ITEM[language],
-    docTitle: appText.DOC_TITLE[language],
+    // docTitle: appText.DOC_TITLE[language],
   };
 
   // Dark Mode useState
@@ -80,9 +80,6 @@ function App() {
 
   // First loading useEffect / initial render useEffect
   useEffect(() => {
-    // set html lang attribute dynamically according to the language state
-    document.documentElement.lang = ["en", "de", "ar"][language];
-
     // const MOBILE_MAX_WIDTH = 440; - disabled
     //   setIsMobile(window.innerWidth <= MOBILE_MAX_WIDTH); - disabled
     // Before implementing useLocalStorage hook - disabled
@@ -108,10 +105,13 @@ function App() {
     return () => clearTimeout(timeout); // Clear the timeout if the component unmounts
   }, []);
 
+  // useEffect to set the document language and title
   useEffect(() => {
+    // set html lang attribute dynamically according to the language state
+    document.documentElement.lang = ["en", "de", "ar"][language];
     // document.title = `🛒📋Gr.Shop.List🧾📱`;
-    document.title = text.docTitle;
-  }, [text.docTitle]);
+    document.title = appText.DOC_TITLE[language];
+  }, [language]);
 
   // Multilist feature - temporary disabled
   function handleChangeList(e) {

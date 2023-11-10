@@ -39,7 +39,7 @@ function ContextProvider({ children }) {
       case "CHANGE_LANGUAGE":
         const nextLanguage = (state.settings.language + 1) % LANGUAGES_LENGTH;
         localStorage.setItem("language", nextLanguage);
-        document.documentElement.lang = state.LANGUAGES[nextLanguage];
+        // document.documentElement.lang = state.LANGUAGES[nextLanguage]; responsibility moved to App.js
         return {
           ...state,
           settings: {
