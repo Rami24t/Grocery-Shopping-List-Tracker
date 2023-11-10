@@ -78,8 +78,11 @@ function App() {
   // MultiLists feature - temporary disabled
   const [list, setList] = useLocalStorage("lastVisitedList", 1);
 
-  // First loading useEffect
+  // First loading useEffect / initial render useEffect
   useEffect(() => {
+    // set html lang attribute dynamically according to the language state
+    document.documentElement.lang = ["en", "de", "ar"][language];
+
     // const MOBILE_MAX_WIDTH = 440; - disabled
     //   setIsMobile(window.innerWidth <= MOBILE_MAX_WIDTH); - disabled
     // Before implementing useLocalStorage hook - disabled
@@ -550,6 +553,7 @@ function App() {
     document.body
   );
 
+  // const HTML_LANGS = ["en", "de", "ar"]; ...lang={HTML_LANGS[language]}...
   // JSX and return statement for the App component - The app has header, main and footer.
   return (
     <div id="app" className={appContainerStyle}>
