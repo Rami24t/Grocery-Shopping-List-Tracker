@@ -37,11 +37,13 @@ function ContextProvider({ children }) {
           info: action.payload,
         };
       case "CHANGE_LANGUAGE":
+        const nextLanguage = (state.settings.language + 1) % LANGUAGES_LENGTH;
+        localStorage.setItem("language", nextLanguage);
         return {
           ...state,
           settings: {
             ...state?.settings,
-            language: (state.settings.language + 1) % LANGUAGES_LENGTH,
+            language: nextLanguage,
           },
         };
 
@@ -58,7 +60,7 @@ function ContextProvider({ children }) {
     info: "",
     settings: {
       sound: false,
-      language: 0,
+      language: parseInt(localStorage.getItem("language")) || 0,
     },
   };
   const [state, dispatch] = useReducer(reducer, initialState);
