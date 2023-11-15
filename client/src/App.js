@@ -485,11 +485,13 @@ function App() {
   // JSX and return statement for the App component - The app has header, main and footer.
   const header = (
     <Header
-      list={list}
-      needs={needs.length}
-      haves={haves.length}
-      darkMode={darkMode}
-      setDarkMode={setDarkMode}
+      {...{
+        list,
+        needs: needs.length,
+        haves: haves.length,
+        darkMode,
+        setDarkMode,
+      }}
     />
   );
   const asideLeft = (
@@ -507,49 +509,61 @@ function App() {
       )}
       <div className={menuButtonContainerStyle}>
         <MenuButton
-          showSideNav={showSideNav}
-          setShowSideNav={setShowSideNav}
-          darkMode={darkMode}
+          {...{
+            showSideNav,
+            setShowSideNav,
+            darkMode,
+          }}
         />
       </div>
       <Sidenav
-        items={items.length}
-        setShowAddItem={setShowAddItem}
-        showSideNav={showSideNav}
-        setShowSideNav={setShowSideNav}
-        darkMode={darkMode}
-        setDarkMode={setDarkMode}
+        {...{
+          items: items.length,
+          setShowAddItem,
+          showSideNav,
+          setShowSideNav,
+          darkMode,
+          setDarkMode,
+        }}
       />
     </aside>
   );
   const main = (
     <Main
-      list={list}
-      items={items}
-      needs={needs}
-      haves={haves}
-      setList={setList}
-      filter={filter}
-      setFilter={setFilter}
-      handleChangeFilter={handleChangeFilter}
-      disableUndoBtn={undoArrayRef.current.length <= 1}
-      handleDelete={handleDelete}
-      handleUndo={handleUndo}
-      handleToggle={handleToggle}
-      updateItem={updateItem}
-      handleAdd={handleAdd}
-      showAddItem={showAddItem}
-      setShowAddItem={setShowAddItem}
-      handleChangeList={handleChangeList}
-      handleReset={handleReset}
-      handleClear={handleClear}
-      darkMode={darkMode}
+      {...{
+        list,
+        items,
+        needs,
+        haves,
+        setList,
+        filter,
+        setFilter,
+        handleChangeFilter,
+        disableUndoBtn: undoArrayRef.current.length <= 1,
+        handleDelete,
+        handleUndo,
+        handleToggle,
+        updateItem,
+        handleAdd,
+        showAddItem,
+        setShowAddItem,
+        handleChangeList,
+        handleReset,
+        handleClear,
+        darkMode,
+      }}
     />
   );
   const asideRight = <AsideRight darkMode={darkMode} />;
   const footer = <Footer darkMode={darkMode} />;
   const infoModal = createPortal(
-    <InfoModal info={state?.info} setInfo={setInfo} darkMode={darkMode} />,
+    <InfoModal
+      {...{
+        info: state?.info,
+        setInfo,
+        darkMode,
+      }}
+    />,
     document.body
   );
 
