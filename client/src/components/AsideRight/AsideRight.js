@@ -1,10 +1,9 @@
 import { memo } from "react";
 
-import  { useEffect, useState, useCallback } from "react";
-import AsideImage from "./AsideImage";
+import { useEffect, useState, useCallback } from "react";
+import { AsideImage, imagesArray } from "./components";
 import { animatedImg3 } from "../../assets/animatedImgs";
 import decoImgs from "../../assets/deco-imgs";
-import imagesArray from "./images";
 //import ResizeObserver from "resize-observer-polyfill";
 
 function AsideRight({ darkMode }) {
