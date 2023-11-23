@@ -6,7 +6,7 @@ Try it out for free on [the link](https://grocery-shopping-list-app.vercel.app/)
 
 
 ## Check out the Live Deployment on
-[<img src="https://github.com/Rami24t/Grocery-Shopping-List-Tracker/assets/103028944/8fb2d9aa-9bbb-49e1-aa7b-aa39eb403d13" alt="QR Code" width="100" height="100" />](https://grocery-shopping-list-app.vercel.app/)[gsl link](https://grocery-shopping-list-app.vercel.app/)
+[<img src="https://github.com/Rami24t/Grocery-Shopping-List-Tracker/assets/103028944/8fb2d9aa-9bbb-49e1-aa7b-aa39eb403d13" alt="QR Code" width="100" height="100" />](https://grocery-shopping-list-app.vercel.app/)[GSL live demo link](https://grocery-shopping-list-app.vercel.app/)
 
 
 ## Snapshots
@@ -14,8 +14,7 @@ Try it out for free on [the link](https://grocery-shopping-list-app.vercel.app/)
 
 ### Mobile Screens
 
-![Screenshot_2023-08-26-03-08-18](https://github.com/Rami24t/Grocery-Shopping-List-Tracker/assets/103028944/e958d3a0-9f07-4b17-8508-e0aa78f12413)
-![Screenshot 2023-08-10 at 00-41-55 Grocery Shopping List](https://github.com/Rami24t/Grocery-Shopping-List-Tracker/assets/103028944/cd7ec2b8-dd0d-4689-9d1c-2623d36ad06b)
+![Screenshot_2023-08-26-03-08-18](https://github.com/Rami24t/Grocery-Shopping-List-Tracker/assets/103028944/e958d3a0-9f07-4b17-8508-e0aa78f12413)![Screenshot 2023-08-10 at 00-41-55 Grocery Shopping List](https://github.com/Rami24t/Grocery-Shopping-List-Tracker/assets/103028944/cd7ec2b8-dd0d-4689-9d1c-2623d36ad06b)
 ![Screenshot 2023-08-10 at 00-43-14 Grocery Shopping List](https://github.com/Rami24t/Grocery-Shopping-List-Tracker/assets/103028944/fc455bf4-8f0f-4c8a-8bd5-86af7ac89755)
 
 
