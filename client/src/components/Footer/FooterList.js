@@ -1,5 +1,5 @@
 import { useContext, memo } from "react";
-import FooterListItem from "./FooterListItem";
+import { FooterListItem } from "./components";
 import { navLinkClickSFXAudio, playSFXAudio } from "../../assets/sfx";
 import { Context } from "../Context";
 

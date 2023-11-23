@@ -1,5 +1,5 @@
 import { memo, useContext } from "react";
-import FooterList from "./FooterList";
+import { FooterList } from "./components";
 import { LiaReact } from "react-icons/lia";
 import { BiLogoTailwindCss } from "react-icons/bi";
 import { Context } from "../Context";

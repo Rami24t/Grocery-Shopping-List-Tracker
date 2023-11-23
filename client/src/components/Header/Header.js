@@ -1,13 +1,15 @@
 import { useContext, memo } from "react";
-import InfoWidget from "./InfoWidget";
-import Hero from "./Hero";
-import ToggleDarkModeButton from "./DarkModeButton";
-import ToggleSoundButton from "./SoundButton";
+import {
+  Hero,
+  InfoWidget,
+  LanguageButton,
+  ToggleSoundButton,
+  ToggleDarkModeButton,
+} from "./components";
 import { playSFXAudio, navLinkClickSFXAudio } from "../../assets/sfx";
 import { Context } from "../Context";
 import { TiShoppingCart } from "react-icons/ti";
 import { headerText } from "../../data/text";
-import LanguageButton from "./LanguageButton";
 
 function Header({ list, needs, haves, darkMode, setDarkMode }) {
   const { state, dispatch } = useContext(Context);
