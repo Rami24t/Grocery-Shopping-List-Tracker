@@ -1,4 +1,4 @@
 import AsideImage from "./AsideImage";
-import imagesArray from "./imagesArray";
+import imagesArray from "./images";
 
 export { AsideImage, imagesArray };
