@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { LanguageBadge } from "../aside-left/Badges";
+import { LanguageBadge } from "../Sidenav/components";
 import { Context } from "../Context";
 
 const LanguageButton = ({ text, handleClick, darkMode }) => {

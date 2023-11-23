@@ -23,9 +23,8 @@ import {
 } from "./assets/sfx";
 import { getLists } from "./utils/getLists";
 import Header from "./components/Header";
-import MenuButton from "./components/aside-left/MenuButton";
-import Sidenav from "./components/aside-left/Sidenav";
-import ArrowButtonsNav from "./components/aside-left/ArrowButtonsNav";
+import { MenuButton, ArrowButtonsNav } from "./components/Sidenav";
+import Sidenav from "./components/Sidenav";
 import Main from "./components/main-div/Main";
 import AsideRight from "./components/AsideRight";
 import Footer from "./components/Footer";

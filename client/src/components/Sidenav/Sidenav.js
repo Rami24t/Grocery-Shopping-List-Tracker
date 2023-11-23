@@ -1,14 +1,15 @@
 import { useContext, memo } from "react";
-import SidenavLI from "./SidenavLI";
 import {
+  SidenavLI,
   SvgAddItem,
   SvgBagFilled,
   SvgEditList,
   SvgHome,
   SvgPerson,
   SvgSettings,
-} from "./SidenavSvgs";
-import { ItemsBadge, LanguageBadge } from "./Badges";
+  ItemsBadge,
+  LanguageBadge,
+} from "./components";
 import {
   slideOutInSFXAudio,
   navLinkClickSFXAudio,
