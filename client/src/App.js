@@ -28,7 +28,7 @@ import Sidenav from "./components/aside-left/Sidenav";
 import ArrowButtonsNav from "./components/aside-left/ArrowButtonsNav";
 import Main from "./components/main-div/Main";
 import AsideRight from "./components/aside-right/AsideRight";
-import Footer from "./components/footer/Footer";
+import Footer from "./components/Footer";
 import InfoModal from "./components/infoModal/InfoModal";
 import { appText } from "./data/text";
 

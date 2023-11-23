@@ -1,8 +1,6 @@
 import { useContext, memo } from "react";
-import FooterIconLink from "./FooterIconLink";
-import SendEmailIconLink from "./SendEmailIconLink";
+import { FooterIconLink, SendEmailIconLink, SvgGithub } from "./components";
 import { BsYoutube, BsLinkedin } from "react-icons/bs";
-import { SvgGithub } from "./Svgs";
 import { navLinkClickSFXAudio, playSFXAudio } from "../../assets/sfx";
 import { Context } from "../Context";
 import { iconsText as text } from "../../data/text";

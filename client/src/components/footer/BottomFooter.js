@@ -2,8 +2,7 @@ import { memo, useContext } from "react";
 import { Context } from "../Context";
 import { bottomFooterText } from "../../data/text";
 
-import CopyrightDisclaimer from "./CopyrightDisclaimer";
-import Icons from "./Icons";
+import { CopyrightDisclaimer, Icons } from "./components";
 import { navLinkClickSFXAudio } from "../../assets/sfx";
 
 function BottomFooter({ darkMode }) {

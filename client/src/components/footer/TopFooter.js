@@ -1,6 +1,5 @@
 import { memo, useContext } from "react";
-import Company from "./Company";
-import FooterLists from "./FooterLists";
+import { Company, FooterLists } from "./components";
 import { navLinkClickSFXAudio } from "../../assets/sfx";
 import logoSvg from "../../assets/logo/logo.svg";
 import { topFooterText } from "../../data/text";

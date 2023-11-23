@@ -1,7 +1,5 @@
 import { memo } from "react";
-import TopFooter from "./TopFooter";
-import BottomFooter from "./BottomFooter";
-import { footerStyles } from "./footerStyles";
+import { TopFooter, BottomFooter, footerStyles } from "./components";
 
 function Footer({ darkMode }) {
   return (
