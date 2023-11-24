@@ -1,15 +1,17 @@
 import { memo, useContext, useEffect } from "react";
-import MainHeader from "./MainHeader";
-import AddItems from "./AddItems";
-import FilterSection from "./filter-section/FilterSection";
-import Lists from "./Lists";
+import {
+  MainHeader,
+  AddItems,
+  FilterSection,
+  Lists,
+  UndoButton,
+} from "./components";
 import {
   wrongFilterSFXAudio2,
   completionSFXAudio,
   playSFXAudio,
 } from "../../assets/sfx";
 import { Context } from "../Context";
-import UndoButton from "./UndoButton";
 import { mainText } from "../../data/text";
 
 function Main({

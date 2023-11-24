@@ -1,5 +1,5 @@
-import  { memo, useContext } from "react";
-import Item from "./item/Item";
+import { memo, useContext } from "react";
+import Item from "./Item";
 import { BsEyeSlash, BsEye } from "react-icons/bs";
 import {
   listCloseOpenSFXAudio,
@@ -78,8 +78,12 @@ function List({
             !filteredItems.length ? "invisible" : ""
           } p-2 cursor-pointer text-lg transition-transform inline-flex text-center items-center justify-center w-4 h-4 ${
             showItems
-              ? `duration-500 rotate-90 translate-x-0.5 ${rtlAlignment ? "rotate-180 -translate-y-0.5" : ""}`
-              : `transform -translate-y-0.5 ${rtlAlignment ? "rotate-180 translate-y-0" : ""}`
+              ? `duration-500 rotate-90 translate-x-0.5 ${
+                  rtlAlignment ? "rotate-180 -translate-y-0.5" : ""
+                }`
+              : `transform -translate-y-0.5 ${
+                  rtlAlignment ? "rotate-180 translate-y-0" : ""
+                }`
           }`}
         >
           &gt;

@@ -1,6 +1,5 @@
 import { memo, useContext } from "react";
-import AddItemsButton from "./AddItemsButton";
-import ResetButton from "./ResetButton";
+import { AddItemsButton, ResetButton } from "./components";
 import { Context } from "../Context";
 import { mainHeaderText } from "../../data/text";
 
@@ -8,8 +7,8 @@ function MainHeader({
   showAddItem,
   setShowAddItem,
   items,
-  list,
-  handleChangeList,
+  // list,
+  // handleChangeList,
   handleReset,
   handleClear,
   darkMode,
@@ -17,9 +16,13 @@ function MainHeader({
   const { language } = useContext(Context).state.settings;
   const title = mainHeaderText["TITLE"][language];
   const rtlAlignment = language === 2;
-  
+
   return (
-    <div className={`flex flex-wrap items-center justify-around py-2 mb-2 gap-3 ${rtlAlignment && "flex-row-reverse"}`}>
+    <div
+      className={`flex flex-wrap items-center justify-around py-2 mb-2 gap-3 ${
+        rtlAlignment && "flex-row-reverse"
+      }`}
+    >
       <h2 className="text-center text-xl font-semibold select-none">
         {title}
         {/* <input
