@@ -23,12 +23,12 @@ import {
 } from "./assets/sfx";
 import { getLists } from "./utils/getLists";
 import Header from "./components/Header";
-import { MenuButton, ArrowButtonsNav } from "./components/Sidenav";
 import Sidenav from "./components/Sidenav";
+import { MenuButton, ArrowButtonsNav } from "./components/Sidenav";
 import Main from "./components/main-div/Main";
 import AsideRight from "./components/AsideRight";
 import Footer from "./components/Footer";
-import InfoModal from "./components/infoModal/InfoModal";
+import InfoModal from "./components/InfoModal";
 import { appText } from "./data/text";
 
 function App() {
