@@ -1,2 +1,4 @@
-import Context from "./Context";
-export default Context;
+import ContextProvider, { Context } from "./Context";
+
+export { Context };
+export default ContextProvider;

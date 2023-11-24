@@ -1,7 +1,12 @@
+// import react hooks
 import { useState, useRef, useEffect, useContext } from "react";
+// import react portal to render the info modal outside the root div
 import { createPortal } from "react-dom";
-import { Context } from "./components/Context/Context";
+// import custom hooks
 import useLocalStorage from "./hooks/useLocalStorage";
+// import custom utilities/functions
+import { getLists } from "./utils/getLists";
+// import app data
 import { defaultItems } from "./data/defaultItems";
 import {
   addSFXAudio1,
@@ -21,15 +26,19 @@ import {
   playSFXAudio,
   menuButtonClickAudio,
 } from "./assets/sfx";
-import { getLists } from "./utils/getLists";
-import Header from "./components/Header";
-import Sidenav from "./components/Sidenav";
-import { MenuButton, ArrowButtonsNav } from "./components/Sidenav";
-import Main from "./components/Main";
-import AsideRight from "./components/AsideRight";
-import Footer from "./components/Footer";
-import InfoModal from "./components/InfoModal";
 import { appText } from "./data/text";
+// import app components
+import {
+  Context,
+  Header,
+  Sidenav,
+  MenuButton,
+  ArrowButtonsNav,
+  Main,
+  AsideRight,
+  Footer,
+  InfoModal,
+} from "./components";
 
 function App() {
   // Read sound and info from Context
