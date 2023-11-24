@@ -1,6 +1,6 @@
 import { useState, useRef, useEffect, useContext } from "react";
 import { createPortal } from "react-dom";
-import { Context } from "./components/Context";
+import { Context } from "./components/Context/Context";
 import useLocalStorage from "./hooks/useLocalStorage";
 import { defaultItems } from "./data/defaultItems";
 import {

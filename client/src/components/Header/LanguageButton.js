@@ -1,6 +1,6 @@
 import { useContext } from "react";
 import { LanguageBadge } from "../Sidenav/components";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 
 const LanguageButton = ({ text, handleClick, darkMode }) => {
   const en = useContext(Context).state.settings.language === 0;

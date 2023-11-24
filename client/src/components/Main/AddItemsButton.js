@@ -6,7 +6,7 @@ import {
 } from "../../assets/sfx";
 import useAudio from "../../hooks/useAudio";
 import { playAudio40 } from "../../utils/playAudio40";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { addItemsButtonText } from "../../data/text";
 
 const BUTTON_COOLDOWN_MS = 900;

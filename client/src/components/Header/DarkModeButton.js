@@ -1,5 +1,5 @@
 import { memo, useContext } from "react";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { darkModeButtonText } from "../../data/text";
 
 function ToggleDarkModeButton({ darkMode, handleClick }) {

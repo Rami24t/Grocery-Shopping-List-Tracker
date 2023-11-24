@@ -1,6 +1,6 @@
 import { memo, useContext } from "react";
 import { AddItemsButton, ResetButton } from "./components";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { mainHeaderText } from "../../data/text";
 
 function MainHeader({

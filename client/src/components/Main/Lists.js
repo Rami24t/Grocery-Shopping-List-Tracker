@@ -1,6 +1,6 @@
 import { memo, useContext } from "react";
 import List from "./List";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { listsText } from "../../data/text";
 
 function Lists({

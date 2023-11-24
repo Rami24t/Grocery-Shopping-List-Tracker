@@ -1,6 +1,6 @@
 import { memo, useContext } from "react";
 import { ShoppingBagSvg, ShoppingBagFillSvg } from "./ShoppingBagSvgs";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { infoWidgetText as titles } from "../../data/text";
 
 // Abstract badge component for displaying the info badge

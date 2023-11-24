@@ -5,7 +5,7 @@ import {
   slideOutInSFXAudio,
   playSFXAudio,
 } from "../../assets/sfx";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { arrowToText } from "../../data/text";
 
 const ArrowToIcon = memo(({ toBottom, darkMode, shown }) => {

@@ -1,5 +1,5 @@
 import { memo, useContext } from "react";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { bottomFooterText } from "../../data/text";
 
 import { CopyrightDisclaimer, Icons } from "./components";

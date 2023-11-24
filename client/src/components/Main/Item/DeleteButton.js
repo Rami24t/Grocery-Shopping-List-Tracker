@@ -1,5 +1,5 @@
 import { useContext } from "react";
-import { Context } from "../../Context";
+import { Context } from "../../Context/Context";
 import { MdDeleteForever } from "react-icons/md";
 import { deleteButtonText } from "../../../data/text";
 

@@ -15,7 +15,7 @@ import {
   navLinkClickSFXAudio,
   playSFXAudio,
 } from "../../assets/sfx";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { sidenavText } from "../../data/text";
 
 const Sidenav = ({

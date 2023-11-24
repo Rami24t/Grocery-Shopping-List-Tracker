@@ -1,6 +1,6 @@
 import { memo, useContext } from "react";
 import { BsPencil } from "react-icons/bs";
-import { Context } from "../../Context";
+import { Context } from "../../Context/Context";
 import { editButtonText } from "../../../data/text";
 
 function EditButton({ darkMode }) {

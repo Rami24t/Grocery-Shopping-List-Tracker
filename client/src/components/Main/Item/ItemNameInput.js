@@ -6,7 +6,7 @@ import {
   writingSFXAudio,
   typeSFXAudio,
 } from "../../../assets/sfx";
-import { Context } from "../../Context";
+import { Context } from "../../Context/Context";
 import { itemNameText } from "../../../data/text";
 
 function ItemNameInput({ item, updateItem, darkMode }) {

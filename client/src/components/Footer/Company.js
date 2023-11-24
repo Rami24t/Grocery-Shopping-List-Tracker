@@ -1,6 +1,6 @@
 import { memo, useContext } from "react";
 import { playSFXAudio } from "../../assets/sfx";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 
 function Company({
   logo,

@@ -3,7 +3,7 @@ import ItemNameInput from "./ItemNameInput";
 import Checkbox from "./Checkbox";
 import EditButton from "./EditButton";
 import DeleteButton from "./DeleteButton";
-import  { Context } from "../../Context";
+import  { Context } from "../../Context/Context";
 
 const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
   const { language } = useContext(Context).state.settings;

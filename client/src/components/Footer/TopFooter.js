@@ -3,7 +3,7 @@ import { Company, FooterLists } from "./components";
 import { navLinkClickSFXAudio } from "../../assets/sfx";
 import logoSvg from "../../assets/logo/logo.svg";
 import { topFooterText } from "../../data/text";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 
 function TopFooter({ darkMode }) {
   const { language } = useContext(Context).state.settings;

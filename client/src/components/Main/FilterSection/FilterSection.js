@@ -2,7 +2,7 @@ import { memo, useContext } from "react";
 import { SvgSearch } from "./SvgSearch";
 import FilterInput from "./FilterInput";
 import ClearFilterBtn from "./ClearFilterBtn";
-import { Context } from "../../Context";
+import { Context } from "../../Context/Context";
 
 function FilterSection({
   filter,

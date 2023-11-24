@@ -2,7 +2,7 @@ import { useContext, memo } from "react";
 import { FooterIconLink, SendEmailIconLink, SvgGithub } from "./components";
 import { BsYoutube, BsLinkedin } from "react-icons/bs";
 import { navLinkClickSFXAudio, playSFXAudio } from "../../assets/sfx";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { iconsText as text } from "../../data/text";
 
 function Icons({ darkMode }) {

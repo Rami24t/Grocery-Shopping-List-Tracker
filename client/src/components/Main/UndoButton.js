@@ -1,6 +1,6 @@
 import { useState, useContext, memo } from "react";
 import { GiReturnArrow } from "react-icons/gi";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { undoButtonText } from "../../data/text";
 
 const UndoButton = ({ darkMode, handleUndo, disabled = true }) => {

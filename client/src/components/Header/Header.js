@@ -7,7 +7,7 @@ import {
   ToggleDarkModeButton,
 } from "./components";
 import { playSFXAudio, navLinkClickSFXAudio } from "../../assets/sfx";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { TiShoppingCart } from "react-icons/ti";
 import { headerText } from "../../data/text";
 

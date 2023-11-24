@@ -5,7 +5,7 @@ import {
   navLinkClickSFXAudio,
   playSFXAudio,
 } from "../../assets/sfx";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 
 function SendEmailIconLink({
   lastPartOfEmail = "24@gmail.com",

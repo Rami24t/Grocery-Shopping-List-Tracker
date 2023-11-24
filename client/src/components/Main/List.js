@@ -6,7 +6,7 @@ import {
   openListorClearSFXAudio,
   playSFXAudio,
 } from "../../assets/sfx";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { listText } from "../../data/text";
 
 function List({

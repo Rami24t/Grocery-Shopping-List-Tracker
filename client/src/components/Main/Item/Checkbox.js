@@ -1,6 +1,6 @@
 import  { useState, memo, useContext } from "react";
 import { checkboxText } from "../../../data/text";
-import { Context } from "../../Context";
+import { Context } from "../../Context/Context";
 
 function Checkbox({ item, handleToggle, darkMode}) {
   const { language } = (useContext(Context)).state.settings;

@@ -1,5 +1,5 @@
 import { useEffect, useContext } from "react";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 
 function InfoModal({ info = "", setInfo, darkMode = true }) {
   const close = () => setInfo("");

@@ -2,7 +2,7 @@ import { memo, useContext } from "react";
 import { FooterList } from "./components";
 import { LiaReact } from "react-icons/lia";
 import { BiLogoTailwindCss } from "react-icons/bi";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { footerListsText } from "../../data/text";
 
 function FooterLists({ darkMode }) {

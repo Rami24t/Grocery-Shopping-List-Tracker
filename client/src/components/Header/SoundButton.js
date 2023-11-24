@@ -1,6 +1,6 @@
 import { memo, useContext } from "react";
 import { AiTwotoneSound } from "react-icons/ai";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { soundButtonText } from "../../data/text";
 
 function ToggleSoundButton({ handleClick, darkMode, sound = true }) {

@@ -1,6 +1,6 @@
 import { useContext, useEffect, memo } from "react";
 import "./MenuButton.scss";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import {
   linkClickSFXAudio,
   navLinkClickSFXAudio,

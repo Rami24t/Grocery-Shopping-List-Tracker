@@ -1,7 +1,7 @@
 import { useContext, memo } from "react";
 import { FooterListItem } from "./components";
 import { navLinkClickSFXAudio, playSFXAudio } from "../../assets/sfx";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 
 function FooterList({
   title = "Resources",

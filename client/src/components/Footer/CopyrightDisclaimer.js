@@ -1,6 +1,6 @@
 import { useContext, memo } from "react";
 import { playSFXAudio } from "../../assets/sfx";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 
 function CopyrightDisclaimer({
   year = "2023",

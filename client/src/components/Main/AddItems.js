@@ -6,7 +6,7 @@ import {
   typeSFXAudio,
   playSFXAudio,
 } from "../../assets/sfx";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { addItemsText } from "../../data/text";
 
 function AddItems({ handleAdd, showAddItem, darkMode }) {

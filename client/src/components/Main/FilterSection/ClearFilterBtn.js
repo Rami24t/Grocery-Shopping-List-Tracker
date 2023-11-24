@@ -1,7 +1,7 @@
 import { memo, useContext } from "react";
 import { BsFunnel, BsFunnelFill } from "react-icons/bs";
 import { pencilCheckSFXAudio, playSFXAudio } from "../../../assets/sfx";
-import { Context } from "../../Context";
+import { Context } from "../../Context/Context";
 import { clearFilterBtnText as text } from "../../../data/text";
 
 function ClearFilterBtn({ filter, setFilter, darkMode }) {

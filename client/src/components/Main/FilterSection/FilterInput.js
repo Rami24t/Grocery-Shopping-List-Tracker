@@ -4,7 +4,7 @@ import {
   editClickSFXAudio,
   playSFXAudio,
 } from "../../../assets/sfx";
-import { Context } from "../../Context";
+import { Context } from "../../Context/Context";
 import { filterInputText } from "../../../data/text";
 
 function FilterInput({ filter, handleChangeFilter, items, darkMode }) {

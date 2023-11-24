@@ -11,7 +11,7 @@ import {
   completionSFXAudio,
   playSFXAudio,
 } from "../../assets/sfx";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { mainText } from "../../data/text";
 
 function Main({

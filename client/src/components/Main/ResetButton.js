@@ -1,5 +1,5 @@
 import { memo, useContext } from "react";
-import { Context } from "../Context";
+import { Context } from "../Context/Context";
 import { resetButtonText } from "../../data/text";
 
 function ResetButton({ items, handleClear, handleReset, darkMode }) {
