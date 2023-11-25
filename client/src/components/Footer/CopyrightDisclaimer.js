@@ -16,7 +16,7 @@ function CopyrightDisclaimer({
   };
   return (
     <span
-      className={`copyright-disclaimer mt-1 text-sm  sm:text-center ${
+      className={`copyright-disclaimer mt-1 text-sm text-center ${
         darkMode ? "text-gray-500" : "text-gray-600"
       }`}
     >
