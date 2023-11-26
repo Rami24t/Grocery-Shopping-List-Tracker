@@ -137,6 +137,7 @@ ${
               items={link.items}
               badgeText={link.languageText}
               styles={link.styles}
+              id={link.id}
               margin={link.margin}
               onClick={link.onClick}
               darkMode={darkMode}
