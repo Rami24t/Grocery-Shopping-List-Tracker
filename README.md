@@ -31,3 +31,4 @@ Try it out for free on [the link](https://grocery-shopping-list-app.vercel.app/)
 - React JS
 - Tailwind CSS
 - React Icons
+- SASS
