@@ -42,12 +42,12 @@ It includes an array of functionalities such as the ability to: create, view, up
 ## Details
 
 
-(Grocery) Shopping List(Grocery) Shopping List
-Jun 2023 - Nov 2023Jun 2023 - Nov 2023
+(Grocery) Shopping List - 2023
 
         🚀 A (Grocery) Shopping List Progressive Web Application with a touch of creativity! 🎨📱
 
-         Where the user can create, view, update, delete, clear, default, filter, check/uncheck list items. Other functionalities also include undoing actions, changing languages, and toggling sound or color themes.
+         Where the user can create, view, update, delete, clear, default, filter, check/uncheck list items.
+         Other functionalities also include undoing actions, changing languages, and toggling sound or color themes.
 
         🌐 Key Features:
 
@@ -87,6 +87,10 @@ Jun 2023 - Nov 2023Jun 2023 - Nov 2023
          UI updates dynamically based on language preferences
 
 
-        I'm proud of the progress made in this project and the skills honed in React.js web development. Feel free to check out the app and let me know your thoughts! 💻🛒
+        I'm proud of the progress made in this project and the skills honed in React.js web development.
+        Feel free to check out the app and let me know your thoughts! 💻🛒
 
-        Skills: Software Systems Engineering · Front-end Coding · Adaptive Design · Responsive Web Design · Application Frameworks · Data Structures · JavaScript Frameworks · SASS · HTML5 · Cascading Style Sheets (CSS) · Tailwind CSS · npm · Git · Visual Studio · React.js · Web Applications · JavaScript · Programming · Node.js · Software Development · Front-End Development · Web Development
+        Skills: Software Systems Engineering · Front-end Coding · Adaptive Design · Responsive Web Design · Application Frameworks
+        · Data Structures · JavaScript Frameworks · SASS · HTML5 · Cascading Style Sheets (CSS) · Tailwind CSS
+        · npm · Git · Visual Studio · React.js · Web Applications · JavaScript · Programming · Node.js · Software Development ·
+        Front-End Development · Web Development . Project Management
