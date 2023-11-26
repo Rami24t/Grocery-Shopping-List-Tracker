@@ -4,13 +4,18 @@ import { resetButtonText } from "../../data/text";
 
 function ResetButton({ items, handleClear, handleReset, darkMode }) {
   const { language } = useContext(Context).state.settings;
-  const title = items.length > 0 ? resetButtonText.TITLE_CLEAR[language] : resetButtonText.TITLE_RESET[language];
-  const label = items.length ? resetButtonText.TEXT_CLEAR[language] : resetButtonText.TEXT_RESET[language];
+  const title =
+    items.length > 0
+      ? resetButtonText.TITLE_CLEAR[language]
+      : resetButtonText.TITLE_RESET[language];
+  const label = items.length
+    ? resetButtonText.TEXT_CLEAR[language]
+    : resetButtonText.TEXT_RESET[language];
 
   return (
     <button
       title={title}
-      aria-label={label}
+      aria-label={`${label} ${items.length} - ${title}`}
       onClick={(e) => {
         items.length ? handleClear(e) : handleReset(e);
         e.target.disabled = true;
@@ -20,7 +25,11 @@ function ResetButton({ items, handleClear, handleReset, darkMode }) {
       }}
       className={`
       ${
-        language === 1 && !items.length ? "w-15" : language ===1 ? "w-12" : "w-10"
+        language === 1 && !items.length
+          ? "w-15"
+          : language === 1
+          ? "w-12"
+          : "w-10"
       }
       ${
         darkMode

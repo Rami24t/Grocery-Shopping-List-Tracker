@@ -11,9 +11,10 @@ function SideNavLI({
   badgeText = "",
   margin = "",
   styles = "",
+  id = "",
 }) {
   return (
-    <li>
+    <li id={id}>
       <a
         title={title}
         aria-label={title}

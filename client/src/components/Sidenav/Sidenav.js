@@ -73,6 +73,7 @@ const Sidenav = ({
     {
       title: text.titles[6],
       href: "#main-div-header",
+      id:"skip",
       styles:
         "absolute left-50 transform -translate-x-[100vw] focus:translate-x-0",
     },
