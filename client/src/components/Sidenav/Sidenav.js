@@ -37,6 +37,7 @@ const Sidenav = ({
       sidenavText.EDIT_LIST[language],
       sidenavText.CONTACT[language],
       sidenavText.LANGUAGE[language],
+      sidenavText.SKIP[language],
     ],
     language: sidenavText.LANGUAGES[language],
   };
@@ -69,6 +70,12 @@ const Sidenav = ({
   }
 
   const sideNavLinks = [
+    {
+      title: text.titles[6],
+      href: "#main-div-header",
+      styles:
+        "absolute left-50 transform -translate-x-[100vw] focus:translate-x-0",
+    },
     { title: text.titles[0], href: "#app", Icon: SvgHome },
     {
       title: text.titles[1],
@@ -128,6 +135,7 @@ ${
               LIBadge={link.LIBadge}
               items={link.items}
               badgeText={link.languageText}
+              styles={link.styles}
               margin={link.margin}
               onClick={link.onClick}
               darkMode={darkMode}

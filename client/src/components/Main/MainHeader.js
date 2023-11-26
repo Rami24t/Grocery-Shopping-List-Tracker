@@ -19,6 +19,7 @@ function MainHeader({
 
   return (
     <div
+      id="main-div-header"
       className={`flex flex-wrap items-center justify-around py-2 mb-2 gap-3 ${
         rtlAlignment && "flex-row-reverse"
       }`}

@@ -246,6 +246,11 @@ export const appText = {
 };
 
 export const sidenavText = {
+  SKIP: [
+    "Skip to main content",
+    "Nav Überspringen zum Hauptinhalt",
+    "تخطّى إلى المحتوى",
+  ],
   HOME: ["Home", "Startseite", "الصّفحة الرّئيسيّة"],
   ADD_ITEMS: ["Add Items", "Hinzufügen", "إضافة عناصر"],
   SEARCH_LIST: ["Search List", "Liste durchsuchen", "بحث في القائمة"],
