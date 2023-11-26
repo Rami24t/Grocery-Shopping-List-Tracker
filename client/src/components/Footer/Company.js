@@ -20,7 +20,7 @@ function Company({
     <div className="mb-6 md:mb-0">
       <a
         href={link}
-        aria-label={"Visit " + { name } + "'s link"}
+        aria-label={"Visit " + name + "'s link"}
         onClick={handleClick}
         target="_blank"
         rel="noopener noreferrer"
@@ -36,9 +36,7 @@ function Company({
         <span
           className={`yellow-tail self-center font-semibold whitespace-nowrap ${
             rtl ? "text-2xl ml-1" : "text-2xl"
-          } ${
-            darkMode ? " text-white" : "text-red-900"
-          }`}
+          } ${darkMode ? " text-white" : "text-red-900"}`}
         >
           {name}
         </span>

@@ -23,7 +23,7 @@ function CopyrightDisclaimer({
       {`© ${year} `}
       <a
         href={link}
-        aria-label={"Visit " + { author } + "'s link"}
+        aria-label={"Visit " + author + "'s link"}
         onClick={handleClick}
         target="_blank"
         rel="noopener noreferrer"

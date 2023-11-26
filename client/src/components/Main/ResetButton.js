@@ -10,7 +10,7 @@ function ResetButton({ items, handleClear, handleReset, darkMode }) {
   return (
     <button
       title={title}
-      aria-label={title}
+      aria-label={label}
       onClick={(e) => {
         items.length ? handleClear(e) : handleReset(e);
         e.target.disabled = true;
