@@ -6,7 +6,7 @@ function CopyrightDisclaimer({
   year = "2023",
   author = "Rami Al-Saadi™",
   rights = "All Rights Reserved",
-  link="https://rami-al-saadi.vercel.app/"
+  link="https://rami-al-saadi.vercel.app/",
   sfx,
   darkMode,
 }) {
