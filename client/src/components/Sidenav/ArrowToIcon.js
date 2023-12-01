@@ -34,13 +34,13 @@ const ArrowToIcon = memo(({ toBottom, darkMode, shown }) => {
       title={toBottom ? arrowToText.TO_BOTTOM[language] : arrowToText.TO_TOP[language]}
       aria-label={toBottom ? arrowToText.TO_BOTTOM[language] : arrowToText.TO_TOP[language]}
       onClick={handleClick}
-      className={`text-2xl rounded-e-2xl  bg-opacity-80 flex items-center justify-center fixed z-40  ${
+      className={`text-2xl rounded-e-2xl bg-opacity-80 flex items-center justify-center fixed z-40  ${
         shown ? "-left-0.5" : "-left-8"
       } ${
         darkMode
           ? "bg-gray-900 text-gray-400 cursor-pointer hover:text-gray-200  focus:text-gray-200"
           : "bg-gray-400 text-amber-50 font-extrabold hover:bg-gray-500 focus:bg-gray-500"
-      } w-8 h-8 transition-all duration-700 ${
+      } w-9 h-9 transition-all duration-700 ${
         toBottom ? "-scale-y-100 bottom-5" : "top-5"
       } `}
     >
