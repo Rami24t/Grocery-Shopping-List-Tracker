@@ -2,7 +2,8 @@ export const footerStyles = {
   footer: {
     dark: "bg-black bg-gradient-to-l from-gray-950",
     light: "bg-white",
-    common: "z-30 pt-1 relative",
+    common: "z-30 pt-1 relative transition-opacity duration-500",
+    outOfView: "opacity-0",
   },
   container: { common: "mx-auto max-w-[94%] px-4 py-6 lg:py-8" },
   hr: {

@@ -1,11 +1,17 @@
-import { memo } from "react";
+import { memo, useRef } from "react";
 import { TopFooter, BottomFooter, footerStyles } from "./components";
+import useOnScreen from "../../hooks/useInView";
 
 function Footer({ darkMode }) {
+  const ref = useRef(null);
+  const inView = useOnScreen(ref);
+
   return (
     <footer
       id="footer"
-      className={`${footerStyles.footer.common} ${
+      ref={ref}
+      className={`${inView ? "" : footerStyles.footer.outOfView}
+      ${footerStyles.footer.common} ${
         darkMode ? footerStyles.footer.dark : footerStyles.footer.light
       }`}
     >
