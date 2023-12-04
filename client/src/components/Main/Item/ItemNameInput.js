@@ -1,4 +1,4 @@
-import { useState, useContext, memo, useEffect } from "react";
+import { useState, useContext, memo, useEffect, useRef } from "react";
 import {
   playSFXAudio,
   correctOrAddSFXAudio,
@@ -8,6 +8,7 @@ import {
 } from "../../../assets/sfx";
 import { Context } from "../../Context/Context";
 import { itemNameText } from "../../../data/text";
+import useInView from "../../../hooks/useInView";
 
 function ItemNameInput({ item, updateItem, darkMode }) {
   const { state, dispatch } = useContext(Context);
@@ -62,7 +63,11 @@ function ItemNameInput({ item, updateItem, darkMode }) {
   const handleFocus = (e) => {
     sound && playSFXAudio(editClickSFXAudio, writingSFXAudio);
     // setInfo(`Editing ${item.name.match(/.*?[\w]+/)}...`);
-    setInfo(`${!rtlAlignment ? infoEditing : ''} ${item.name.match(/.*?[\w]+/)}... ${rtlAlignment ? infoEditing : ''}`);
+    setInfo(
+      `${!rtlAlignment ? infoEditing : ""} ${item.name.match(/.*?[\w]+/)}... ${
+        rtlAlignment ? infoEditing : ""
+      }`
+    );
   };
 
   const handleBlur = (e) => {
@@ -80,6 +85,9 @@ function ItemNameInput({ item, updateItem, darkMode }) {
     }
   };
 
+  const ref = useRef(null);
+  const inView = useInView(ref);
+
   return (
     <input
       type="text"
@@ -91,7 +99,12 @@ function ItemNameInput({ item, updateItem, darkMode }) {
       onFocus={handleFocus}
       onBlur={handleBlur}
       onKeyDown={handleKeyDown}
-      className={`text-md w-56 sm:w-52 md:w-80 lg:min-w-[59%] p-2.5 m-2 inline-block leading-none rounded-lg bg-no-repeat bg-center bg-cover outline-[#0a0adc99] border focus:border-blue-500 focus:ring-blue-500 filter ${
+      ref={ref}
+      className={`transition-all duration-300 ${
+        !ref.current?.disabled ? "scale-105 w-full" : ""
+      } ${
+        !inView ? (rtlAlignment ? "translate-x-28" : "-translate-x-28") : ""
+      } text-md w-56 sm:w-52 md:w-80 lg:min-w-[59%] p-2.5 m-2 inline-block leading-none rounded-lg bg-no-repeat bg-center bg-cover outline-[#0a0adc99] border focus:border-blue-500 focus:ring-blue-500 filter ${
         rtlAlignment ? "text-right" : "text-left"
       } ${
         darkMode
