@@ -23,8 +23,8 @@ function Hero({
       >
         {rtlAlignment || title}{" "}
         <Icon
-          className={`inline-block -translate-y-${
-            rtlAlignment ? "2" : "1 scale-110"
+          className={`inline-block ${
+            rtlAlignment ? "-translate-y-1.5 scale-105" : "-translate-y-1 scale-110"
           } -rotate-12`}
         />{" "}
         {rtlAlignment && title}
