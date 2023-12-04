@@ -19,7 +19,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
     <li
       ref={itemRef}
       className={`flex justify-around items-center duration-500 filter ${
-        !inView ? "saturate-0 brightness-0 opacity-0" : ""
+        !inView ? "saturate-0 opacity-0" : ""
       } ${rtlAlignment ? "flex-row-reverse" : ""}`}
     >
       <ItemNameInput item={item} updateItem={updateItem} darkMode={darkMode} />
