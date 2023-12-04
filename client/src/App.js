@@ -467,7 +467,7 @@ function App() {
   // ----------------------------------------------------------------------------------------
 
   // App Styles ---------------------------------------------------------------------------------
-  const appContainerStyle = `app-container ${
+  const appContainerStyle = `app-container overflow-x-hidden ${
     darkMode
       ? "text-white bg-black bg-gradient-to-l from-gray-950"
       : "text-amber-800 bg-yellow-50 bg-gradient-to-r from-yellow-100"
