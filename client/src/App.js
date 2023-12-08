@@ -187,14 +187,6 @@ function App() {
   );
   */
 
-  // const handleSave = useCallback(
-  //   (updatedItems) => {
-  //     localStorage.setItem(`list${list}`, JSON.stringify(updatedItems || items));
-  //   },
-  //   [items, list]
-  // );
-  // Saves the list of all items to localStorage
-
   // Main Section --------------------------------------------
 
   // before implementing useLocalStorage hook - disabled
@@ -202,17 +194,6 @@ function App() {
   // function handleSave(updatedItems) {
   //   setItems(updatedItems || items);
   // }
-
-  // const handleDelete = useCallback(
-  //   (item) => {
-  //     setItems((prevItems) => {
-  //       const updatedItems = prevItems.filter((i) => i.id !== item.id);
-  //       handleSave(updatedItems);
-  //       return updatedItems;
-  //     });
-  //   },
-  //   [handleSave]
-  // );
 
   // deletes an item from the list
   function handleDelete(item) {
@@ -258,20 +239,6 @@ function App() {
     setItems([...items]);
   }
 
-  // const handleToggle = useCallback(
-  //   (item) => {
-  //     const updatedItems = items.map((i) => {
-  //       if (i.id === item.id) {
-  //         return { ...i, need: !i.need };
-  //       }
-  //       return i;
-  //     });
-  //     setItems(updatedItems);
-  //     handleSave(updatedItems);
-  //   },
-  //   [items, handleSave]
-  // );
-
   // toggles an item's need property (true/false) and updates the items array state
   function handleToggle(item) {
     // if (!items.find((i) => i.id === item.id)) return;
@@ -311,19 +278,6 @@ function App() {
       );
     }, 100);
   }
-  // const updateItem = useCallback(
-  //   (item, update) => {
-  //     const updatedItems = items.map((i) => {
-  //       if (i.id === item.id) {
-  //         return { ...i, ...update };
-  //       }
-  //       return i;
-  //     });
-  //     setItems(updatedItems);
-  //     handleSave(updatedItems);
-  //   },
-  //   [items, handleSave]
-  // );
 
   // updates an item's properties given an item and an update object and updates the items array state to trigger a rerender
   function updateItem(item, update, isUndo = false) {
