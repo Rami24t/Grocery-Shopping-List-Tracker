@@ -26,9 +26,30 @@ function ItemNameInput({ item, updateItem, darkMode }) {
 
   const needed = item.need;
   const [name, setName] = useState(item.name);
+  // useEffect(() => {
+  //   setName(item.name);
+  // }, [item.name]);
+
+  const ref = useRef(null);
+  const inView = useInView(ref);
+
+  function updateBackgroundImage(
+    element = ref.current,
+    searchKeyWord = item.name
+  ) {
+    if (element.clientHeight > 10 && element.clientWidth > 10) {
+      const x = element.clientWidth;
+      const y = element.clientHeight;
+      const bg = `url("https://source.unsplash.com/random/${x}x${y}?${searchKeyWord}")`;
+      if (element.style.backgroundImage !== bg) {
+        element.style.backgroundImage = bg;
+      }
+    }
+  }
   useEffect(() => {
-    setName(item.name);
-  }, [item.name]);
+    updateBackgroundImage();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, []);
 
   const handleChange = (e) => {
     if (sound && e.target.value.length > name.length) {
@@ -44,18 +65,18 @@ function ItemNameInput({ item, updateItem, darkMode }) {
     if (value === "") {
       e.target.value = item.name;
       setName(item.name);
-      // setInfo("Edit cancelled");
       setInfo(infoEditCancelled);
       return;
     }
     if (item.name === value) {
-      // setInfo("Edit cancelled");
       setInfo(infoEditCancelled);
       return;
     }
     setName(value);
     updateItem(item, { name: value });
     sound && playSFXAudio(correctOrAddSFXAudio);
+    // update background image
+    updateBackgroundImage(ref.current);
     // setInfo("Item updated");
     setInfo(infoItemUpdated);
   };
@@ -85,9 +106,6 @@ function ItemNameInput({ item, updateItem, darkMode }) {
     }
   };
 
-  const ref = useRef(null);
-  const inView = useInView(ref);
-
   return (
     <input
       type="text"
@@ -115,7 +133,7 @@ function ItemNameInput({ item, updateItem, darkMode }) {
       placeholder={placeholder}
       style={{
         backgroundColor: `rgba(0,0,19,0.${darkMode ? "7" : "4"})`,
-        backgroundImage: `url("https://source.unsplash.com/random/200x40?${name})"`,
+        // backgroundImage: `url("https://source.unsplash.com/random/200x40?${name})"`,
       }}
     />
   );
