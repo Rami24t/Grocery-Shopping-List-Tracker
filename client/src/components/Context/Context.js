@@ -24,11 +24,22 @@ function ContextProvider({ children }) {
           showHaves: action.payload.showHaves,
         };
       case "TOGGLE_SOUND":
+        const toggled = !state.settings.sound;
+        localStorage.setItem("sound", JSON.stringify(toggled));
         return {
           ...state,
           settings: {
             ...state?.settings,
-            sound: !state?.settings?.sound,
+            sound: toggled,
+          },
+        };
+      case "LOAD_SOUND":
+        const sound = JSON.parse(localStorage.getItem("sound")) !== false;
+        return {
+          ...state,
+          settings: {
+            ...state?.settings,
+            sound,
           },
         };
       case "SET_INFO":

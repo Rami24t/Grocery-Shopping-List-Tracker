@@ -78,7 +78,7 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
         <ToggleSoundButton
           handleClick={toggleSoundClick}
           darkMode={darkMode}
-          sound={sound}
+          sound={JSON.parse(localStorage.getItem("sound")) || sound}
         />
         <ToggleDarkModeButton
           darkMode={darkMode}

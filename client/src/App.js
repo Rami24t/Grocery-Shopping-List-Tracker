@@ -87,6 +87,14 @@ function App() {
   const [list, setList] = useLocalStorage("lastVisitedList", 1);
 
   // First loading useEffect / initial render useEffect
+  // Function to load the user's preferred sound settings after the first user gesture
+  let handleFirstUserGesture = (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    !sound && dispatch({ type: "LOAD_SOUND" });
+    document.removeEventListener("click", handleFirstUserGesture);
+    handleFirstUserGesture = null;
+  };
   useEffect(() => {
     // const MOBILE_MAX_WIDTH = 440; - disabled
     //   setIsMobile(window.innerWidth <= MOBILE_MAX_WIDTH); - disabled
@@ -103,14 +111,15 @@ function App() {
         setDarkMode(!(currentHour >= startHour && currentHour <= endHour));
       }, 2500);
     })(8, 16);
-    //We mute sounds at first to avoid warnings from browsers. We expect the user to turn on the sound manually -- enabled
-    // Or we turn it on automatically after 8 seconds -- disabled
-    //   const soundOnTimeOut = setTimeout(() => {
-    //   dispatch({ type: "TOGGLE_SOUND" });
-    //   }, 8000);
-    //   return () => clearTimeout(soundOnTimeOut); // Clear the timeout if the component unmounts
+    // We mute sounds at first to avoid infringing on any UX policies and to avoid warnings from browsers
+    // load the user's preferred sound settings after the first user gesture
+    document.addEventListener("click", handleFirstUserGesture);
 
-    return () => clearTimeout(timeout); // Clear the timeout if the component unmounts
+    return () => {
+      clearTimeout(timeout); // Clear the timeout if the component unmounts
+      document.removeEventListener("click", handleFirstUserGesture); // Remove the event listener on unmount just in case
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   // useEffect to set the document language and title
