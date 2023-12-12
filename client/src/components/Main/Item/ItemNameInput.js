@@ -1,4 +1,11 @@
-import { useState, useContext, memo, useEffect, useRef } from "react";
+import {
+  useState,
+  useContext,
+  memo,
+  useEffect,
+  useRef,
+  useCallback,
+} from "react";
 import {
   playSFXAudio,
   correctOrAddSFXAudio,
@@ -32,22 +39,31 @@ function ItemNameInput({ item, updateItem, darkMode }) {
 
   const ref = useRef(null);
   const inView = useInView(ref);
-
-  function updateBackgroundImage(
-    element = ref.current,
-    searchKeyWord = item.name
-  ) {
-    if (element.clientHeight > 10 && element.clientWidth > 10) {
-      const x = element.clientWidth;
-      const y = element.clientHeight;
-      const bg = `url("https://source.unsplash.com/random/${x}x${y}?${searchKeyWord}")`;
-      if (element.style.backgroundImage !== bg) {
-        element.style.backgroundImage = bg;
+  const memoizedUpdateBackgroundImage = useCallback(
+    (element, keyWord, dark) => {
+      function animateLightBg(styleObject) {
+        const WAIT_TIME = 975;
+        styleObject.backgroundColor = "rgba(0,0,19,0.5)";
+        setTimeout(() => {
+          styleObject.backgroundColor = "rgba(0,0,19,0.4)";
+        }, WAIT_TIME);
       }
-    }
-  }
+      if (!element) return;
+      !dark && animateLightBg(element.style);
+      if (element.clientHeight > 10 && element.clientWidth > 10) {
+        const x = element.clientWidth;
+        const y = element.clientHeight;
+        const bg = `url("https://source.unsplash.com/random/${x}x${y}?${keyWord}")`;
+        if (element.style.backgroundImage !== bg) {
+          element.style.backgroundImage = bg;
+        }
+      }
+    },
+    []
+  );
+
   useEffect(() => {
-    updateBackgroundImage();
+    memoizedUpdateBackgroundImage(ref.current, item.name, darkMode);
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
@@ -76,7 +92,7 @@ function ItemNameInput({ item, updateItem, darkMode }) {
     updateItem(item, { name: value });
     sound && playSFXAudio(correctOrAddSFXAudio);
     // update background image
-    updateBackgroundImage(ref.current);
+    memoizedUpdateBackgroundImage(ref.current, value, darkMode);
     // setInfo("Item updated");
     setInfo(infoItemUpdated);
   };
