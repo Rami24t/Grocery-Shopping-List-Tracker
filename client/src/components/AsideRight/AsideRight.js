@@ -14,6 +14,10 @@ function AsideRight({ darkMode }) {
     resizeObserver.observe(node);
   }, []);
 
+  const changeSrc = (e) => {
+    e.target.src = decoImgs[Math.floor(Math.random() * 74)];
+  };
+
   const [extraImages, setExtraImages] = useState([...imagesArray]);
   useEffect(() => {
     const extraImagesNeeded = (height - 300) / 390 - extraImages.length + 1;
@@ -51,7 +55,14 @@ function AsideRight({ darkMode }) {
   return (
     <>
       {loadingClasses !== "fixed hidden aspect-auto" ? (
-        <img src={loadingImg} className={`${loadingClasses}`} alt="loading" />
+        <img
+          src={loadingImg}
+          className={`${loadingClasses}`}
+          alt="loading"
+          onClick={() => {
+            setLoadingClasses("fixed hidden aspect-auto");
+          }}
+        />
       ) : null}
       <aside
         ref={ref}
@@ -68,13 +79,23 @@ function AsideRight({ darkMode }) {
         ))}
 
         {extraImages.slice(1, 3).map((src, idx) => (
-          <AsideImage className={"sm:hidden"} key={idx} src={src} />
+          <AsideImage
+            className={"sm:hidden cursor-pointer"}
+            key={idx}
+            src={src}
+            onClick={changeSrc}
+          />
         ))}
 
         {extraImages.map(
           (src, idx) =>
             height > (idx + 1 + 1) * 390 + 300 && (
-              <AsideImage key={idx} src={src} />
+              <AsideImage
+                key={idx}
+                src={src}
+                onClick={changeSrc}
+                className={"cursor-pointer"}
+              />
             )
         )}
       </aside>

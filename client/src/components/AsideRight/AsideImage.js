@@ -1,6 +1,6 @@
 import { memo, useRef } from "react";
 import useInView from "../../hooks/useInView";
-function AsideImage({ src, className }) {
+function AsideImage({ src, className, onClick }) {
   // useEffect(() => {
   //   caches.open('v1').then(function(cache) {
   //     cache.add(src);
@@ -24,6 +24,7 @@ function AsideImage({ src, className }) {
           src={src}
           alt=""
           loading="lazy"
+          onClick={onClick}
         />
       </picture>
     </div>
