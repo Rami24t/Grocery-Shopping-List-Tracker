@@ -1,5 +1,5 @@
 import { check_webp_feature } from "../../utils/check_webp_feature";
-const images = Array.from({ length: 73 }, (_, index) => ({
+const images = Array.from({ length: 74 }, (_, index) => ({
   // jpg: require(`./deco (${index + 1}).jpg`),
   webp: require(`./deco (${index + 1}).webp`),
 }));
@@ -12,9 +12,8 @@ function loadImages() {
   decoImgs.push(
     ...(isWebpSupported
       ? images.map((image) => image.webp)
-      : "https://source.unsplash.com/random/380x380/?vegetables?"
-      // images.map((image) => image.jpg)
-      )
+      : "https://source.unsplash.com/random/380x380/?vegetables?")
+    // images.map((image) => image.jpg)
   );
 }
 loadImages();

@@ -12,6 +12,7 @@ const images = [
   decoImgs[30],
   decoImgs[49],
   decoImgs[11],
+  decoImgs[74],
   decoImgs[2],
   decoImgs[59],
   decoImgs[5],

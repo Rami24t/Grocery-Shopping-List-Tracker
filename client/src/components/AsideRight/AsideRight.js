@@ -15,7 +15,7 @@ function AsideRight({ darkMode }) {
   }, []);
 
   const changeSrc = (e) => {
-    e.target.src = decoImgs[Math.floor(Math.random() * 74)];
+    e.target.src = decoImgs[Math.floor(Math.random() * 75)];
   };
 
   const [extraImages, setExtraImages] = useState([...imagesArray]);
