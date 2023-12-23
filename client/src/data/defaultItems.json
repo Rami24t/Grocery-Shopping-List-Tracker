@@ -280,16 +280,6 @@
     "need": true
   },
   {
-    "id": "GL633.333",
-    "name": "🫒 Olives - Oliven - زيتون",
-    "need": true
-  },
-  {
-    "id": "GL595.315",
-    "name": "🫒 Extra Virgin Olive Oil - Olivenöl -زيت الزيتون ",
-    "need": true
-  },
-  {
     "id": "GL33.570",
     "name": "🫑 Bell Pepper - Paprika - فلفل حلو",
     "need": true
@@ -297,6 +287,16 @@
   {
     "id": "GL365.054",
     "name": "🫘 Cooked Beans - فول مدمس",
+    "need": true
+  },
+  {
+    "id": "GL633.333",
+    "name": "🫒 Olives - Oliven - زيتون",
+    "need": true
+  },
+  {
+    "id": "GL595.315",
+    "name": "🫒 Extra Virgin Olive Oil - Olivenöl -زيت الزيتون ",
     "need": true
   },
   {
