@@ -1,0 +1,97 @@
+[
+  {
+    "id": "GL19.958",
+    "name": "🧆 Falafel - فلافل",
+    "need": true
+  },
+  {
+    "id": "GL44.451",
+    "name": "🥦 Broccoli - بروكلي",
+    "need": false
+  },
+  {
+    "id": "GL75.739",
+    "name": "🌱 Sprouts - Sprossen - براعم",
+    "need": false
+  },
+  {
+    "id": "GL79.708",
+    "name": "🥒 Cucumber - Gurke - خيار",
+    "need": true
+  },
+  {
+    "id": "GL83.833",
+    "name": "🍆 Eggplant - Aubergine - باذنجان",
+    "need": false
+  },
+  {
+    "id": "GL113.797",
+    "name": "🥕 Carrots - Karotten - جزر",
+    "need": true
+  },
+  {
+    "id": "GL122.402",
+    "name": "🍄 Mushrooms - Pilze - فطر",
+    "need": true
+  },
+  {
+    "id": "GL178.955",
+    "name": "🍅 Tomatoes - Tomaten - طماطم",
+    "need": true
+  },
+  {
+    "id": "GL194.943",
+    "name": "🧅 Onions - Zwiebeln - بصل",
+    "need": true
+  },
+  {
+    "id": "GL256.701",
+    "name": "🍉 Watermelon Seeds - Wassermelonen Samen - بذر صغير",
+    "need": false
+  },
+  {
+    "id": "GL275.619",
+    "name": "🥒 Pickles - كبيس",
+    "need": true
+  },
+  {
+    "id": "GL299.300",
+    "name": "🌰 Nuts - Nüsse - مكسرات",
+    "need": false
+  },
+  {
+    "id": "GL315.242",
+    "name": "🥜 Peanuts - Erdnüsse - فول سوداني",
+    "need": true
+  },
+  {
+    "id": "GL379.762",
+    "name": "🥫 Chickpeas - Kichererbsen - حمص",
+    "need": false
+  },
+  {
+    "id": "GL386.251",
+    "name": "🍫 Chocolate - Schokolade - شوكولاتة",
+    "need": false
+  },
+  {
+    "id": "GL407.082",
+    "name": "🥥 Shredded Coconuts - Kokosraspeln - جوز هند مبشور",
+    "need": true
+  },
+  {
+    "id": "GL431.879",
+    "name": "🌿 Mint - Minze - نعناع",
+    "need": true
+  },
+  {
+    "id": "GL460.025",
+    "name": "🥑 Avocado - أفوكادو",
+    "need": true
+  },
+  {
+    "id": "GL485.313",
+    "name": "🍋 Lemon/Lime - Zitronen/Limette - ليمون",
+    "need": true
+  }
+]

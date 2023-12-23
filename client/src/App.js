@@ -7,7 +7,8 @@ import useLocalStorage from "./hooks/useLocalStorage";
 // import custom utilities/functions
 import { getLists } from "./utils/getLists";
 // import app data
-import { defaultItems } from "./data/defaultItems";
+import defaultItems from "./data/defaultItems.json";
+// import defaultItems from "./data/defaultItemsMini.json";
 import {
   addSFXAudio1,
   addSFXAudio2,
