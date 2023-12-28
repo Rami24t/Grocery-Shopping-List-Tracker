@@ -18,5 +18,27 @@
                 }
             ]
         }
+    ],
+    "rewrites": [
+        {
+            "source": "/sitemap.xml",
+            "destination": "/sitemap-tech.xml",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "ramidev.tech"
+                }
+            ]
+        },
+        {
+            "source": "/sitemap.xml",
+            "destination": "/sitemap-app.xml",
+            "has": [
+                {
+                    "type": "host",
+                    "value": "vercel.app"
+                }
+            ]
+        }
     ]
 }
