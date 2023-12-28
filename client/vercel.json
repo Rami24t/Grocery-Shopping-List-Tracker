@@ -22,21 +22,23 @@
     "rewrites": [
         {
             "source": "/sitemap.xml",
-            "destination": "/sitemap-tech.xml",
+            "destination": "/sitemap-app.xml",
             "has": [
                 {
                     "type": "host",
-                    "value": "ramidev.tech"
+                    "value": ".vercel.app",
+                    "endsWith": true
                 }
             ]
         },
         {
             "source": "/sitemap.xml",
-            "destination": "/sitemap-app.xml",
+            "destination": "/sitemap-tech.xml",
             "has": [
                 {
                     "type": "host",
-                    "value": "vercel.app"
+                    "value": ".ramidev.tech",
+                    "endsWith": true
                 }
             ]
         }
