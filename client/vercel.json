@@ -21,24 +21,12 @@
     ],
     "rewrites": [
         {
-            "source": "/sitemap.xml",
-            "destination": "/sitemap-app.xml",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "vercel.app"
-                }
-            ]
+            "source": "https://grsl.vercel.app/sitemap.xml",
+            "destination": "https://grsl.vercel.app/sitemap-app.xml"
         },
         {
-            "source": "/sitemap.xml",
-            "destination": "/sitemap-tech.xml",
-            "has": [
-                {
-                    "type": "host",
-                    "value": "ramidev.tech"
-                }
-            ]
+            "source": "https://gsl.ramidev.tech/sitemap.xml",
+            "destination": "https://gsl.ramidev.tech/sitemap-tech.xml"
         }
     ]
 }
