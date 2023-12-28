@@ -26,8 +26,7 @@
             "has": [
                 {
                     "type": "host",
-                    "value": "vercel.app",
-                    "includes": true
+                    "value": "vercel.app"
                 }
             ]
         },
@@ -37,8 +36,7 @@
             "has": [
                 {
                     "type": "host",
-                    "value": "ramidev.tech",
-                    "includes": true
+                    "value": "ramidev.tech"
                 }
             ]
         }
