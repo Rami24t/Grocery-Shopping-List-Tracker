@@ -1,32 +1,32 @@
 {
-    "headers": [
+  "headers": [
+    {
+      "source": "./src/assets/(.*)",
+      "headers": [
         {
-            "source": "./src/assets/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "max-age=86400"
-                }
-            ]
-        },
-        {
-            "source": "/static/media/(.*)",
-            "headers": [
-                {
-                    "key": "Cache-Control",
-                    "value": "max-age=86400"
-                }
-            ]
+          "key": "Cache-Control",
+          "value": "max-age=86400"
         }
-    ],
-    "rewrites": [
+      ]
+    },
+    {
+      "source": "/static/media/(.*)",
+      "headers": [
         {
-            "source": "https://grsl.vercel.app/sitemap.xml",
-            "destination": "https://grsl.vercel.app/sitemap-app.xml"
-        },
-        {
-            "source": "https://gsl.ramidev.tech/sitemap.xml",
-            "destination": "https://gsl.ramidev.tech/sitemap-tech.xml"
+          "key": "Cache-Control",
+          "value": "max-age=86400"
         }
-    ]
+      ]
+    }
+  ],
+  "rewrites": [
+    {
+      "source": "https://grsl.vercel.app/sitemap.xml",
+      "destination": "https://grsl.vercel.app/sitemap-app.xml"
+    },
+    {
+      "source": "https://gsl.ramidev.tech/sitemap.xml",
+      "destination": "https://gsl.ramidev.tech/sitemap-tech.xml"
+    }
+  ]
 }
