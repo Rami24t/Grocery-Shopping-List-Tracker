@@ -136,7 +136,7 @@
   },
   {
     "id": "GL516.637",
-    "name": "🥛 Crème fraîche - Heavy Cream - قشطة",
+    "name": "🥛 Schlagsahne - Heavy Cream - قشطة",
     "need": true
   },
   {
@@ -197,11 +197,6 @@
   {
     "id": "GL709.465",
     "name": "☕ Coffee - Kaffee - قهوة",
-    "need": true
-  },
-  {
-    "id": "GL749.145",
-    "name": "🥛 Coffee Cream - Kaffeesahne - كريمة القهوة",
     "need": true
   },
   {
