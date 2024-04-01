@@ -4,7 +4,7 @@ export const headerText = {
   TITLES: [
     "Grocery Shopping List",
     "Einkaufsliste",
-    "قَاْئِمَةُ التَّسَوُّق الإلكِتْرُونِيَّة",
+    "قَاْئِمَةُ التَّسَوُّقِ الإلكِتْرُونِيَّة",
   ],
   SUBTITLES: [randomQuote[0], randomQuote[1], randomQuote[2]],
   DARK_ON: ["Theme is now dark", "Dunkler Modus an", "الوضع الدّاكن"],
@@ -262,7 +262,7 @@ export const sidenavText = {
 };
 
 export const topFooterText = {
-  COMPANY_NAME: ["Rami Al-Saadi", "Rami Al-Saadi", "رَامِيْ السَّعْدِيّ"],
+  COMPANY_NAME: ["Rami Al-Saadi", "Rami Al-Saadi", "رَاميْ السَّعْديّ"],
   // SUBTEXT: [" 's 🛒 Shopping List", " s 🛒 Einkaufsliste"," قَاْئِمَةُ التَّسَوُّق 🛒"],
   // SUBTEXT: ["Web developer", "Webentwickler", "مبرمج الويب"],
   SUBTEXT: [" 's Web Development", " s Webentwicklung", "برمجة تطبيقات الويب "],
