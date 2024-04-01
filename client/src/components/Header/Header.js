@@ -46,6 +46,7 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
   const icon = TiShoppingCart;
   return (
     <header
+      style={rtlAlignment ? { fontFamily: "Amiri" } : {}}
       className={`app-header z-40 sticky bg-inherit w-full ${
         darkMode ? "" : "bg-gradient-to-l to-yellow-200"
       }`}

@@ -14,6 +14,7 @@ function BottomFooter({ darkMode }) {
   };
   return (
     <div
+      style={language === 2 ? { fontFamily: "Amiri" } : {}}
       className={`footer-bottom pt-1.5 pb-2 rounded-sm flex flex-col-reverse sm:flex-row flex-wrap gap-4 items-center justify-around
     ${darkMode ? "" : "bg-gradient-to-r to-yellow-200"}
     `}

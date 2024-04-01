@@ -17,7 +17,7 @@ function Company({
     state.settings.sound && playSFXAudio(sfx);
   };
   return (
-    <div className="mb-6 md:mb-0">
+    <div style={rtl ? { fontFamily: "Amiri" } : {}} className="mb-6 md:mb-0">
       <a
         href={link}
         aria-label={`${name} ${subtext} - link`}
@@ -34,7 +34,9 @@ function Company({
           alt={name + "'s Logo"}
         />
         <span
-          className={`yellow-tail self-center font-semibold whitespace-nowrap ${
+          className={`${
+            !rtl ? "yellow-tail" : ""
+          } self-center font-semibold whitespace-nowrap ${
             rtl ? "text-2xl ml-1" : "text-2xl"
           } ${darkMode ? " text-white" : "text-red-900"}`}
         >

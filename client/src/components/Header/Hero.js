@@ -17,6 +17,7 @@ function Hero({
       style={{ minWidth: "59%" }}
     >
       <h1
+        style={rtlAlignment ? { fontFamily: "Amiri" } : {}}
         className={`${
           darkMode ? "text-white " : "text-red-700"
         } text-2xl font-bold sm:text-3xl`}
@@ -24,7 +25,9 @@ function Hero({
         {rtlAlignment || title}{" "}
         <Icon
           className={`inline-block ${
-            rtlAlignment ? "-translate-y-1.5 scale-105" : "-translate-y-1 scale-110"
+            rtlAlignment
+              ? "-translate-y-1.5 scale-105"
+              : "-translate-y-1 scale-110"
           } -rotate-12`}
         />{" "}
         {rtlAlignment && title}
