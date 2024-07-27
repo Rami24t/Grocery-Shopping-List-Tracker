@@ -35,6 +35,16 @@
       "has": [
         {
           "type": "host",
+          "value": "gsl.ramidev.site"
+        }
+      ],
+      "destination": "/sitemap-site.xml"
+    },
+    {
+      "source": "/sitemap.xml",
+      "has": [
+        {
+          "type": "host",
           "value": "gsl.ramidev.tech"
         }
       ],
