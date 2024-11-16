@@ -26,7 +26,8 @@ function AsideRight({ darkMode }) {
     if (extraImagesNeeded > 0)
       for (let i = 0; i < extraImagesNeeded; i++)
         extraImagesTemp.push(
-          decoImgs[0] + (i + 1) + (Math.random() * 10).toFixed(0)
+          decoImgs[0] + (i + 1) + (Math.random() * 10 + 1).toFixed(0)
+          // decoImgs[0] + (i + 1) + (Math.random() * 10).toFixed(0)
         );
     if (extraImages.length < extraImagesTemp.length)
       setExtraImages(extraImagesTemp);

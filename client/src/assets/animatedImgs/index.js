@@ -11,7 +11,9 @@ const isWebpSupported = check_webp_feature("animation");
 imgs.push(
   ...(isWebpSupported
     ? imagePaths.map((image) => image.webp)
-    : "https://source.unsplash.com/random/380x380/?vegetables?"
+    : "https://image.pollinations.ai/prompt/vegetables?width=380&height=380&nologo=true&model=turbo&seed="
+    // : "https://image.pollinations.ai/prompt/vegetables?width=380&height=380&nologo=true&private=true&model=turbo&seed="
+    // : "https://source.unsplash.com/random/380x380/?vegetables?"
     //  imagePaths.map((image) => image.gif)
     )
 );

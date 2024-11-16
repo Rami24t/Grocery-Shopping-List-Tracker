@@ -53,7 +53,13 @@ function ItemNameInput({ item, updateItem, darkMode }) {
       if (element.clientHeight > 10 && element.clientWidth > 10) {
         const x = element.clientWidth;
         const y = element.clientHeight;
-        const bg = `url("https://source.unsplash.com/random/${x}x${y}?${keyWord}")`;
+        // const cleanBgSrcRegex = /[\s-]+/gu;
+        const cleanBgSrcRegex = /[\p{Emoji}\s-]+/gu;
+        const bg = `url("https://image.pollinations.ai/prompt/${keyWord.replace(cleanBgSrcRegex, '-').replace(/^-+|-+$/g, '')}?width=${x}&height=${y}&nologo=true&model=turbo")`;
+        // const bg = `url("https://image.pollinations.ai/prompt/${keyWord.replaceAll(' ', '-').replaceAll(/-+/g, '-')}?width=${x}&height=${y}&nologo=true&model=turbo&private=true")`;
+        // const bg = `url("https://image.pollinations.ai/prompt/${keyWord}?width=${x*1.5}&height=${y}")`;
+        // element.style.backgroundPositionX = 'left';
+        // const bg = `url("https://source.unsplash.com/random/${x}x${y}?${keyWord}")`;
         if (element.style.backgroundImage !== bg) {
           element.style.backgroundImage = bg;
         }
