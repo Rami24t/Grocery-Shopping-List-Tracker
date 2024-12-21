@@ -4,7 +4,7 @@ const images = Array.from({ length: 73 }, (_, index) => ({
   webp: require(`./deco (${index + 1}).webp`),
 }));
 
-const decoImgs = ["https://image.pollinations.ai/prompt/vegetables?width=380&height=380&nologo=true&model=turbo&seed="];
+const decoImgs = ["https://image.pollinations.ai/prompt/vegetables?width=380&height=380&nologo=true&model=flux-pro&seed="];
 // const decoImgs = ["https://source.unsplash.com/random/380x380/?vegetables?"];
 
 // Check webp and push images
