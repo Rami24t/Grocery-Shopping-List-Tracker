@@ -10,6 +10,7 @@ function EditButton({ darkMode }) {
   const label = editButtonText.LABEL[language];
 
   const handleEdit = (e) => {
+    // if(!getConsent()) return;
     if (e.target.tagName === "svg") e.target = e.target.parentNode;
     e.target.parentNode.firstChild.disabled = false;
     e.target.parentNode.firstChild.focus();

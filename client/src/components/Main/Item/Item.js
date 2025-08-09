@@ -8,7 +8,7 @@ import {
 import { Context } from "../../Context/Context";
 import useInView from "../../../hooks/useInView";
 
-const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
+const Item = ({ item, handleDelete, handleToggle, updateItem, getConsent, darkMode }) => {
   const { language } = useContext(Context).state.settings;
   const rtlAlignment = language === 2;
 
@@ -22,7 +22,7 @@ const Item = ({ item, handleDelete, handleToggle, updateItem, darkMode }) => {
         !inView ? "saturate-0 opacity-0" : ""
       } ${rtlAlignment ? "flex-row-reverse" : ""}`}
     >
-      <ItemNameInput item={item} updateItem={updateItem} darkMode={darkMode} />
+      <ItemNameInput item={item} updateItem={updateItem} getConsent={getConsent} darkMode={darkMode} />
       <Checkbox item={item} handleToggle={handleToggle} darkMode={darkMode} />
       <EditButton darkMode={darkMode} />
       <DeleteButton

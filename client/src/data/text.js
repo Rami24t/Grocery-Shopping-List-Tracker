@@ -243,6 +243,20 @@ export const appText = {
     "تراجع عن المسح والإعادة",
   ],
   ITEM: ["Item", "Das Element", "العنصر"],
+  INFO_ACCESS_DENIED: [
+    "Access denied!",
+    "Zugriff verweigert!",
+    "!!تمّ رفض الوصول! يجب أن يكون عمرك 18 على الأقل",
+  ],
+  CONFIRM_AGE_CONSENT: [
+    "By using this function, you confirm that you are at least 18 years old.\n\n✅ OK → I am at least 18 years old.\n",
+    "Indem Sie diese Funktion nutzen, bestätigen Sie, dass Sie mindestens 18 Jahre alt sind bzw. das in Ihrer Gerichtsbarkeit geltende Volljährigkeitsalter erreicht haben und dass Sie ausdrücklich dem Empfang dieser Inhalte zustimmen.\n\n" +
+    "✅ OK → Ich bin mindestens 18 Jahre alt.\n" +
+    "❌ Abbrechen → Ich bin nicht mindestens 18 Jahre alt.",
+  "باستخدامك لهذه الوظيفة، فإنك تؤكد أنك تبلغ من العمر 18 عامًا على الأقل وأنك توافق صراحةً على عرض المحتوى البالغ.\n\n" +
+  "✅ موافق → أنا أبلغ من العمر 18 عامًا على الأقل.\n" +
+  "❌ إلغاء.\n",
+  ],
 };
 
 export const sidenavText = {

@@ -31,6 +31,7 @@ function Main({
   handleAdd,
   handleToggle,
   updateItem,
+  getConsent,
   handleReset,
   handleClear,
   darkMode,
@@ -120,6 +121,7 @@ function Main({
         handleDelete={handleDelete}
         handleToggle={handleToggle}
         updateItem={updateItem}
+        getConsent={getConsent}
         list={list}
         darkMode={darkMode}
       />

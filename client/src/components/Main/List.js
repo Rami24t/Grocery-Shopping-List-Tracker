@@ -18,6 +18,7 @@ function List({
   handleDelete,
   handleToggle,
   updateItem,
+  getConsent,
   darkMode,
 }) {
   const { state } = useContext(Context);
@@ -102,6 +103,7 @@ function List({
               key={item.id}
               item={item}
               updateItem={updateItem}
+              getConsent={getConsent}
               handleDelete={handleDelete}
               handleToggle={handleToggle}
               darkMode={darkMode}

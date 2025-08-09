@@ -11,6 +11,7 @@ function Lists({
   handleDelete,
   handleToggle,
   updateItem,
+  getConsent,
   list,
   darkMode,
 }) {
@@ -41,6 +42,7 @@ function Lists({
           handleDelete={handleDelete}
           handleToggle={handleToggle}
           updateItem={updateItem}
+          getConsent={getConsent}
           darkMode={darkMode}
         />
       )}
@@ -54,6 +56,7 @@ function Lists({
           handleDelete={handleDelete}
           handleToggle={handleToggle}
           updateItem={updateItem}
+          getConsent={getConsent}
           darkMode={darkMode}
         />
       )}

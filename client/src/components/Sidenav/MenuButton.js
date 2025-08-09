@@ -53,7 +53,7 @@ const MenuButton = memo(({ showSideNav, setShowSideNav, darkMode }) => {
             playSFXAudio(linkClickSFXAudio);
             try {
               slideOutInSFXAudio.currentTime = 3.6;
-              slideOutInSFXAudio.play();
+              slideOutInSFXAudio.play().catch(ignore => {});
             } catch (err) {
               console.log(err);
             }

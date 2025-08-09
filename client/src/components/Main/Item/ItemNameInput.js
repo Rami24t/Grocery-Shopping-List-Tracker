@@ -17,7 +17,7 @@ import { Context } from "../../Context/Context";
 import { itemNameText } from "../../../data/text";
 import useInView from "../../../hooks/useInView";
 
-function ItemNameInput({ item, updateItem, darkMode }) {
+function ItemNameInput({ item, updateItem, getConsent, darkMode }) {
   const { state, dispatch } = useContext(Context);
   const { sound, language } = state.settings;
   const rtlAlignment = language === 2;
@@ -77,6 +77,7 @@ function ItemNameInput({ item, updateItem, darkMode }) {
     if (sound && e.target.value.length > name.length) {
       playSFXAudio(typeSFXAudio);
     }
+    // if(getConsent())
     setName(e.target.value);
   };
 
@@ -84,7 +85,7 @@ function ItemNameInput({ item, updateItem, darkMode }) {
     writingSFXAudio.pause();
     writingSFXAudio.currentTime = 0;
     const value = e.target.value.trim();
-    if (value === "") {
+    if (!getConsent() || value === "") {
       e.target.value = item.name;
       setName(item.name);
       setInfo(infoEditCancelled);

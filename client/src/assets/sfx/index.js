@@ -97,7 +97,7 @@ const playSFXAudio = (...audios) => {
   try {
     audios.forEach((audio) => {
       audio.currentTime = 0;
-      audio.readyState >= 1 && audio.play();
+      audio.readyState >= 1 && audio.play().catch(err => {console.log(err);});
     });
   } catch (error) {
     console.log(error);

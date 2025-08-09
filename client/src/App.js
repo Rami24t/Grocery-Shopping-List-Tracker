@@ -44,7 +44,7 @@ import {
 function App() {
   // Read sound and info from Context
   const { state, dispatch } = useContext(Context);
-  const { sound, language } = state?.settings;
+  const { sound, language, ageConsent } = state?.settings;
   const setInfo = (info) => dispatch({ type: "SET_INFO", payload: info });
   const rtlAlignment = language === 2;
 
@@ -57,6 +57,7 @@ function App() {
       added: appText.INFO_ADDED[language],
       reset: appText.INFO_RESET[language],
       cleared: appText.INFO_CLEARED[language],
+      accessDenied: appText.INFO_ACCESS_DENIED[language],
       undo: {
         update: appText.INFO_UNDO_UPDATE[language],
         delete: appText.INFO_UNDO_DELETE[language],
@@ -68,6 +69,9 @@ function App() {
       },
     },
     item: appText.ITEM[language],
+    confirm: {
+      ageConsent: appText.CONFIRM_AGE_CONSENT[language],
+    },
     // docTitle: appText.DOC_TITLE[language],
   };
 
@@ -93,6 +97,7 @@ function App() {
     e.preventDefault();
     e.stopPropagation();
     !sound && dispatch({ type: "LOAD_SOUND" });
+    getConsent();
     document.removeEventListener("click", handleFirstUserGesture);
     handleFirstUserGesture = null;
   };
@@ -289,6 +294,19 @@ function App() {
     }, 100);
   }
 
+  function getConsent() {
+    if (ageConsent) return true;
+    // eslint-disable-next-line no-restricted-globals
+    if (confirm(text.confirm.ageConsent)) {
+      dispatch({ type: "GIVE_CONSENT" });
+      return true;
+    } else {
+      setInfo(text.info.accessDenied);
+      sound && playSFXAudio(wrongFilterSFXAudio);
+      return false;
+    }
+  }
+
   // updates an item's properties given an item and an update object and updates the items array state to trigger a rerender
   function updateItem(item, update, isUndo = false) {
     !isUndo && undoArrayRef.current.push({ ...item });
@@ -300,6 +318,9 @@ function App() {
 
   // adds an item to the list and updates the items array state to trigger a rerender
   function handleAdd(value) {
+    if (!getConsent())  {
+        return;
+    }
     // clear the filter
     handleChangeFilter("");
     // if the item does not exist already and is not an empty string, add item to the list and show and sort the list alphabetically and make sure the needs list is shown - play the relevant SFX audio (if sound is on) and show an info message notification.
@@ -516,6 +537,7 @@ function App() {
         handleUndo,
         handleToggle,
         updateItem,
+        getConsent,
         handleAdd,
         showAddItem,
         setShowAddItem,
