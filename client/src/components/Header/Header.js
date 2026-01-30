@@ -72,7 +72,7 @@ function Header({ list, needs, haves, darkMode, setDarkMode }) {
           handleClick={toggleDarkModeClick}
         />
         <LanguageButton
-          text={headerText.LANGUAGES[language]}
+          text={headerText.LANGUAGES[(language + 1) % headerText.LANGUAGES.length]}
           darkMode={darkMode}
           handleClick={changeLanguage}
         />
