@@ -55,7 +55,7 @@ function ItemNameInput({ item, updateItem, getConsent, darkMode }) {
         const y = element.clientHeight;
         // const cleanBgSrcRegex = /[\s-]+/gu;
         const cleanBgSrcRegex = /[\p{Emoji}\s-]+/gu;
-        const bg = `url("https://image.pollinations.ai/prompt/${keyWord.replace(cleanBgSrcRegex, '-').replace(/^-+|-+$/g, '')}?width=${x}&height=${y}&nologo=true&model=turbo")`;
+        const bg = `url("https://gen.pollinations.ai/image/${keyWord.replace(cleanBgSrcRegex, '-').replace(/^-+|-+$/g, '')}?width=${x}&height=${y}&nologo=true&&model=zimage&key=pk_fjIqPFQbnExLFDfL")`;
         // const bg = `url("https://image.pollinations.ai/prompt/${keyWord.replaceAll(' ', '-').replaceAll(/-+/g, '-')}?width=${x}&height=${y}&nologo=true&model=turbo&private=true")`;
         // const bg = `url("https://image.pollinations.ai/prompt/${keyWord}?width=${x*1.5}&height=${y}")`;
         // element.style.backgroundPositionX = 'left';
