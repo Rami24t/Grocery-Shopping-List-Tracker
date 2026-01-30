@@ -36,10 +36,11 @@ const Sidenav = ({
       sidenavText.SEARCH_LIST[language],
       sidenavText.EDIT_LIST[language],
       sidenavText.CONTACT[language],
-      sidenavText.LANGUAGE[language],
+      sidenavText.LANGUAGE[(language + 1) % sidenavText.LANGUAGES.length],
+
       sidenavText.SKIP[language],
     ],
-    language: sidenavText.LANGUAGES[language],
+    language: sidenavText.LANGUAGES[(language + 1) % sidenavText.LANGUAGES.length],
   };
 
   function hideMobileSidenav(e) {
