@@ -253,6 +253,7 @@ Feel free to explore the code, try the live application, and share your thoughts
 
 **Built with ❤️ using React, Tailwind CSS, and modern web technologies**
 
-*Last Updated: February 2026*
+*Last Updated: 2026*
+
 
 
