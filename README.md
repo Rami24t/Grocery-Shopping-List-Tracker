@@ -116,13 +116,6 @@ A fully-responsive Progressive Web App (PWA) built with React that helps you nev
 - 📱 **Installable**: Add to your home screen as a native-like app
 - 🌐 **Offline Support**: Works without internet connection
 
-## 📸 Application Preview
-
-### Desktop Experience
-*Clean, organized interface with drag-and-drop functionality and progress tracking*
-
-### Mobile Experience
-*Fully responsive design with intuitive touch controls and mobile-optimized interactions*
 
 ## 🎯 Key Features
 
@@ -261,4 +254,5 @@ Feel free to explore the code, try the live application, and share your thoughts
 **Built with ❤️ using React, Tailwind CSS, and modern web technologies**
 
 *Last Updated: February 2026*
+
 
