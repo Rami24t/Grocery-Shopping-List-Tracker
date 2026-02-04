@@ -176,7 +176,7 @@ A fully-responsive Progressive Web App (PWA) built with React that helps you nev
 1. **Clone the repository**
    ```bash
    git clone https://github.com/Rami24t/Grocery-Shopping-List-Tracker.git
-   cd Grocery-Shopping-List-Tracker
+   cd Grocery-Shopping-List-Tracker/client
    ```
 
 2. **Install dependencies**
@@ -261,3 +261,4 @@ Feel free to explore the code, try the live application, and share your thoughts
 **Built with ❤️ using React, Tailwind CSS, and modern web technologies**
 
 *Last Updated: February 2026*
+
